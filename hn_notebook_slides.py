@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime  # 1. 引入 datetime 模組
 from google import genai
 from google.genai import types
 
@@ -14,13 +15,12 @@ def fetch_hn_stories(limit=5):
         item_url = f"https://hacker-news.firebaseio.com/v0/item/{sid}.json"
         item = requests.get(item_url).json()
         
-        # HN 討論區原本的連結格式
         hn_discussion_url = f"https://news.ycombinator.com/item?id={sid}"
         
         stories.append({
             "title": item.get("title", ""),
-            "url": item.get("url", hn_discussion_url), # 原文連結
-            "hn_discussion_url": hn_discussion_url,   # HN 討論區連結
+            "url": item.get("url", hn_discussion_url),
+            "hn_discussion_url": hn_discussion_url,
             "score": item.get("score", 0),
             "by": item.get("by", ""),
             "comments_count": item.get("descendants", 0)
@@ -28,13 +28,14 @@ def fetch_hn_stories(limit=5):
     return stories
 
 def generate_notebook_style_slides(stories):
-    """呼叫 Gemini API 生成 NotebookLM 風格的結構化簡報（含討論區連結）"""
+    """呼叫 Gemini API 生成 NotebookLM 風格的結構化簡報"""
     print("正在使用 Gemini 生成 NotebookLM 結構化簡報...")
     
-    # 建立 Gemini Client (預設自動讀取環境變數 GEMINI_API_KEY)
     client = genai.Client()
 
-    # 組合傳給 Gemini 的文字資訊 (包含完整的討論數與連結)
+    # 2. 取得今日真實日期 (例如: 2026年08月09日)
+    today_str = datetime.now().strftime("%Y年%m月%d日")
+
     formatted_input = "\n".join([
         f"- 標題: {s['title']}\n"
         f"  原文連結: {s['url']}\n"
@@ -53,7 +54,8 @@ def generate_notebook_style_slides(stories):
 1. 封面頁 (Slide 1)：
    - 主標題：Hacker News 每日科技熱點摘要
    - 副標題：基於最新社群討論自動生成
-   - 包含今日日期與概括全篇的 3 個關鍵字標籤 (Tags)。
+   - 生成日期：【請務必精確顯示此日期：{today_str}】
+   - 包含概括全篇的 3 個關鍵字標籤 (Tags)。
 
 2. 文章內容頁 (Slide 2 ~ N)：每篇文章獨立一張投影片/卡片，包含：
    - 文章標題（附帶跳轉至原文的連結）。
@@ -79,7 +81,6 @@ def generate_notebook_style_slides(stories):
         contents=prompt
     )
     
-    # 清理可能包含的 Markdown 標籤，確保輸出純 HTML
     content = response.text.strip()
     if "```html" in content:
         content = content.split("```html")[1].split("```")[0].strip()
