@@ -4,206 +4,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker News 每日科技熱點摘要</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a; /* 深灰色背景 */
+            color: #e2e8f0; /* 高對比白字 */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #1e293b; /* 稍亮的深灰卡片背景 */
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #334155; /* 輕微邊框 */
+        }
+
+        h1, h2, h3 {
+            color: #f8fafc; /* 更亮的標題顏色 */
+            margin-top: 0;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #60a5fa, #8b5cf6); /* 藍紫漸層 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3b82f6; /* 藍色底線 */
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #94a3b8; /* 次要標題顏色 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #60a5fa; /* 藍色連結 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #a78bfa; /* 淺紫藍色懸停 */
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: '👉 '; /* 自定義項目符號 */
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2563eb; /* 藍色按鈕背景 */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+        }
+
+        .button:hover {
+            background-color: #3b82f6; /* 較淺的藍色懸停 */
+            transform: translateY(-2px);
+            text-decoration: none; /* 懸停時不顯示底線 */
+        }
+
+        .cover-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .date-info {
+            text-align: center;
+            font-size: 1.1em;
+            color: #a78bfa; /* 紫色日期 */
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .tags-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #4f46e5; /* 較深的藍紫色標籤背景 */
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .final-summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        .final-card h3 {
+            border-bottom: none;
+            text-align: center;
+            color: #f8fafc;
+            font-size: 1.8em;
+            background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            padding-bottom: 0;
+        }
+    </style>
 </head>
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 40px; line-height: 1.6;">
+<body>
+    <div class="container">
 
-    <!-- Global Styles (inline for this exercise, usually in <style> block) -->
-    <!-- Due to "CSS inline" requirement, styles are applied directly to elements -->
-
-    <!-- Slide 1: Cover Page -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 40px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 2px solid;
-        border-image: linear-gradient(to right, #6a0dad, #007bff) 1;
-        text-align: center;
-    ">
-        <h1 style="color: #93c5fd; font-size: 3.5em; margin-bottom: 15px; text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);">Hacker News 每日科技熱點摘要</h1>
-        <p style="font-size: 1.5em; color: #cbd5e1; margin-bottom: 30px;">基於最新社群討論自動生成</p>
-        <p style="font-size: 1.2em; color: #a0aec0; margin-bottom: 40px;">日期：2023年10月27日</p>
-        <div style="font-size: 1.1em; color: #93c5fd; display: flex; justify-content: center; gap: 20px;">
-            <span style="background-color: #3b82f6; padding: 8px 18px; border-radius: 20px; font-weight: bold; color: white;">#數位永續</span>
-            <span style="background-color: #8b5cf6; padding: 8px 18px; border-radius: 20px; font-weight: bold; color: white;">#邊緣運算</span>
-            <span style="background-color: #ec4899; padding: 8px 18px; border-radius: 20px; font-weight: bold; color: white;">#AI優化</span>
+        <!-- 封面頁 (Slide 1) -->
+        <div class="card">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <p class="cover-subtitle">基於最新社群討論自動生成</p>
+            <p class="date-info">生成日期：2024年5月30日</p>
+            <div class="tags-container">
+                <span class="tag">#復古運算</span>
+                <span class="tag">#硬體駭客</span>
+                <span class="tag">#數位保存</span>
+            </div>
         </div>
+
+        <!-- 文章內容頁 1 -->
+        <div class="card">
+            <h2><a href="https://github.com/jmarshall23/msword" target="_blank">Microsoft Word for Windows 1.1a, Native X64 Port</a></h2>
+            <h3>核心摘要:</h3>
+            <p>這個專案成功將經典的 Microsoft Word for Windows 1.1a 逆向工程並移植到現代的 x64 架構上。它讓使用者能在最新的 Windows 系統中，以原生速度體驗這款極簡而高效的復古文書處理軟體。</p>
+            <h3>關鍵要點:</h3>
+            <ul>
+                <li>**復古軟體現代化：** 展示了將三十年前的應用程式無縫運行於現代64位元系統的技術可行性。</li>
+                <li>**逆向工程藝術：** 透過深入分析和重編譯，證明了在缺乏原始碼情況下重建軟體的能力。</li>
+                <li>**輕量級工具再發現：** 喚起人們對簡潔、資源佔用低的舊版應用程式的懷舊與實用性思考。</li>
+            </ul>
+            <h3>社群觀點與連結:</h3>
+            <p>Hacker News 社群對此類「復古現代化」專案表現出極大興趣，讚賞開發者的技術實力。討論集中於舊版軟體的極簡主義美學、對現代臃腫軟體的反思，以及在現代硬體上運行歷史軟體的技術挑戰和樂趣。</p>
+            <a href="https://news.ycombinator.com/item?id=49228663" target="_blank" class="button">前往 Hacker News 討論區 (含 6 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 2 -->
+        <div class="card">
+            <h2><a href="https://seg6.space/posts/phone-server/" target="_blank">My server is a phone now</a></h2>
+            <h3>核心摘要:</h3>
+            <p>這篇文章分享了如何將閒置的智慧型手機轉變為功能強大的家庭伺服器的實用經驗。作者利用舊手機的低功耗、內建電池和強大硬體，成功架設了多種網路服務。</p>
+            <h3>關鍵要點:</h3>
+            <ul>
+                <li>**舊設備新生命：** 為淘汰的智慧型手機找到新的用途，降低電子垃圾，提升資源利用效率。</li>
+                <li>**低成本高效能：** 手機作為伺服器提供了比樹莓派更低的功耗和可能更強的處理能力，且內建UPS（電池）。</li>
+                <li>**個人化邊緣運算：** 證明了個人用戶也能輕鬆架設本地化的服務，如文件伺服器、VPN等，實現數據自主管理。</li>
+            </ul>
+            <h3>社群觀點與連結:</h3>
+            <p>此話題在 HN 引起熱烈討論，因其結合了「自架伺服器」的駭客精神和「永續發展」的環保理念。社群成員分享了各種將手機或其他舊設備用於伺服器的實踐，並探討了其在性能、功耗、安全性及維護上的潛在挑戰與優勢。</p>
+            <a href="https://news.ycombinator.com/item?id=49226636" target="_blank" class="button">前往 Hacker News 討論區 (含 98 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 3 -->
+        <div class="card">
+            <h2><a href="https://os8088.com/" target="_blank">Os8088: A powerful Mac-like OS for the IBM XT, 286, 386</a></h2>
+            <h3>核心摘要:</h3>
+            <p>Os8088 是一個專為古老 IBM PC/XT、286 及 386 世代電腦開發的全新操作系統，旨在提供類似早期 Macintosh 的圖形用戶介面 (GUI) 和多任務處理體驗，為老舊硬體注入現代感。</p>
+            <h3>關鍵要點:</h3>
+            <ul>
+                <li>**古董機煥新：** 為資源極度有限的DOS時代電腦帶來圖形介面與多任務能力，極具創新性。</li>
+                <li>**架構優化巧思：** 展示了在極低記憶體和處理能力下，實現複雜OS功能的精妙工程。</li>
+                <li>**喚醒懷舊情懷：** 對早期計算機黃金時代的致敬，同時也具備教育意義，讓新一代了解系統開發的挑戰。</li>
+            </ul>
+            <h3>社群觀點與連結:</h3>
+            <p>這項專案在 HN 上引發了強烈的懷舊情感和技術探索熱情。開發者和資深用戶討論了在這些古老硬體上實現如此先進功能所面臨的技術難題，並對其簡潔高效的設計理念表示讚賞，喚起了許多人對早期計算機時代的回憶。</p>
+            <a href="https://news.ycombinator.com/item?id=49226923" target="_blank" class="button">前往 Hacker News 討論區 (含 54 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 4 -->
+        <div class="card">
+            <h2><a href="http://longbets.org/601/" target="_blank">The original URL for this prediction will no longer be available in 11 years (2011)</a></h2>
+            <h3>核心摘要:</h3>
+            <p>這篇文章是關於一個2011年的預測，其內容預言該預測本身的原始 URL 將在11年後失效。它以一個自指悖論的方式，探討了數位資訊在網際網路上的脆弱性與長期保存的挑戰。</p>
+            <h3>關鍵要點:</h3>
+            <ul>
+                <li>**數位永續性問題：** 凸顯了「連結腐爛」(Link Rot) 現象的普遍性，即網頁連結隨著時間流逝而失效。</li>
+                <li>**資訊保存意識：** 強調了在數位時代，確保重要資訊和歷史記錄長期可訪問的重要性。</li>
+                <li>**預測的諷刺：** 一個關於網址失效的預測，其自身也面臨失效的風險，加深了對此現象的思考。</li>
+            </ul>
+            <h3>社群觀點與連結:</h3>
+            <p>此話題激發了 HN 社群對網際網路檔案、數位資料保存技術（如 Wayback Machine）、Web3 解決方案以及如何應對資訊流失的廣泛討論。許多人分享了自身因連結失效而失去重要內容的經驗，並探討了可能的緩解策略。</p>
+            <a href="https://news.ycombinator.com/item?id=49228458" target="_blank" class="button">前往 Hacker News 討論區 (含 22 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 5 -->
+        <div class="card">
+            <h2><a href="https://academic.oup.com/sleep/article/46/Supplement_1/A34/7181621" target="_blank">Melatonin impairs morning cognition in healthy young adults (2023)</a></h2>
+            <h3>核心摘要:</h3>
+            <p>一項2023年的研究指出，即使在服用褪黑激素數小時後，它仍可能對健康年輕人的早晨認知功能產生負面影響。這項發現挑戰了褪黑激素作為完全無害助眠劑的普遍看法。</p>
+            <h3>關鍵要點:</h3>
+            <ul>
+                <li>**褪黑激素副作用再評估：** 提醒使用者褪黑激素可能不僅影響睡眠，還會持續影響隔天的認知表現。</li>
+                <li>**嚴謹科學研究：** 透過對健康年輕人的實驗，為褪黑激素的實際效果和潛在風險提供新證據。</li>
+                <li>**健康生活方式反思：** 促使人們重新審視助眠劑的使用習慣，強調自然睡眠與健康認知的重要性。</li>
+            </ul>
+            <h3>社群觀點與連結:</h3>
+            <p>此研究在 HN 上引起了對個人健康習慣、睡眠品質以及藥物副作用的熱烈討論。許多社群成員分享了自己使用褪黑激素的經驗，並對研究結果的實際意義、最佳劑量、個體差異以及其他助眠方式提出了疑問與見解。</p>
+            <a href="https://news.ycombinator.com/item?id=49227365" target="_blank" class="button">前往 Hacker News 討論區 (含 26 則討論)</a>
+        </div>
+
+        <!-- 總結頁 (Final Slide) -->
+        <div class="card final-card">
+            <h3>今日技術趨勢歸納 (Today's Tech Pulse):</h3>
+            <p class="final-summary">
+                今日 Hacker News 的熱門話題呈現了科技社群對「**舊技術的活化與新用**」的濃厚興趣，從將經典軟體移植到現代平台（Word 1.1a x64）到賦予老舊硬體新生命（手機伺服器、Os8088 OS），都展現了開發者對技術挑戰和資源永續性的追求。同時，社群也高度關注「**數位資訊的保存與永續性**」（連結失效預測），反思網際網路的長期穩定性。而對於「**個人健康與科技的交叉點**」的討論（褪黑激素研究），則反映出開發者群體對科學實證和生活品質的重視。總體而言，今天的趨勢在懷舊、實用創新與負責任的科技發展之間找到了平衡點。
+            </p>
+        </div>
+
     </div>
-
-    <!-- Article 1 Slide -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 30px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 1px solid #4a5568;
-    ">
-        <h2 style="color: #93c5fd; margin-bottom: 15px; font-size: 2em;"><a href="http://longbets.org/601/" target="_blank" style="color: #93c5fd; text-decoration: none;">The original URL for this prediction will no longer be available in 11 years (2011)</a></h2>
-        <p style="font-size: 0.9em; color: #a0aec0; margin-bottom: 25px;">熱度: 99 points | 討論數: 15 | 作者: doubletwoyou</p>
-
-        <h3 style="color: #6a0dad; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">核心摘要 (Core Insight)</h3>
-        <p style="color: #e2e8f0; margin-bottom: 20px;">
-            這篇文章回顧了一個在2011年提出的預測，指出網路內容連結的生命週期問題。它探討了數位資訊的持久性與網址失效（link rot）的普遍現象，引發對數位保存重要性的反思。
-        </p>
-
-        <h3 style="color: #007bff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1;">
-            <li style="margin-bottom: 10px;">探討數位資料的長期保存挑戰與網路連結的脆弱性。</li>
-            <li style="margin-bottom: 10px;">揭示了網址失效（link rot）對學術引用和歷史記錄的影響。</li>
-            <li style="margin-bottom: 10px;">呼籲對資訊永續性和可追溯性採取更積極的策略。</li>
-        </ul>
-
-        <h3 style="color: #ec4899; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">社群觀點 (Community Reaction)</h3>
-        <p style="color: #e2e8f0;">
-            人們對網址失效的現象感同身受，這是一個普遍存在的網路問題，觸及了數位永續性和資訊可信度的核心，引發了對如何長期保存網路資訊的深入討論。
-        </p>
-    </div>
-
-    <!-- Article 2 Slide -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 30px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 1px solid #4a5568;
-    ">
-        <h2 style="color: #93c5fd; margin-bottom: 15px; font-size: 2em;"><a href="https://seg6.space/posts/phone-server/" target="_blank" style="color: #93c5fd; text-decoration: none;">My server is a phone now</a></h2>
-        <p style="font-size: 0.9em; color: #a0aec0; margin-bottom: 25px;">熱度: 245 points | 討論數: 89 | 作者: seg6</p>
-
-        <h3 style="color: #6a0dad; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">核心摘要 (Core Insight)</h3>
-        <p style="color: #e2e8f0; margin-bottom: 20px;">
-            作者展示如何將閒置的Android手機轉換為功能完整的低功耗伺服器。這篇文檔詳細說明了利用手機的強大硬體、低功耗特性和現有基礎設施（如電池）來託管各種服務的可能性。
-        </p>
-
-        <h3 style="color: #007bff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1;">
-            <li style="margin-bottom: 10px;">利用舊手機進行邊緣運算和家庭伺服器架設，實現資源再利用。</li>
-            <li style="margin-bottom: 10px;">強調手機硬體在處理能力和能耗效率上的潛力。</li>
-            <li style="margin-bottom: 10px;">提供實用的步驟和配置建議，降低個人伺服器的入門門檻。</li>
-        </ul>
-
-        <h3 style="color: #ec4899; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">社群觀點 (Community Reaction)</h3>
-        <p style="color: #e2e8f0;">
-            以手機作為伺服器的概念極具創意和實用性，吸引了大量對DIY、低功耗運算和資源再利用感興趣的開發者，在硬體駭客社群中引起熱烈討論。
-        </p>
-    </div>
-
-    <!-- Article 3 Slide -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 30px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 1px solid #4a5568;
-    ">
-        <h2 style="color: #93c5fd; margin-bottom: 15px; font-size: 2em;"><a href="https://github.com/jmarshall23/msword" target="_blank" style="color: #93c5fd; text-decoration: none;">Microsoft Word for Windows 1.1a, Native X64 Port</a></h2>
-        <p style="font-size: 0.9em; color: #a0aec0; margin-bottom: 25px;">熱度: 11 points | 討論數: 2 | 作者: BruceEel</p>
-
-        <h3 style="color: #6a0dad; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">核心摘要 (Core Insight)</h3>
-        <p style="color: #e2e8f0; margin-bottom: 20px;">
-            這個專案將1990年發布的Microsoft Word 1.1a移植到現代的64位元Windows作業系統。它展示了逆向工程和軟體考古的技術，旨在讓舊版軟體能在新平台上原生運行。
-        </p>
-
-        <h3 style="color: #007bff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1;">
-            <li style="margin-bottom: 10px;">成功的軟體逆向工程案例，將老舊軟體現代化。</li>
-            <li style="margin-bottom: 10px;">展示了在64位元環境下執行32位元甚至16位元應用程式的技術挑戰與解決方案。</li>
-            <li style="margin-bottom: 10px;">具有歷史意義，讓開發者能探究早期軟體的實現細節。</li>
-        </ul>
-
-        <h3 style="color: #ec4899; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">社群觀點 (Community Reaction)</h3>
-        <p style="color: #e2e8f0;">
-            雖然熱度不高，但對於軟體考古學家、逆向工程愛好者以及對歷史軟體有興趣的人來說，這是一個有趣的技術成就，展示了對軟體遺產的致敬。
-        </p>
-    </div>
-
-    <!-- Article 4 Slide -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 30px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 1px solid #4a5568;
-    ">
-        <h2 style="color: #93c5fd; margin-bottom: 15px; font-size: 2em;"><a href="https://www.redblobgames.com/pathfinding/heuristics/differential.html" target="_blank" style="color: #93c5fd; text-decoration: none;">Improving Heuristics for A* Pathfinding</a></h2>
-        <p style="font-size: 0.9em; color: #a0aec0; margin-bottom: 25px;">熱度: 175 points | 討論數: 18 | 作者: bobbiechen</p>
-
-        <h3 style="color: #6a0dad; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">核心摘要 (Core Insight)</h3>
-        <p style="color: #e2e8f0; margin-bottom: 20px;">
-            這篇文章深入探討了如何改進A*路徑搜尋演算法中的啟發式函數，以提高搜尋效率和準確性。它引入了差分啟發式（differential heuristics）的概念，提供更精確的估計，從而減少不必要的節點擴展。
-        </p>
-
-        <h3 style="color: #007bff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1;">
-            <li style="margin-bottom: 10px;">優化A*演算法，透過改進啟發式函數來提高路徑搜尋效率。</li>
-            <li style="margin-bottom: 10px;">介紹差分啟發式概念，提升遊戲開發、物流規劃等領域的AI效能。</li>
-            <li style="margin-bottom: 10px;">提供具體的數學原理和視覺化解釋，便於理解複雜概念。</li>
-        </ul>
-
-        <h3 style="color: #ec4899; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">社群觀點 (Community Reaction)</h3>
-        <p style="color: #e2e8f0;">
-            A*演算法是遊戲開發、AI和計算機圖形學的基礎，這篇文章提供了實用的優化技巧，對於廣泛的開發者都具有直接的應用價值和學術研究意義。
-        </p>
-    </div>
-
-    <!-- Article 5 Slide -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 30px;
-        margin: 0 auto 40px auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 1px solid #4a5568;
-    ">
-        <h2 style="color: #93c5fd; margin-bottom: 15px; font-size: 2em;"><a href="https://academic.oup.com/sleep/article/46/Supplement_1/A34/7181621" target="_blank" style="color: #93c5fd; text-decoration: none;">Melatonin impairs morning cognition in healthy young adults</a></h2>
-        <p style="font-size: 0.9em; color: #a0aec0; margin-bottom: 25px;">熱度: 63 points | 討論數: 21 | 作者: bohaska</p>
-
-        <h3 style="color: #6a0dad; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">核心摘要 (Core Insight)</h3>
-        <p style="color: #e2e8f0; margin-bottom: 20px;">
-            這項研究探討了褪黑激素（Melatonin）對健康年輕人隔天早上認知功能的影響。結果顯示，即使是正常劑量的褪黑激素也可能導致次日早晨的認知表現下降，對於經常使用褪黑激素助眠的人提供了新的警示。
-        </p>
-
-        <h3 style="color: #007bff; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1;">
-            <li style="margin-bottom: 10px;">指出褪黑激素可能對次日早晨的認知功能產生負面影響。</li>
-            <li style="margin-bottom: 10px;">挑戰了褪黑激素作為無副作用助眠劑的普遍認知。</li>
-            <li style="margin-bottom: 10px;">提供醫學研究證據，提醒使用者謹慎評估其長期影響。</li>
-        </ul>
-
-        <h3 style="color: #ec4899; margin-top: 25px; margin-bottom: 10px; font-size: 1.4em;">社群觀點 (Community Reaction)</h3>
-        <p style="color: #e2e8f0;">
-            褪黑激素的使用非常普遍，這篇文章觸及了許多人的個人健康問題，引發了對睡眠、藥物安全和認知表現的廣泛討論，具有高度的社會相關性。
-        </p>
-    </div>
-
-    <!-- Final Slide: Summary -->
-    <div style="
-        background-color: #1a202c;
-        border-radius: 12px;
-        padding: 40px;
-        margin: 0 auto;
-        max-width: 800px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        border: 2px solid;
-        border-image: linear-gradient(to right, #007bff, #6a0dad) 1;
-        text-align: center;
-    ">
-        <h2 style="color: #93c5fd; font-size: 2.5em; margin-bottom: 25px; text-shadow: 0 0 8px rgba(147, 197, 253, 0.4);">今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p style="font-size: 1.1em; color: #e2e8f0; line-height: 1.8;">
-            今天的Hacker News熱點呈現了多元化的技術關注點。從對「數位永續」和「連結失效」的長期反思，到利用「閒置硬體（如手機）進行邊緣運算」的創新實踐，再到深入探討「AI路徑搜尋演算法優化」的理論進步。社群也對「軟體考古學」的挑戰與成就以及「日常健康（如褪黑激素）」的科學新知保持高度興趣，共同繪製出一幅結合前瞻性、實用性與人文關懷的科技圖景。
-        </p>
-    </div>
-
 </body>
 </html>
