@@ -36,4 +36,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add index.html
           git commit -m "Auto-generated daily slides [skip ci]" || exit 0
-          git push
+          git push origin master
