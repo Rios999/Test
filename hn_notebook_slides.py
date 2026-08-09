@@ -34,7 +34,7 @@ def generate_notebook_style_slides(stories):
     # 建立 Gemini Client (預設自動讀取環境變數 GEMINI_API_KEY)
     client = genai.Client()
 
-    # 組合傳給 Gemini 的文字資訊
+    # 組合傳給 Gemini 的文字資訊 (包含完整的討論數與連結)
     formatted_input = "\n".join([
         f"- 標題: {s['title']}\n"
         f"  原文連結: {s['url']}\n"
@@ -61,7 +61,7 @@ def generate_notebook_style_slides(stories):
    - 關鍵要點 (Key Takeaways)：以 3 個 Bullet Points 條列技術亮點或產業影響。
    - 社群觀點與連結 (Community Reaction)：
      * 分析為什麼這篇文章能在 Hacker News 獲得高討論度。
-     * 【關鍵要求】：請務必在卡片下方放上一個明顯的連結按鈕，超連結導向該文章的「HN討論區連結」，按鈕文字顯示為「前往 Hacker News 討論區 (含 {comments_count} 則討論)」。
+     * 【關鍵要求】：請務必在卡片下方放上一個明顯的連結按鈕，超連結導向該文章的「HN討論區連結」，按鈕文字請依據該文章實際的討論數顯示為「前往 Hacker News 討論區 (含 N 則討論)」。
 
 3. 總結頁 (Final Slide)：
    - 今日技術趨勢歸納 (Today's Tech Pulse)：用一小段話總結今天熱門文章反映出的技術轉變或開發者關注焦點。
@@ -75,7 +75,7 @@ def generate_notebook_style_slides(stories):
 """
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",  # 若需要更深度的推理亦可換成 gemini-3.1-pro-preview
+        model="gemini-2.5-flash",
         contents=prompt
     )
     
