@@ -1,0 +1,38 @@
+name: Daily HN Notebook Slides
+
+on:
+  schedule:
+    # 每日台灣時間早上 08:00 自動執行 (UTC 00:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 支援在 GitHub 介面手動按按鈕觸發
+
+jobs:
+  generate-slides:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests google-genai
+
+      - name: Run Slide Generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python hn_notebook_slides.py
+
+      - name: Commit & Deploy
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add index.html
+          git commit -m "Auto-generated daily slides [skip ci]" || exit 0
+          git push
