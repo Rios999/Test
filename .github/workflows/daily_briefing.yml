@@ -9,6 +9,7 @@ on:
 jobs:
   generate-slides:
     runs-on: ubuntu-latest
+    environment: TestEnvs
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
