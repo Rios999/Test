@@ -1,0 +1,86 @@
+import os
+import requests
+from google import genai
+from google.genai import types
+
+def fetch_hn_stories(limit=5):
+    """抓取 Hacker News 前 N 大熱門文章及其熱門留言概況"""
+    print("正在擷取 Hacker News 熱門趨勢...")
+    top_ids = requests.get("https://hacker-news.firebaseio.com/v0/topstories.json").json()[:limit]
+    
+    stories = []
+    for sid in top_ids:
+        item = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json").json()
+        stories.append({
+            "title": item.get("title", ""),
+            "url": item.get("url", f"https://news.ycombinator.com/item?id={sid}"),
+            "score": item.get("score", 0),
+            "by": item.get("by", ""),
+            "comments_count": item.get("descendants", 0)
+        })
+    return stories
+
+def generate_notebook_style_slides(stories):
+    """呼叫 Gemini API 生成 NotebookLM 風格的結構化簡報"""
+    print("正在使用 Gemini 生成 NotebookLM 結構化簡報...")
+    client = genai.Client() # 自動讀取環境變數 GEMINI_API_KEY
+
+    formatted_input = "\n".join([
+        f"- 標題: {s['title']}\n  連結: {s['url']}\n  熱度: {s['score']} points | 討論數: {s['comments_count']} | 作者: {s['by']}"
+        for s in stories
+    ])
+
+    prompt = f"""
+你是一位頂級的科技趨勢分析師，請模仿 Google NotebookLM 簡報的摘要風格，將以下今日 Hacker News 熱門話題製作成一份單頁 HTML Presentation 簡報。
+
+輸入資料：
+{formatted_input}
+
+【簡報內容結構要求】
+1. 封面頁 (Slide 1)：
+   - 主標題：Hacker News 每日科技熱點摘要
+   - 副標題：基於最新社群討論自動生成
+   - 包含今日日期與概括全篇的 3 個關鍵字標籤 (Tags)。
+
+2. 文章內容頁 (Slide 2 ~ N)：每篇文章獨立一張投影片，包含：
+   - 文章標題與原始連結。
+   - 核心摘要 (Core Insight)：用 2-3 句正體中文精準說明這篇文章或專案在解決什麼問題。
+   - 關鍵要點 (Key Takeaways)：以 3 個 Bullet Points 條列技術亮點或產業影響。
+   - 社群觀點 (Community Reaction)：分析為什麼這篇文章能在 Hacker News 獲得高討論度。
+
+3. 總結頁 (Final Slide)：
+   - 今日技術趨勢歸納 (Today's Tech Pulse)：用一小段話總結今天熱門文章反映出的技術轉變或開發者關注焦點。
+
+【視覺設計要求 (CSS inline)】
+- 請使用現代感、深色科技風格 (Dark Mode UI, 深灰色背景 #0f172a，搭配高對比白字與藍/紫漸層 accent color)。
+- 每張投影片以卡片化 (Card-based UI) 呈現，具備清楚的 padding、邊框圓角與陰影。
+- 輸出必須為單一獨立的 HTML 檔案，包含完整的 html, head, style, body 標籤。
+- 僅輸出純 HTML 程式碼，不要包含任何開場白或結尾說明。
+"""
+
+    response = client.models.generate_content(
+        model="gemini-2.5-flash", # 可根據需求更換為 gemini-3.1-pro-preview
+        contents=prompt
+    )
+    
+    # 提取 HTML 內容
+    content = response.text
+    if "```html" in content:
+        content = content.split("```html")[1].split("```")[0].strip()
+    elif "```" in content:
+        content = content.split("```")[1].split("```")[0].strip()
+        
+    return content
+
+def main():
+    stories = fetch_hn_stories(5)
+    slides_html = generate_notebook_style_slides(stories)
+    
+    output_filename = "index.html"
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(slides_html)
+        
+    print(f"簡報已成功生成至 {output_filename}")
+
+if __name__ == "__main__":
+    main()
