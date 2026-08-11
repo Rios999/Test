@@ -3,255 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年08月10日</title>
+    <title>Hacker News 每日科技熱點摘要</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* 全局樣式與深色模式配置 */
         body {
-            font-family: 'Inter', sans-serif;
             background-color: #0f172a; /* 深灰色背景 */
             color: #e2e8f0; /* 高對比白字 */
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px; /* 增加整體內邊距 */
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 50px; /* 增加投影片間距 */
+            align-items: center; /* 居中對齊投影片 */
             min-height: 100vh;
         }
 
+        /* 內容容器 */
         .presentation-container {
             max-width: 900px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 50px;
         }
 
-        .slide-card {
-            background-color: #1e293b; /* 卡片背景色 */
+        /* 卡片通用樣式 */
+        .card {
+            background-color: #1e293b; /* 稍淺的深灰色作為卡片背景 */
             border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid #334155; /* 輕微邊框 */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 35px; /* 增加卡片內邊距 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 更明顯的陰影 */
+            border: 1px solid #334155; /* 細微的邊框 */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
+        /* 標題樣式 */
         h1, h2, h3 {
-            color: #cbd5e1; /* 標題顏色 */
+            color: #cbd5e1; /* 淺灰色標題 */
             margin-top: 0;
-            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
+        h1 { font-size: 2.8em; text-align: center; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
 
-        h1 { font-size: 2.5em; text-align: center; }
-        h2 { font-size: 1.8em; margin-bottom: 15px; }
-        h3 { font-size: 1.4em; margin-bottom: 10px; color: #94a3b8; }
-
-        a {
-            color: #6366f1; /* 連結顏色 */
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: #818cf8; /* 連結hover顏色 */
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 20px;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-        }
-
-        ul li::before {
-            content: '•';
-            color: #a78bfa; /* bullet point 顏色 */
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #3730a3; /* 標籤背景 */
-            color: #e0e7ff; /* 標籤文字 */
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-right: 10px;
+        /* 副標題與日期 */
+        .subtitle {
+            font-size: 1.3em;
+            color: #94a3b8; /* 稍暗的文字 */
+            text-align: center;
             margin-bottom: 10px;
+        }
+        .date {
+            font-size: 1.1em;
+            color: #a78bfa; /* 紫色 accent */
+            text-align: center;
+            margin-bottom: 30px;
             font-weight: 500;
         }
 
-        .cover-page {
+        /* 標籤樣式 */
+        .tags-container {
             text-align: center;
-            padding: 50px 30px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .tag {
+            background-color: #4a0080; /* 深紫色 */
+            color: #d8b4fe; /* 淺紫色字 */
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .cover-page h1 {
-            font-size: 3.5em;
+        /* 連結樣式 */
+        a {
+            color: #6366f1; /* 藍紫色 accent */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #818cf8; /* 懸停時顏色變淺 */
+        }
+
+        /* 列表樣式 */
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            margin-top: 10px;
             margin-bottom: 10px;
-            color: #cbd5e1;
+        }
+        ul li {
+            margin-bottom: 8px;
         }
 
-        .cover-page h2 {
-            font-size: 1.8em;
-            color: #94a3b8;
-            margin-bottom: 30px;
-        }
-
-        .cover-page p {
-            font-size: 1.2em;
-            color: #a3a3a3;
-            margin-top: 40px;
-        }
-
-        .hn-discussion-button {
+        /* 按鈕樣式 */
+        .hn-button {
             display: inline-block;
-            background-image: linear-gradient(to right, #4c66ff, #6b8eff); /* 藍紫漸層 */
+            background-color: #2563eb; /* 藍色背景 */
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .hn-discussion-button:hover {
-            background-image: linear-gradient(to right, #6b8eff, #4c66ff);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            text-decoration: none;
-        }
-
-        .final-slide h2 {
+            transition: background-color 0.3s ease, transform 0.2s ease;
             text-align: center;
-            margin-bottom: 20px;
+            align-self: flex-start; /* 讓按鈕靠左 */
+            margin-top: 15px; /* 與上方內容間距 */
+        }
+        .hn-button:hover {
+            background-color: #3b82f6; /* 懸停時變淺藍 */
+            transform: translateY(-2px); /* 輕微上浮效果 */
         }
 
-        .final-slide p {
+        /* 分隔線 */
+        hr {
+            border: none;
+            border-top: 1px solid #334155;
+            margin: 30px 0;
+        }
+
+        /* 總結頁樣式 */
+        .summary-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+            text-align: center;
+        }
+        .summary-card h2 {
+            margin-bottom: 20px;
+            color: #a78bfa; /* 紫色 accent */
+        }
+        .summary-card p {
             font-size: 1.1em;
-            color: #c9d2de;
+            line-height: 1.8;
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
+
     <div class="presentation-container">
-
-        <!-- Slide 1: 封面頁 -->
-        <div class="slide-card cover-page">
+        <!-- 封面頁 (Slide 1) -->
+        <div class="card">
             <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <div style="margin-top: 40px;">
-                <span class="tag">LLMs與學習</span>
-                <span class="tag">資料工程</span>
-                <span class="tag">社群文化</span>
+            <p class="subtitle">基於最新社群討論自動生成</p>
+            <p class="date">生成日期：2026年08月11日</p>
+            <div class="tags-container">
+                <span class="tag">AI Agent</span>
+                <span class="tag">隱私權政策</span>
+                <span class="tag">邊緣AI</span>
             </div>
-            <p style="font-size: 1.1em; color: #a3a3a3; margin-top: 50px;">生成日期：2026年08月10日</p>
         </div>
 
-        <!-- Slide 2: How I use LLMs to learn complex topics -->
-        <div class="slide-card">
-            <h2><a href="https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/" target="_blank">How I use LLMs to learn complex topics</a></h2>
+        <!-- 文章內容頁 (Slide 2) -->
+        <div class="card">
+            <h2><a href="https://www.effort.news/uk-lobby" target="_blank">The UK's War on Anonymity Has Come to America</a></h2>
             <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇文章分享了作者如何將大型語言模型 (LLMs) 整合到個人學習流程中，以有效掌握複雜主題。它探討了 LLMs 如何作為一個互動式、客製化的學習夥伴，輔助使用者從基礎概念到進階知識的理解。</p>
+            <p>英國政府正透過與美國智庫及遊說團體的深度合作，積極推動立法，試圖在全球範圍內削弱網路匿名性，特別是針對加密通訊平台。這項跨國行動引發了對言論自由和個人隱私的深切憂慮，其影響正逐漸蔓延至美國。</p>
             <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>利用 LLMs 進行互動式問答，釐清概念並深化理解，模擬一對一教學體驗。</li>
-                <li>設計系統化提示詞，引導 LLMs 根據學習進度調整解釋深度與廣度，達到個人化學習路徑。</li>
-                <li>LLMs 能夠分解複雜主題，提供多角度視角，幫助學習者建立更全面的知識框架。</li>
+                <li>英國的監管倡議正藉由美國盟友向全球擴散，影響力超出其本土。</li>
+                <li>目標直指端到端加密通訊技術，可能要求後門或數據存取權。</li>
+                <li>引發公民自由、數位隱私與政府監管權限之間激烈的國際辯論。</li>
             </ul>
             <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>這篇文章因其高度實用性與普遍適用性，在 Hacker News 上獲得了熱烈討論。許多開發者對於如何將前沿的 LLM 技術應用於日常學習與工作流程中感到興趣，希望能藉此提升個人生產力與技能樹。</p>
-            <a href="https://news.ycombinator.com/item?id=49234675" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 229 則討論)</a>
+            <p>這篇文章因其對個人隱私權和網路自由的潛在深遠影響，在 Hacker News 社群中獲得高度關注。它觸及了西方民主國家中，政府權力與公民自由之間敏感的平衡點，激發了廣泛的倫理和技術討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49251411" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 60 則討論)</a>
         </div>
 
-        <!-- Slide 3: How We Pushed CDC into Postgres -->
-        <div class="slide-card">
-            <h2><a href="https://www.snowflake.com/en/blog/engineering/postgres-to-snowflake-replication-mirroring/" target="_blank">How We Pushed CDC into Postgres</a></h2>
+        <!-- 文章內容頁 (Slide 3) -->
+        <div class="card">
+            <h2><a href="https://code.call-cc.org/releases/6.0.0/NEWS" target="_blank">Chicken Scheme 6.0</a></h2>
             <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇由 Snowflake 工程團隊撰寫的文章，深入探討了如何將 CDC (Change Data Capture) 機制高效地整合到 PostgreSQL 資料庫中，實現從 PostgreSQL 到 Snowflake 的即時資料複製與鏡像。它揭示了在資料工程領域中，如何處理大規模資料變更並保持跨系統資料一致性的技術挑戰與解決方案。</p>
+            <p>Chicken Scheme 釋出 6.0 版本，這是一個將 Scheme 編譯為 C 語言的編譯器和解釋器，旨在提供高效能且可移植的 Scheme 程式。新版本帶來了重要的更新與改進，進一步提升了語言的穩定性和功能性。</p>
             <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>闡述了在現代資料架構中，實現從交易型資料庫到分析型資料倉儲的實時資料同步的重要性。</li>
-                <li>分享了將 CDC 功能嵌入 PostgreSQL 的具體技術細節與考量，包括效能優化和可靠性。</li>
-                <li>展示了 Snowflake 如何利用這些技術，為客戶提供更平滑、更即時的資料遷移和分析能力。</li>
+                <li>Significant 變革，專注於語法一致性與底層編譯器優化。</li>
+                <li>提升了與 R7RS Scheme 標準的相容性，有利於跨平台和標準化開發。</li>
+                <li>持續推動函數式程式設計在系統級開發及嵌入式應用中的實踐。</li>
             </ul>
             <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>儘管討論數較少，這篇文章對資料工程師和資料架構師社群具有高度專業價值。對於正在處理異構資料庫同步、尋求高效 CDC 方案或評估雲端資料倉儲整合的讀者來說，提供了寶貴的技術見解和實踐經驗。</p>
-            <a href="https://news.ycombinator.com/item?id=49238050" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 0 則討論)</a>
+            <p>對於長期關注 Scheme 語言生態系統或對函數式程式設計感興趣的開發者而言，新版本發佈通常會引發對語言演進、新特性及潛在應用的討論，儘管其受眾相對小眾。</p>
+            <a href="https://news.ycombinator.com/item?id=49251702" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 2 則討論)</a>
         </div>
 
-        <!-- Slide 4: New Zealand lost its music media, and what we're building to replace it -->
-        <div class="slide-card">
-            <h2><a href="https://propelmusic.co.nz/articles/the-sound-went-quiet-nz-music-media" target="_blank">New Zealand lost its music media, and what we're building to replace it</a></h2>
+        <!-- 文章內容頁 (Slide 4) -->
+        <div class="card">
+            <h2><a href="https://everycube.alen.is/" target="_blank">Show HN: Scroll through all 43252003274489856000 Rubik's Cube states</a></h2>
             <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇文章探討了紐西蘭本土音樂媒體生態系統的衰落，以及一個名為 Propel Music 的新興平台，如何嘗試填補這一空白。它反映了全球化與數位化浪潮下，小型市場獨立媒體所面臨的挑戰，以及社群驅動型解決方案的潛力。</p>
+            <p>這個「Show HN」專案展示了一個極具創意的互動式網頁應用，允許使用者視覺化地「捲動」瀏覽魔術方塊所有驚人的 43,252,003,274,489,856,000 種排列組合狀態。它以一種前所未有的方式，將抽象且龐大的數學概念具體化。</p>
             <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>點出了本地化、獨立媒體在文化傳承與產業發展中的關鍵作用，及其在商業模式上的脆弱性。</li>
-                <li>強調了由社群和內容創作者主導的平台，可能成為重建媒體生態的新模式。</li>
-                <li>呼籲對當地藝術與文化內容的持續投資與關注，以對抗主流媒體的同質化影響。</li>
+                <li>創新的數據視覺化工具，將複雜的組合數學概念以互動形式呈現。</li>
+                <li>突顯了魔術方塊狀態空間的巨大，及其在演算法設計中的挑戰。</li>
+                <li>展示了現代網頁技術在教育、娛樂和科學探索應用上的潛力。</li>
             </ul>
             <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>這篇文章觸及了媒體產業的普遍困境和對本地文化遺產的擔憂，引起了廣泛共鳴。社群成員討論了媒體去中心化的必要性、獨立媒體的商業可持續性，以及科技在支持或破壞傳統媒體中的角色。</p>
-            <a href="https://news.ycombinator.com/item?id=49235641" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 33 則討論)</a>
+            <p>獨特的互動體驗和對抽象數學概念的直觀呈現，通常能吸引對演算法、數學趣味、前端技術以及如何解決大規模視覺化問題有興趣的開發者與愛好者。</p>
+            <a href="https://news.ycombinator.com/item?id=49251179" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 8 則討論)</a>
         </div>
 
-        <!-- Slide 5: Mea Culpa – Dark Hours -->
-        <div class="slide-card">
-            <h2><a href="https://blog.terrygodier.com/2026/08/09/mea-culpa-dark-hours.html" target="_blank">Mea Culpa – Dark Hours</a></h2>
+        <!-- 文章內容頁 (Slide 5) -->
+        <div class="card">
+            <h2><a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model" target="_blank">Muse Glimmer: 30B-parameter model optimized for always-on local agent workflows</a></h2>
             <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇部落格文章以「我的過錯」為題，深度剖析了一段個人經歷中的「黑暗時刻」。它可能是一篇反思性文章，關於作者在某個困難時期所犯的錯誤、所經歷的挑戰，以及從中學到的教訓，觸及了人類的脆弱、成長與自我原諒的主題。</p>
+            <p>Meta 發表了 Muse Glimmer，一個擁有 300 億參數的開源大型語言模型，專門為在邊緣設備上實現「始終在線」的本地代理工作流程而進行了深度優化。它旨在讓 AI 助手能更主動、更具上下文感知能力地在個人設備上運行，提升使用者體驗與隱私保護。</p>
             <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>揭示了個人在職業或生活中面臨低谷時的心理狀態與掙扎，強調自我反思的重要性。</li>
-                <li>探討了在高度壓力的環境下，人們如何處理失敗、錯誤，並從中恢復與學習。</li>
-                <li>鼓勵公開承認過失，從而促進更真誠、更具同理心的社群文化，減少隱藏和羞恥。</li>
+                <li>大規模模型（30B參數）實現邊緣設備上的「始終在線」AI代理功能。</li>
+                <li>強調上下文感知與主動式AI交互，為個人化AI助手奠定基礎。</li>
+                <li>推動開源模型在個人設備和物聯網領域的應用，兼顧效能與隱私。</li>
             </ul>
             <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>這篇文章以其極具人性的坦誠和深刻的自我剖析，在 Hacker News 上獲得了最高熱度。社群普遍認為，在科技領域這個常強調成就和完美的環境中，這種公開分享個人脆弱性和錯誤的行為，提供了一個寶貴的視角，引發了關於誠實、心理健康和職業壓力的廣泛討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49231154" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 251 則討論)</a>
+            <p>該文章因其在 AI 邊緣運算、大型語言模型本地化部署及潛在的下一代 AI 代理應用方面取得的重大進展而獲得極高熱度。它觸及了 AI 隱私、效率和未來人機交互的關鍵方向，引發了對其應用前景和技術挑戰的廣泛討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49241679" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 574 則討論)</a>
         </div>
 
-        <!-- Slide 6: "The Persian MâR-Nâmeh Or, the Book for Taking Omens from Snakes" (1892) -->
-        <div class="slide-card">
-            <h2><a href="https://publicdomainreview.org/collection/marnameh/" target="_blank">"The Persian MâR-Nâmeh Or, the Book for Taking Omens from Snakes" (1892)</a></h2>
+        <!-- 文章內容頁 (Slide 6) -->
+        <div class="card">
+            <h2><a href="https://cactuscompute.com/needle" target="_blank">Show HN: Needle2: 14MB agentic LLM for phones, wearables, smart home and robots</a></h2>
             <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇文章介紹了《波斯占蛇書》(MâR-Nâmeh)，一本可追溯至 1892 年的古老文獻，它展示了古代文化如何透過觀察蛇來預測吉凶。這是一項關於文化遺產、古代科學與迷信，以及數字化保存稀有文本的案例。</p>
+            <p>Needle2 是一個極度輕量化的代理型大型語言模型 (LLM)，其模型大小僅有 14MB，專為手機、穿戴設備、智慧家庭和機器人等資源受限的邊緣設備設計。它的目標是在這些設備上實現高效、低延遲的本地AI功能，極大拓展了LLM的應用場景。</p>
             <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>呈現了文化多樣性中獨特的占卜傳統，揭示了古人對自然界的觀察與解讀。</li>
-                <li>強調了數位公共領域在保存和分享珍貴歷史文獻方面的重要性。</li>
-                <li>提供了一個跨越歷史和文化的視窗，讓現代讀者得以一窺不同文明的信仰體系。</li>
+                <li>超小型 LLM（14MB），專為極端邊緣運算環境進行深度優化。</li>
+                <li>實現本地化的代理能力，大幅提升隱私性、響應速度與離線可用性。</li>
+                <li>預期將廣泛應用於行動設備、物聯網裝置和機器人技術，推動智能設備發展。</li>
             </ul>
             <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>這篇文章吸引了對歷史、人類學和數位人文學科感興趣的讀者。儘管討論數不多，但它激發了對文化保存、公共領域資源以及古代知識與現代科技交匯的思考。</p>
-            <a href="https://news.ycombinator.com/item?id=49205793" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 1 則討論)</a>
+            <p>作為一個「Show HN」，該專案展示了在極低資源限制下實現強大 LLM 功能的潛力，有效解決了邊緣設備運行複雜 AI 的核心挑戰。這吸引了大量對小型化 AI、邊緣計算和嵌入式系統感興趣的開發者和研究者。</p>
+            <a href="https://news.ycombinator.com/item?id=49246804" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 75 則討論)</a>
         </div>
 
-        <!-- Final Slide: 總結頁 -->
-        <div class="slide-card final-slide">
+        <!-- 總結頁 (Final Slide) -->
+        <div class="summary-card">
             <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>今日 Hacker News 的熱門話題清晰地描繪了科技社群的多元關注點：從個人生產力層面，LLMs 正在深度改變我們的學習與知識獲取方式；在基礎設施層面，資料工程師們持續優化實時資料同步與整合的複雜性。此外，社群也對文化傳承、獨立媒體的困境以及個人真誠的分享表現出高度重視，反映出科技發展之外，人性、文化與社群連結始終是開發者們深切關懷的議題。</p>
+            <p>今天 Hacker News 的熱點清晰地描繪出 AI 技術正加速向<strong>邊緣設備</strong>與<strong>代理功能</strong>發展的趨勢。無論是 Meta 的 Muse Glimmer 還是 Show HN 的 Needle2，都預示著大型語言模型將以更輕量、更高效的方式融入個人設備與物聯網，實現主動式、隱私優先的智慧體驗。這股趨勢將重新定義人機交互，並在保障數據隱私的前提下，拓寬 AI 的應用邊界。</p>
+            <p>與此同時，對<strong>網路匿名性與隱私政策</strong>的討論，如英國政府的跨國監管行動，持續引發開發者社群的高度關注，凸顯了技術發展與社會倫理、政府監管之間不可避免的拉鋸戰。此外，<strong>底層程式語言的演進</strong>（Chicken Scheme）和<strong>創新的數據視覺化</strong>（Rubik's Cube States）也展現了技術社群在基礎建設與探索新知上的不竭活力。</p>
         </div>
-
     </div>
+
 </body>
 </html>
