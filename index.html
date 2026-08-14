@@ -7,288 +7,261 @@
     <style>
         body {
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f172a; /* 深灰色背景 */
-            color: #f8fafc; /* 高對比白字 */
+            background-color: #0f172a; /* Deep dark blue */
+            color: #e2e8f0; /* Light gray for text */
             line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            gap: 40px; /* 間隔每張投影片 */
-            padding-top: 40px;
-            padding-bottom: 40px;
+            box-sizing: border-box;
         }
 
         .presentation-container {
-            max-width: 900px;
             width: 100%;
+            max-width: 900px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
         }
 
-        .slide-card {
-            background-color: #1e293b; /* 稍亮的深灰色卡片背景 */
+        .card {
+            background-color: #1e293b; /* Slightly lighter dark blue for cards */
             border-radius: 12px;
-            padding: 30px 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-            animation: fadeIn 0.8s ease-out;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid #334155; /* Subtle border */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
-        .cover-slide {
+        /* Cover Slide Specifics */
+        .cover-card {
             text-align: center;
-            padding: 80px 40px;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #1e293b, #2f3a4b); /* Gradient background */
         }
 
-        .cover-slide h1 {
-            font-size: 3.5em;
+        .cover-card h1 {
+            font-size: 3.2em;
+            color: #a78bfa; /* Light purple for main title */
             margin-bottom: 15px;
-            font-weight: 700;
-            background: linear-gradient(90deg, #6366f1, #a855f7); /* 藍紫漸層 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            line-height: 1.2;
+            text-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
         }
 
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: #94a3b8; /* 淺灰副標題 */
+        .cover-card h2 {
+            font-size: 1.6em;
+            color: #94a3b8; /* Muted gray for subtitle */
+            margin-top: 0;
             margin-bottom: 30px;
-            font-weight: 400;
         }
 
-        .cover-slide .date {
+        .cover-card p {
             font-size: 1.1em;
             color: #cbd5e1;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
 
-        .tags-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .tag {
-            background-color: #4f46e5; /* 藍色標籤 */
-            color: #ffffff;
-            padding: 8px 20px;
-            border-radius: 20px;
+        .tags {
+            margin-top: 40px;
             font-size: 0.9em;
-            font-weight: 600;
+            color: #64748b;
+        }
+
+        .tags span {
+            display: inline-block;
+            background-color: #334155;
+            color: #94a3b8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 0 5px;
+            font-weight: bold;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .article-title {
+        /* Content Card Specifics */
+        .card h2 {
             font-size: 1.8em;
+            color: #38b2ac; /* Teal for article titles */
+            margin-top: 0;
             margin-bottom: 15px;
-            font-weight: 600;
-            color: #a855f7; /* 紫色標題 */
         }
 
-        .article-title a {
-            color: #a855f7;
+        .card h2 a {
+            color: #38b2ac;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
-        .article-title a:hover {
-            color: #c084fc;
+        .card h2 a:hover {
+            color: #5eead4; /* Lighter teal on hover */
             text-decoration: underline;
         }
 
-        .section-heading {
+        .card h3 {
             font-size: 1.3em;
-            color: #60a5fa; /* 淺藍色小標題 */
+            color: #a78bfa; /* Light purple for section headers */
             margin-top: 25px;
             margin-bottom: 10px;
-            font-weight: 600;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
         }
 
-        ul {
+        .card p, .card ul {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
             list-style-type: disc;
             margin-left: 20px;
             padding: 0;
         }
 
-        ul li {
+        .card li {
             margin-bottom: 8px;
-            color: #cbd5e1;
         }
 
-        .community-reaction-text {
-            color: #a7a7a7;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .hn-button {
+        .discussion-button {
             display: inline-block;
-            background-color: #2563eb; /* 藍色按鈕 */
+            background-color: #2563eb; /* Blue button */
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin-top: 15px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
         }
 
-        .hn-button:hover {
-            background-color: #3b82f6;
+        .discussion-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.6);
         }
 
-        .final-slide {
+        /* Final Slide Specifics */
+        .summary-card h2 {
+            font-size: 2em;
+            color: #a78bfa;
             text-align: center;
-            padding: 50px 40px;
-        }
-
-        .final-slide h2 {
-            font-size: 2.5em;
-            color: #6366f1; /* 藍色主標題 */
             margin-bottom: 25px;
-            font-weight: 700;
         }
 
-        .final-slide p {
-            font-size: 1.2em;
+        .summary-card p {
+            font-size: 1.15em;
+            color: #cbd5e1;
+            text-align: justify;
             max-width: 700px;
             margin: 0 auto;
-            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
-
     <div class="presentation-container">
-
-        <!-- 封面頁 (Slide 1) -->
-        <section class="slide-card cover-slide">
+        <!-- Slide 1: Cover Page -->
+        <div class="card cover-card">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p class="date">生成日期：2026年08月13日</p>
-            <div class="tags-container">
-                <span class="tag">AI模型</span>
-                <span class="tag">開發者工具</span>
-                <span class="tag">系統可靠性</span>
+            <p>生成日期：2026年08月14日</p>
+            <div class="tags">
+                <span>AI模型</span>
+                <span>分散式網路</span>
+                <span>軟體工程</span>
             </div>
-        </section>
+        </div>
 
-        <!-- DeepSeek V4 Pro 0813 (Slide 2) -->
-        <section class="slide-card">
-            <h3 class="article-title"><a href="https://openrouter.ai/deepseek/deepseek-v4-pro-0813" target="_blank">DeepSeek V4 Pro 0813</a></h3>
-            <p class="section-heading">核心摘要 (Core Insight):</p>
-            <p>DeepSeek V4 Pro 0813 是一款新一代開源大型語言模型，旨在提供更強大的推理能力、程式碼生成和多語言理解。它透過創新的架構和大規模預訓練，提升了模型在複雜任務上的表現，特別強調其在處理長上下文和複雜指令時的效率與準確性。</p>
-
-            <p class="section-heading">關鍵要點 (Key Takeaways):</p>
+        <!-- Slide 2: Gemini 3.7 Flash -->
+        <div class="card">
+            <h2><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/" target="_blank">Gemini 3.7 Flash</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Google 推出全新、更快速、輕量級的 Gemini 3.7 Flash 模型，旨在提供開發者一個兼顧高效能與成本效益的 AI 推論選項，特別適用於需要低延遲、高吞吐量的應用場景。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>強化的推理能力和數學處理能力，提升複雜問題解決效率。</li>
-                <li>優化後的程式碼生成與多語言支援，擴展開發者應用場景。</li>
-                <li>開源發布，促進社群協作與創新，加速AI技術普及。</li>
+                <li>強調速度與效率，適合即時應用，如聊天機器人與內容總結。</li>
+                <li>輕量化設計，大幅降低運算成本，讓更多開發者能負擔得起。</li>
+                <li>擴展多模態能力，提升應用彈性，支援更豐富的輸入與輸出形式。</li>
             </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>作為 Google 主打的 AI 模型更新，其在速度、成本與新功能上的進展，自然引發社群對未來 AI 應用潛力與雲端競爭格局的熱烈討論，顯示開發者對於更經濟、高效能 AI 工具的強烈需求。</p>
+            <a href="https://news.ycombinator.com/item?id=49289112" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 344 則討論)</a>
+        </div>
 
-            <p class="section-heading">社群觀點與連結 (Community Reaction):</p>
-            <p class="community-reaction-text">作為一個性能領先的開源LLM新版本，它自然吸引了AI開發者和研究者的目光，討論主要圍繞其性能評測、潛在應用場景以及與其他模型的比較。其開源性質也激發了對AI民主化和模型透明度的討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49274600" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 284 則討論)</a>
-        </section>
-
-        <!-- Delta (Slide 3) -->
-        <section class="slide-card">
-            <h3 class="article-title"><a href="https://zed.dev/blog/introducing-delta" target="_blank">Delta</a></h3>
-            <p class="section-heading">核心摘要 (Core Insight):</p>
-            <p>Delta 是 Zed 編輯器團隊推出的一個協同程式碼編輯框架，旨在將實時協作功能引入任何應用程式。它解決了傳統協作工具在延遲、一致性和集成複雜性上的痛點，提供了一個輕量級、高性能的底層協議，讓開發者能更輕鬆地為其產品添加即時多使用者功能。</p>
-
-            <p class="section-heading">關鍵要點 (Key Takeaways):</p>
+        <!-- Slide 3: Bluesky Protocol Services -->
+        <div class="card">
+            <h2><a href="https://atproto.com/blog/introducing-bluesky-protocol-services" target="_blank">Bluesky Protocol Services</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Bluesky 基金會推出協定服務，允許任何人運行其 AT 協定的獨立伺服器，旨在將去中心化的社交網路體驗標準化，並賦予用戶對數據和內容的更多控制權。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>提供低延遲、高一致性的實時協作基礎，提升開發效率。</li>
-                <li>抽象化 CRDTs (Conflict-free Replicated Data Types) 的複雜性，降低開發門檻。</li>
-                <li>為任何應用程式提供可嵌入的協作功能，擴展應用場景。</li>
+                <li>推動 AT 協定生態系的開放性與互操作性，降低中心化風險。</li>
+                <li>降低運行去中心化社交服務的技術門檻，鼓勵更多創新與參與。</li>
+                <li>強化用戶數據主權與抗審查能力，提升平台使用自由度。</li>
             </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>繼 Mastodon 等去中心化社群媒體後，Bluesky 的新舉措被視為在主流科技巨頭之外，建立更開放、用戶中心網路的重要一步，開發者對其技術實現和潛在影響抱有高度興趣。</p>
+            <a href="https://news.ycombinator.com/item?id=49293324" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 12 則討論)</a>
+        </div>
 
-            <p class="section-heading">社群觀點與連結 (Community Reaction):</p>
-            <p class="community-reaction-text">Zed 編輯器本身因其性能和Rust開發背景已在開發者社群有一定聲譽。Delta 的發布，將其核心的實時協作技術抽象出來，解決了許多應用開發者面臨的痛點，引發了對其技術細節、潛在應用和與現有協作方案比較的熱烈討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49276574" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 130 則討論)</a>
-        </section>
-
-        <!-- Tailscale Traces Database Corruption to 16y/o SQLite WAL-Reset Bug (Slide 4) -->
-        <section class="slide-card">
-            <h3 class="article-title"><a href="https://tailscale.com/blog/sqlite-wal-reset-bug" target="_blank">Tailscale Traces Database Corruption to 16y/o SQLite WAL-Reset Bug</a></h3>
-            <p class="section-heading">核心摘要 (Core Insight):</p>
-            <p>Tailscale 發現其系統中的數據庫損壞源於一個長達16年的 SQLite WAL-reset bug。這篇文章詳細解釋了這個罕見的邊緣案例如何導致 Write-Ahead Log (WAL) 模式下的數據丟失和損壞，並分享了他們如何追蹤、診斷並最終解決這個潛藏多年的底層問題。</p>
-
-            <p class="section-heading">關鍵要點 (Key Takeaways):</p>
+        <!-- Slide 4: Accelerating GPT-5.6 Sol Ultrafast -->
+        <div class="card">
+            <h2><a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai" target="_blank">Accelerating GPT-5.6 Sol Ultrafast</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Cerebras 與 OpenAI 合作，宣布利用 Cerebras 的晶圓級 AI 加速器技術，大幅提升 GPT-5.6 Sol Ultrafast 模型的訓練與推論速度，旨在突破大型語言模型的運算瓶頸。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>揭示了 SQLite WAL 模式下的一個罕見但嚴重的數據損壞 bug，影響數據完整性。</li>
-                <li>強調了在複雜系統中徹底追蹤問題源頭的重要性，展現高水平除錯能力。</li>
-                <li>為數據庫可靠性工程提供了實用的經驗教訓，提升系統穩定性。</li>
+                <li>創新硬體架構，實現超高速 AI 模型運算，縮短開發週期。</li>
+                <li>與領先 AI 研究機構合作，推動技術落地與產業應用。</li>
+                <li>預示未來 LLM 訓練與部署將更加高效，加速 AI 普及。</li>
             </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>大語言模型在運算效能上的突破一直是業界焦點，Cerebras 與 OpenAI 的合作展示了專用硬體在加速 AI 發展中的關鍵作用，引發了對 AI 晶片與模型優化趨勢的廣泛討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49289844" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 174 則討論)</a>
+        </div>
 
-            <p class="section-heading">社群觀點與連結 (Community Reaction):</p>
-            <p class="community-reaction-text">數據庫可靠性和潛在的數據損壞是所有開發者極度關注的問題。Tailscale 這篇深入的技術文章不僅揭露了一個長期存在的 SQLite bug，還展示了其專業的除錯過程，對廣大工程師具有極高的參考價值和警示意義，引發了對數據庫實踐、除錯工具和開源軟體依賴的深入討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49272832" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 141 則討論)</a>
-        </section>
-
-        <!-- Happy 45th Birthday to the IBM PC and Model F/XT (Slide 5) -->
-        <section class="slide-card">
-            <h3 class="article-title"><a href="https://sharktastica.co.uk/articles/pc-fxt-45" target="_blank">Happy 45th Birthday to the IBM PC and Model F/XT</a></h3>
-            <p class="section-heading">核心摘要 (Core Insight):</p>
-            <p>這篇文章慶祝 IBM PC 和 Model F/XT 鍵盤誕生 45 週年。它回顧了這款劃時代的個人電腦及其標誌性鍵盤如何定義了現代計算機產業的標準，並深入探討了它們的設計理念、技術創新以及對後世深遠的影響。</p>
-
-            <p class="section-heading">關鍵要點 (Key Takeaways):</p>
+        <!-- Slide 5: SparrowMap – Cameras that watch government vehicles -->
+        <div class="card">
+            <h2><a href="https://sparrowmap.com/" target="_blank">SparrowMap – Cameras that watch government vehicles</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>SparrowMap 是一個公民科技項目，利用社區部署的攝像頭網絡，監測並記錄政府公務車輛的行蹤，旨在提高政府透明度和問責制。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>紀念 IBM PC 作為現代個人電腦的奠基者，開啟個人計算時代。</li>
-                <li>讚揚 Model F/XT 鍵盤在設計和耐用性上的卓越，成為經典。</li>
-                <li>回顧早期計算機技術如何塑造今日的數位世界，啟發未來創新。</li>
+                <li>結合物聯網 (IoT) 與公民監督概念，打造新型監督模式。</li>
+                <li>提供開源工具和數據，促進公眾參與與協同合作。</li>
+                <li>探索科技在公民社會監督中的潛力與道德邊界。</li>
             </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>這個項目觸及了公民隱私、政府透明度與技術倫理的敏感議題。儘管熱度不高，但其獨特的角度和社會意義，仍在小範圍內引起了對科技監管邊界的思考。</p>
+            <a href="https://news.ycombinator.com/item?id=49293294" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 6 則討論)</a>
+        </div>
 
-            <p class="section-heading">社群觀點與連結 (Community Reaction):</p>
-            <p class="community-reaction-text">這類技術歷史回顧文章在HN上通常會吸引一部分對歷史、硬體和懷舊有興趣的群體。雖然討論度相對較低，但它觸及了許多資深工程師和愛好者對「最初」的記憶和對技術演進的思考，帶來了一種對產業根源的集體回顧。</p>
-            <a href="https://news.ycombinator.com/item?id=49280103" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 5 則討論)</a>
-        </section>
-
-        <!-- Qwen3.8-2.4T (Slide 6) -->
-        <section class="slide-card">
-            <h3 class="article-title"><a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B" target="_blank">Qwen3.8-2.4T</a></h3>
-            <p class="section-heading">核心摘要 (Core Insight):</p>
-            <p>Qwen3.8-2.4T 是阿里雲通義千問團隊推出的一款新的大型語言模型，擁有驚人的 2.4 萬億參數。這個模型旨在進一步提升在複雜語言任務上的表現，包括理解、生成和多輪對話，並且可能在多模態能力上有所突破，代表了當前大規模模型發展的前沿。</p>
-
-            <p class="section-heading">關鍵要點 (Key Takeaways):</p>
+        <!-- Slide 6: NP-Overrated -->
+        <div class="card">
+            <h2><a href="https://gruhn.me/blog/2026-08-13/" target="_blank">NP-Overrated</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章從一個批判性的角度探討了 NP 完全性理論，挑戰了其在理論計算機科學領域中某些過度簡化或被誤解的觀點，並呼籲對複雜性類別有更細緻的理解。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>極大規模的參數數量 (2.4T)，預示著強大性能潛力與複雜任務處理能力。</li>
-                <li>專注於提高模型的語言理解和生成質量，優化人機交互體驗。</li>
-                <li>由知名AI研究機構發布，具備高可靠性與潛力，推動AI產業發展。</li>
+                <li>重新審視經典計算機科學理論，鼓勵深度思考其適用範圍。</li>
+                <li>鼓勵深入思考學術概念的實際影響與侷限性。</li>
+                <li>強調理論解釋的精確性，避免過度推廣或誤讀。</li>
             </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>對於資深開發者和計算機科學背景的讀者而言，這類批判性思考的文章提供了一個深入探討理論基礎的機會，激發了對學術界共識的反思與討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49291268" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 90 則討論)</a>
+        </div>
 
-            <p class="section-heading">社群觀點與連結 (Community Reaction):</p>
-            <p class="community-reaction-text">模型的參數規模和其來源（阿里雲）是吸引AI社群的主要因素。Hugging Face 上的發布使得模型更容易被評估和討論。討論可能集中在其潛在的商業應用、性能基準測試，以及大型模型發展的趨勢和挑戰，尤其是與其他領先模型的比較。</p>
-            <a href="https://news.ycombinator.com/item?id=49273478" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 107 則討論)</a>
-        </section>
-
-        <!-- 總結頁 (Final Slide) -->
-        <section class="slide-card final-slide">
+        <!-- Final Slide: Summary -->
+        <div class="card summary-card">
             <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
             <p>
-                今日 Hacker News 熱點深刻反映出<strong>AI模型</strong>正持續以驚人的速度發展，無論是開源社群推動的 DeepSeek V4 Pro 或是超大規模的 Qwen3.8-2.4T，都顯示出對更強大、更通用語言能力的追求。同時，<strong>開發者工具</strong>的創新，如 Zed 編輯器團隊的 Delta 框架，正致力於提升協作效率與易用性。此外，一則關於 SQLite <strong>系統可靠性</strong>深層次 bug 的剖析，再次警示了基礎設施穩定性對現代軟體的重要性。歷史回顧則提醒我們科技演進的根基與其深遠影響。
+                今天的 Hacker News 熱點清晰地反映了 AI 領域在模型效率與硬體加速上的持續演進，Google 的 Gemini Flash 和 Cerebras 加速 GPT 模型都強調了速度與成本效益的重要性。同時，Bluesky 協定服務的推出，顯示去中心化技術正努力開拓更開放的網路空間。此外，對經典計算機理論的再審視（NP-Overrated）和利用科技促進公民透明度（SparrowMap），也顯示了技術社群在不同維度上，對軟體工程理論基礎與社會影響的深層關注。
             </p>
-        </section>
-
+        </div>
     </div>
-
 </body>
 </html>
