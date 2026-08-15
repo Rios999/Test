@@ -5,239 +5,296 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker News 每日科技熱點摘要 - 2026年08月15日</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        /* Base styles */
         body {
-            background-color: #0f172a; /* 深灰色背景 */
-            color: #e2e8f0; /* 淺灰白色文字 */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Noto Sans TC', sans-serif;
             margin: 0;
-            padding: 2rem;
+            padding: 0;
+            background-color: #0f172a; /* Dark slate blue/black */
+            color: #e2e8f0; /* Light gray text */
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
-            align-items: center; /* 讓內容居中 */
-            gap: 2rem; /* 增加卡片間距 */
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px; /* Add some padding around the whole presentation */
+            box-sizing: border-box;
         }
 
-        .container {
-            max-width: 900px;
+        .presentation-container {
             width: 100%;
-            margin: 0 auto;
+            max-width: 1000px; /* Max width for content cards */
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Space between slides/cards */
         }
 
-        .card {
-            background-color: #1e293b; /* 稍亮的深藍灰 */
-            border-radius: 0.75rem; /* 圓角邊框 */
-            padding: 2rem;
-            margin-bottom: 2rem; /* 卡片間距 */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* 陰影效果 */
-            transition: transform 0.2s ease-in-out;
+        /* Card styles */
+        .slide-card {
+            background-color: #1e293b; /* Slightly lighter dark background for cards */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155; /* Subtle border */
         }
 
-        .card:hover {
-            transform: translateY(-5px); /* 懸停時輕微上浮 */
-        }
-
-        h1, h2, h3 {
-            color: #cbd5e1; /* 標題顏色 */
-            margin-top: 0;
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        /* Cover slide specific styles */
+        .cover-slide {
             text-align: center;
-            background: linear-gradient(to right, #3b82f6, #9333ea); /* 藍紫漸層 */
+            padding: 60px 30px;
+        }
+
+        .cover-slide h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: linear-gradient(to right, #6366f1, #a855f7); /* Blue-purple gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        h2 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+        .cover-slide h2 {
+            font-size: 1.8em;
+            color: #94a3b8; /* Lighter gray for subtitle */
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
-        h3 {
-            font-size: 1.25rem;
-            color: #94a3b8; /* 副標題或小標題顏色 */
-        }
-
-        a {
-            color: #3b82f6; /* 藍色連結 */
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: #60a5fa; /* 懸停時變亮 */
-            text-decoration: underline;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #a8b0bb;
-            margin-bottom: 1.5rem;
-        }
-
-        .date {
-            text-align: center;
-            font-size: 1rem;
-            color: #7b8694;
-            margin-bottom: 2rem;
+        .cover-slide p {
+            font-size: 1.1em;
+            color: #cbd5e1;
+            margin-top: 40px;
         }
 
         .tags-container {
-            text-align: center;
-            margin-top: 2rem;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
         .tag {
-            display: inline-block;
-            background-color: #4f46e5; /* 紫色標籤背景 */
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px; /* 圓角膠囊形 */
-            margin: 0.25rem;
-            font-size: 0.9rem;
-            font-weight: bold;
+            background-color: #3f51b5; /* Deeper blue for tags */
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* 藍色按鈕背景 */
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem; /* 圓角按鈕 */
+        /* Article slide specific styles */
+        .article-slide h3 {
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .article-slide h3 a {
+            color: #60a5fa; /* Lighter blue for link */
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 1.5rem;
+            transition: color 0.3s ease;
         }
 
-        .button:hover {
-            background-color: #1d4ed8; /* 懸停時變深 */
-            transform: translateY(-2px);
-            text-decoration: none;
+        .article-slide h3 a:hover {
+            color: #93c5fd; /* Even lighter blue on hover */
         }
 
-        ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding: 0;
+        .section-title {
+            font-size: 1.3em;
+            color: #a78bfa; /* Purple accent */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            border-bottom: 1px solid #475569; /* Subtle separator */
+            padding-bottom: 5px;
         }
 
-        li {
-            margin-bottom: 0.5rem;
+        .article-slide p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #cbd5e1;
         }
 
-        strong {
+        .article-slide ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .article-slide ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            font-size: 1.0em;
             color: #e2e8f0;
         }
 
-        .final-summary {
-            font-size: 1.1rem;
-            color: #a8b0bb;
+        .article-slide ul li::before {
+            content: '•';
+            color: #a78bfa; /* Purple bullet */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .community-reaction-text {
+            font-style: italic;
+            color: #94a3b8;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        /* Button styles */
+        .hn-discussion-button {
+            display: inline-block;
+            background-color: #2563eb; /* Strong blue */
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.0em;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .hn-discussion-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Final slide specific styles */
+        .summary-slide h3 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .summary-slide p {
+            font-size: 1.2em;
+            color: #cbd5e1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <!-- 封面頁 (Slide 1) -->
-    <div class="card container">
-        <h1>Hacker News 每日科技熱點摘要</h1>
-        <p class="subtitle">基於最新社群討論自動生成</p>
-        <p class="date">生成日期: 2026年08月15日</p>
-        <div class="tags-container">
-            <span class="tag">AI模型</span>
-            <span class="tag">網路隱私</span>
-            <span class="tag">開源硬體</span>
+    <div class="presentation-container">
+
+        <!-- Slide 1: Cover Page -->
+        <div class="slide-card cover-slide">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p>生成日期：2026年08月15日</p>
+            <div class="tags-container">
+                <span class="tag">AI模型</span>
+                <span class="tag">資訊安全</span>
+                <span class="tag">硬體創新</span>
+            </div>
         </div>
-    </div>
 
-    <!-- 文章內容頁 (Slide 2) -->
-    <div class="card container">
-        <h2><a href="https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2/executive" target="_blank">Magnitude 7.7 Earthquake – 68 km NNW of Ende, Indonesia</a></h2>
-        <h3>核心摘要 (Core Insight):</h3>
-        <p>美國地質調查局 (USGS) 報告印尼附近發生強烈地震，這類自然事件凸顯了地震監測與早期預警系統的重要性，及其對基礎設施韌性與國際人道救援協調的影響，提醒我們地質活動帶來的持續挑戰。</p>
-        <h3>關鍵要點 (Key Takeaways):</h3>
-        <ul>
-            <li>高強度地震在環太平洋火山帶頻繁發生，地質災害風險持續存在。</li>
-            <li>即時地震資訊對於災害應變與風險評估，以及快速啟動救援至關重要。</li>
-            <li>先進的地球物理監測技術有助於提高預警準確性與響應速度。</li>
-        </ul>
-        <h3>社群觀點與連結 (Community Reaction):</h3>
-        <p>這類突發自然災害雖然非直接科技產品，但其背後涉及的地理信息系統、應急通信技術和韌性城市基礎設施等科技應用，常常引起 Hacker News 用戶對災害應變技術與人道支援的關注。</p>
-        <a href="https://news.ycombinator.com/item?id=49306577" target="_blank" class="button">前往 Hacker News 討論區 (含 14 則討論)</a>
-    </div>
+        <!-- Slide 2: Magnitude 7.7 Earthquake -->
+        <div class="slide-card article-slide">
+            <h3><a href="https://earthquake.usgs.gov/earthquakes/eventpage/us6000tkt2/executive" target="_blank" rel="noopener noreferrer">Magnitude 7.7 Earthquake – 68 km NNW of Ende, Indonesia</a></h3>
+            <div class="section-title">核心摘要</div>
+            <p>本文報導了印尼恩德西北方發生的芮氏規模7.7強震，由美國地質調查局（USGS）即時發布。這突顯了全球地震監測系統在迅速提供關鍵地理災害資訊方面的能力和重要性。</p>
+            <div class="section-title">關鍵要點</div>
+            <ul>
+                <li>全球地震監測：展示USGS等機構在實時追蹤與發布重大地質事件上的先進技術。</li>
+                <li>地理資訊系統（GIS）應用：強調了數據收集、分析與快速預警對於減輕災害潛在影響的關鍵作用。</li>
+                <li>社會影響與準備：提示科技界應關注如何利用數據科學與工程技術協助提升防災與災後應變能力。</li>
+            </ul>
+            <div class="section-title">社群觀點與連結</div>
+            <p class="community-reaction-text">儘管非純粹技術話題，強震事件仍引起Hacker News社群關注，反映了對全球重大事件、科技在應急響應中的角色以及資訊可靠性的普遍關切。</p>
+            <a href="https://news.ycombinator.com/item?id=49306577" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 16 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 3) -->
-    <div class="card container">
-        <h2><a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8" target="_blank">Qwen 3.8 27B</a></h2>
-        <h3>核心摘要 (Core Insight):</h3>
-        <p>阿里巴巴開源了其新一代大型語言模型 Qwen 3.8 27B，這款模型特別強調支援 FP8 格式以實現高效推斷。它旨在提供一個更輕量、高效且易於部署的生成式 AI 解決方案，推動 AI 模型的普及與應用。</p>
-        <h3>關鍵要點 (Key Takeaways):</h3>
-        <ul>
-            <li>支援 FP8 量化技術，大幅降低模型推斷所需的記憶體與計算資源。</li>
-            <li>27B 參數規模在性能與部署靈活性間取得平衡，適合邊緣運算或資源受限環境。</li>
-            <li>開源策略加速了大型語言模型 (LLM) 的普及與應用創新，豐富了 AI 生態系統。</li>
-        </ul>
-        <h3>社群觀點與連結 (Community Reaction):</h3>
-        <p>作為最新的開源大型語言模型，Qwen 3.8 27B 吸引了大量開發者和研究人員，特別是其高效能、低資源消耗的特性，以及背後的阿里巴巴強大背景，使其成為當前 AI 領域最熱門的討論焦點之一。</p>
-        <a href="https://news.ycombinator.com/item?id=49299605" target="_blank" class="button">前往 Hacker News 討論區 (含 610 則討論)</a>
-    </div>
+        <!-- Slide 3: Qwen 3.8 27B -->
+        <div class="slide-card article-slide">
+            <h3><a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8" target="_blank" rel="noopener noreferrer">Qwen 3.8 27B</a></h3>
+            <div class="section-title">核心摘要</div>
+            <p>阿里巴巴通義千問團隊釋出了Qwen3.8-27B模型，特別強調了其在FP8量化方面的優化，旨在提供一個高效能、低資源消耗的大型語言模型，讓更多開發者能接觸並部署先進的AI能力。</p>
+            <div class="section-title">關鍵要點</div>
+            <ul>
+                <li>模型效率突破：透過FP8量化技術，大幅降低模型運行的記憶體與計算資源需求，促進邊緣設備部署。</li>
+                <li>開源生態推進：作為開放模型，Qwen3.8-27B豐富了開源LLM選擇，鼓勵社群共建與創新。</li>
+                <li>AI應用普及：高效能與低成本的特性，有望加速AI模型在各行各業的落地應用與普及化。</li>
+            </ul>
+            <div class="section-title">社群觀點與連結</div>
+            <p class="community-reaction-text">Qwen 3.8 27B以其卓越的效率和開源性質在HN上引發熱烈討論，顯示開發者對可部署、高效能且具競爭力的開源AI模型抱有極高興趣。</p>
+            <a href="https://news.ycombinator.com/item?id=49299605" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 616 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 4) -->
-    <div class="card container">
-        <h2><a href="https://blog.cryptographyengineering.com/2026/08/14/everything-is-about-to-go-dark/" target="_blank">Going Dark, and the era of law enforcement hacking</a></h2>
-        <h3>核心摘要 (Core Insight):</h3>
-        <p>這篇文章深入探討了執法機構在網路時代面臨的「走向黑暗」(Going Dark) 問題，即普遍採用的加密技術讓監聽通訊變得困難。作者進一步推測，執法部門可能轉而利用軟體漏洞進行駭客攻擊，以繞過加密措施並獲取資訊。</p>
-        <h3>關鍵要點 (Key Takeaways):</h3>
-        <ul>
-            <li>端到端加密的普及對執法部門的傳統調查手段構成重大挑戰。</li>
-            <li>執法單位可能轉向購買或利用零日漏洞 (zero-day exploits) 進行監控。</li>
-            <li>公民隱私權與國家安全之間的平衡持續成為社會與技術層面的激烈爭議焦點。</li>
-        </ul>
-        <h3>社群觀點與連結 (Community Reaction):</h3>
-        <p>涉及網路安全、個人隱私權、政府監控與加密技術等敏感議題，這些是 Hacker News 社群長期以來高度關注的重點，往往能引發關於道德、法律和技術可行性層面的廣泛且深入的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49304447" target="_blank" class="button">前往 Hacker News 討論區 (含 126 則討論)</a>
-    </div>
+        <!-- Slide 4: Going Dark, and the era of law enforcement hacking -->
+        <div class="slide-card article-slide">
+            <h3><a href="https://blog.cryptographyengineering.com/2026/08/14/everything-is-about-to-go-dark/" target="_blank" rel="noopener noreferrer">Going Dark, and the era of law enforcement hacking</a></h3>
+            <div class="section-title">核心摘要</div>
+            <p>這篇文章深入探討了執法機構對加密通訊的日益增長的壓力，以及由此引發的「走向黑暗（Going Dark）」爭議，預示著未來隱私工具可能成為執法駭客攻擊的目標，對個人自由和數位安全構成挑戰。</p>
+            <div class="section-title">關鍵要點</div>
+            <ul>
+                <li>加密技術攻防：分析端到端加密如何保護用戶隱私，以及政府嘗試繞過或削弱這些保護的手段。</li>
+                <li>數位權利與國家安全：探討在公民隱私權利與國家安全需求之間，技術政策面臨的嚴峻平衡挑戰。</li>
+                <li>執法機構的技術演進：警示執法部門在獲取數位證據上，可能從法律途徑轉向更具侵入性的技術破解。</li>
+            </ul>
+            <div class="section-title">社群觀點與連結</div>
+            <p class="community-reaction-text">這篇關於加密與執法的文章引發了對數位隱私、政府監控和網路自由的激烈辯論，反映了技術社群對這些倫理和技術交叉點的高度敏感性。</p>
+            <a href="https://news.ycombinator.com/item?id=49304447" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 126 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 5) -->
-    <div class="card container">
-        <h2><a href="https://blog.ploopy.co/the-aplus-is-finally-here-499" target="_blank">The Ploopy A+ Trackball Is Here</a></h2>
-        <h3>核心摘要 (Core Insight):</h3>
-        <p>Ploopy 宣布推出其最新的開源軌跡球滑鼠 Ploopy A+ Trackball，這款產品強調完全開放原始碼、高度模組化與客製化的設計。它旨在為追求極致人體工學和個人化輸入裝置的用戶提供卓越體驗。</p>
-        <h3>關鍵要點 (Key Takeaways):</h3>
-        <ul>
-            <li>完全開源硬體設計，鼓勵社群參與改進與個人化客製化。</li>
-            <li>模組化特性提供優異的維修性、升級彈性，並延長產品生命週期。</li>
-            <li>針對人體工學進行優化，滿足特定使用者對高效、舒適輸入的需求。</li>
-        </ul>
-        <h3>社群觀點與連結 (Community Reaction):</h3>
-        <p>開源硬體專案在 Hacker News 上總有一群忠實追隨者，特別是像軌跡球這樣注重人體工學和DIY客製化的小眾產品。它吸引了技術愛好者、設計師和追求最佳化工作流程的用戶。</p>
-        <a href="https://news.ycombinator.com/item?id=49306443" target="_blank" class="button">前往 Hacker News 討論區 (含 19 則討論)</a>
-    </div>
+        <!-- Slide 5: Simplifying and Refactoring Introductory Calculus -->
+        <div class="slide-card article-slide">
+            <h3><a href="https://arxiv.org/abs/1811.03459" target="_blank" rel="noopener noreferrer">Simplifying and Refactoring Introductory Calculus</a></h3>
+            <div class="section-title">核心摘要</div>
+            <p>本文提出了一種簡化並重構微積分入門教學的方法，旨在解決傳統教學中概念理解的難點，使學生能更直觀、有效地掌握微積分的核心思想和應用。</p>
+            <div class="section-title">關鍵要點</div>
+            <ul>
+                <li>教育方法創新：探索改進 STEM 教育中基礎學科教學的新途徑，提升學習效率與興趣。</li>
+                <li>概念化繁為簡：強調通過重組教學內容，將複雜的數學概念分解為更易理解的模塊。</li>
+                <li>跨學科影響：優化微積分教學對工程、物理、計算機科學等領域的學習者基礎知識打下更堅實的基礎。</li>
+            </ul>
+            <div class="section-title">社群觀點與連結</div>
+            <p class="community-reaction-text">雖然討論數不高，但這篇文章反映了教育科技和教學法改革在科技社群中仍有一定關注度，尤其是在提升基礎科學素養方面。</p>
+            <a href="https://news.ycombinator.com/item?id=49306196" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 2 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 6) -->
-    <div class="card container">
-        <h2><a href="https://arxiv.org/abs/1811.03459" target="_blank">Simplifying and Refactoring Introductory Calculus</a></h2>
-        <h3>核心摘要 (Core Insight):</h3>
-        <p>這篇論文提出了一種重新思考和簡化微積分入門課程的方法，旨在降低學習門檻，讓學生更容易理解並掌握這門基礎數學學科。透過調整教學順序和概念呈現方式，潛力提升學習效率與學科吸引力。</p>
-        <h3>關鍵要點 (Key Takeaways):</h3>
-        <ul>
-            <li>重新組織微積分教學內容，旨在大幅降低初學者的學習門檻。</li>
-            <li>強調直觀理解與實用應用，而非過度嚴謹的理論證明。</li>
-            <li>潛力提升 STEM 領域教育的有效性與吸引力，培育更多科學技術人才。</li>
-        </ul>
-        <h3>社群觀點與連結 (Community Reaction):</h3>
-        <p>雖然這篇文章的討論數相對較少，但這類關於教育方法和學科重構的討論，在 Hacker News 部分用戶中仍有共鳴，特別是那些曾為學習複雜科目所困擾，或對教育創新抱有熱情的專業人士。</p>
-        <a href="https://news.ycombin.com/item?id=49306196" target="_blank" class="button">前往 Hacker News 討論區 (含 1 則討論)</a>
-    </div>
+        <!-- Slide 6: The Ploopy A+ Trackball Is Here -->
+        <div class="slide-card article-slide">
+            <h3><a href="https://blog.ploopy.co/the-aplus-is-finally-here-499" target="_blank" rel="noopener noreferrer">The Ploopy A+ Trackball Is Here</a></h3>
+            <div class="section-title">核心摘要</div>
+            <p>Ploopy宣佈其A+軌跡球正式發布，這是一款開放原始碼、高度可客製化的工學設計輸入設備，專為追求舒適度、精確控制和DIY精神的用戶打造。</p>
+            <div class="section-title">關鍵要點</div>
+            <ul>
+                <li>開源硬體實踐：展現開源理念在硬體設計中的潛力，允許用戶自由修改、優化與分享設計。</li>
+                <li>人體工學與健康：關注長期電腦使用者健康，提供改善姿勢和減少手腕壓力的解決方案。</li>
+                <li>社群驅動創新：產品開發與迭代深受社群意見影響，體現了用戶參與在利基市場產品中的重要性。</li>
+            </ul>
+            <div class="section-title">社群觀點與連結</div>
+            <p class="community-reaction-text">這篇文章吸引了對開放原始碼硬體、人體工學外設和DIY文化感興趣的社群成員，體現了對用戶體驗和可玩性的追求。</p>
+            <a href="https://news.ycombinator.com/item?id=49306443" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 22 則討論)</a>
+        </div>
 
-    <!-- 總結頁 (Final Slide) -->
-    <div class="card container">
-        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p class="final-summary">
-            今日 Hacker News 的熱門話題顯示了技術社群對<strong>生成式 AI 模型的開源進展</strong>抱持極大熱情，特別是那些能兼顧高效能與資源效率的模型，預示著 AI 應用將更加普及。同時，<strong>網路安全與個人隱私權</strong>依然是高度關注的焦點，圍繞加密技術與執法監控的討論反映了社會對數位權利的持續辯論。此外，<strong>開源硬體專案</strong>，尤其是人體工學設計的創新，展現了開發者對客製化與社區協作的追求。即使是傳統學科如微積分的教學改革，也透過科技社群的視角，反映出對教育創新與效率提升的普遍期望。
-        </p>
+        <!-- Final Slide: Summary -->
+        <div class="slide-card summary-slide">
+            <h3>今日技術趨勢歸納</h3>
+            <p>今日Hacker News熱點文章揭示了多面向的技術焦點。從<span style="color: #60a5fa; font-weight: 500;">AI模型的效率與開源化（Qwen 3.8 27B）</span>，到<span style="color: #a78bfa; font-weight: 500;">資訊安全與個人隱私權的激烈攻防（Going Dark）</span>，再到<span style="color: #93c5fd; font-weight: 500;">開放原始碼硬體在人體工學創新中的實踐（Ploopy A+ Trackball）</span>，都顯示了開發者社群對技術自由、效率優化和用戶福祉的持續關注。同時，對教育方法改革和全球事件的即時科技響應也佔有一席之地，共同描繪了一個多元且快速變化的科技圖景。</p>
+        </div>
+
     </div>
 </body>
 </html>
