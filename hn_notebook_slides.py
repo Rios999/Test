@@ -90,7 +90,7 @@ def generate_notebook_style_slides(stories):
     return content
 
 def main():
-    stories = fetch_hn_stories(5)
+    stories = fetch_hn_stories(10)
     slides_html = generate_notebook_style_slides(stories)
     
     output_filename = "index.html"
