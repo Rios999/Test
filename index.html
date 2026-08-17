@@ -1,355 +1,308 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年08月16日</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* 深灰色背景 */
-            color: #e2e8f0; /* 高對比白字 */
-            margin: 0;
-            padding: 2rem;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: #1a202c; /* 卡片深色背景 */
-            border-radius: 0.75rem; /* 圓角 */
-            padding: 2.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* 陰影 */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #2d3748; /* 輕微邊框 */
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 20px -3px rgba(0, 0, 0, 0.3), 0 6px 8px -2px rgba(0, 0, 0, 0.15);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: #f8fafc;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            color: #f8fafc;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            color: #cbd5e1;
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-
-        h4 {
-            font-size: 1.25rem;
-            color: #94a3b8; /* 淺灰色標題 */
-            margin-top: 1.5rem;
-            margin-bottom: 0.6rem;
-            border-bottom: 1px solid #4a5568; /* 分隔線 */
-            padding-bottom: 0.3rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #e2e8f0;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #e2e8f0;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        a {
-            color: #6366f1; /* 藍紫色連結 */
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: #818cf8; /* 連結懸停效果 */
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* 藍色背景 */
-            color: white;
-            padding: 0.9rem 1.8rem;
-            border-radius: 0.6rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin-top: 1.5rem;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        .button:hover {
-            background-color: #3b82f6; /* 懸停藍色 */
-            transform: translateY(-2px);
-        }
-
-        .cover-slide {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .cover-slide h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #a78bfa, #8b5cf6); /* 漸層色 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .cover-slide h2 {
-            font-size: 1.8rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
-
-        .cover-slide p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-        }
-
-        .tags-container {
-            margin-top: 2rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #4c1d95; /* 紫色標籤 */
-            color: #f0f9ff;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px; /* 全圓角 */
-            margin-right: 0.75rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .final-summary {
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .final-summary h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #8b5cf6, #ec4899); /* 漸層色 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .final-summary p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #cbd5e1;
-        }
-    </style>
+    <title>Hacker News 每日科技熱點摘要</title>
+    <!-- Google Fonts for better typography if needed, but per instruction, prefer inline CSS. Using system fonts. -->
 </head>
-<body>
-    <div class="container">
-        <!-- 封面頁 (Slide 1) -->
-        <div class="card cover-slide">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年08月16日</p>
-            <div class="tags-container">
-                <span class="tag">#AI趨勢</span>
-                <span class="tag">#生物科技</span>
-                <span class="tag">#健康醫療</span>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 20px; line-height: 1.6;">
+
+    <!-- Presentation Container -->
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 15px;">
+
+        <!-- Slide 1: Cover Page -->
+        <div style="background-color: #1e293b; border-radius: 16px; padding: 60px 40px; margin-bottom: 30px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); text-align: center;">
+            <h1 style="color: #c7d2fe; font-size: 3em; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px;">Hacker News 每日科技熱點摘要</h1>
+            <p style="color: #94a3b8; font-size: 1.5em; margin-bottom: 30px; font-weight: 400;">基於最新社群討論自動生成</p>
+            <p style="color: #cbd5e1; font-size: 1.1em; margin-bottom: 40px;">生成日期: 2026年08月17日</p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
+                <span style="background-color: #4f46e5; color: white; padding: 8px 18px; border-radius: 25px; font-size: 0.9em; font-weight: 600;">#AI應用</span>
+                <span style="background-color: #4f46e5; color: white; padding: 8px 18px; border-radius: 25px; font-size: 0.9em; font-weight: 600;">#開發者工具</span>
+                <span style="background-color: #4f46e5; color: white; padding: 8px 18px; border-radius: 25px; font-size: 0.9em; font-weight: 600;">#技術趨勢</span>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 2 ~ N) -->
-        
-        <div class="card">
-            <h3><a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/dad2.70432" target="_blank">Semaglutide linked to lower predicted dementia risk</a></h3>
-            <h4>核心摘要</h4>
-            <p>這項研究探討了降血糖藥物 Semaglutide 對預防失智症的潛在效益，挑戰了傳統對失智症成因的理解，可能為阿茲海默症等神經退化性疾病的治療帶來新方向。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>GLP-1 受體促效劑在神經保護上的應用潛力。</li>
-                <li>大型觀察性研究結果顯示，使用該藥物與失智症風險降低約 20% 有關。</li>
-                <li>開啟了藥物重用 (drug repurposing) 於失智症治療的視野。</li>
+        <!-- Slide 2: A 3rd World Embedded Engineer Responds to "RISC-V They Should Have Known Better" -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://rvembedded.com/blog_post/12/" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    A 3rd World Embedded Engineer Responds to "RISC-V They Should Have Known Better"
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 一位來自第三世界國家的嵌入式工程師，對關於 RISC-V 的討論提出反思，強調在資源有限的環境下，RISC-V 的開放性與低成本優勢如何改變當地科技發展的格局，挑戰西方中心論點。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>RISC-V 為新興市場提供低成本且可客製化的晶片解決方案。</li>
+                <li>發展中國家面對不同的技術選擇考量，不應以單一西方視角評斷。</li>
+                <li>開源硬體對全球技術普及和創新具備重大意義。</li>
             </ul>
-            <h4>社群觀點與連結</h4>
-            <p>高點數與討論數反映大眾對失智症治療新突破的迫切期待，以及對新興藥物多重效益的關注，認為這可能是一個意義重大的發現。</p>
-            <a href="https://news.ycombinator.com/item?id=49311651" target="_blank" class="button">前往 Hacker News 討論區 (含 236 則討論)</a>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                這篇文章因其獨特且被忽略的視角，從第三世界實踐者的角度探討 RISC-V 的實際價值，引發了對全球科技不平等和開源策略的廣泛討論，獲得社群的高度關注。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49321717" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 189 則討論)
+            </a>
         </div>
-        
-        <div class="card">
-            <h3><a href="https://aicharts.grok.me/c/market-share" target="_blank">ChatGPT lost 22 points of web share in a year</a></h3>
-            <h4>核心摘要</h4>
-            <p>這份分析指出 ChatGPT 在過去一年中，失去了高達 22% 的網站流量份額，反映出 AI 聊天機器人市場的激烈競爭態勢以及使用者行為的快速轉變。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>AI 聊天機器人市場正經歷快速演進與競爭白熱化。</li>
-                <li>使用者需求多元化導致流量分散至更多平台和工具。</li>
-                <li>獨佔優勢難以維持，產品差異化與持續創新成為未來關鍵。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>討論數雖較低，但作為市場風向標，其訊息仍具重要性，引起社群對 AI 應用生態變化的思考，探討市場成熟後的挑戰。</p>
-            <a href="https://news.ycombinator.com/item?id=49315630" target="_blank" class="button">前往 Hacker News 討論區 (含 10 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://www.henrikkarlsson.xyz/p/good-ideas" target="_blank">Cultivating a state of mind where new ideas are born (2023)</a></h3>
-            <h4>核心摘要</h4>
-            <p>文章探討如何培養一種能持續產生創新思維的心態與環境，強調發散性思考、跨領域聯想以及保持好奇心在創意過程中的關鍵作用。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>建立個人「創意工廠」的實用方法與習慣。</li>
-                <li>鼓勵探索非線性連結和整合多領域知識。</li>
-                <li>透過寫作與分享來固化、發展和精煉新想法。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>熱度適中，顯示開發者社群對個人成長、效率提升和創新方法論的持續興趣，尤其是在快速變化的科技領域。</p>
-            <a href="https://news.ycombinator.com/item?id=49314235" target="_blank" class="button">前往 Hacker News 討論區 (含 19 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://www.science.org/content/blog-post/so-how-ai-drug-discovery-doing-really" target="_blank">AI in drug discovery – what it is, where we stand and the path forward</a></h3>
-            <h4>核心摘要</h4>
-            <p>這篇部落格文章全面評估了 AI 在藥物發現領域的現狀、挑戰與未來潛力，從早期靶點識別到藥物優化，揭示了 AI 如何加速整個研發進程。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>AI 技術能顯著加速藥物分子設計與篩選流程的效率。</li>
-                <li>數據品質與模型可解釋性仍是 AI 藥物發現面臨的主要挑戰。</li>
-                <li>未來趨勢將是 AI 運算與濕實驗 (wet lab) 數據的深度結合，形成閉環優化。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>中等熱度，反映科技界對 AI 應用於高價值領域的持續關注，並對其落地前景抱持務實態度，而非盲目樂觀。</p>
-            <a href="https://news.ycombinator.com/item?id=49313367" target="_blank" class="button">前往 Hacker News 討論區 (含 43 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://www.smithsonianmag.com/innovation/the-first-at-home-test-for-infected-ticks-could-improve-lyme-disease-diagnosis-180989235/" target="_blank">At-home test for infected ticks could improve Lyme Disease diagnosis</a></h3>
-            <h4>核心摘要</h4>
-            <p>文章介紹了一種新興的家用檢測套件，能讓使用者自行檢測蜱蟲是否帶有萊姆病病原體，有望大幅提升萊姆病早期診斷的效率與便利性，對公共衛生具有重要意義。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>早期診斷對萊姆病治療至關重要，可避免長期併發症。</li>
-                <li>簡化且加速傳統實驗室檢測流程，縮短等待時間。</li>
-                <li>提升公眾對蜱蟲傳染病的防範意識與自我保護能力。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>高點數顯示社群對實用型醫療科技的關注，尤其是能解決現實生活痛點、提升個人健康的創新產品。</p>
-            <a href="https://news.ycombinator.com/item?id=49310682" target="_blank" class="button">前往 Hacker News 討論區 (含 71 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://www.acc.org/about-acc/press-releases/2026/08/11/14/59/abdominal-fat-predicts-heart-disease-risk-better-than-bmi" target="_blank">Abdominal fat predicts heart disease risk better than BMI</a></h3>
-            <h4>核心摘要</h4>
-            <p>研究指出，腹部脂肪量相較於身體質量指數 (BMI) 能更精準地預測心臟疾病風險，這項發現強調了體脂肪分佈的重要性，可能改變當前的健康評估標準和預防策略。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>再次強調了 BMI 作為單一健康指標的局限性。</li>
-                <li>腹部脂肪堆積與心血管健康風險存在高度相關性。</li>
-                <li>鼓勵採用更精細的身體組成分析來全面評估個人疾病風險。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>高點數及較多討論顯示人們對健康指標與疾病預防的普遍關切，以及對更科學、精準評估方法的認同和需求。</p>
-            <a href="https://news.ycombinator.com/item?id=49314403" target="_blank" class="button">前往 Hacker News 討論區 (含 99 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://dmitry.gr/?r=06.%20Thoughts&proj=12.%20RV" target="_blank">RISC-V: They Should Have Known Better</a></h3>
-            <h4>核心摘要</h4>
-            <p>文章從批判角度探討 RISC-V 架構在某些設計決策上的潛在問題與局限性，挑戰其作為通用指令集架構 (ISA) 未來的完美願景，引發對其發展路徑的深思。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>對 RISC-V 缺乏嚴格的微架構標準和統一實作規範表達擔憂。</li>
-                <li>討論指令集設計中兼容性、擴展性與效率的權衡問題。</li>
-                <li>提醒開源硬體專案在實際商業應用中可能面臨的挑戰與坑點。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>極高點數與最多討論，反映硬體開發者對 RISC-V 未來的關注，以及對其設計哲學與實用性的激烈辯論，顯示了社群的深度參與。</p>
-            <a href="https://news.ycombinator.com/item?id=49298035" target="_blank" class="button">前往 Hacker News 討論區 (含 295 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://michael.stapelberg.ch/posts/2026-08-09-zsh-history-truncation-bug/" target="_blank">Tracking down a Zsh history data loss bug</a></h3>
-            <h4>核心摘要</h4>
-            <p>這篇文章詳細記錄了作者如何耗費大量時間追蹤並最終解決一個導致 Zsh 歷史記錄文件 (history file) 數據丟失的技術性錯誤，展現了深度除錯與系統行為分析的艱辛過程。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>開源軟體除錯的複雜性與所需耐心，需要對底層機制有深刻理解。</li>
-                <li>文件鎖定 (file locking) 在多進程環境下確保數據完整性的重要性。</li>
-                <li>深入理解 shell 內部機制和文件 I/O 行為對軟體穩定性的影響。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>較低熱度，但對於資深開發者而言，這類深入的除錯案例提供了寶貴的經驗和學習機會，展示了專業工程師的堅持與技能。</p>
-            <a href="https://news.ycombinator.com/item?id=49314579" target="_blank" class="button">前往 Hacker News 討論區 (含 3 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://davidepiffer.com/p/ai-isnt-outthinking-mathematicians" target="_blank">AI has access to a vastly larger working memory than the human brain</a></h3>
-            <h4>核心摘要</h4>
-            <p>文章闡述了 AI 系統在工作記憶 (working memory) 容量上遠超人類大腦的根本差異，並探討這項巨大優勢如何影響 AI 解決複雜問題的能力，而非僅僅是「思考」模式的差異。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>AI 與人類認知能力在記憶層面存在根本性的差異。</li>
-                <li>超大「上下文視窗」是 AI 處理複雜任務和鏈式推理的關鍵。</li>
-                <li>這對 AI 發展方向與人類智能認知的本質提供了新的啟示與思考。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>最高的點數和極高討論數，觸及 AI 領域的核心議題，引發社群對 AI 本質、潛力與人類未來角色的大規模哲學與技術思考。</p>
-            <a href="https://news.ycombinator.com/item?id=49312845" target="_blank" class="button">前往 Hacker News 討論區 (含 359 則討論)</a>
-        </div>
-        
-        <div class="card">
-            <h3><a href="https://sankalp.bearblog.dev/autoresearch/" target="_blank">Auto-research with codex: How I achieved a 232x Faster Kernel</a></h3>
-            <h4>核心摘要</h4>
-            <p>這篇文章展示了作者如何利用 AI 工具 (如 OpenAI Codex) 進行自動化研究與代碼優化，最終將一個計算密集型核心的執行速度驚人地提升了 232 倍，突顯了 AI 在工程效率上的巨大潛力。</p>
-            <h4>關鍵要點</h4>
-            <ul>
-                <li>AI 輔助代碼優化與性能調校展現出強大的潛力與效率。</li>
-                <li>自動化工具能顯著加速開發者探索和實現新優化方案的過程。</li>
-                <li>展示了 AI 在解決實際複雜工程問題中，作為「智慧副駕駛」的應用價值。</li>
-            </ul>
-            <h4>社群觀點與連結</h4>
-            <p>高點數與較多討論，吸引了對性能優化、AI 輔助開發感興趣的工程師社群，激發了對未來開發模式的想像。</p>
-            <a href="https://news.ycombinator.com/item?id=49309549" target="_blank" class="button">前往 Hacker News 討論區 (含 86 則討論)</a>
-        </div>
-        
 
-        <!-- 總結頁 (Final Slide) -->
-        <div class="card final-summary">
-            <h2>今日技術趨勢歸納</h2>
-            <p>今日Hacker News熱點聚焦於生物科技與AI的深度融合，從藥物發現到疾病預防，預示著智慧醫療的巨大潛力。同時，對於AI核心能力的探討，特別是其超大工作記憶，持續引發社群對通用人工智慧發展路徑的深刻反思。硬體架構的開放性挑戰與軟體性能的極致優化，也顯示了工程師社群對底層技術創新與實用性改進的不懈追求。</p>
+        <!-- Slide 3: The Life and Death of Direct File [pdf] -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://www.ischool.berkeley.edu/sites/default/files/vinton_report_5.pdf" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    The Life and Death of Direct File [pdf]
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 這份報告探討了美國稅務局 (IRS) 推出「Direct File」直接報稅系統的歷程、挑戰與最終的去向，分析政府數位服務在政策、技術和利益團體影響下的複雜性。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>政府數位服務的推動常面臨政治阻力與既得利益者的挑戰。</li>
+                <li>免費且簡化的報稅系統可提升公民便利性與公平性。</li>
+                <li>技術可行性與政策意願是決定公共服務成敗的關鍵因素。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                討論度較低，可能因為這是一份關於美國特定稅務政策的深度報告，內容較為專業和學術，對於廣泛的 Hacker News 受眾而言，即時共鳴度較低。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49325185" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 0 則討論)
+            </a>
         </div>
+
+        <!-- Slide 4: Claude: System Prompts -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://platform.claude.com/docs/en/release-notes/system-prompts" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    Claude: System Prompts
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> Anthropic 發布了 Claude 模型「系統提示詞」的官方文件，詳細解釋如何透過系統提示詞，有效引導 AI 的行為、角色扮演和回應風格，以提升互動品質和任務執行準確性。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>系統提示詞是微調 LLM 行為與輸出一致性的關鍵工具。</li>
+                <li>提供具體的最佳實踐案例，指導開發者優化 AI 應用。</li>
+                <li>明確角色設定與約束條件能大幅提升 AI 模型可用性。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                此文獲得極高討論度，因為「提示工程」是目前 AI 應用開發的核心技能，Anthropic 官方文件的發布為開發者提供了寶貴的指南和最佳實踐，引發了對 LLM 控制與應用的熱烈討論。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49319556" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 222 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 5: SIMD in the 90s: Programming Intel's Pentium MMX -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://pikuma.com/blog/programming-intel-pentium-mmx-simd" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    SIMD in the 90s: Programming Intel's Pentium MMX
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 文章回顧了1990年代 Intel Pentium MMX 處理器上的 SIMD (Single Instruction, Multiple Data) 技術，探討當時開發者如何利用 MMX 指令集進行圖像、音頻處理等效能優化，重溫早期的向量化編程。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>MMX 是早期消費者級處理器引入 SIMD 指令集的里程碑。</li>
+                <li>向量化處理在資料密集型運算中對效能提升至關重要。</li>
+                <li>回顧歷史技術有助於理解現代 CPU 架構與優化思路的演進。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                吸引了對懷舊技術、低階優化和計算機歷史感興趣的開發者，特別是那些經歷過 MMX 時代的工程師，引發了對早期效能最佳化實踐的討論。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49285096" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 29 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 6: Low-Tech Ceramic Water Filter -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://wiki.lowtechlab.org/wiki/Filtre_%C3%A0_eau_c%C3%A9ramique/en" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    Low-Tech Ceramic Water Filter
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 介紹了一種低技術、易於製作的陶瓷濾水器，利用當地材料和簡單工藝來提供基本的水淨化功能，為發展中地區或緊急情況提供永續且可負擔的飲用水解決方案。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>低技術解決方案在特定情境下比高科技更實際有效。</li>
+                <li>強調開源、在地化材料與知識共享的價值。</li>
+                <li>提供永續、可負擔的水資源淨化選項，改善生活品質。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                引起了社群對永續發展、DIY 技術和人道主義應用的關注，尤其是在面對氣候變遷和資源不均的背景下，這種實用且低成本的解決方案具有吸引力。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49259980" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 22 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 7: A quick look at zero-knowledge proofs -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://bernsteinbear.com/blog/zkp/" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    A quick look at zero-knowledge proofs
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 這篇文章簡要介紹了零知識證明 (Zero-Knowledge Proofs, ZKP) 的基本概念、原理和潛在應用，解釋如何在不揭露任何資訊的情況下，證明某個陳述的真實性。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>ZKP 允許一方在不洩露秘密資訊的前提下驗證其合法性。</li>
+                <li>在區塊鏈、身份驗證和隱私保護等領域有廣泛應用前景。</li>
+                <li>技術複雜但具有強大的潛力，是密碼學的前沿研究方向。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                儘管討論數不高，但 ZKP 是一個熱門的密碼學話題，對於關注隱私、區塊鏈和去中心化技術的 HN 讀者仍有吸引力，提供了一個入門級的快速理解。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49303776" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 13 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 8: Protobuf has LSP support. You're welcome -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://buf.build/blog/protobuf-lsp" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    Protobuf has LSP support. You're welcome
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> Buf 宣布 Protocol Buffers (Protobuf) 現在獲得了 Language Server Protocol (LSP) 的支援，這將大幅改善 Protobuf 定義檔案在各種編輯器中的開發體驗，提供自動完成、錯誤檢查等高級功能。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>LSP 支援提升了 Protobuf 的開發者體驗和效率。</li>
+                <li>統一的語言服務協議有助於各類工具的生態系統整合。</li>
+                <li>改善 API 定義與通訊協定設計的開發流程。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                討論度高，因為 Protobuf 是許多分散式系統和微服務架構中常用的資料序列化協議，LSP 支援的引入直接提升了廣大開發者的生產力，受到社群的普遍歡迎。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49322573" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 77 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 9: The AI Credit Resale Economy -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://vectoral.com/blog/who-are-the-token-brokers" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    The AI Credit Resale Economy
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 文章探討了圍繞 AI 模型使用「點數」(credits) 而形成的轉售經濟現象，分析了這種新型商業模式的驅動因素、市場參與者以及對 AI 服務供應商和消費者的影響。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>AI 服務「點數」轉售形成新興的市場生態。</li>
+                <li>分析點數經濟對 AI 服務定價策略與供應鏈的影響。</li>
+                <li>揭示 AI 應用成本優化和資源分配的新機會與挑戰。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                引起了廣泛討論，因為它揭示了 AI 時代一種新穎的經濟模式，對 AI 產業的商業策略、成本控制和未來發展方向提供了獨特的視角。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49320611" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 88 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 10: Models Are Getting Dumber on Purpose -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://w4g1.dev/blog/models-are-getting-dumber-on-purpose" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    Models Are Getting Dumber on Purpose
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> 作者探討了大型語言模型 (LLM) 在某些情境下似乎「變笨」的現象，並提出這可能並非偶然，而是出於成本、效率或商業策略考量，模型供應商在特定任務上進行權衡優化導致的結果。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>LLM 性能「退化」可能是商業決策下的權衡結果。</li>
+                <li>模型供應商在成本、速度與性能之間尋求最佳平衡點。</li>
+                <li>提醒開發者警惕模型穩定性，考慮模型迭代的潛在影響。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                極具爭議性和吸引力，因為許多開發者和用戶都曾感受到 LLM 性能的波動，這篇文章提供了一個有力的解釋框架，引發了對 AI 模型發展方向、商業倫理和長期穩定性的深度討論。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49322695" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 146 則討論)
+            </a>
+        </div>
+
+        <!-- Slide 11: MathCode, Mathematical Coding Agent -->
+        <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #818cf8; font-size: 1.8em; margin-bottom: 15px; font-weight: 700;">
+                <a href="https://math-ai-org.github.io/mathcode/" target="_blank" style="color: #60a5fa; text-decoration: none;">
+                    MathCode, Mathematical Coding Agent
+                </a>
+            </h2>
+            <p style="font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px;">
+                <strong>核心摘要:</strong> MathCode 是一個基於大型語言模型 (LLM) 的數學編碼代理，旨在協助科學家和工程師自動生成數學相關程式碼、解決複雜數學問題，將自然語言描述轉化為可執行代碼。
+            </p>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">關鍵要點:</h3>
+            <ul style="list-style-type: disc; margin-left: 25px; margin-bottom: 20px; color: #cbd5e1;">
+                <li>利用 LLM 處理複雜數學問題，提高科研與工程效率。</li>
+                <li>實現自然語言到數學程式碼的自動轉換。</li>
+                <li>展現 AI 在科學計算與自動化編程領域的潛力。</li>
+            </ul>
+            <h3 style="color: #a78bfa; font-size: 1.3em; margin-bottom: 10px;">社群觀點:</h3>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">
+                對於學術界、科學計算和對 AI 輔助編程有興趣的開發者具有吸引力，展示了 LLM 在特定專業領域的實用價值。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=49322330" target="_blank" 
+               style="background-color: #2563eb; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; transition: background-color 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#1d4ed8';" onmouseout="this.style.backgroundColor='#2563eb';">
+                前往 Hacker News 討論區 (含 17 則討論)
+            </a>
+        </div>
+
+        <!-- Final Slide: Summary Page -->
+        <div style="background-color: #1e293b; border-radius: 16px; padding: 60px 40px; text-align: center; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+            <h2 style="color: #c7d2fe; font-size: 2.5em; margin-bottom: 20px; font-weight: 800;">今日技術趨勢歸納</h2>
+            <p style="color: #cbd5e1; font-size: 1.2em; max-width: 700px; margin: 0 auto;">
+                今日 Hacker News 熱點顯示，人工智慧的發展和應用持續主導技術討論，從提示工程的最佳實踐到對模型「變笨」的商業考量，都反映出開發者對 AI 穩定性與經濟模式的深切關注。同時，開發者工具的進化，如 Protobuf 對 LSP 的支援，正持續提升生產力。
+                此外，RISC-V 在全球不同經濟體中的價值、復古低階優化、永續低技術方案，以及密碼學前沿如零知識證明等多元議題，也共同勾勒出一個技術普及化、效率最佳化與隱私保護並行的複雜科技圖景。
+            </p>
+        </div>
+
     </div>
+
 </body>
 </html>
