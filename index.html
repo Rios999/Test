@@ -3,428 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年08月22日</title>
     <style>
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f172a; /* Deep dark blue/grey */
+            color: #e2e8f0; /* Off-white for text */
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #0f172a; /* Deep grey background */
-            color: #e2e8f0; /* Light grey for body text */
-            line-height: 1.6;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Center cards horizontally */
             min-height: 100vh;
             box-sizing: border-box;
         }
 
-        .presentation-container {
+        .slide-container {
             width: 100%;
-            max-width: 900px; /* Constrain width for better readability */
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* Space between cards */
+            max-width: 900px; /* Max width for presentation content */
+            margin-bottom: 30px; /* Space between slides */
         }
 
-        .slide-card {
-            background-color: #1e293b; /* Slightly lighter dark grey for cards */
+        .slide {
+            background-color: #1e293b; /* Slightly lighter dark blue/grey for cards */
             border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            padding: 35px;
+            margin-bottom: 30px; /* Ensure spacing even for the last slide */
+            box-sizing: border-box;
             border: 1px solid #334155; /* Subtle border */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Cover Slide Specifics */
-        .cover-slide {
-            text-align: center;
-            padding: 60px 30px;
-        }
-
-        .cover-slide h1 {
-            font-size: 3.5em;
-            color: #ffffff;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            background: linear-gradient(90deg, #6366f1, #a855f7); /* Blue/Purple Gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: #94a3b8;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
-        .cover-slide p {
-            font-size: 1.1em;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .tag {
-            background-color: #4f46e5; /* Accent blue */
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            transition: background-color 0.2s ease;
-        }
-
-        .tag:hover {
-            background-color: #7c3aed; /* Lighter purple on hover */
-        }
-
-        /* Content Slides Specifics */
-        .content-slide h3 {
-            font-size: 1.8em;
-            color: #818cf8; /* Light blue accent for titles */
+        h1, h2, h3, h4 {
+            color: #e2e8f0;
             margin-top: 0;
             margin-bottom: 15px;
+            font-weight: 600;
             line-height: 1.3;
         }
 
-        .content-slide a {
-            color: #60a5fa; /* Light blue for links */
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+        h1 { font-size: 2.8em; text-align: center; color: #a78bfa; /* Light purple for main title */ }
+        h2 { font-size: 1.8em; text-align: center; color: #cbd5e1; }
+        h3 { font-size: 1.6em; margin-bottom: 15px; }
+        h4 { font-size: 1.2em; color: #94a3b8; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #334155; padding-bottom: 5px;}
 
-        .content-slide a:hover {
-            color: #93c5fd; /* Lighter blue on hover */
-            text-decoration: underline;
-        }
-
-        .section-title {
-            font-size: 1.2em;
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
             color: #cbd5e1;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
         }
 
-        .core-insight p {
-            margin: 0;
-            color: #a7b3c4;
+        a {
+            color: #818cf8; /* Light purple/blue for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .key-takeaways ul {
-            list-style-type: '👉 '; /* Custom bullet */
-            padding-left: 20px;
-            margin: 0;
+        a:hover {
+            color: #a78bfa; /* Slightly brighter on hover */
         }
 
-        .key-takeaways li {
+        ul {
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
             margin-bottom: 8px;
-            color: #a7b3c4;
+            color: #cbd5e1;
+            font-size: 1.0em;
         }
 
-        .community-reaction p {
-            color: #a7b3c4;
+        ul li::before {
+            content: '✦'; /* Custom bullet point */
+            color: #a78bfa; /* Accent color for bullet */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .tags {
+            text-align: center;
+            margin-top: 30px;
             margin-bottom: 20px;
+        }
+
+        .tags span {
+            display: inline-block;
+            background-color: #334155;
+            color: #94a3b8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
         }
 
         .hn-button {
             display: inline-block;
-            background-color: #2563eb; /* Blue background for button */
+            background-color: #4f46e5; /* Vibrant blue/purple */
             color: #ffffff;
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95em;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
-            margin-top: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
         }
 
         .hn-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
+            background-color: #6366f1;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
-            text-decoration: none; /* Remove underline on hover for button */
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
         }
 
-        /* Final Slide Specifics */
-        .final-slide h3 {
-            font-size: 2em;
-            color: #818cf8;
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
+        .final-summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e2e8f0;
         }
 
-        .final-slide .summary-text {
-            font-size: 1.15em;
-            color: #a7b3c4;
+        .cover-date {
+            font-size: 1.2em;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
+            margin-top: 20px;
+            color: #94a3b8;
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
 
-        <!-- Slide 1: Cover Page -->
-        <div class="slide-card cover-slide">
+    <!-- Slide 1: 封面頁 -->
+    <div class="slide-container">
+        <div class="slide">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年08月21日</p>
+            <p class="cover-date">生成日期：2026年08月22日</p>
             <div class="tags">
-                <span class="tag">AI倫理與法律</span>
-                <span class="tag">網路安全與隱私</span>
-                <span class="tag">現代網路技術</span>
+                <span>#AI應用</span>
+                <span>#隱私與資安</span>
+                <span>#開發者工具</span>
+                <span>#科學探索</span>
             </div>
         </div>
-
-        <!-- Slide 2: Copyright does not protect AI-generated content in EU -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://mathstodon.xyz/@maxpool/117128107757895678" target="_blank" rel="noopener noreferrer">Copyright does not protect AI-generated content in EU</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>歐盟版權法明確指出，僅由人類創造的作品受版權保護，這對AI生成內容的法律地位帶來了重大影響。此舉旨在釐清AI內容的智慧財產權歸屬，並可能限制企業單純依賴AI進行原創內容產出。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>歐盟強調人類原創性作為版權保護核心標準，排除AI單獨生成內容。</li>
-                    <li>可能深刻影響AI生成內容的商業應用、授權與變現模式。</li>
-                    <li>引發關於AI協作、共創內容版權歸屬的未來討論與法律挑戰。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>此議題觸及AI發展與法律邊界的敏感地帶，儘管討論數相對不多，但其政策影響深遠，引發了對未來AI內容產業規範的熱烈思考。</p>
-                <a href="https://news.ycombinator.com/item?id=49382041" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 39 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 3: The August 17 outage, and the work ahead -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://github.blog/news-insights/company-news/the-august-17-outage-and-the-work-ahead/" target="_blank" rel="noopener noreferrer">The August 17 outage, and the work ahead</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>GitHub 詳細披露了8月17日服務中斷的根本原因及後續修復計畫，展現了對穩定性與可靠性的承諾。這次事件凸顯了大型雲服務在複雜系統中的挑戰與韌性建設的重要性，強調持續改進運維機制。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>深度分析服務中斷的技術根源，包含細節的根本原因分析。</li>
-                    <li>強調系統韌性、故障恢復策略與未來的基礎設施改進計畫。</li>
-                    <li>為SRE和DevOps團隊提供寶貴的雲服務運維與事件響應案例。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>GitHub是開發者的核心工具，任何中斷都影響巨大。透明化的溝通和詳細的技術報告，獲得了社群的廣泛關注和對其坦誠態度的讚賞。</p>
-                <a href="https://news.ycombinator.com/item?id=49378957" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 338 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 4: Consumer Rights Wiki -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://consumerrights.wiki/w/Main_Page" target="_blank" rel="noopener noreferrer">Consumer Rights Wiki</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>這是一個開源協作平台，旨在匯集和分享全球各地的消費者權益資訊，賦能個體了解並行使自身權利。它提供了一個集中的資源庫，幫助用戶應對複雜的消費糾紛，提升公眾對消費者保護的認知。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>協作式平台設計，促進消費者權益知識的國際化普及。</li>
-                    <li>涵蓋多國法規與實踐的綜合性資源庫，提升資訊透明度。</li>
-                    <li>利用開源模式激發社群參與，共同維護與更新內容。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>社群對此類公益性質、具備實際幫助的工具表現出積極興趣，尤其看重其開源協作的模式，認為能有效解決資訊不對稱問題。</p>
-                <a href="https://news.ycombinator.com/item?id=49378243" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 26 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 5: I like 'em thick: an apology to my English teachers -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://www.experimental-history.com/p/i-like-em-thick" target="_blank" rel="noopener noreferrer">I like 'em thick: an apology to my English teachers</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>這篇文章以幽默而深刻的方式探討了「厚重」書籍的價值，反思現代社會追求效率與簡化的趨勢，並為冗長而深刻的閱讀體驗辯護。作者重新審視了長篇文本在知識吸收與思辨上的獨特優勢，強調其不可替代的深度。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>挑戰速食文化下對知識獲取方式的偏見與過度簡化。</li>
-                    <li>倡導深度閱讀和慢學習的價值，重塑思辨能力。</li>
-                    <li>反思教育體系對長篇寫作與複雜文本的態度及影響。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>這篇文章觸及了現代人在資訊爆炸時代的學習焦慮與對深度思考的渴望，引發了大量讀者對個人閱讀習慣與教育哲學的共鳴與反思。</p>
-                <a href="https://news.ycombinator.com/item?id=49347543" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 254 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 6: Aaron Swartz was prosecuted for scraping, while Meta does it without consequence -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://blog.curiousquail.com/im-upset-again-about-a-co-creator-of-rss-being-prosecuted-for-something-meta-is-doing-with-little-consequence/" target="_blank" rel="noopener noreferrer">Aaron Swartz was prosecuted for scraping, while Meta does it without consequence</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>文章強烈對比了Aaron Swartz因「爬蟲」行為被重罪起訴的悲劇，與大型科技公司如Meta在類似數據獲取行為上卻鮮少受到法律制裁的現狀。這引發了對法律公平性、數據倫理以及權力不對等的深刻質疑。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>揭露科技巨頭與個人在數據爬取行為法律後果上的雙重標準。</li>
-                    <li>重新審視數據爬取、網路自由與智慧財產權的倫理邊界。</li>
-                    <li>呼籲社群與立法者對網路權利與法律執行的公平性進行反思。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>Aaron Swartz的事件是科技社群的巨大傷痛。此文將其與Meta的行為對比，激發了社群對法律不公、科技權力集中與數據倫理的強烈共鳴與不滿，討論度極高。</p>
-                <a href="https://news.ycombinator.com/item?id=49379550" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 206 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 7: AliExpress runs silent WebAudio fingerprinting that breaks Bluetooth multipoint -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://blog.laserphile.com/2026/08/aliexpress-webpage-keeping-multipoint.html" target="_blank" rel="noopener noreferrer">AliExpress runs silent WebAudio fingerprinting that breaks Bluetooth multipoint</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>AliExpress網頁被揭露在後台靜默運行WebAudio指紋識別技術，不僅侵犯用戶隱私，更意外導致藍牙多點連接功能故障。這凸顯了網站追蹤技術的隱蔽性、侵入性及其對用戶體驗的負面影響，揭示了用戶隱私保護的迫切性。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>揭露隱蔽的網頁指紋識別技術對用戶隱私的深層威脅。</li>
-                    <li>WebAudio API濫用導致意外的硬體功能問題（如藍牙連接）。</li>
-                    <li>強調瀏覽器隱私保護機制與網站行為透明化的必要性。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>此事件直接涉及用戶隱私侵犯、網站道德與技術濫用，且藍牙功能受損具體影響日常體驗，引發了社群的強烈不滿與對隱私權益的關切。</p>
-                <a href="https://news.ycombinator.com/item?id=49372583" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 285 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 8: I should have loved biology (2020) -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://jsomers.net/i-should-have-loved-biology/" target="_blank" rel="noopener noreferrer">I should have loved biology (2020)</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>作者回顧其學術生涯，反思為何未能深入熱愛生物學，儘管其概念本身引人入勝。文章探討了教育體制、教學方法以及個人興趣與學科呈現方式之間的斷裂，探討了學習熱情的源泉與培養之道。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>批判傳統教育模式可能扼殺學生對科學探索的興趣。</li>
-                    <li>強調以敘事和應用導向激發學習動機的重要性。</li>
-                    <li>鼓勵教育者重新思考如何呈現複雜學科的魅力。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>文章引發了許多讀者對自身教育經歷和學科興趣培養的反思，尤其是在 STEM 教育領域，探討了如何更好地激發學生的內在學習熱情。</p>
-                <a href="https://news.ycombinator.com/item?id=49377853" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 73 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 9: HTML Can Do That -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://chrisburnell.com/html-can-do-that/" target="_blank" rel="noopener noreferrer">HTML Can Do That</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>這篇文章展示了現代HTML不僅僅是結構語言，許多常見的互動功能和複雜組件其實可以僅憑原生HTML和CSS實現，而無需過度依賴JavaScript。它倡導回歸HTML的本質力量，鼓勵開發者探索其未被充分利用的潛力，創建更輕量、高效的網頁。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>發掘HTML/CSS原生能力，減少對JavaScript的過度依賴。</li>
-                    <li>鼓勵開發者創建簡潔、高效且可訪問的網頁應用。</li>
-                    <li>挑戰開發者對現代網頁技術的固有認知與最佳實踐。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>此文觸及了網頁開發社群中關於「JS疲勞」和「原生優先」的熱門討論，提供了實用的技術見解，讓開發者重新思考網頁基礎技術的潛力。</p>
-                <a href="https://news.ycombinator.com/item?id=49362689" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 160 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 10: Malicious Rust crate Arrayref runs a build-time payload -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://safedep.io/arrayref-proc-macro1-rust-build-time-malware/" target="_blank" rel="noopener noreferrer">Malicious Rust crate Arrayref runs a build-time payload</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>一個被廣泛使用的Rust套件<code>Arrayref</code>被發現包含惡意代碼，在編譯時執行Payload，這對開源生態系統的供應鏈安全敲響了警鐘。事件揭示了即使是看似無害的工具也可能成為攻擊媒介，對開發流程的潛在風險。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>突顯開源軟體供應鏈面臨的嚴峻安全挑戰與漏洞。</li>
-                    <li>提醒開發者對第三方套件的審核、依賴管理及安全評估。</li>
-                    <li>呼籲社群加強自動化安全審計和惡意代碼檢測機制。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>Rust以其安全性著稱，此事件震驚了開發者社群，對軟體供應鏈安全問題極為敏感，引發了對開源項目信任與審查機制的深度討論。</p>
-                <a href="https://news.ycombinator.com/item?id=49374269" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 359 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 11: Show HN: Huzzah – a novel approach to coding with AI -->
-        <div class="slide-card content-slide">
-            <h3><a href="https://www.danielvaughn.dev/posts/huzzah/" target="_blank" rel="noopener noreferrer">Show HN: Huzzah – a novel approach to coding with AI</a></h3>
-            <div class="section-title">核心摘要</div>
-            <div class="core-insight">
-                <p>Huzzah展示了一種新穎的AI輔助編程方法，旨在超越傳統代碼生成，提供更深層次的上下文理解和開發者協作體驗。它探索了AI如何更好地融入開發工作流，提升效率與代碼品質，預示著下一代編程工具的發展方向。</p>
-            </div>
-            <div class="section-title">關鍵要點</div>
-            <div class="key-takeaways">
-                <ul>
-                    <li>探索AI在軟體開發中超越自動補全的新角色。</li>
-                    <li>強調AI與開發者之間的深度協作潛力。</li>
-                    <li>展示AI如何理解複雜上下文並提供更有價值的幫助。</li>
-                </ul>
-            </div>
-            <div class="section-title">社群觀點與連結</div>
-            <div class="community-reaction">
-                <p>AI輔助編程是當前熱點，開發者對提高生產力的新工具充滿好奇。Huzzah的創新方法吸引了社群對AI如何真正革新開發工作流的熱烈討論。</p>
-                <a href="https://news.ycombinator.com/item?id=49378768" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 114 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Final Slide: Today's Tech Pulse -->
-        <div class="slide-card final-slide">
-            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <div class="summary-text">
-                <p>今日的Hacker News熱點鮮明地揭示了技術社群對 <strong>AI倫理與實踐</strong> 的深切關注，無論是其在內容創作的版權地位、作為開發輔助工具的潛力，抑或是被用於數據爬取時的法律爭議。同時，<strong>網路安全與隱私保護</strong> 仍是開發者社群的重中之重，惡意開源套件與隱蔽追蹤技術不斷挑戰著信任邊界。此外，對 <strong>核心網路技術的重新審視</strong>（如HTML的原生能力、大型服務的穩定性與韌性）與對 <strong>知識獲取和教育模式</strong> 的反思，也反映出開發者群體對技術深度、系統韌性及人文關懷的綜合追求。</p>
-            </div>
-        </div>
-
     </div>
+
+    <!-- Slide 2: Kobo can run apps now -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://bandarlabs.github.io/Cobalt/" target="_blank">Kobo can run apps now</a></h3>
+            <p><strong>核心摘要：</strong>專案 Cobalt 成功展示如何在 Kobo 電子閱讀器上運行桌面環境與 Linux 應用，突破了 Kobo 裝置原本的封閉生態，為使用者帶來極高的客製化潛力。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>在 ARM 架構 Kobo 裝置上實現完整 Linux 桌面環境運行。</li>
+                <li>利用容器技術（如 Docker）部署應用，保持系統穩定性。</li>
+                <li>為電子墨水螢幕設備開啟了更多非閱讀應用場景的想像空間。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>討論集中於此技術實現的巧妙性、對裝置駭客的吸引力，以及對電子閱讀器未來開放性的啟示。</p>
+            <a href="https://news.ycombinator.com/item?id=49390427" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 142 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 3: Felony Bench -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://www.felonybench.com/" target="_blank">Felony Bench</a></h3>
+            <p><strong>核心摘要：</strong>Felony Bench 是一個關注美國刑事司法系統的資料分析平台，旨在提供關於州級重罪案件統計數據的透明化資訊，幫助公民、研究者和政策制定者更好地理解司法趨勢。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>彙整並分析來自各州法院的重罪審判數據。</li>
+                <li>提升刑事司法系統的透明度與可問責性。</li>
+                <li>提供深入洞察，支持政策改革和公共對話。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>對於司法透明化、數據來源的可靠性及隱私保護等議題引起熱烈討論，顯示公眾對司法公正的高度關注。</p>
+            <a href="https://news.ycombinator.com/item?id=49389430" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 225 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 4: Three important steps in my maturation process -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://thomasdullien.github.io/posts/2026-08-21-three-important-steps-in-my-maturation-process/" target="_blank">Three important steps in my maturation process</a></h3>
+            <p><strong>核心摘要：</strong>作者分享了個人職業生涯與心智成長的三個關鍵轉折點，強調在技術領域中，除了專業技能，軟實力的培養與學習心態的轉變同樣重要。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>從錯誤中學習並轉化為成長的養分。</li>
+                <li>理解並掌握複雜系統的根本原理，而非僅限於表面操作。</li>
+                <li>保持開放心態，不斷自我反思與進化。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>作為個人成長的經驗分享，引發讀者對職業發展、學習方法和個人心態調整的共鳴。</p>
+            <a href="https://news.ycombinator.com/item?id=49394496" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 8 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 5: Scientists release biggest 2D map of the universe -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://newscenter.lbl.gov/2026/08/10/scientists-release-biggest-2d-map-of-the-universe/" target="_blank">Scientists release biggest 2D map of the universe</a></h3>
+            <p><strong>核心摘要：</strong>科學家們發布了迄今為止最大的二維宇宙地圖，該地圖透過觀測數百萬個星系和類星體的光譜，揭示了宇宙大規模結構和演化歷史的關鍵線索。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>利用數十億光年外的星系數據，繪製宇宙三維分佈的二維投影。</li>
+                <li>有助於研究暗能量、宇宙膨脹率及大尺度結構形成。</li>
+                <li>為未來的宇宙學研究提供了寶貴的基準數據集。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>圍繞數據的規模、對宇宙學的影響、以及視覺化呈現方式等面向展開討論，展現了對基礎科學探索的濃厚興趣。</p>
+            <a href="https://news.ycombinator.com/item?id=49392200" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 45 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 6: Kagi added a setting for removing paywalled links from search results -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://kagi.com/changelog#11296" target="_blank">Kagi added a setting for removing paywalled links from search results</a></h3>
+            <p><strong>核心摘要：</strong>隱私搜尋引擎 Kagi 推出新功能，允許用戶過濾掉搜尋結果中的付費牆內容連結，顯著提升了搜尋體驗，讓資訊獲取更直接高效。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>提升搜尋結果的實用性，減少點擊無效連結的困擾。</li>
+                <li>體現搜尋引擎以用戶體驗為中心的設計理念。</li>
+                <li>反映了用戶對開放、無障礙資訊獲取的強烈需求。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>作為高熱度話題，討論圍繞此功能的實用性、對資訊生態的影響，以及 Kagi 差異化競爭優勢。</p>
+            <a href="https://news.ycombinator.com/item?id=49388154" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 337 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 7: Show HN: OzBrain, a shared brain for knowledge between agents and your team -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://ozbrain.com" target="_blank">Show HN: OzBrain, a shared brain for knowledge between agents and your team</a></h3>
+            <p><strong>核心摘要：</strong>OzBrain 是一個專為代理（Agent）和團隊協作設計的共享知識庫平台，旨在集中管理、組織和分享資訊，從而提高團隊的集體智能和效率。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>提供智慧型知識組織和搜尋功能，優化資訊檢索。</li>
+                <li>促進人與 AI 代理之間的知識共享與無縫協作。</li>
+                <li>專注於解決團隊內資訊孤島問題，提升決策品質。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>討論聚焦於其在 AI 代理協作、知識管理工具的潛力，以及實際應用場景。</p>
+            <a href="https://news.ycombinator.com/item?id=49394827" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 10 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 8: I accidentally logged hundreds of thousands of phone calls to military bases -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://lina.sh/blog/hijacking-e164-arpa" target="_blank">I accidentally logged hundreds of thousands of phone calls to military bases</a></h3>
+            <p><strong>核心摘要：</strong>一位研究員意外發現透過濫用 E.164.arpa DNS 紀錄，可以攔截並記錄大量撥打至美國軍事基地及其他敏感設施的電話呼叫數據，揭示了電信基礎設施中一個嚴重但鮮為人知的安全漏洞。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>揭露 E.164.arpa 存在被惡意利用，導致通話元數據洩漏的風險。</li>
+                <li>突顯了全球電信基礎設施安全監管的不足。</li>
+                <li>對國家安全和個人隱私構成潛在威脅，需緊急修補。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>高度關注這項發現對國家安全、電信基礎設施安全、以及數據隱私的影響，引發了對監管與修復措施的呼籲。</p>
+            <a href="https://news.ycombinator.com/item?id=49387570" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 50 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 9: People of ACM – Russ Cox -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://www.acm.org/articles/people-of-acm/2026/russ-cox" target="_blank">People of ACM – Russ Cox</a></h3>
+            <p><strong>核心摘要：</strong>ACM 採訪了 Google Go 語言核心開發者 Russ Cox，深入探討他在軟體工程領域的貢獻、Go 語言的設計哲學，以及他對未來計算趨勢的看法。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>Go 語言在現代軟體開發中的重要地位與影響力。</li>
+                <li>核心貢獻者對語言設計、工具鏈及生態系統的深刻思考。</li>
+                <li>展現頂尖工程師解決複雜問題的思維方式與哲學。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>作為業界知名人物的訪談，引發對 Go 語言、軟體工程文化及職業發展的討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49327408" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 11 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 10: Felony charges for citizen deleting phone data at US Border -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://www.nytimes.com/2026/08/21/us/politics/samuel-tunick-deleted-phone-felony.html" target="_blank">Felony charges for citizen deleting phone data at US Border</a></h3>
+            <p><strong>核心摘要：</strong>一名美國公民在邊境檢查時因拒絕解鎖手機並刪除數據，被指控犯有重罪，此事件再次引發了關於公民在數位時代的隱私權、執法機關權限，以及第四修正案在邊境的適用範圍的激烈辯論。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>公民在邊境的數位隱私權與執法權的衝突不斷升級。</li>
+                <li>對手機數據刪除是否構成妨礙司法的法律爭議。</li>
+                <li>引發對執法透明度和公民權益保障的廣泛關注與討論。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>這是一個極具爭議性且討論度極高的話題，觸及了隱私權、公民自由、政府權力濫用等多個敏感點。</p>
+            <a href="https://news.ycombinator.com/item?id=49386895" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 718 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 11: DeepSeek-v4-flash-vision-exp -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3><a href="https://api-docs.deepseek.com/guides/vision/" target="_blank">DeepSeek-v4-flash-vision-exp</a></h3>
+            <p><strong>核心摘要：</strong>DeepSeek-v4-flash-vision-exp 是一個新的多模態 AI 模型，結合了 DeepSeek-v4 的語言理解能力與閃電般的視覺處理速度，旨在提供高效能的視覺感知與理解體驗。</p>
+            <h4>關鍵要點：</h4>
+            <ul>
+                <li>整合了先進的語言模型與快速視覺識別技術。</li>
+                <li>專為需要即時響應的多模態 AI 應用場景設計。</li>
+                <li>有望在自動駕駛、智慧安防等領域展現巨大潛力。</li>
+            </ul>
+            <h4>社群觀點與連結：</h4>
+            <p>討論集中在模型性能、潛在應用、與其他多模態模型的比較，以及其在開源社群中的地位。</p>
+            <a href="https://news.ycombinator.com/item?id=49386163" class="hn-button" target="_blank">前往 Hacker News 討論區 (含 143 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide: 總結頁 -->
+    <div class="slide-container">
+        <div class="slide">
+            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
+            <p class="final-summary">
+                今日 Hacker News 熱點深刻反映了當前技術社群的多元關注。首先，<strong>AI 技術</strong>正加速向多模態與協作應用深化，如 DeepSeek-v4-flash-vision-exp 和 OzBrain 所示。
+                其次，對<strong>數位隱私與資訊自由</strong>的重視日益凸顯，體現在 Kagi 移除付費牆連結的功能，以及關於邊境數據刪除的公民權爭議和電信漏洞揭露。
+                開發者也持續探索硬體<strong>客製化潛力</strong>，如 Kobo 運行應用程式，並審視<strong>基礎設施安全</strong>的挑戰。同時，大規模<strong>數據分析</strong>在科學探索（宇宙地圖）和社會治理（Felony Bench）中扮演關鍵角色，共同繪製出一個充滿創新與挑戰的科技圖景。
+            </p>
+        </div>
+    </div>
+
 </body>
 </html>
