@@ -3,335 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年08月25日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年08月26日</title>
     <style>
         body {
             font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background-color: #0f172a; /* Deep dark blue-gray */
-            color: #e2e8f0; /* Light gray text */
-            line-height: 1.6;
+            color: #e2e8f0; /* Light gray for body text */
             margin: 0;
-            padding: 40px 20px;
+            padding: 2rem;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
+            gap: 2.5rem; /* Space between cards */
             align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 960px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* Space between cards */
+        h1, h2, h3, h4, h5, h6 {
+            color: #f8fafc; /* Near white for headings */
+            margin-top: 0;
+            margin-bottom: 0.8em;
         }
 
-        .card {
-            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(30, 41, 59, 0.7); /* Subtle border */
-        }
-
-        /* Cover Slide Specifics */
-        .cover-card {
-            text-align: center;
-            padding: 60px 30px;
-        }
-
-        .cover-card h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            color: #ffffff; /* Pure white for main title */
-            background: linear-gradient(to right, #6366f1, #a855f7); /* Blue-purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block; /* Ensure gradient applies correctly */
-        }
-
-        .cover-card h2 {
-            font-size: 1.6em;
-            color: #cbd5e1; /* Lighter gray for subtitle */
-            margin-bottom: 25px;
-        }
-
-        .cover-card .date {
-            font-size: 1.1em;
-            color: #94a3b8;
-            margin-bottom: 40px;
-        }
-
-        .tags-section {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background-color: #374151; /* Darker gray for tags */
-            color: #a78bfa; /* Light purple for tag text */
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        /* Article Card Specifics */
-        .article-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .article-card h3 a {
-            color: #a78bfa; /* Purple for article titles */
+        a {
+            color: #6366f1; /* Indigo for general links */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease-in-out;
         }
 
-        .article-card h3 a:hover {
-            color: #c4b5fd; /* Lighter purple on hover */
+        a:hover {
+            color: #818cf8; /* Lighter indigo on hover */
             text-decoration: underline;
         }
 
-        .section-title {
-            font-size: 1.2em;
-            color: #a78bfa; /* Purple for section titles */
-            margin-top: 25px;
-            margin-bottom: 10px;
+        .slide-card {
+            background-color: #1e293b; /* Darker blue-gray for cards */
+            border-radius: 12px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid #334155; /* Subtle border */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .slide-card.cover-slide {
+            text-align: center;
+            padding: 4rem 3rem;
+        }
+
+        .cover-slide h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #a78bfa, #8b5cf6); /* Purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .cover-slide h2 {
+            font-size: 1.8rem;
+            color: #94a3b8; /* Gray for subtitle */
+            margin-bottom: 2rem;
+            font-weight: normal;
+        }
+
+        .cover-slide .date {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .cover-slide .tags {
+            margin-top: 3rem;
+        }
+
+        .cover-slide .tag {
+            display: inline-block;
+            background-color: #4f46e5; /* Stronger indigo */
+            color: #f8fafc;
+            padding: 0.6em 1.5em;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: 600;
+            margin: 0.5rem;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .article-card ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
+        .article-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
         }
 
-        .article-card li {
-            margin-bottom: 8px;
-            color: #cbd5e1;
+        .article-card h2 a {
+            color: #f8fafc; /* White for article title links */
+            transition: color 0.2s ease-in-out;
+            font-weight: 700;
+        }
+
+        .article-card h2 a:hover {
+            color: #a78bfa; /* Purple on hover */
+            text-decoration: none;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #cbd5e1; /* Lighter gray for section titles */
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        .core-insight p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-takeaways ul {
+            list-style-type: '👉 '; /* Custom bullet point */
+            padding-left: 1.5rem;
+            margin-top: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-takeaways ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .community-reaction .reaction-text {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #a7b8cf;
         }
 
         .hn-button {
             display: inline-block;
-            background-color: #2563eb; /* Blue button */
-            color: white;
-            padding: 12px 25px;
+            background: linear-gradient(to right, #4f46e5, #6366f1); /* Blue-purple gradient */
+            color: #f8fafc;
+            padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            margin-top: 30px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            font-size: 1.05rem;
+            font-weight: 700;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .hn-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #6366f1, #4f46e5); /* Invert gradient on hover */
+            text-decoration: none;
         }
 
-        /* Final Slide Specifics */
-        .summary-card h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #ffffff;
-            background: linear-gradient(to right, #6366f1, #a855f7);
+        .final-slide h2 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, #8b5cf6, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
-        
-        .summary-card p {
-            font-size: 1.1em;
+
+        .final-slide p {
+            font-size: 1.15rem;
             color: #cbd5e1;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 封面頁 (Slide 1) -->
-        <div class="card cover-card">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p class="date">生成日期：2026年08月25日</p>
-            <div class="tags-section">
-                <span class="tag">#Privacy</span>
-                <span class="tag">#HardwareInnovation</span>
-                <span class="tag">#DigitalEthics</span>
-            </div>
-        </div>
 
-        <!-- 文章內容頁 (Slide 2) -->
-        <div class="card article-card">
-            <h3><a href="https://developer.apple.com/news/?id=1ptvdtcm" target="_blank">iCloud+ Hide My Email addresses will remain on icloud.com</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>Apple 的「隱藏我的電子郵件」服務現在讓用戶能直接透過 iCloud.com 管理及刪除這些代理郵件地址，集中控制其隱私保護功能所產生的別名。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>提升用戶對隨機生成電子郵件地址的控制權。</li>
-                <li>簡化管理流程，整合至 iCloud 網頁平台。</li>
-                <li>標誌著 Apple 隱私功能生態系的持續成熟。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對於此更新的討論聚焦在用戶隱私權的強化與 Apple 生態系對個人資料保護的承諾。許多人認為這是一個受歡迎的可用性改進，進一步鞏固了該服務的實用性。</p>
-            <a href="https://news.ycombinator.com/item?id=49426564" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 40 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 3) -->
-        <div class="card article-card">
-            <h3><a href="https://twitter.com/lemire/status/2091894299289874926" target="_blank">Xiaomi: New CPU matches Apple cores single threaded, much faster multithreaded</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>小米宣稱其新款 CPU 在單核心效能上與 Apple 晶片持平，但在多核心表現上則顯著超越，預示著智慧型手機晶片市場的激烈競爭與潛在格局變化。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>行動處理器市場的效能競爭日益白熱化。</li>
-                <li>小米在多核心運算能力上取得重大突破。</li>
-                <li>可能重新定義旗艦手機的性能標竿與市場預期。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對此聲明抱持高度關注，但亦存在部分質疑，討論圍繞著基準測試的可靠性、實際應用體驗以及 Android 與 iOS 生態系在效能調校上的差異。這反映了對中國科技公司在半導體領域快速發展的複雜情緒。</p>
-            <a href="https://news.ycombinator.com/item?id=49420873" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 483 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 4) -->
-        <div class="card article-card">
-            <h3><a href="https://ciechanow.ski/moon/" target="_blank">Moon (2024)</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>這是一個高度互動且科學精確的月球視覺化專案，讓用戶能深入探索月球的相位、軌道運動及表面細節，提供身歷其境的學習體驗。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>利用 WebGL 技術實現複雜的 3D 天文模擬。</li>
-                <li>結合科學資料提供高精度的視覺化呈現。</li>
-                <li>展現網頁平台在互動式教育與資料探索方面的潛力。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對此專案的技術精湛與教育價值表示讚賞，尤其對於其詳細的物理模擬與流暢的用戶體驗印象深刻。許多人認為這是將複雜科學概念普及化的絕佳範例。</p>
-            <a href="https://news.ycombinator.com/item?id=49426466" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 14 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 5) -->
-        <div class="card article-card">
-            <h3><a href="https://xusheng.dev/posts/reversing/mspaint_invisible_watermark/main/" target="_blank">MS Paint and Photos inivisibly watermark even locally generated output with GUID</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>研究發現，Microsoft 的 MS Paint 和 Photos 等圖像編輯工具會在本地生成的圖像中嵌入不可見的 GUID (全球唯一識別碼) 浮水印，引發了對用戶隱私和數位內容來源追蹤的擔憂。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>軟體預設的隱蔽式數位浮水印機制。</li>
-                <li>對用戶內容隱私權與資料歸屬權的潛在影響。</li>
-                <li>提升了開源工具或隱私友善替代方案的需求。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>此發現引發了社群對隱私侵犯的強烈反彈，許多用戶對這種未經明確告知的追蹤行為感到不安。討論聚焦於軟體供應商的透明度義務、數位足跡以及如何驗證和移除這些浮水印。</p>
-            <a href="https://news.ycombinator.com/item?id=49421158" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 218 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 6) -->
-        <div class="card article-card">
-            <h3><a href="https://sf.thijs.gg/" target="_blank">The entire city of San Francisco as a video game</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>一個將舊金山全城以電玩遊戲形式呈現的互動式網路專案，利用公開地圖資料建立了一個可供探索的 3D 虛擬城市，展示了地理空間資料應用的新可能性。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>大規模 3D 城市渲染技術的實際應用。</li>
-                <li>OpenStreetMap 等開源地理資料的價值展現。</li>
-                <li>預示著數位雙生城市與元宇宙概念的發展方向。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對此專案的技術成就與創新性給予高度評價，尤其對於其精細的細節和流暢的互動體驗感到驚嘆。討論也涉及如何將此類技術應用於城市規劃、導航和虛擬旅遊。</p>
-            <a href="https://news.ycombinator.com/item?id=49422784" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 115 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 7) -->
-        <div class="card article-card">
-            <h3><a href="https://cnn.com/2026/08/19/style/china-tang-dynasty-never-existed-hoax-intl-hnk" target="_blank">One corner of China’s internet is insisting that the Tang Dynasty never existed</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>中國互聯網上出現一種獨特的陰謀論，聲稱唐朝從未存在過，凸顯了數位時代下假訊息的傳播速度、歷史敘事的挑戰以及社群媒體對集體記憶的影響。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>數位假訊息在特定文化語境下的快速滋生。</li>
-                <li>挑戰歷史共識與學術研究的嚴肅性。</li>
-                <li>社交平台在塑造和扭曲認知方面的巨大作用。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對這種「歷史虛無主義」的現象感到驚訝與擔憂，討論圍繞著其背後的動機、文化背景以及如何在全球範圍內有效應對日益複雜的假訊息問題。</p>
-            <a href="https://news.ycombinator.com/item?id=49425819" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 92 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 8) -->
-        <div class="card article-card">
-            <h3><a href="https://lectronz.com/u/lectronz/articles/how-europe-is-killing-makers-and-micro-entrepreneurs" target="_blank">How Europe is killing makers and micro-entrepreneurs</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>文章探討歐洲日益嚴格的法規如何為小型製造商和微型企業帶來巨大的合規負擔，從而扼殺創新和創業精神，引發對監管政策對經濟影響的深思。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>繁瑣的歐盟法規對小型企業構成生存挑戰。</li>
-                <li>可能導致歐洲在全球創新競爭中處於劣勢。</li>
-                <li>呼籲重新評估監管平衡點以促進微型創業。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>這篇文章引起了廣泛共鳴，許多創業者和開發者分享了他們在面對法規時的困境。討論集中在如何平衡消費者保護與鼓勵創新、不同地區監管模式的比較，以及簡化合規流程的必要性。這是熱度最高的議題之一。</p>
-            <a href="https://news.ycombinator.com/item?id=49419237" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 653 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 9) -->
-        <div class="card article-card">
-            <h3><a href="https://github.com/murerkinn/bookshelf" target="_blank">Bookshelf – Self-hosted eBook library that runs on object storage</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>Bookshelf 是一個開源、可自行託管的電子書庫解決方案，專為物件儲存設計，旨在讓用戶完全掌控其數位圖書收藏，提供更具隱私和彈性的閱讀體驗。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>強調數位內容的自託管與所有權。</li>
-                <li>利用物件儲存的優勢，實現高擴展性和成本效益。</li>
-                <li>為用戶提供商業電子書平台之外的開源替代方案。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>儘管討論數較少，但對此專案的支持者普遍看重其自託管特性和開源精神，認為它解決了對中心化服務依賴的擔憂，尤其對於擁有大量電子書的用戶具有吸引力。</p>
-            <a href="https://news.ycombinator.com/item?id=49427001" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 4 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 10) -->
-        <div class="card article-card">
-            <h3><a href="https://newyorker.com/news/letter-from-the-uk/iran-is-using-foreign-criminals-to-attack-its-critics-overseas" target="_blank">Iran Is Using Foreign Criminals to Attack Its Critics Overseas</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>報告指出伊朗涉嫌利用海外犯罪網絡，對其批評者進行攻擊，這凸顯了國際政治中非國家行為者的崛起，以及跨國威脅的複雜性。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>國家行為者運用非傳統手段進行影響力投射。</li>
-                <li>對海外異議人士的人身安全構成嚴重威脅。</li>
-                <li>加劇了國際關係的緊張與安全隱憂。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>這篇文章觸及了敏感的國際政治與人權議題，雖然討論數不多，但關注點集中在報導的真實性、國際社會的應對措施以及這對言論自由的影響。</p>
-            <a href="https://news.ycombinator.com/item?id=49427046" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 6 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 11) -->
-        <div class="card article-card">
-            <h3><a href="https://daily.jstor.org/where-did-all-the-public-bathrooms-go/" target="_blank">Where did all the public bathrooms go?</a></h3>
-            <p class="section-title">核心摘要 (Core Insight):</p>
-            <p>這篇文章探討了城市中公共廁所數量日益減少的現象及其對社會、公共衛生和弱勢群體造成的深遠影響，引發對城市規劃與公共服務投入的重新審視。</p>
-            <p class="section-title">關鍵要點 (Key Takeaways):</p>
-            <ul>
-                <li>城市基礎設施與公共服務投入的不足。</li>
-                <li>對無家可歸者、老年人等弱勢群體的生活品質產生負面衝擊。</li>
-                <li>反映出城市化進程中可能被忽視的社會公平問題。</li>
-            </ul>
-            <p class="section-title">社群觀點與連結 (Community Reaction):</p>
-            <p>社群對此普遍表示共鳴，許多人分享了自己在尋找公共廁所時的困擾，並討論了安全、衛生、隱私等相關議題。討論凸顯了這是一個普遍存在且被低估的城市生活問題，需要更廣泛的政策關注。</p>
-            <a href="https://news.ycombinator.com/item?id=49422800" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 294 則討論)</a>
-        </div>
-
-        <!-- 總結頁 (Final Slide) -->
-        <div class="card summary-card">
-            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>今日 Hacker News 的熱門話題揭示了幾個核心趨勢：首先，用戶<b>數據隱私與數位主權</b>的議題持續延燒，從 Apple 隱私功能的優化到 Microsoft 軟體中隱蔽的浮水印，都反映了用戶對個人資料控制權的日益重視。其次，<b>硬體性能的競賽與創新</b>仍在加速，小米在 CPU 領域的挑戰預示著行動晶片市場的激烈競爭。此外，<b>數位化對社會和文化的深遠影響</b>也備受關注，無論是將城市虛擬化為遊戲、假訊息的傳播，還是新興法規對微型企業的衝擊，都提醒我們技術發展與人文社會的交織共生關係。這些討論共同繪製了一幅複雜而動態的科技圖景，其中創新、監管與倫理不斷相互作用。</p>
+    <!-- Cover Page -->
+    <div class="slide-card cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <span class="date">生成日期：2026年08月26日</span>
+        <div class="tags">
+            <span class="tag">AI晶片</span>
+            <span class="tag">健康科技</span>
+            <span class="tag">軟體工程</span>
         </div>
     </div>
+
+    <!-- Article 1: FDA authorizes first wearable device -->
+    <div class="slide-card article-card">
+        <h2><a href="https://www.fda.gov/news-events/press-announcements/fda-authorizes-first-wearable-device-continuously-monitors-both-ketone-levels-and-blood-sugar" target="_blank">FDA authorizes first wearable device that monitors ketone and blood sugar levels</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這項創新穿戴裝置獲得美國 FDA 授權，能連續監測酮體與血糖水平，為糖尿病及酮症患者提供前所未有的即時健康洞察。</p>
+            <p>它旨在提供非侵入性、持續性的數據，幫助用戶與醫療專業人員更有效管理代謝健康狀況。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>雙重監測：</strong>首次同時提供血糖與酮體數據的穿戴裝置，提升精準度與便利性。</li>
+                <li><strong>非侵入性創新：</strong>擺脫傳統採血的痛點，透過皮膚感測技術實現持續監測。</li>
+                <li><strong>代謝健康管理：</strong>為糖尿病、生酮飲食者及有代謝風險者提供關鍵資訊，優化生活方式與治療方案。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">此設備象徵著個人健康監測的重大飛躍，社群熱議其對糖尿病管理及生酮飲食社群的潛在影響，尤其對於非侵入性、實時數據的需求已久。</p>
+            <a href="https://news.ycombinator.com/item?id=49439017" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 139 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 2: Apple introduces M6 and M5 Ultra -->
+    <div class="slide-card article-card">
+        <h2><a href="https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/" target="_blank">Apple introduces M6 and M5 Ultra</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>蘋果發布了新一代 M6 晶片及 M5 Ultra 高階晶片，強調在運算性能和 AI 處理能力上的巨大飛躍。</p>
+            <p>這些晶片將為 Mac 產品線帶來更強大的專業級表現，進一步鞏固蘋果在自研晶片領域的領先地位。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>性能躍升：</strong>M6 晶片帶來全面的效能提升，M5 Ultra 則專注於最高階的專業應用與 AI 運算。</li>
+                <li><strong>AI 核心強化：</strong>深度整合的 Neural Engine 顯著提升機器學習任務的處理速度與效率。</li>
+                <li><strong>生態系優勢：</strong>透過軟硬體緊密結合，為開發者和專業用戶提供無與倫比的效能與體驗。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">蘋果新晶片的推出總是 Hacker News 的熱門話題。社群尤其關注 M6 在 AI 運算上的進展，以及 M5 Ultra 如何在高階工作站市場與 Intel/AMD 競爭，討論集中於實際性能基準與功耗表現。</p>
+            <a href="https://news.ycombinator.com/item?id=49433292" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 892 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 3: OpenAI Jalapeño: Better than Nvidia Blackwell -->
+    <div class="slide-card article-card">
+        <h2><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank">OpenAI Jalapeño: Better than Nvidia Blackwell</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>OpenAI 據稱正在開發一款名為「Jalapeño」的自研 AI 晶片，其效能目標超越了 Nvidia 最新的 Blackwell 架構。</p>
+            <p>此舉顯示 OpenAI 試圖減少對外部硬體供應商的依賴，並針對其 AI 模型優化專屬硬體。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>自研晶片戰略：</strong>OpenAI 投入自研硬體，旨在突破通用 GPU 的瓶頸，實現更高效率的 AI 訓練與推論。</li>
+                <li><strong>性能超越Nvidia：</strong>挑戰市場領導者 Nvidia 的地位，預示 AI 晶片領域競爭將更加白熱化。</li>
+                <li><strong>優化AI模型：</strong>Jalapeño 專為 OpenAI 的大型語言模型設計，有望實現更深度的軟硬體整合與效能突破。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">OpenAI 進入硬體領域，直接挑戰 Nvidia，引發了巨大的關注。社群討論圍繞著其可行性、潛在影響、以及對 AI 算力供應鏈的重塑作用。許多人質疑是否有能力在硬體設計和製造上與經驗豐富的 Nvidia 抗衡。</p>
+            <a href="https://news.ycombinator.com/item?id=49434378" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 214 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 4: New Mac Studio with M5 Max and M5 Ultra -->
+    <div class="slide-card article-card">
+        <h2><a href="https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra/" target="_blank">New Mac Studio with M5 Max and M5 Ultra</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>蘋果推出了搭載 M5 Max 和 M5 Ultra 晶片的新款 Mac Studio，旨在為專業創作者和開發者提供頂級性能。</p>
+            <p>這款桌面級工作站結合了強大的處理能力與蘋果生態系的優勢，進一步滿足對高性能運算的需求。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>專業級旗艦：</strong>Mac Studio 定位為蘋果桌面產品線的性能巔峰，專為高強度工作負載設計。</li>
+                <li><strong>M5 Max/Ultra：</strong>搭載最新 M5 系列晶片，提供超凡的 CPU、GPU 和 Neural Engine 效能。</li>
+                <li><strong>擴展性與連接：</strong>保留多樣的連接埠，滿足專業用戶對外部設備和顯示器的需求。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">作為蘋果專業級硬體的核心，新款 Mac Studio 的發布總是吸引大量關注。社群討論其性價比、與 Mac Pro 的定位差異，以及 M5 晶片如何實際提升在影像編輯、3D 渲染和軟體開發等任務中的表現。</p>
+            <a href="https://news.ycombinator.com/item?id=49433316" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 445 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 5: Python's pre-declared constants are kinda weird -->
+    <div class="slide-card article-card">
+        <h2><a href="https://sebsite.pw/w/20260801-pythonconstants.html" target="_blank">Python's pre-declared constants are kinda weird</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這篇文章深入探討了 Python 中一些預設的「常數」如 `None`, `True`, `False` 的內部工作機制與其奇特之處。</p>
+            <p>作者揭示了這些對象的身份 (identity) 與行為，這對於理解 Python 語言的底層設計和潛在陷阱至關重要。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>單例模式：</strong>`None`, `True`, `False` 均為單例 (Singleton) 對象，在整個程式執行過程中只有一個實例。</li>
+                <li><strong>可變性錯覺：</strong>儘管它們是「常數」，但其在 CPython 內部實現細節可能導致開發者對其行為產生誤解。</li>
+                <li><strong>身份與值：</strong>強調在 Python 中，對象的身份 (is) 與值相等 (==) 之間的細微差別，尤其是在處理這些特殊常數時。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">這類關於語言內部機制和「怪異之處」的文章，對熱衷於深入理解 Python 的開發者極具吸引力。討論集中於這些特性的歷史原因、在不同 Python 版本中的行為變化，以及它們在實際編碼中可能帶來的意外。</p>
+            <a href="https://news.ycombinator.com/item?id=49441033" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 95 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 6: Maiao: Gerrit-style code review workflow -->
+    <div class="slide-card article-card">
+        <h2><a href="https://github.com/runetes/maiao" target="_blank">Maiao: Gerrit-style code review workflow for GitHub, GitLab, Gitea, others</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>Maiao 是一個開源工具，旨在為 GitHub、GitLab、Gitea 等平台帶來 Gerrit 風格的程式碼審查工作流程。</p>
+            <p>它解決了在這些平台上缺乏 Gerrit 所提供的精細化、基於修補集 (patch-set) 的審查體驗的問題。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>跨平台兼容：</strong>支援主流 Git 服務，讓團隊能在熟悉的平台上享受高級審查功能。</li>
+                <li><strong>Gerrit 風格：</strong>引入修補集概念，允許更精細的迭代審查，提高程式碼品質與審查效率。</li>
+                <li><strong>獨立部署：</strong>作為一個獨立服務運行，不修改現有 Git 平台的底層邏輯，易於整合。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">對於習慣 Gerrit 嚴謹工作流的開發者而言，Maiao 提供了一個有吸引力的替代方案。討論集中於其部署複雜度、與現有 CI/CD 流程的整合性，以及與 GitLab/GitHub 原生審查功能的比較，尤其在大型團隊中的實用性。</p>
+            <a href="https://news.ycombinator.com/item?id=49441666" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 7: Black hole singularity is a surface not a point -->
+    <div class="slide-card article-card">
+        <h2><a href="https://arxiv.org/abs/2608.21590" target="_blank">Black hole singularity is a surface not a point</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這項研究提出黑洞的奇點並非傳統認為的一個點，而是一個奇異的「表面」。</p>
+            <p>這一新模型基於對廣義相對論方程的重新詮釋，試圖解決奇點處物理定律失效的問題。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>新奇點模型：</strong>挑戰了黑洞奇點是無限密度點的傳統觀念，提出其為一個具有特定幾何結構的表面。</li>
+                <li><strong>解決物理難題：</strong>旨在通過重新定義奇點，避免廣義相對論在該點失效的數學發散問題。</li>
+                <li><strong>理論物理進展：</strong>為量子重力理論的發展提供新的視角，可能影響我們對宇宙最極端現象的理解。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">基礎物理學的突破總能吸引 Hacker News 社群中廣泛的討論，尤其是這種顛覆傳統概念的理論。討論涵蓋了論文的數學嚴謹性、觀測驗證的可能性，以及其對宇宙學和量子物理學的深遠影響。</p>
+            <a href="https://news.ycombinator.com/item?id=49437210" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 125 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 8: When str.lower() is a security vulnerability in Python -->
+    <div class="slide-card article-card">
+        <h2><a href="https://sethmlarson.dev/when-str-lower-is-a-security-vulnerability" target="_blank">When str.lower() is a security vulnerability in Python – Seth Larson</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>文章揭示了 Python 的 `str.lower()` 方法在特定情況下可能引發安全漏洞，尤其是在處理 Unicode 字串和不同語言環境 (locales) 時。</p>
+            <p>這表明看似簡單的字串操作可能隱藏著複雜的跨語言安全風險，對開發者是個重要提醒。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>Locale 敏感性：</strong>`str.lower()` 的行為可能受執行環境的 locale 設定影響，導致結果不一致。</li>
+                <li><strong>Unicode 複雜性：</strong>特定 Unicode 字元的大小寫轉換規則在不同上下文可能有所不同，產生非預期的字串。</li>
+                <li><strong>安全風險：</strong>在需要嚴格字串匹配或規範化的安全敏感場景，這種不一致可能被利用來繞過驗證或過濾。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">這篇文章對 Python 開發者來說是個重要的警示，因為 `str.lower()` 是一個常用但潛藏陷阱的函數。社群討論集中於實踐中如何避免此類問題、不同語言環境的影響，以及 Unicode 標準在軟體開發中的重要性，特別是在安全考量下。</p>
+            <a href="https://news.ycombinator.com/item?id=49440410" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 27 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 9: Show HN: TeXbrain, a LaTeX editor that runs pdfTeX in the browser via WASM -->
+    <div class="slide-card article-card">
+        <h2><a href="https://github.com/swimmingbrain/texbrain" target="_blank">Show HN: TeXbrain, a LaTeX editor that runs pdfTeX in the browser via WASM</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>TeXbrain 是一個創新的 LaTeX 編輯器，它利用 WebAssembly (WASM) 技術在瀏覽器中運行 pdfTeX 編譯器。</p>
+            <p>這使得用戶可以在純網頁環境下，無需安裝任何本地軟體即可即時編譯並預覽 LaTeX 文檔。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>WASM 驅動：</strong>將傳統桌面應用 pdfTeX 移植到瀏覽器，展現 WebAssembly 的強大潛力。</li>
+                <li><strong>實時預覽：</strong>在線編輯、即時編譯與顯示 PDF，大幅提升 LaTeX 編寫效率與便利性。</li>
+                <li><strong>離線可用性：</strong>基於瀏覽器本地運行，理論上可以在無網路連接的環境下進行編輯和編譯。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">作為一個 Show HN 項目，TeXbrain 獲得了對 WebAssembly 應用潛力的熱烈討論。開發者們對能在瀏覽器中運行複雜的桌面級工具感到興奮，並討論了性能、對大型 LaTeX 專案的支援，以及與 Overleaf 等現有解決方案的競爭。</p>
+            <a href="https://news.ycombinator.com/item?id=49441375" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 8 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Article 10: C2PA Cameras Do Not Survive Contact with Reality -->
+    <div class="slide-card article-card">
+        <h2><a href="https://www.da.vidbuchanan.co.uk/blog/android-c2pa.html" target="_blank">C2PA Cameras Do Not Survive Contact with Reality</a></h2>
+        <div class="core-insight">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這篇文章批評了 C2PA (內容真實性與歸因協議) 相機在實際應用中的局限性與問題。</p>
+            <p>作者指出，儘管 C2PA 旨在打擊深度偽造，但其在真實世界環境下的實施面臨嚴峻挑戰，難以有效達到預期效果。</p>
+        </div>
+        <div class="key-takeaways">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>理想與現實：</strong>C2PA 協議在理論上旨在提供數位內容的來源和歷史，但在實際應用中面臨巨大挑戰。</li>
+                <li><strong>實施複雜性：</strong>在主流設備和平台上的普及與整合困難重重，且易受惡意操縱。</li>
+                <li><strong>技術局限：</strong>難以完全防止深度偽造或其他形式的內容篡改，可能給用戶帶來錯誤的安全感。</li>
+            </ul>
+        </div>
+        <div class="community-reaction">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p class="reaction-text">C2PA 協議作為對抗假資訊的技術方案，其有效性一直備受爭議。社群討論聚焦於數位內容驗證的根本難題、技術措施與社會信任之間的關係，以及如何在不侵犯隱私的前提下實現內容真實性。</p>
+            <a href="https://news.ycombinator.com/item?id=49439499" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 32 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide -->
+    <div class="slide-card final-slide">
+        <h2>今日技術趨勢歸納</h2>
+        <p>今日 Hacker News 的熱門話題清晰地描繪了科技發展的幾個核心趨勢。<strong>AI 晶片與硬體創新</strong>仍是焦點，從 Apple 的 M6/M5 Ultra 到 OpenAI 挑戰 Nvidia 的自研晶片，都預示著 AI 算力軍備競賽的白熱化。同時，<strong>健康科技</strong>領域也在突破，FDA 授權的雙重監測穿戴設備開啟了個人健康管理的新篇章。在<strong>軟體工程</strong>方面，開發者們持續深挖語言底層機制（如 Python 字串處理的潛在安全問題），並探索新的開發工具與範式（如基於 WASM 的瀏覽器 LaTeX 編輯器、跨平台程式碼審查工具）。此外，對於數位時代的信任與真實性（C2PA 挑戰）以及基礎科學的探索（黑洞奇點新模型）也持續引發社群的深度思考。</p>
+    </div>
+
 </body>
 </html>
