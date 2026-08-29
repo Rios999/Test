@@ -3,49 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年08月28日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年08月29日</title>
     <style>
-        :root {
-            --bg-color: #0f172a; /* 深灰色背景 */
-            --card-bg: #1e293b; /* 卡片背景色，略淺於主背景 */
-            --text-color: #e2e8f0; /* 一般文字顏色 */
-            --heading-color: #ffffff; /* 標題文字顏色 */
-            --accent-blue: #2563eb; /* 主要強調藍色 */
-            --accent-purple: #8b5cf6; /* 次要強調紫色 */
-            --button-hover-bg: #3b82f6; /* 按鈕懸停色 */
-        }
-
+        /* 全局字體和背景 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0f172a; /* 深藍色背景 */
+            color: #e2e8f0; /* 淺灰色文本 */
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
-            gap: 20px;
             align-items: center;
+            gap: 40px; /* 卡片間距 */
         }
 
+        /* 卡片通用樣式 */
         .slide-card {
-            background-color: var(--card-bg);
+            background-color: #1e293b; /* 稍淺的深藍色卡片背景 */
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             padding: 30px;
             max-width: 900px;
             width: 100%;
-            box-sizing: border-box;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            border: 1px solid #334155; /* 輕微邊框 */
         }
 
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        /* 標題樣式 */
+        h1, h2, h3 {
+            color: #f8fafc; /* 白色標題 */
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
-        /* Cover Slide Specifics */
+        h1 {
+            font-size: 3em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #94a3b8; /* 次級標題顏色 */
+        }
+
+        /* 段落和列表 */
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 連結樣式 */
+        a {
+            color: #6366f1; /* 藍紫色強調色 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #a78bfa; /* 滑鼠懸停時更亮的藍紫色 */
+            text-decoration: underline;
+        }
+
+        /* 封面頁特殊樣式 */
         .cover-slide {
             text-align: center;
             padding: 60px 30px;
@@ -53,133 +90,123 @@
 
         .cover-slide h1 {
             font-size: 3.5em;
-            color: var(--heading-color);
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            background: linear-gradient(90deg, #6366f1, #a78bfa); /* 藍紫漸層標題 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
+            margin-bottom: 10px;
         }
 
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: var(--text-color);
-            margin-bottom: 15px;
+        .cover-slide .subtitle {
+            font-size: 1.5em;
+            color: #94a3b8;
+            margin-bottom: 30px;
         }
 
-        .cover-slide h3 {
-            font-size: 1.2em;
-            color: var(--accent-blue);
-            font-weight: normal;
+        .cover-slide .date {
+            font-size: 1.1em;
+            color: #94a3b8;
+            margin-bottom: 40px;
         }
 
         .cover-slide .tags {
-            margin-top: 40px;
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* 標籤換行 */
         }
 
         .cover-slide .tag {
-            background-color: rgba(var(--accent-blue), 0.2); /* Use RGBA to allow transparency with hex */
-            background-image: linear-gradient(45deg, rgba(37, 99, 235, 0.2), rgba(139, 92, 246, 0.2));
-            padding: 10px 20px;
-            border-radius: 25px;
-            color: var(--heading-color);
+            background-color: #334155; /* 標籤背景 */
+            color: #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
             font-weight: bold;
-            font-size: 1.1em;
-            border: 1px solid var(--accent-blue);
         }
 
-        /* Content Slides Specifics */
-        .slide-card h3 {
-            font-size: 1.8em;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent-purple);
-            padding-bottom: 10px;
-        }
-
-        .slide-card h3 a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .slide-card h3 a:hover {
-            color: var(--button-hover-bg);
-        }
-
-        .slide-card h4 {
-            font-size: 1.3em;
-            color: var(--heading-color);
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .slide-card p, .slide-card li {
-            font-size: 1.05em;
-            color: var(--text-color);
-            margin-bottom: 8px;
-        }
-
-        .slide-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .slide-card ul li:before {
-            content: '•';
-            color: var(--accent-purple);
-            font-weight: bold;
+        /* 討論區按鈕樣式 */
+        .discussion-button {
             display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .hn-button {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: var(--heading-color);
+            background-color: #2563eb; /* 醒目藍色背景 */
+            color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 25px;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            border: none;
-            cursor: pointer;
+            font-size: 1.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
         }
 
-        .hn-button:hover {
-            background-color: var(--button-hover-bg);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        .discussion-button:hover {
+            background-color: #3b82f6; /* 懸停時顏色變淺 */
+            transform: translateY(-2px); /* 輕微上浮效果 */
+            text-decoration: none; /* 按鈕不顯示下劃線 */
         }
 
-        /* Final Slide Specifics */
-        .summary-slide {
+        /* 總結頁樣式 */
+        .summary-slide h2 {
             text-align: center;
-            padding: 50px 30px;
-        }
-
-        .summary-slide h1 {
-            font-size: 2.8em;
-            color: var(--heading-color);
-            margin-bottom: 30px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            margin-bottom: 25px;
         }
 
         .summary-slide p {
-            font-size: 1.2em;
-            max-width: 700px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
-            color: var(--text-color);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+                gap: 30px;
+            }
+            .slide-card {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .cover-slide h1 {
+                font-size: 3em;
+            }
+            .cover-slide .subtitle {
+                font-size: 1.2em;
+            }
+            .discussion-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .cover-slide h1 {
+                font-size: 2.5em;
+            }
+            .cover-slide .subtitle {
+                font-size: 1em;
+            }
+            .slide-card {
+                padding: 20px;
+            }
+            ul {
+                margin-left: 15px;
+            }
+            li {
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -188,179 +215,179 @@
     <!-- Slide 1: Cover Page -->
     <div class="slide-card cover-slide">
         <h1>Hacker News 每日科技熱點摘要</h1>
-        <h2>基於最新社群討論自動生成</h2>
-        <h3>生成日期：2026年08月28日</h3>
+        <p class="subtitle">基於最新社群討論自動生成</p>
+        <p class="date">生成日期：2026年08月29日</p>
         <div class="tags">
-            <span class="tag">#AI創新</span>
-            <span class="tag">#基礎設施優化</span>
-            <span class="tag">#開源協作</span>
+            <span class="tag">AI進化</span>
+            <span class="tag">開發者效率</span>
+            <span class="tag">網路社群脈動</span>
         </div>
     </div>
 
-    <!-- Slide 2: Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache -->
+    <!-- Article 1: Boot a Virtual iPhone via Apple's Virtualization.framework -->
     <div class="slide-card">
-        <h3><a href="https://blog.cloudflare.com/dns-cache-memory-optimization-1111/" target="_blank">Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache</a></h3>
-        <h4>核心摘要</h4>
-        <p>Cloudflare 透過對其 1.1.1.1 DNS 解析器的快取機制進行深入優化，成功節省了高達 100 TB 的記憶體。此舉不僅大幅提升了其全球網路的效率與響應速度，也展現了在超大規模基礎設施中精細化資源管理的巨大潛力。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://github.com/Lakr233/vphone-cli" target="_blank">Boot a Virtual iPhone via Apple's Virtualization.framework</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>此專案利用 Apple 的 Virtualization.framework，成功實現了在 macOS 上啟動虛擬 iPhone 的功能。這為開發者提供了一個無需實體設備即可進行 iOS 應用開發與測試的便捷環境，極大提升了開發流程的靈活性和效率。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>利用獨特的記憶體管理策略與快取結構調整，達成驚人的記憶體節省。</li>
-            <li>在不犧牲解析性能的前提下，顯著降低了營運成本與碳足跡。</li>
-            <li>為全球數百萬用戶提供更快速、更可靠的 DNS 解析服務。</li>
+            <li>利用 Apple 原生虛擬化框架，確保與生態系統高度相容。</li>
+            <li>為 iOS 應用開發與測試提供獨立、可控的虛擬環境。</li>
+            <li>降低開發門檻，加速迭代週期，特別適用於自動化測試。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這篇文章引起高度討論，因為它展示了在極大規模系統中，即使是微小的優化也能帶來天文數字般的效益。對於基礎設施工程師而言，這是一個極具啟發性的真實世界案例，證明了精細化調校的重要性。</p>
-        <a href="https://news.ycombinator.com/item?id=49468083" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 221 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這個項目引起了廣泛關注，因為它解決了 iOS 開發者在設備管理和測試方面的痛點。能虛擬化 iPhone 不僅方便，也為 CI/CD 流程帶來了新的可能性，社群對其潛在應用充滿討論。</p>
+        <a href="https://news.ycombinator.com/item?id=49485267" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 59 則討論)</a>
     </div>
 
-    <!-- Slide 3: That's a Lot of YAML -->
+    <!-- Article 2: GUIs should be fully keyboard-driven -->
     <div class="slide-card">
-        <h3><a href="https://noyaml.com/" target="_blank">That's a Lot of YAML</a></h3>
-        <h4>核心摘要</h4>
-        <p>本文以詼諧的方式探討了現代軟體開發中 YAML 設定檔的氾濫與隨之而來的複雜性問題。作者指出 YAML 在許多場景下已變得過於冗長和難以維護，呼籲社群重新思考配置管理策略。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://ckardaris.com/blog/2026/08/28/keyboard-driven-guis.html" target="_blank">GUIs should be fully keyboard-driven</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇文章主張圖形使用者介面（GUIs）應全面支援鍵盤驅動操作，而非僅依賴滑鼠。作者認為，此舉能顯著提升高效率使用者的生產力，同時也大大改善了軟體的無障礙體驗，為設計帶來新的思考方向。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>YAML 被廣泛用於雲原生應用和 CI/CD，但也帶來了語法嚴謹性與可讀性的挑戰。</li>
-            <li>過度依賴 YAML 可能導致配置檔膨脹、難以調試，並增加開發者的心智負擔。</li>
-            <li>引發了關於更簡潔、更具表現力的配置語言或工具的討論。</li>
+            <li>強調鍵盤導航對提升專業使用者效率的巨大潛力。</li>
+            <li>促進軟體無障礙設計，使更多人能夠順暢使用。</li>
+            <li>挑戰傳統 GUI 設計模式，鼓勵開發者重新審視互動邏輯。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這項話題在開發者社群中引起廣泛共鳴，許多人都有被 YAML 設定檔「淹沒」的經驗。討論區充滿了對 YAML 的愛恨交織，以及對替代方案（如 CUE, Jsonnet, 或更簡單的程式碼）的探索。</p>
-        <a href="https://news.ycombinator.com/item?id=49475301" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 12 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>此文觸及了許多開發者和高效率使用者的心聲，引發了關於軟體設計哲學的熱烈討論。許多人分享了他們對鍵盤驅動工具的偏好，並探討如何平衡可用性與開發複雜性。</p>
+        <a href="https://news.ycombinator.com/item?id=49479837" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 335 則討論)</a>
     </div>
 
-    <!-- Slide 4: Overcooked? Why robotic pizza makers are failing -->
+    <!-- Article 3: 9th Circuit sides with states in Kalshi gambling fight -->
     <div class="slide-card">
-        <h3><a href="https://www.bbc.com/news/articles/czxq0wgkkdjo" target="_blank">Overcooked? Why robotic pizza makers are failing</a></h3>
-        <h4>核心摘要</h4>
-        <p>這篇文章深入分析了自動化披薩製作新創公司面臨的困境與失敗原因。儘管機器人技術日益精進，但在食品服務業的實際應用中，成本、複雜性、衛生法規和消費者接受度等挑戰仍使其難以規模化。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://azmirror.com/2026/08/28/9th-circuit-sides-with-states-in-kalshi-gambling-fight-potentially-reviving-arizonas-prosecution/" target="_blank">9th Circuit sides with states in Kalshi gambling fight</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>美國第九巡迴法院裁定各州可將預測市場平台 Kalshi 的特定產品視為賭博，這對新興的預測市場行業及其商業模式構成了重大法律挑戰。此判決可能導致亞利桑那州的相關訴訟重啟，對金融科技的監管邊界產生深遠影響。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>食品自動化不僅是技術挑戰，更涉及營運成本、供應鏈整合和人力替代的複雜性。</li>
-            <li>消費者對「機器人製作」食品的信任度與感知品質，是商業成功的關鍵因素。</li>
-            <li>在食品製作的靈活性與客製化方面，機器人仍難以超越人類勞動的效率與適應性。</li>
+            <li>法院判決對預測市場的法律地位產生關鍵影響。</li>
+            <li>新興金融科技產品面臨更嚴格的州級監管風險。</li>
+            <li>模糊了金融衍生品與賭博的界限，促使行業重新定義產品。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>機器人技術的商業應用一直是熱門話題，而食品服務業是其重要試驗場。這篇文章引發了關於自動化界限、實際投資回報和特定產業挑戰的討論，尤其是在「軟性」且變數多的場景。</p>
-        <a href="https://news.ycombinator.com/item?id=49475993" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 2 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>社群對此法律判決的影響議論紛紛，尤其關注其對創新金融產品和數位貨幣領域可能帶來的監管前例。討論也延伸至政府如何在鼓勵創新與保護消費者之間取得平衡。</p>
+        <a href="https://news.ycombinator.com/item?id=49485452" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 70 則討論)</a>
     </div>
 
-    <!-- Slide 5: Small Models Have Arrived -->
+    <!-- Article 4: TurboKV: Insanely fast Rust key-value store -->
     <div class="slide-card">
-        <h3><a href="https://calv.info/small-models-have-arrived" target="_blank">Small Models Have Arrived</a></h3>
-        <h4>核心摘要</h4>
-        <p>這篇文章宣告了小型 AI 模型時代的到來，強調這些模型在效率、部署成本和邊緣運算應用方面的顯著優勢。隨著技術進步，小型模型正展現出與大型模型匹敵，甚至在特定任務上更優異的性能，預示著 AI 普及化的新階段。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://github.com/kingroryg/turbokv" target="_blank">TurboKV: Insanely fast Rust key-value store</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>TurboKV 是一個以 Rust 語言開發的超高速鍵值儲存引擎，其設計目標是提供極致的性能和低延遲。該專案利用 Rust 的內存安全和併發優勢，旨在成為處理大量數據和高吞吐量應用的理想選擇。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>小型模型在資源受限的設備上提供高效能的 AI 推理能力。</li>
-            <li>降低了 AI 技術的進入門檻和營運成本，加速了 AI 在更多產業的應用。</li>
-            <li>推動了模型壓縮、蒸餾和量化等優化技術的發展，使 AI 部署更具彈性。</li>
+            <li>採用 Rust 語言開發，兼顧性能、安全與可靠性。</li>
+            <li>專注於提供頂級讀寫速度，適用於性能敏感型應用。</li>
+            <li>輕量級設計，易於整合到現有系統中，減少運行開銷。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這是一個引起廣泛關注的趨勢，因為它代表著 AI 發展方向的潛在轉變。開發者和研究者對如何有效利用小型模型，以及它們在隱私保護和個人化應用中的潛力表達了濃厚興趣。</p>
-        <a href="https://news.ycombinator.com/item?id=49466917" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 288 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>Rust 生態系統的愛好者和對性能有極高要求的後端開發者對 TurboKV 表現出強烈興趣。社群討論圍繞其基準測試結果、實際應用場景及與其他鍵值儲存方案的比較。</p>
+        <a href="https://news.ycombinator.com/item?id=49486334" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 11 則討論)</a>
     </div>
 
-    <!-- Slide 6: Sovereign Tech Agency invests €500k in Flatpak -->
+    <!-- Article 5: Htmx 4.0 -->
     <div class="slide-card">
-        <h3><a href="https://modal.cx/blog/announcing-flatpak-sta/" target="_blank">Sovereign Tech Agency invests €500k in Flatpak</a></h3>
-        <h4>核心摘要</h4>
-        <p>德國主權技術局 (Sovereign Tech Agency, STA) 宣布投入 50 萬歐元資金支援 Flatpak 專案，旨在強化開源軟體生態系統的發展與應用。這筆投資將用於提升 Flatpak 的穩定性、可用性及安全性，促進其在更廣泛的 Linux 環境中的普及。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://four.htmx.org/announcements/2026-08-28-htmx-4.0.0-is-released" target="_blank">Htmx 4.0</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>Htmx 4.0 正式發布，標誌著這個讓 HTML 具備動態交互能力的輕量級函式庫邁入新階段。新版本帶來了性能優化、穩定性提升及更多新功能，進一步簡化了網頁開發中對複雜 JavaScript 框架的依賴，讓後端開發者也能輕鬆構建豐富的用戶界面。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>政府層面的資金投入，彰顯了對開源軟體作為數位主權基礎的重視。</li>
-            <li>Flatpak 作為跨發行版的通用打包格式，有助於簡化 Linux 應用程式的部署和管理。</li>
-            <li>此舉預計將加速 Flatpak 的技術發展，提升其在企業和政府部門的採用率。</li>
+            <li>大幅減少對前端 JavaScript 的需求，簡化開發流程。</li>
+            <li>提升核心性能與穩定性，提供更流暢的用戶體驗。</li>
+            <li>持續推廣「超媒體即引擎」的理念，賦能傳統網頁開發。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這項消息受到開源社群的普遍歡迎，因為它為關鍵的開源基礎設施提供了急需的資金支持。討論集中在政府如何有效支持開源專案、資金分配的最佳實踐以及 Flatpak 與其他打包格式（如 Snap）的未來發展。</p>
-        <a href="https://news.ycombinator.com/item?id=49474786" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 56 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>Htmx 一直在 web 開發社群中擁有一批忠實擁護者，其 4.0 版本的發布引起了熱烈討論。許多開發者看好其在特定應用場景下的效率優勢，並探討其與現代 SPA 框架的共存與競爭。</p>
+        <a href="https://news.ycombinator.com/item?id=49478178" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 141 則討論)</a>
     </div>
 
-    <!-- Slide 7: 507 Mechanical Movements -->
+    <!-- Article 6: Our decision on Cursor following its acquisition by SpaceX -->
     <div class="slide-card">
-        <h3><a href="https://507movements.com/" target="_blank">507 Mechanical Movements</a></h3>
-        <h4>核心摘要</h4>
-        <p>這是一個經典的線上資源，彙集了 507 種不同的機械運動和機構設計，以圖解方式展示了各種機械如何將輸入的運動轉換為輸出。它不僅是機械工程學習的寶貴資料，也是設計師和發明家的靈感源泉。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/" target="_blank">Our decision on Cursor following its acquisition by SpaceX</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>OpenAI 發布聲明，闡述其對 AI 編程工具 Cursor 在被 SpaceX 收購後的立場與決策。這份聲明很可能圍繞數據隱私、技術合作協議以及潛在的利益衝突等敏感問題，對 AI 產業的跨公司合作與併購產生參考意義。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>詳盡展示了齒輪、凸輪、連桿等基礎機械元件的組合應用。</li>
-            <li>提供了一窺 19 世紀機械設計智慧的窗口，其原理至今仍廣泛應用。</li>
-            <li>作為一個開放且易於訪問的教育資源，激發了跨領域的創新思維。</li>
+            <li>反映了大型 AI 公司在併購後的數據倫理與治理考量。</li>
+            <li>揭示了 AI 工具生態系統中供應商關係的複雜性。</li>
+            <li>對未來 AI 輔助開發工具的市場格局及用戶信任度帶來影響。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這個網站以其永恆的魅力和教育價值，定期在 Hacker News 上引起關注。討論區充滿了對經典工程的敬意、個人經歷的回憶，以及現代工程師如何從這些基礎設計中汲取靈感。</p>
-        <a href="https://news.ycombinator.com/item?id=49465169" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 74 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>由於涉及 OpenAI 和 SpaceX 兩大科技巨頭，以及熱門的 AI 編程工具 Cursor，這條新聞迅速成為焦點。社群討論聚焦於隱私安全、技術控制權以及大公司間的聯盟與競爭對創新開放性的影響。</p>
+        <a href="https://news.ycombinator.com/item?id=49486172" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 89 則討論)</a>
     </div>
 
-    <!-- Slide 8: Show HN: OpenTIE and OpenXWA, Modern Ports of Tie Fighter and X-Wing Alliance -->
+    <!-- Article 7: Does the Sumerian King List Align with Paleoclimate Events? -->
     <div class="slide-card">
-        <h3><a href="https://github.com/elyosh/OpenTIE/" target="_blank">Show HN: OpenTIE and OpenXWA, Modern Ports of Tie Fighter and X-Wing Alliance</a></h3>
-        <h4>核心摘要</h4>
-        <p>這兩個專案是經典 Star Wars 太空戰鬥模擬遊戲《Tie Fighter》和《X-Wing Alliance》的現代化開源移植版。它們讓玩家能夠在現代作業系統上重溫這些經典，並提供畫質增強、Bug 修正等改進，透過社群力量保存遊戲歷史。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://www.vectorian.be/articles/2026-06-07/sumerian-king-list-paleoclimate-alignment-explorer/" target="_blank">Does the Sumerian King List Align with Paleoclimate Events?</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇文章及相關工具探討了蘇美爾王表中的記載是否與古代氣候事件存在關聯。作者運用數據分析和交叉比對的方法，試圖從歷史文獻中發掘氣候變遷對古代文明興衰的潛在影響，展現了跨學科研究的魅力。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>透過逆向工程和重寫代碼，成功將老舊遊戲帶入現代平台。</li>
-            <li>展示了開源社群在遊戲保存和增強方面的巨大潛力。</li>
-            <li>提供了更好的兼容性和更流暢的遊戲體驗，吸引了新老玩家。</li>
+            <li>結合歷史學、考古學與數據科學的跨學科研究。</li>
+            <li>利用計算工具分析古代文獻與環境數據的潛在相關性。</li>
+            <li>為理解氣候變遷如何影響人類歷史提供了新視角。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這個 "Show HN" 專案引起了大量懷舊玩家的熱烈討論，他們對能再次玩到這些童年經典感到興奮。討論也延伸到遊戲版權、合法性以及開源對遊戲生態系統的影響。</p>
-        <a href="https://news.ycombinator.com/item?id=49471965" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 38 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這是一個非常規但引人入勝的話題，吸引了歷史愛好者、數據科學家和對古文明有興趣的讀者。討論主要集中在數據的解讀、研究方法的嚴謹性以及如何從有限的歷史資料中提取有效信息。</p>
+        <a href="https://news.ycombinator.com/item?id=49485532" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 24 則討論)</a>
     </div>
 
-    <!-- Slide 9: Gemini-3.5-Transcribe -->
+    <!-- Article 8: I accidentally turned LLM memory into program analysis -->
     <div class="slide-card">
-        <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/" target="_blank">Gemini-3.5-Transcribe</a></h3>
-        <h4>核心摘要</h4>
-        <p>Google 推出了 Gemini 3.5 Transcribe，一個專為提供高精準度和細緻入微的語音轉文字（Speech-to-Text）服務而設計的全新 AI 模型。該模型特別擅長處理複雜的音頻環境、多發言人對話以及不同口音和語言的細節。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://pwning.systems/posts/llm-memory-program-analysis/" target="_blank">I accidentally turned LLM memory into program analysis</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>作者在偶然間發現，大型語言模型 (LLM) 的「記憶」機制可以被巧妙地轉化為程式碼分析工具。這種意想不到的應用開啟了利用 LLM 探測程式邏輯、安全漏洞或行為模式的新途徑，預示著 AI 在軟體工程領域的更多潛能。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>利用 Gemini 模型的先進架構，在語音辨識方面實現業界領先的準確性。</li>
-            <li>能夠識別和區分多個發言人，並處理噪音環境下的語音資料。</li>
-            <li>為會議記錄、內容創作、無障礙服務等場景提供了強大的工具。</li>
+            <li>發現 LLM 記憶的非預期應用，拓展了 AI 工具邊界。</li>
+            <li>為程式碼安全審計與錯誤偵測提供新穎的 AI 輔助方法。</li>
+            <li>展現 LLM 在理解複雜系統行為方面的深層能力。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>作為 Google AI 系列的最新成員，Gemini 3.5 Transcribe 的發布引起了對其性能和潛在應用的大量討論。開發者和研究者對其在多語言、多說話者環境下的表現尤為關注，期待其在實際應用中的表現。</p>
-        <a href="https://news.ycombinator.com/item?id=49468818" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 85 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這個充滿創意的發現激發了 AI 研究者和資安專家的極大興趣。社群討論集中在這種方法的有效性、局限性以及未來如何將 LLM 應用於更複雜的逆向工程或漏洞分析任務。</p>
+        <a href="https://news.ycombinator.com/item?id=49485416" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 12 則討論)</a>
     </div>
 
-    <!-- Slide 10: Microduck -->
+    <!-- Article 9: StemDeck, a free, open-source and local AI stem separator -->
     <div class="slide-card">
-        <h3><a href="https://pollen-robotics.com/microduck/" target="_blank">Microduck</a></h3>
-        <h4>核心摘要</h4>
-        <p>Pollen Robotics 發布了 Microduck，一款緊湊、模組化且價格親民的開源機器人手臂。這款設計旨在降低機器人技術的門檻，使其更易於研究人員、教育機構和愛好者用於實驗、原型開發和學習。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://github.com/stemdeckapp/stemdeck" target="_blank">StemDeck, a free, open-source and local AI stem separator</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>StemDeck 是一款免費、開源且可在本地運行的 AI 音頻分離工具，它能夠將音樂曲目中的人聲、鼓點、貝斯等不同樂器軌道獨立分離出來。這為音樂製作人、DJ 和音頻愛好者提供了強大的編輯靈活性，同時保障了數據隱私。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>採用開源硬體和軟體設計，鼓勵社群協作和客製化。</li>
-            <li>模組化設計使其易於組裝、維護和擴展，提高了靈活性。</li>
-            <li>以合理的價格提供高性能機器人手臂，促進了機器人教育和創新的普及。</li>
+            <li>提供高質量的 AI 驅動音頻分離功能。</li>
+            <li>開源且本地運行，保障用戶隱私與數據安全。</li>
+            <li>豐富音樂創作、混音和學習的工具生態。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>開源硬體和可負擔機器人一直是 HN 社群關注的熱點。Microduck 因其對教育和個人專案的潛力而受到青睞。討論集中在其技術規格、應用場景以及對更廣泛的開源機器人生態系統的影響。</p>
-        <a href="https://news.ycombinator.com/item?id=49462763" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 211 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>音樂創作社群和開源愛好者對 StemDeck 表現出極大熱情。討論聚焦於其分離效果、對不同音樂風格的適應性以及作為本地工具所帶來的隱私優勢。</p>
+        <a href="https://news.ycombinator.com/item?id=49486081" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 12 則討論)</a>
     </div>
 
-    <!-- Slide 11: We found a division by zero bug in FFmpeg with a vibecoded fuzzer -->
+    <!-- Article 10: U.S. sanctions against the A/I Collective -->
     <div class="slide-card">
-        <h3><a href="https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/24290" target="_blank">We found a division by zero bug in FFmpeg with a vibecoded fuzzer</a></h3>
-        <h4>核心摘要</h4>
-        <p>研究人員利用一種名為「vibecoded fuzzer」的創新模糊測試工具，成功在廣泛使用的多媒體處理庫 FFmpeg 中發現了一個關鍵的除以零漏洞。這突顯了先進安全測試技術在確保軟體穩定性和可靠性方面的重要性。</p>
-        <h4>關鍵要點</h4>
+        <h2><a href="https://www.inventati.org/" target="_blank">U.S. sanctions against the A/I Collective</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>美國對「A/I Collective」實施制裁的消息引發了關於言論自由、網路活動與國家監管之間緊張關係的廣泛討論。此事件凸顯了數位時代下，政府如何應對去中心化或匿名線上團體所帶來的挑戰，及其對公民自由的影響。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>「vibecoded fuzzer」結合了結構感知和智能突變，提高了發現深層漏洞的效率。</li>
-            <li>FFmpeg 廣泛應用於影音處理，此類關鍵漏洞的發現對於全球軟體生態至關重要。</li>
-            <li>展示了持續性安全審計和利用新興測試技術的重要性，以防範潛在的服務中斷或攻擊。</li>
+            <li>凸顯地緣政治與網路自由之間的複雜衝突。</li>
+            <li>引發對線上組織、匿名性及制裁工具適用性的討論。</li>
+            <li>對數位人權、言論自由和開放網路構成潛在影響。</li>
         </ul>
-        <h4>社群觀點與連結</h4>
-        <p>這篇文章引起了資安研究者和開發者的濃厚興趣。FFmpeg 作為一個關鍵的開源基礎庫，其漏洞發現總能引起重視。討論區深入探討了模糊測試的技術細節、漏洞的影響以及如何提高大型開源專案的安全性。</p>
-        <a href="https://news.ycombinator.com/item?id=49468642" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 186 則討論)</a>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這是一個高度敏感且具有政治色彩的話題，在 Hacker News 上引發了極為激烈的爭論。社群成員就政府權力、網路監控、言論自由的界限以及去中心化技術的未來展開了深入探討。</p>
+        <a href="https://news.ycombinator.com/item?id=49477854" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 496 則討論)</a>
     </div>
 
-    <!-- Final Slide: Summary Page -->
+    <!-- Final Slide: Summary -->
     <div class="slide-card summary-slide">
-        <h1>今日技術趨勢歸納</h1>
-        <p>今日 Hacker News 的熱門話題清晰地描繪出當前科技界的三大主軸：首先，**AI 創新**正向兩極化發展，既有 Google Gemini 這樣追求極致效能的超大型模型，也有「Small Models」趨勢所預示的輕量級、高效能AI將加速邊緣部署；其次，**基礎設施優化**依然是核心挑戰，Cloudflare 令人驚嘆的記憶體節省和 FFmpeg 漏洞的發現，都強調了大規模系統穩定性與效率的持續投入；最後，**開源協作**展現了蓬勃生命力，無論是政府對 Flatpak 的支持、經典遊戲的社群移植，還是開源機器人 Microduck，都證明了社群力量在推動技術進步與普及中的關鍵作用。</p>
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>今日 Hacker News 熱點反映了科技界多個面向的蓬勃發展與深層挑戰。<b>AI 應用</b>正從基礎模型走向更專精與實用的場景，無論是音頻分離、程式碼分析，乃至於巨頭之間的併購決策，都離不開其核心驅動。同時，開發者對於<b>效率與工具</b>的追求持續不懈，從 Htmx 的輕量化網頁框架到 Rust 的高性能數據儲存，都在努力提升開發體驗。此外，<b>網路與社群生態</b>的健康發展也日益受到關注，從鍵盤驅動 GUI 的易用性，到預測市場的法律監管，乃至於敏感的國際制裁議題，都顯示了技術與社會、政治交織的複雜性。這些討論共同描繪了一幅充滿創新、效率與倫理思考的科技圖景。</p>
     </div>
 
 </body>
