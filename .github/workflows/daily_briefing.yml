@@ -3,7 +3,7 @@ name: Daily HN Notebook Slides
 on:
   schedule:
     # 每日台灣時間早上 08:00 自動執行 (UTC 00:00)
-    - cron: '0 0 * * *'
+    - cron: '13 0 * * *'
   workflow_dispatch: # 支援在 GitHub 介面手動按按鈕觸發
 
 jobs:
