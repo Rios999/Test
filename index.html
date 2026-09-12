@@ -3,366 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月11日</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月12日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a; /* Slate 900 */
-            --card-bg-color: #1e293b; /* Slate 800 */
-            --text-color: #e2e8f0; /* Slate 200 */
-            --heading-color: #f8fafc; /* White */
-            --link-color: #a78bfa; /* Violet 400 */
-            --accent-color: #6366f1; /* Indigo 500 */
-            --button-bg-color: #2563eb; /* Blue 600 */
-            --button-hover-bg-color: #1d4ed8; /* Blue 700 */
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f1f5f9; /* Near white */
+            --accent-blue: #3b82f6;
+            --button-blue: #2563eb;
+            --button-hover-blue: #3b82f6;
             --border-radius-lg: 12px;
             --border-radius-md: 8px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             margin: 0;
-            padding: 40px 20px;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            line-height: 1.6;
+            box-sizing: border-box;
         }
 
-        .container {
-            max-width: 900px;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background-color: var(--card-bg-color);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            margin-bottom: 30px;
-            animation: fadeIn 0.8s ease-out;
-            border: 1px solid #334155; /* Slate 700 */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1, h2, h3, h4 {
-            color: var(--heading-color);
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-light);
             margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 0.8em;
+            font-weight: 600;
         }
 
-        h1 { font-size: 2.8em; text-align: center; }
-        h2 { font-size: 2.2em; text-align: center; color: var(--link-color); }
-        h3 { font-size: 1.6em; }
-        h4 { font-size: 1.2em; color: var(--link-color); }
-
-        p {
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 10px;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-        }
-
-        ul li::before {
-            content: '•';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-            line-height: 1;
-        }
+        h1 { font-size: 2.8rem; font-weight: 700; }
+        h2 { font-size: 1.8rem; font-weight: 600; }
+        h3 { font-size: 1.4rem; font-weight: 600; }
 
         a {
-            color: var(--link-color);
+            color: var(--accent-blue);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease-in-out;
         }
 
         a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
+            color: #60a5fa; /* Lighter accent blue on hover */
         }
 
-        .button {
-            display: inline-block;
-            background-color: var(--button-bg-color);
-            color: var(--heading-color);
-            padding: 12px 20px;
-            border-radius: var(--border-radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            cursor: pointer;
-            border: none;
+        .slide-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            padding: 2.5rem 3rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 900px; /* Limit width for readability */
+            box-sizing: border-box;
         }
 
-        .button:hover {
-            background-color: var(--button-hover-bg-color);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        .date-info, .tags-section {
+        .slide-card.cover-slide {
             text-align: center;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-            color: #94a3b8; /* Slate 400 */
+            padding: 4rem 3rem;
         }
 
-        .tags-list {
+        .cover-slide h1 {
+            color: var(--text-light);
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+        }
+
+        .cover-slide p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-top: 0;
+        }
+
+        .tags {
+            margin-top: 2rem;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 1rem;
         }
 
         .tag {
-            background-color: #334155; /* Slate 700 */
-            color: var(--text-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
+            background-color: var(--accent-blue);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-md);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid #334155;
-            margin: 40px 0;
+        .section-title {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.6em;
+        }
+
+        .hn-button {
+            display: inline-block;
+            background-color: var(--button-blue);
+            color: var(--text-light);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-size: 0.95rem;
+        }
+
+        .hn-button:hover {
+            background-color: var(--button-hover-blue);
+            transform: translateY(-2px);
         }
 
         .final-summary {
-            font-size: 1.1em;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
         }
     </style>
 </head>
 <body>
-
-    <!-- 封面頁 (Slide 1) -->
-    <div class="container">
-        <div class="card">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p class="date-info">生成日期：2026年09月11日</p>
-            <div class="tags-section">
-                <h4>關鍵趨勢標籤</h4>
-                <div class="tags-list">
-                    <span class="tag">AI創新</span>
-                    <span class="tag">開發者生態</span>
-                    <span class="tag">資訊安全與隱私</span>
-                </div>
-            </div>
+    <!-- Slide 1: Cover Page -->
+    <div class="slide-card cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <p>基於最新社群討論自動生成</p>
+        <p>生成日期：2026年09月12日</p>
+        <div class="tags">
+            <span class="tag">AI趨勢</span>
+            <span class="tag">軟體工程</span>
+            <span class="tag">網路安全</span>
         </div>
     </div>
 
-    <!-- 文章內容頁 -->
-
-    <!-- Shopify is moving from React Native back to Swift and Kotlin -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://shopify.engineering/back-to-native" target="_blank">Shopify is moving from React Native back to Swift and Kotlin</a></h3>
-            <p><strong>核心摘要：</strong> Shopify正將其行動應用程式開發策略從跨平台的React Native轉向原生Swift（iOS）和Kotlin（Android），旨在提升性能、穩定性及開發體驗。此舉反映了大型企業在處理複雜、高需求應用時，對原生技術優勢的重新考量。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>性能與穩定性：</strong> 應對React Native在大型複雜應用中遇到的性能瓶頸和可靠性挑戰。</li>
-                <li><strong>開發者體驗：</strong> 原生工具鏈提供更佳的調試、測試與整合能力，提升開發效率和品質。</li>
-                <li><strong>技術棧轉型：</strong> 揭示了在特定業務場景下，原生開發仍是跨平台方案的有力替代選擇。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>高討論度 (893 pts | 608 則討論)：</strong> 開發者對跨平台與原生開發的優劣爭論不休，Shopify作為知名大廠的技術選型轉變，為業界提供了重要案例與思考。許多人分享了各自在性能、開發效率、維護成本上的經驗，尤其關注此類決策對未來行動開發趨勢的影響。</p>
-            <a href="https://news.ycombinator.com/item?id=49643982" target="_blank" class="button">前往 Hacker News 討論區 (含 608 則討論)</a>
-        </div>
+    <!-- Article Content Pages -->
+    <!-- Article 1: Retrospectively Reverse-Engineering Apple's Neural Engine -->
+    <div class="slide-card">
+        <h2><a href="https://eiln.github.io/posts/ane.html" target="_blank">Retrospectively Reverse-Engineering Apple's Neural Engine</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>這項研究深入探討了如何透過逆向工程，解析 Apple 自主研發的 Neural Engine (ANE) 架構及功能。目標是理解其內部運作機制，以最佳化機器學習模型的部署或探索新的應用可能性。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>揭示了 Apple ANE 的潛在指令集與硬體設計哲學。</li>
+            <li>為研究人員提供了在閉源生態系統中探索專有加速器的工具與方法。</li>
+            <li>有助於開發者更好地理解並利用 ANE 的能力，提升裝置上的 AI 應用效能。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49670032" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 9 則討論)</a>
     </div>
 
-    <!-- More questions about whether researchers can trust OpenAI with unpublished math -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://mathstodon.xyz/@andreasthom/117240535270608201" target="_blank">More questions about whether researchers can trust OpenAI with unpublished math</a></h3>
-            <p><strong>核心摘要：</strong> 隨著AI工具在學術研究中日益普及，學術界開始質疑能否信任OpenAI這類公司，在處理未發表數學成果時保護其機密性與版權。這引發了對數據隱私、知識產權及AI倫理的深層擔憂。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>AI倫理挑戰：</strong> 學術研究數據的隱私和機密性問題，尤其當AI公司可能利用這些數據進行模型訓練時。</li>
-                <li><strong>知識產權保護：</strong> 未發表研究成果在AI時代的版權歸屬與保護機制，成為研究者關注焦點。</li>
-                <li><strong>信任危機：</strong> 學術界與商業AI平台之間的信任鴻溝，可能影響AI工具在敏感研究領域的應用。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>極高討論度 (754 pts | 690 則討論)：</strong> 此話題觸及了學術誠信和AI倫理的敏感神經。開發者和研究者對AI在處理機密數據方面的能力和透明度表達了強烈擔憂，並探討了如何在享受AI便利性的同時，確保個人與機構數據的安全。此類討論對於制定未來AI使用政策至關重要。</p>
-            <a href="https://news.ycombinator.com/item?id=49639408" target="_blank" class="button">前往 Hacker News 討論區 (含 690 則討論)</a>
-        </div>
+    <!-- Article 2: IKEA made a mod for Skyrim [video] -->
+    <div class="slide-card">
+        <h2><a href="https://www.youtube.com/watch?v=iZODN0QUgjI" target="_blank">IKEA made a mod for Skyrim [video]</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>知名家具品牌 IKEA 以獨特方式進入遊戲社群，發布了一個為《上古卷軸V：天際》設計的模組。此舉不僅是行銷策略，也展現了品牌與流行文化結合的創意。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>品牌透過遊戲模組，以創新且具娛樂性的方式進行產品推廣。</li>
+            <li>突顯了遊戲社群的巨大影響力，成為品牌接觸受眾的新渠道。</li>
+            <li>模糊了廣告與內容的界線，創造了更具互動性的使用者體驗。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49639647" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 13 則討論)</a>
     </div>
 
-    <!-- Don't let anyone take away your big box of cables -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://blog.jim-nielsen.com/2026/hands-off-my-cables/" target="_blank">Don't let anyone take away your big box of cables</a></h3>
-            <p><strong>核心摘要：</strong> 這篇文章幽默地指出，在日益無線化和標準化的科技趨勢下，擁有一大箱各式各樣的舊電纜和轉接頭仍然是不可或缺的，它們總能在意想不到的時刻派上用場，是科技愛好者實用主義的體現。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>科技遺產價值：</strong> 舊線纜在現代環境下依然能解決兼容性問題，展現了其長期價值。</li>
-                <li><strong>實用主義哲學：</strong> 強調在科技快速迭代中，保留實用工具的重要性，而非盲目追求最新標準。</li>
-                <li><strong>情感連結：</strong> 許多科技愛好者對其「線材寶盒」有著特殊情感，代表著解決問題的能力和經驗累積。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>高討論度 (389 pts | 283 則討論)：</strong> 此話題引起了許多科技愛好者的強烈共鳴，大家都有類似的「線材寶盒」並分享了用舊線材解決新問題的經歷。討論充滿了對實用主義的認可和對消費主義的反思，凸顯了開發者社群中務實與懷舊並存的特點。</p>
-            <a href="https://news.ycombinator.com/item?id=49645393" target="_blank" class="button">前往 Hacker News 討論區 (含 283 則討論)</a>
-        </div>
+    <!-- Article 3: A misalignment of AI in mathematics -->
+    <div class="slide-card">
+        <h2><a href="https://mathandai.org/" target="_blank">A misalignment of AI in mathematics</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>本文探討了人工智慧在數學領域應用時所面臨的根本性挑戰與「未對齊」問題。即使 AI 在數據模式識別上表現出色，但在嚴謹的數學證明、直觀理解及新概念生成方面，仍存在顯著局限。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>AI 在數學問題解決上表現出計算能力，但缺乏對數學基礎概念的深層理解。</li>
+            <li>數學家認為當前 AI 缺乏獨立的抽象推理能力，難以取代人類在創造性數學發現中的角色。</li>
+            <li>強調了發展新型 AI 範式的重要性，以彌合符號推理與數據驅動 AI 之間的鴻溝。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49662371" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 889 則討論)</a>
     </div>
 
-    <!-- Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://cognition.com/blog/swe-2" target="_blank">Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra</a></h3>
-            <p><strong>核心摘要：</strong> Cognition推出了其最新的SWE-2模型，這是一個專為軟體工程任務設計的AI模型，宣稱在程式碼生成與理解能力上超越了Fable 5.1和GPT-Astra等競爭對手，預示著AI輔助開發的新里程碑。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>AI在軟體工程的突破：</strong> SWE-2專注於提升程式碼生成、重構和錯誤修正的效率與精準度。</li>
-                <li><strong>市場競爭加劇：</strong> 顯示AI程式設計模型領域的競爭日益激烈，各家公司力求在特定領域實現領導地位。</li>
-                <li><strong>開發流程自動化：</strong> 預期將進一步推動軟體開發流程的自動化，改變開發者的工作模式。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>高討論度 (374 pts | 160 則討論)：</strong> 作為一個專精於軟體工程的AI模型，SWE-2引起了廣大開發者的濃厚興趣。社群關注其在實際開發中的效能、潛力，特別是與現有頂級模型（如GPT系列）的比較，以及它將如何影響未來的程式設計工作流程。</p>
-            <a href="https://news.ycombinator.com/item?id=49645443" target="_blank" class="button">前往 Hacker News 討論區 (含 160 則討論)</a>
-        </div>
+    <!-- Article 4: I spent $220 on Google app ads and 60% of the installs were robots -->
+    <div class="slide-card">
+        <h2><a href="https://dayzlegame.com/blog/google-ads-bot-farm/" target="_blank">I spent $220 on Google app ads and 60% of the installs were robots</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>一位開發者分享了其使用 Google 應用廣告的經驗，發現高達 60% 的安裝量來自自動化機器人。這凸顯了線上廣告詐欺的嚴重性，以及廣告平台在打擊虛假流量方面的不足。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>廣告詐欺對獨立開發者和小型企業造成了直接的經濟損失。</li>
+            <li>質疑了 Google 廣告平台的有效性及對流量品質的保障機制。</li>
+            <li>引發了社群對於廣告商信任度與平台透明度的廣泛討論。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49662990" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 274 則討論)</a>
     </div>
 
-    <!-- Technique for Manipulating Satellite Photos Now Reveals Ancient Images (2025) -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://spinoff.nasa.gov/Manipulating_Satellite_Photos_Now_Reveals_Ancient_Images" target="_blank">Technique for Manipulating Satellite Photos Now Reveals Ancient Images (2025)</a></h3>
-            <p><strong>核心摘要：</strong> NASA研發了一種新的衛星影像處理技術，能夠從現代衛星照片中「提取」並揭示古代的地理特徵或人類活動遺跡，為考古學和地理研究提供了強大且非侵入性的工具。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>遙感技術創新：</strong> 利用先進的算法和數據處理，從多光譜、多時相影像中挖掘歷史信息。</li>
-                <li><strong>考古學新視角：</strong> 大幅降低田野考察成本，加速古代文明和遺跡的發現與研究。</li>
-                <li><strong>跨領域應用：</strong> 將太空科技與人文科學結合，展示數據分析在地球科學領域的廣闊應用。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>中等討論度 (292 pts | 46 則討論)：</strong> 此技術將遙感技術與歷史研究結合，具有「發現寶藏」的吸引力，激發了人們對其潛在應用、未來考古發現的想像，以及對歷史重構的興趣。討論集中在技術細節、數據來源和應用前景。</p>
-            <a href="https://news.ycombinator.com/item?id=49645437" target="_blank" class="button">前往 Hacker News 討論區 (含 46 則討論)</a>
-        </div>
+    <!-- Article 5: Navier-Stokes Announcement -->
+    <div class="slide-card">
+        <h2><a href="https://www.claymath.org/news/navier-stokes-announcement/" target="_blank">Navier-Stokes Announcement</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>克萊數學研究所（Clay Mathematics Institute）發布了關於納維-史托克斯方程 (Navier-Stokes equations) 的公告。此方程是理解流體力學的關鍵，且是七大千禧年大獎難題之一，任何證明其存在性和光滑性的人將獲得一百萬美元獎金。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>此公告可能涉及此千年難題的最新進展、新挑戰或相關研討會資訊。</li>
+            <li>納維-史托克斯方程在工程、氣象學和海洋學等領域具有深遠的理論與實踐意義。</li>
+            <li>激勵全球數學家投入解決基礎科學中最艱鉅的問題之一，推動數學前沿發展。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49668706" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 105 則討論)</a>
     </div>
 
-    <!-- OpenAI Agents API -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://developers.openai.com/api/docs/guides/agents-api/overview" target="_blank">OpenAI Agents API</a></h3>
-            <p><strong>核心摘要：</strong> OpenAI推出了Agents API，旨在讓開發者能夠構建更智能、能自主規劃和執行多步驟任務的AI代理。這預示著下一代應用程式的開發模式將從單一響應轉向更具主動性的智能系統。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>AI代理開發範式：</strong> 賦予AI系統自主決策和工具使用能力，以完成複雜任務。</li>
-                <li><strong>提升AI自主性：</strong> 代理可以根據目標自動規劃行動路徑，並與外部工具和環境交互。</li>
-                <li><strong>智能應用新里程碑：</strong> 為企業和個人開發者開闢了構建高度自動化、智能服務的可能性。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>中等討論度 (184 pts | 116 則討論)：</strong> 作為OpenAI的重要新產品，此API吸引了開發者對其潛力、使用方式和未來影響的關注。許多討論聚焦於AI代理的應用場景、實現挑戰，以及與現有工作流的整合問題，顯示出開發者對更智能、自主AI的期待。</p>
-            <a href="https://news.ycombinator.com/item?id=49649213" target="_blank" class="button">前往 Hacker News 討論區 (含 116 則討論)</a>
-        </div>
+    <!-- Article 6: google.com/goto: Google's anti-scraping update -->
+    <div class="slide-card">
+        <h2><a href="https://www.autom.dev/blog/google-search-goto-links" target="_blank">google.com/goto: Google's anti-scraping update</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>Google 正在悄然部署一項名為 `google.com/goto` 的反爬蟲機制更新。這項變化透過重新導向連結來干擾自動化爬蟲程式，意圖保護其搜尋結果頁面的數據不被未經授權地抓取。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>Google 持續加強其反爬蟲技術，對依賴爬蟲的服務和數據分析造成影響。</li>
+            <li>可能引發網路爬蟲工具與服務提供商的新一輪技術競賽。</li>
+            <li>對 SEO、市場情報收集及學術研究等領域帶來潛在挑戰，需調整策略。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49668386" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 325 則討論)</a>
     </div>
 
-    <!-- The Deathray: A simple way for an untrusted site to freeze a Mac -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://auberon.xyz/blog/posts/deathray/" target="_blank">The Deathray: A simple way for an untrusted site to freeze a Mac</a></h3>
-            <p><strong>核心摘要：</strong> 一名研究人員揭示了一個名為「Deathray」的簡單技術，利用Web瀏覽器的某些行為模式，能使不受信任的網站輕易地凍結（hang）一台Mac電腦，暴露了潛在的瀏覽器安全與性能缺陷。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>瀏覽器安全漏洞：</strong> 演示了即使是簡單的Web操作也可能導致系統層級的穩定性問題。</li>
-                <li><strong>性能與資源管理：</strong> 揭示了瀏覽器在處理某些極端或惡意操作時，對系統資源的管理不足。</li>
-                <li><strong>跨平台安全性：</strong> 強調了Web沙箱機制仍需不斷完善，以應對不斷演變的惡意攻擊手段。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>中等討論度 (116 pts | 75 則討論)：</strong> 此話題引起了對瀏覽器安全、macOS穩定性以及網站惡意行為的關注。開發者和使用者都對此類潛在的安全風險感興趣，並討論了各種操作系統和瀏覽器在面對此類攻擊時的脆弱性，以及如何防範。</p>
-            <a href="https://news.ycombinator.com/item?id=49649124" target="_blank" class="button">前往 Hacker News 討論區 (含 75 則討論)</a>
-        </div>
+    <!-- Article 7: A Design Space Exploration of Async/Await -->
+    <div class="slide-card">
+        <h2><a href="https://cel.cs.brown.edu/blog/design-space-async-await/" target="_blank">A Design Space Exploration of Async/Await</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>這篇文章深入探討了 `async/await` 語法在不同程式語言中的設計空間與權衡。它分析了異步編程模型的多樣性，並比較了不同設計選擇如何影響程式碼的表達力、效能和複雜性。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>`async/await` 在現代高併發程式設計中扮演關鍵角色，提升了非阻塞操作的開發效率。</li>
+            <li>探討了不同語言（如 Rust, C#, JavaScript）實現 `async/await` 的底層機制與設計哲學。</li>
+            <li>為語言設計者和框架開發者提供了關於設計高效且易用異步模型的寶貴參考。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49626718" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 72 則討論)</a>
     </div>
 
-    <!-- YuE2 · Frontier Music with Symbolic Planning -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://map-yue2.github.io/" target="_blank">YuE2 · Frontier Music with Symbolic Planning</a></h3>
-            <p><strong>核心摘要：</strong> YuE2是一個利用符號規劃技術來生成音樂的開創性專案，旨在探索AI在音樂創作領域的新可能性。它結合了傳統音樂理論與先進AI演算法，嘗試生成結構化且富有表現力的音樂。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>AI藝術創作前沿：</strong> 展示了AI在超越簡單模式識別，進入複雜結構化藝術創作的能力。</li>
-                <li><strong>符號規劃應用：</strong> 巧妙運用符號規劃讓AI理解並運用音樂的語法和結構，而非僅僅學習旋律。</li>
-                <li><strong>人機協作潛力：</strong> 為音樂家和創作者提供新的AI工具，拓寬音樂表達的邊界。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>中等討論度 (68 pts | 55 則討論)：</strong> AI音樂創作是個引人注目的領域，這個專案提供了一個新穎的技術方法，吸引了對AI藝術、計算機音樂和符號AI感興趣的群體。討論集中在AI生成音樂的藝術性、原創性以及潛在應用。</p>
-            <a href="https://news.ycombinator.com/item?id=49652028" target="_blank" class="button">前往 Hacker News 討論區 (含 55 則討論)</a>
-        </div>
+    <!-- Article 8: Great Lakes sturgeon may be 400 years old:Scientists rethinking how to save them -->
+    <div class="slide-card">
+        <h2><a href="https://www.cbc.ca/news/canada/ontario-great-lakes-sturgeon-lifespan-study-9.7329250" target="_blank">Great Lakes sturgeon may be 400 years old:Scientists rethinking how to save them</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>一項新的研究表明，北美五大湖區的鱘魚壽命可能達到驚人的 400 年。這一發現促使科學家重新思考如何保護這些古老的物種，強調了長期生態保護策略的重要性。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>挑戰了傳統上對鱘魚壽命的認知，揭示了其罕見的長壽特性。</li>
+            <li>極長的壽命意味著其繁殖週期也相對較長，使其對環境變化特別脆弱。</li>
+            <li>為生物多樣性保護和生態系統恢復提供了新的視角和緊迫性。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49624456" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 5 則討論)</a>
     </div>
 
-    <!-- Finite time blowup with smooth forcing term for the incompressible porous medium -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/" target="_blank">Finite time blowup with smooth forcing term for the incompressible porous medium</a></h3>
-            <p><strong>核心摘要：</strong> 數學家陶哲軒探討了不可壓縮多孔介質、Boussinesq及不可壓縮Euler方程組在光滑外力項下的有限時間爆破問題，這是流體力學和偏微分方程領域的一個重要開放性數學難題。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>流體力學核心問題：</strong> 深入研究了關於 Navier-Stokes 方程解的全球存在性和正則性問題。</li>
-                <li><strong>數學理論進展：</strong> 為理解複雜物理系統中的不穩定性和非線性現象提供了嚴謹的數學框架。</li>
-                <li><strong>理論物理基礎：</strong> 對於氣象預測、海洋學和材料科學等領域的數值模擬具有基礎性影響。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>低討論度 (20 pts | 0 則討論)：</strong> 這是一篇高度學術性的數學文章，受眾非常小眾，僅限於特定領域的專家學者。儘管由著名數學家陶哲軒發布，但其複雜性使其在以工程和開發為主的Hacker News社群中難以引起廣泛討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49607944" target="_blank" class="button">前往 Hacker News 討論區 (含 0 則討論)</a>
-        </div>
+    <!-- Article 9: Usenet rewind archive search engine -->
+    <div class="slide-card">
+        <h2><a href="https://www.usenet-rewind.com/" target="_blank">Usenet rewind archive search engine</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>Usenet Rewind 是一個專為 Usenet 建立的檔案搜尋引擎，旨在讓使用者能夠回溯並探索這個古老的網路論壇系統中的海量內容。它為數位歷史愛好者和研究者提供了一個寶貴的工具。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>將早期網際網路文化和技術歷史的寶藏重新帶入大眾視野。</li>
+            <li>提供了一個獨特的機會，研究和體驗數十年前的線上社群互動模式。</li>
+            <li>有助於保存數位遺產，並讓新一代使用者了解網際網路的演進。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49668777" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 12 則討論)</a>
     </div>
 
-    <!-- Exercise intensity is associated with cardiometabolic health -->
-    <div class="container">
-        <div class="card">
-            <h3><a href="https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(26)00405-2" target="_blank">Exercise intensity is associated with cardiometabolic health</a></h3>
-            <p><strong>核心摘要：</strong> 這項發表在《Cell Reports Medicine》上的研究深入探討了運動強度與心血管代謝健康的關聯性。研究結果指出，高強度運動可能對改善心血管健康有顯著益處，為公共健康建議提供了新的科學依據。</p>
-            <h4>關鍵要點：</h4>
-            <ul>
-                <li><strong>運動生理學新發現：</strong> 進一步明確了運動強度在預防心血管疾病中的關鍵作用。</li>
-                <li><strong>公共健康指導：</strong> 為制定更精準的運動指南提供科學支持，鼓勵有效率的健身策略。</li>
-                <li><strong>生物醫學數據分析：</strong> 利用前沿的數據分析方法揭示了生活方式與健康之間的複雜關係。</li>
-            </ul>
-            <h4>社群觀點：</h4>
-            <p><strong>低討論度 (10 pts | 1 則討論)：</strong> 雖然健康是普遍關注的話題，但這篇文章屬於專業的科學期刊研究，內容較為學術化。Hacker News社群主要關注科技和軟體開發，因此此類生物醫學研究通常難以獲得大量討論，儘管其科學價值很高。</p>
-            <a href="https://news.ycombinator.com/item?id=49653328" target="_blank" class="button">前往 Hacker News 討論區 (含 1 則討論)</a>
-        </div>
+    <!-- Article 10: Inverse Kinematics and Foot Locking -->
+    <div class="slide-card">
+        <h2><a href="https://theorangeduck.com/page/inverse-kinematics-foot-locking" target="_blank">Inverse Kinematics and Foot Locking</a></h2>
+        <p class="section-title">核心摘要</p>
+        <p>這篇文章深入探討了逆運動學 (Inverse Kinematics, IK) 和足部鎖定 (Foot Locking) 技術在 3D 動畫和遊戲開發中的應用。這些技術對於創造逼真且具響應性的角色動作至關重要，尤其是在複雜地形上。</p>
+        <p class="section-title">關鍵要點</p>
+        <ul>
+            <li>逆運動學是從末端效應器位置計算關節角度的核心動畫技術。</li>
+            <li>足部鎖定確保角色雙腳在地面上保持穩定，避免穿模和滑動感，增強真實性。</li>
+            <li>對於遊戲引擎和動畫軟體開發者來說，理解這些技術是實現高品質角色互動的關鍵。</li>
+        </ul>
+        <a href="https://news.ycombinator.com/item?id=49595505" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
     </div>
 
-    <hr class="container">
-
-    <!-- 總結頁 (Final Slide) -->
-    <div class="container">
-        <div class="card">
-            <h1>今日技術趨勢歸納 (Today's Tech Pulse)</h1>
-            <p class="final-summary">
-                今日Hacker News的熱門話題揭示了科技界的多個關鍵轉變與關注點。
-                <strong>AI技術的飛速發展</strong>是核心，從OpenAI的Agents API到Cognition的SWE-2模型，以及AI在音樂創作中的應用，都預示著AI正從輔助工具走向更自主、更深入的任務執行。然而，伴隨AI普及而來的<strong>數據隱私和資訊安全問題</strong>也日益突出，研究者對於信任OpenAI處理未發表數據的擔憂，以及Mac瀏覽器安全漏洞的披露，都提醒我們在擁抱新技術的同時，需謹慎面對潛在風險。
-                在開發者生態方面，Shopify從React Native轉回原生開發，反映出大型企業在追求極致性能和開發體驗時，對技術選型權衡的深思熟慮，這將持續引發關於<strong>跨平台與原生開發</strong>孰優孰劣的討論。此外，衛星影像技術在考古學上的應用，以及對舊線纜的實用主義堅守，則展現了科技在不同領域的深遠影響，以及對基礎工具與知識的珍視。
-            </p>
-        </div>
+    <!-- Final Slide: Summary -->
+    <div class="slide-card">
+        <h2>今日技術趨勢歸納</h2>
+        <p class="final-summary">
+            今天的 Hacker News 熱點反映了科技界在多個前沿領域的探索與挑戰。從對 Apple Neural Engine 的逆向工程，到 `async/await` 設計模式的深入探討，顯示了開發者對底層硬體與軟體優化的不懈追求。同時，AI 在數學領域的「未對齊」問題，以及 Google 廣告詐欺和反爬蟲機制的更新，突顯了當前 AI 應用的倫理困境、平台的信任危機及網路生態系統中的摩擦。此外，還有對古老互聯網歷史的緬懷與生物保護的科技視角，展現了社群對技術廣泛影響的關注。
+        </p>
     </div>
 
 </body>
