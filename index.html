@@ -3,310 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月12日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月13日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f1f5f9; /* Near white */
-            --accent-blue: #3b82f6;
-            --button-blue: #2563eb;
-            --button-hover-blue: #3b82f6;
-            --border-radius-lg: 12px;
-            --border-radius-md: 8px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
             margin: 0;
-            padding: 2rem;
+            padding: 0;
+            background-color: #0f172a; /* Deep dark blue for background */
+            color: #f8fafc; /* Light off-white for text */
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
-            line-height: 1.6;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .presentation-container {
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem;
             box-sizing: border-box;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--text-light);
+        .slide-card {
+            background-color: #1e293b; /* Slightly lighter dark blue for cards */
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border: 1px solid #334155; /* Subtle border */
+        }
+
+        .cover-slide {
+            text-align: center;
+            padding: 4rem 2.5rem;
+            background-image: linear-gradient(to right bottom, #1e293b, #0f172a);
+            border-bottom: 2px solid #6366f1;
+            margin-top: 2rem;
+        }
+
+        .cover-slide h1 {
+            font-size: 2.8rem;
+            color: #e0e7ff; /* Lighter blue for main title */
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .cover-slide h2 {
+            font-size: 1.6rem;
+            color: #cbd5e1; /* Grayish white for subtitle */
             margin-top: 0;
-            margin-bottom: 0.8em;
+            font-weight: 400;
+        }
+
+        .cover-slide p {
+            font-size: 1.1rem;
+            color: #94a3b8; /* Lighter gray for date */
+            margin-top: 2rem;
+        }
+
+        .tags-container {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            background-color: #4f46e5; /* Indigo for tags */
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        h2.article-title {
+            font-size: 1.8rem;
+            color: #a78bfa; /* Light purple for article titles */
+            margin-bottom: 1rem;
             font-weight: 600;
         }
 
-        h1 { font-size: 2.8rem; font-weight: 700; }
-        h2 { font-size: 1.8rem; font-weight: 600; }
-        h3 { font-size: 1.4rem; font-weight: 600; }
-
-        a {
-            color: var(--accent-blue);
+        h2.article-title a {
+            color: #a78bfa;
             text-decoration: none;
             transition: color 0.2s ease-in-out;
         }
 
-        a:hover {
-            color: #60a5fa; /* Lighter accent blue on hover */
+        h2.article-title a:hover {
+            color: #c4b5fd; /* Lighter purple on hover */
         }
 
-        .slide-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            padding: 2.5rem 3rem;
-            margin-bottom: 2rem;
-            width: 100%;
-            max-width: 900px; /* Limit width for readability */
-            box-sizing: border-box;
-        }
-
-        .slide-card.cover-slide {
-            text-align: center;
-            padding: 4rem 3rem;
-        }
-
-        .cover-slide h1 {
-            color: var(--text-light);
-            margin-bottom: 0.5em;
-            line-height: 1.2;
-        }
-
-        .cover-slide p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-top: 0;
-        }
-
-        .tags {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .tag {
-            background-color: var(--accent-blue);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius-md);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .section-title {
-            color: var(--accent-blue);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-top: 1.8rem;
+        h3 {
+            font-size: 1.4rem;
+            color: #93c5fd; /* Light blue for section titles */
             margin-bottom: 0.8rem;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
+            font-weight: 500;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #cbd5e1;
         }
 
         ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding: 0;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
         }
 
-        li {
-            margin-bottom: 0.6em;
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: #e2e8f0;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #818cf8; /* Soft blue for bullet points */
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
         .hn-button {
             display: inline-block;
-            background-color: var(--button-blue);
-            color: var(--text-light);
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius-md);
+            background-color: #2563eb; /* Blue button background */
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 2rem;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            margin-top: 1.5rem;
+            align-self: flex-start; /* Align button to start of card */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         .hn-button:hover {
-            background-color: var(--button-hover-blue);
+            background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
         }
 
-        .final-summary {
-            font-size: 1.15rem;
-            line-height: 1.7;
+        .summary-slide {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
             text-align: center;
+        }
+
+        .summary-slide h2 {
+            font-size: 2.2rem;
+            color: #a78bfa;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .summary-slide p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            line-height: 1.8;
             max-width: 700px;
-            margin: 1.5rem auto 0;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <!-- Slide 1: Cover Page -->
-    <div class="slide-card cover-slide">
-        <h1>Hacker News 每日科技熱點摘要</h1>
-        <p>基於最新社群討論自動生成</p>
-        <p>生成日期：2026年09月12日</p>
-        <div class="tags">
-            <span class="tag">AI趨勢</span>
-            <span class="tag">軟體工程</span>
-            <span class="tag">網路安全</span>
+    <div class="presentation-container">
+
+        <!-- Slide 1: Cover Page -->
+        <div class="slide-card cover-slide">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p>生成日期: 2026年09月13日</p>
+            <div class="tags-container">
+                <span class="tag">AI</span>
+                <span class="tag">開發工具</span>
+                <span class="tag">開源協作</span>
+            </div>
         </div>
-    </div>
 
-    <!-- Article Content Pages -->
-    <!-- Article 1: Retrospectively Reverse-Engineering Apple's Neural Engine -->
-    <div class="slide-card">
-        <h2><a href="https://eiln.github.io/posts/ane.html" target="_blank">Retrospectively Reverse-Engineering Apple's Neural Engine</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>這項研究深入探討了如何透過逆向工程，解析 Apple 自主研發的 Neural Engine (ANE) 架構及功能。目標是理解其內部運作機制，以最佳化機器學習模型的部署或探索新的應用可能性。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>揭示了 Apple ANE 的潛在指令集與硬體設計哲學。</li>
-            <li>為研究人員提供了在閉源生態系統中探索專有加速器的工具與方法。</li>
-            <li>有助於開發者更好地理解並利用 ANE 的能力，提升裝置上的 AI 應用效能。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49670032" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 9 則討論)</a>
-    </div>
+        <!-- Article Content Pages -->
 
-    <!-- Article 2: IKEA made a mod for Skyrim [video] -->
-    <div class="slide-card">
-        <h2><a href="https://www.youtube.com/watch?v=iZODN0QUgjI" target="_blank">IKEA made a mod for Skyrim [video]</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>知名家具品牌 IKEA 以獨特方式進入遊戲社群，發布了一個為《上古卷軸V：天際》設計的模組。此舉不僅是行銷策略，也展現了品牌與流行文化結合的創意。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>品牌透過遊戲模組，以創新且具娛樂性的方式進行產品推廣。</li>
-            <li>突顯了遊戲社群的巨大影響力，成為品牌接觸受眾的新渠道。</li>
-            <li>模糊了廣告與內容的界線，創造了更具互動性的使用者體驗。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49639647" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 13 則討論)</a>
-    </div>
+        <!-- The Interim Computer Museum -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://icm.museum/" target="_blank" rel="noopener noreferrer">The Interim Computer Museum</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這個項目旨在為因實體博物館關閉而流失的數位歷史遺產提供臨時避風港，聚焦於保存和展示那些面臨消失風險的軟硬體。它試圖建立一個去中心化的數位典藏模式，確保珍貴的科技文物得以被研究與訪問。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>數位遺產的緊急保存方案</li>
+                <li>探索去中心化典藏模式的可能性</li>
+                <li>彌補實體科技博物館的缺口</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>雖然討論度相對較低，但這篇文章切中了部分社群成員對於科技歷史保存的擔憂。它提供了一個具體的解決方案，吸引了那些關心數位遺產保護的技術歷史愛好者，引發了對其可行性和未來發展的少量但深入的討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49679459" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 4 則討論)</a>
+        </div>
 
-    <!-- Article 3: A misalignment of AI in mathematics -->
-    <div class="slide-card">
-        <h2><a href="https://mathandai.org/" target="_blank">A misalignment of AI in mathematics</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>本文探討了人工智慧在數學領域應用時所面臨的根本性挑戰與「未對齊」問題。即使 AI 在數據模式識別上表現出色，但在嚴謹的數學證明、直觀理解及新概念生成方面，仍存在顯著局限。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>AI 在數學問題解決上表現出計算能力，但缺乏對數學基礎概念的深層理解。</li>
-            <li>數學家認為當前 AI 缺乏獨立的抽象推理能力，難以取代人類在創造性數學發現中的角色。</li>
-            <li>強調了發展新型 AI 範式的重要性，以彌合符號推理與數據驅動 AI 之間的鴻溝。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49662371" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 889 則討論)</a>
-    </div>
+        <!-- Make your first edit to OpenStreetMap -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://high5apps.github.io/josm-plugin-website-wizard/" target="_blank" rel="noopener noreferrer">Make your first edit to OpenStreetMap</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章介紹了一個創新的 JOSM 插件，旨在大幅降低新用戶首次貢獻 OpenStreetMap 的門檻。透過引導式的介面和教學，它讓參與全球地理數據共建的過程變得簡單易懂，鼓勵更多人投入開源地圖社群。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>降低 OpenStreetMap 貢獻門檻</li>
+                <li>透過 JOSM 插件提供直觀引導</li>
+                <li>鼓勵全球地圖數據協作與增長</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>此工具獲得高熱度，因為它精準擊中了許多人想貢獻開源專案卻不知如何開始的痛點。社群高度讚賞其使用者友善的設計和實用性，認為這對於擴大 OpenStreetMap 的貢獻者基礎至關重要，激發了大量關於開源協作和地圖數據品質的討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49674050" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 89 則討論)</a>
+        </div>
 
-    <!-- Article 4: I spent $220 on Google app ads and 60% of the installs were robots -->
-    <div class="slide-card">
-        <h2><a href="https://dayzlegame.com/blog/google-ads-bot-farm/" target="_blank">I spent $220 on Google app ads and 60% of the installs were robots</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>一位開發者分享了其使用 Google 應用廣告的經驗，發現高達 60% 的安裝量來自自動化機器人。這凸顯了線上廣告詐欺的嚴重性，以及廣告平台在打擊虛假流量方面的不足。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>廣告詐欺對獨立開發者和小型企業造成了直接的經濟損失。</li>
-            <li>質疑了 Google 廣告平台的有效性及對流量品質的保障機制。</li>
-            <li>引發了社群對於廣告商信任度與平台透明度的廣泛討論。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49662990" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 274 則討論)</a>
-    </div>
+        <!-- Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://withspecific.com/benchmarks/real-swe" target="_blank" rel="noopener noreferrer">Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Real-SWE 提出了一種全新的基準測試方法，專門用於評估 AI 模型在企業級私有、真實世界代碼庫上的軟體工程能力。它旨在解決現有 AI 基準測試與實際開發場景之間的脫節，提供更具挑戰性與代表性的 AI 輔助編程評測標準。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>針對企業級代碼庫的 AI 評測</li>
+                <li>衡量 AI 模型在真實世界問題解決能力</li>
+                <li>超越合成數據的實用性基準</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>此文引發了大量討論，原因在於它直接切入了 AI 在軟體開發中實用性的核心問題。開發者社群對於 AI 輔助編程工具的潛力抱有期待，但也擔憂其在實際、複雜企業環境中的表現。這個基準測試為評估 AI 在真實工作流中的價值提供了重要參考。</p>
+            <a href="https://news.ycombinator.com/item?id=49676820" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 91 則討論)</a>
+        </div>
 
-    <!-- Article 5: Navier-Stokes Announcement -->
-    <div class="slide-card">
-        <h2><a href="https://www.claymath.org/news/navier-stokes-announcement/" target="_blank">Navier-Stokes Announcement</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>克萊數學研究所（Clay Mathematics Institute）發布了關於納維-史托克斯方程 (Navier-Stokes equations) 的公告。此方程是理解流體力學的關鍵，且是七大千禧年大獎難題之一，任何證明其存在性和光滑性的人將獲得一百萬美元獎金。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>此公告可能涉及此千年難題的最新進展、新挑戰或相關研討會資訊。</li>
-            <li>納維-史托克斯方程在工程、氣象學和海洋學等領域具有深遠的理論與實踐意義。</li>
-            <li>激勵全球數學家投入解決基礎科學中最艱鉅的問題之一，推動數學前沿發展。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49668706" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 105 則討論)</a>
-    </div>
+        <!-- The Succession Crisis That Tore England Apart -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://www.historytoday.com/archive/feature/succession-crisis-tore-england-apart" target="_blank" rel="noopener noreferrer">The Succession Crisis That Tore England Apart</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章深入探討了英格蘭歷史上的一次關鍵繼承危機，分析了其複雜的政治、社會背景及對國家造成的深遠影響。它揭示了權力鬥爭如何撕裂國家，並塑造了後來的政治格局。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>中世紀英格蘭的歷史轉捩點</li>
+                <li>剖析政治不穩定與權力鬥爭</li>
+                <li>繼承問題對國家統一的影響</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>作為一篇歷史文章，其在 Hacker News 上的熱度較低，因其與科技核心議題的關聯性不強。然而，HN 社群中不乏對歷史和人文議題感興趣的讀者，這篇文章提供了一個深入了解特定歷史事件的機會，雖然討論人數不多，但對於熱愛歷史的讀者而言仍有其價值。</p>
+            <a href="https://news.ycombinator.com/item?id=49679647" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 1 則討論)</a>
+        </div>
 
-    <!-- Article 6: google.com/goto: Google's anti-scraping update -->
-    <div class="slide-card">
-        <h2><a href="https://www.autom.dev/blog/google-search-goto-links" target="_blank">google.com/goto: Google's anti-scraping update</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>Google 正在悄然部署一項名為 `google.com/goto` 的反爬蟲機制更新。這項變化透過重新導向連結來干擾自動化爬蟲程式，意圖保護其搜尋結果頁面的數據不被未經授權地抓取。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>Google 持續加強其反爬蟲技術，對依賴爬蟲的服務和數據分析造成影響。</li>
-            <li>可能引發網路爬蟲工具與服務提供商的新一輪技術競賽。</li>
-            <li>對 SEO、市場情報收集及學術研究等領域帶來潛在挑戰，需調整策略。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49668386" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 325 則討論)</a>
-    </div>
+        <!-- Nvidia is the central bank of AI -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://www.economist.com/interactive/briefing/2026/09/03/nvidia-is-the-central-bank-of-ai" target="_blank" rel="noopener noreferrer">Nvidia is the central bank of AI</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章將 Nvidia 比喻為 AI 領域的「中央銀行」，旨在強調其在 AI 晶片供應鏈中不可替代的地位及其對整個 AI 產業的巨大影響力。它深入分析了 Nvidia 如何透過其硬體（GPU）和軟體生態系統（CUDA），實質上控制著 AI 技術發展的關鍵資源和方向。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>Nvidia 在 AI 晶片市場的主導地位</li>
+                <li>CUDA 生態系統形成的強大鎖定效應</li>
+                <li>掌握 AI 未來發展命脈的關鍵角色</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>此文獲得極高熱度，因為它觸及了當前科技界最炙手可熱的 AI 領域核心議題——Nvidia 的市場主導地位。其將 Nvidia 比作「中央銀行」的比喻極具衝擊力，引發了關於市場壟斷、生態系鎖定、AI 技術未來走向以及潛在風險的廣泛討論，激發了社群對技術權力集中化的深思。</p>
+            <a href="https://news.ycombinator.com/item?id=49673098" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 295 則討論)</a>
+        </div>
 
-    <!-- Article 7: A Design Space Exploration of Async/Await -->
-    <div class="slide-card">
-        <h2><a href="https://cel.cs.brown.edu/blog/design-space-async-await/" target="_blank">A Design Space Exploration of Async/Await</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>這篇文章深入探討了 `async/await` 語法在不同程式語言中的設計空間與權衡。它分析了異步編程模型的多樣性，並比較了不同設計選擇如何影響程式碼的表達力、效能和複雜性。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>`async/await` 在現代高併發程式設計中扮演關鍵角色，提升了非阻塞操作的開發效率。</li>
-            <li>探討了不同語言（如 Rust, C#, JavaScript）實現 `async/await` 的底層機制與設計哲學。</li>
-            <li>為語言設計者和框架開發者提供了關於設計高效且易用異步模型的寶貴參考。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49626718" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 72 則討論)</a>
-    </div>
+        <!-- Apple iPod Engraver (2019) -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://dunstanorchard.com/apple-ipod-engraver/" target="_blank" rel="noopener noreferrer">Apple iPod Engraver (2019)</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章詳細探討了 Apple 為 iPod 提供個性化刻字服務所使用的專門機器，揭示了其背後的工程細節和製造過程。它不僅是對一項獨特技術的深度解析，也提供了對 Apple 產品個人化歷史的一瞥。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>揭示 Apple 產品製造的工程細節</li>
+                <li>獨特的工業級刻字技術分析</li>
+                <li>回顧 iPod 個性化服務的歷史</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>這篇文章吸引了 Apple 產品愛好者和硬體工程迷的廣泛關注。社群對這種幕後的技術細節和工業設計充滿好奇，同時也帶有對 iPod 時代的懷舊情感。對於許多人來說，了解這些不為人知的製造環節，增添了對 Apple 產品工藝的讚嘆。</p>
+            <a href="https://news.ycombinator.com/item?id=49619848" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 38 則討論)</a>
+        </div>
 
-    <!-- Article 8: Great Lakes sturgeon may be 400 years old:Scientists rethinking how to save them -->
-    <div class="slide-card">
-        <h2><a href="https://www.cbc.ca/news/canada/ontario-great-lakes-sturgeon-lifespan-study-9.7329250" target="_blank">Great Lakes sturgeon may be 400 years old:Scientists rethinking how to save them</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>一項新的研究表明，北美五大湖區的鱘魚壽命可能達到驚人的 400 年。這一發現促使科學家重新思考如何保護這些古老的物種，強調了長期生態保護策略的重要性。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>挑戰了傳統上對鱘魚壽命的認知，揭示了其罕見的長壽特性。</li>
-            <li>極長的壽命意味著其繁殖週期也相對較長，使其對環境變化特別脆弱。</li>
-            <li>為生物多樣性保護和生態系統恢復提供了新的視角和緊迫性。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49624456" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 5 則討論)</a>
-    </div>
+        <!-- Everyone should slow down AI development except for me -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://xeiaso.net/notes/2026/everyone-slowdown-but-me/" target="_blank" rel="noopener noreferrer">Everyone should slow down AI development except for me</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章以一種諷刺或挑釁的語氣，對當前關於減緩 AI 發展速度的呼籲進行了評論。它可能旨在探討此類呼籲背後的潛在動機、自相矛盾之處，以及個人與集體在 AI 發展倫理中的角色與權力問題。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>對 AI 發展減速呼籲的諷刺評論</li>
+                <li>探討 AI 倫理與個人利益的衝突</li>
+                <li>引發關於 AI 監管與主導權的思考</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>這個標題極具爭議性，引發了社群對於 AI 安全、道德規範以及誰應控制其發展速度的熱烈辯論。其挑釁的口吻促使讀者深入思考 AI 發展的複雜性，以及各方立場背後可能存在的隱藏議程，導致了大量的意見交鋒和討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49678683" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 154 則討論)</a>
+        </div>
 
-    <!-- Article 9: Usenet rewind archive search engine -->
-    <div class="slide-card">
-        <h2><a href="https://www.usenet-rewind.com/" target="_blank">Usenet rewind archive search engine</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>Usenet Rewind 是一個專為 Usenet 建立的檔案搜尋引擎，旨在讓使用者能夠回溯並探索這個古老的網路論壇系統中的海量內容。它為數位歷史愛好者和研究者提供了一個寶貴的工具。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>將早期網際網路文化和技術歷史的寶藏重新帶入大眾視野。</li>
-            <li>提供了一個獨特的機會，研究和體驗數十年前的線上社群互動模式。</li>
-            <li>有助於保存數位遺產，並讓新一代使用者了解網際網路的演進。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49668777" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 12 則討論)</a>
-    </div>
+        <!-- From Git to Fossil -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://lucio.albenga.es/web-en/posts/2025/from-git-to-fossil.html" target="_blank" rel="noopener noreferrer">From Git to Fossil</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章探討了從廣泛使用的 Git 版本控制系統轉移到 Fossil SCM 的過程，詳細分析了促使這一轉變的原因、Fossil SCM 的獨特優勢以及可能遇到的挑戰。它為尋求 Git 替代方案的開發者提供了參考。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>版本控制系統的替代方案探索</li>
+                <li>Fossil SCM 的集成特性與優勢</li>
+                <li>從 Git 遷移的實踐經驗分享</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>雖然 Git 是主流，但這篇文章為對替代版本控制系統感興趣的開發者提供了一個小眾但有價值的視角。社群對 Fossil SCM 的集成式設計（如內建 Wiki 和 Bug Tracker）表現出好奇，這引發了關於不同版本控制工具哲學和適用場景的技術性討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49649864" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 9 則討論)</a>
+        </div>
 
-    <!-- Article 10: Inverse Kinematics and Foot Locking -->
-    <div class="slide-card">
-        <h2><a href="https://theorangeduck.com/page/inverse-kinematics-foot-locking" target="_blank">Inverse Kinematics and Foot Locking</a></h2>
-        <p class="section-title">核心摘要</p>
-        <p>這篇文章深入探討了逆運動學 (Inverse Kinematics, IK) 和足部鎖定 (Foot Locking) 技術在 3D 動畫和遊戲開發中的應用。這些技術對於創造逼真且具響應性的角色動作至關重要，尤其是在複雜地形上。</p>
-        <p class="section-title">關鍵要點</p>
-        <ul>
-            <li>逆運動學是從末端效應器位置計算關節角度的核心動畫技術。</li>
-            <li>足部鎖定確保角色雙腳在地面上保持穩定，避免穿模和滑動感，增強真實性。</li>
-            <li>對於遊戲引擎和動畫軟體開發者來說，理解這些技術是實現高品質角色互動的關鍵。</li>
-        </ul>
-        <a href="https://news.ycombinator.com/item?id=49595505" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
-    </div>
+        <!-- Getting 50 GB/S Back from the Apple Neural Engine -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://eiln.github.io/posts/ane-dma.html" target="_blank" rel="noopener noreferrer">Getting 50 GB/S Back from the Apple Neural Engine</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這是一篇深入的技術探討，關於如何優化數據傳輸率（DMA）以充分利用 Apple Neural Engine（ANE）的性能。文章揭示了在 Apple 晶片上實現每秒 50 GB 高頻寬的技術細節，對於機器學習開發者而言，這意味著在設備端 AI 任務上獲得更高效能。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>Apple Neural Engine 的深層優化</li>
+                <li>實現高頻寬 DMA 的技術實踐</li>
+                <li>提升設備端機器學習任務性能</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>這篇文章吸引了對 Apple Silicon 和機器學習優化感興趣的開發者和工程師。社群對於能夠從 Apple 專有硬體中榨取極致性能的技術細節表現出高度興趣。它證明了在設備端進行高性能 AI 計算的潛力，激發了關於底層優化和硬體利用的技術交流。</p>
+            <a href="https://news.ycombinator.com/item?id=49636479" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 21 則討論)</a>
+        </div>
 
-    <!-- Final Slide: Summary -->
-    <div class="slide-card">
-        <h2>今日技術趨勢歸納</h2>
-        <p class="final-summary">
-            今天的 Hacker News 熱點反映了科技界在多個前沿領域的探索與挑戰。從對 Apple Neural Engine 的逆向工程，到 `async/await` 設計模式的深入探討，顯示了開發者對底層硬體與軟體優化的不懈追求。同時，AI 在數學領域的「未對齊」問題，以及 Google 廣告詐欺和反爬蟲機制的更新，突顯了當前 AI 應用的倫理困境、平台的信任危機及網路生態系統中的摩擦。此外，還有對古老互聯網歷史的緬懷與生物保護的科技視角，展現了社群對技術廣泛影響的關注。
-        </p>
-    </div>
+        <!-- Stabilizing Rust's Never Type -->
+        <div class="slide-card">
+            <h2 class="article-title"><a href="https://lwn.net/SubscriberLink/1091015/d9e48318ed242b41/" target="_blank" rel="noopener noreferrer">Stabilizing Rust's Never Type</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章討論了 Rust 程式語言中「Never Type」（`!`）的穩定化過程，解釋了它在類型系統中的重要性及其如何提升代碼的類型安全、處理不可達代碼和提供更強大的編譯器保證。這對於 Rust 開發者來說是語言核心功能的一個重要里程碑。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>Rust 類型系統的重大增強</li>
+                <li>`!` (Never Type) 在代碼安全性中的作用</li>
+                <li>提升編譯器保證與錯誤處理能力</li>
+            </ul>
+            <h3>社群觀點與連結 (Community Reaction)</h3>
+            <p>對於 Rust 開發者社群來說，Never Type 的穩定化是一個備受期待的更新。它代表了語言成熟度的提升和對類型系統更精細的控制，引發了關於其在錯誤處理、泛型編程和高級抽象中的應用的熱烈討論，顯示了 Rust 社群對語言進步的持續關注。</p>
+            <a href="https://news.ycombinator.com/item?id=49625056" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 42 則討論)</a>
+        </div>
 
+        <!-- Final Slide: Today's Tech Pulse -->
+        <div class="slide-card summary-slide">
+            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+            <p>今日 Hacker News 的熱點清晰地勾勒出 AI 技術演進與應用深化的雙重脈絡。從探討 Nvidia 在 AI 晶片生態中的「中央銀行」地位，到針對企業級真實代碼庫的 AI 模型基準測試，再到關於 AI 開發速度應否減緩的辯論，無不顯示 AI 已成為科技發展的核心驅動力。同時，社群對於開源協作（如 OpenStreetMap）的熱情不減，以及對於優化開發工具與底層性能（如 Rust 的類型系統、Apple Neural Engine 性能挖掘）的持續關注，共同塑造了今日開發者生態的前沿面貌。數位遺產的保存與歷史回顧也提醒著我們，在追求未來科技的同時，不應忘卻過去的累積與啟示。</p>
+        </div>
+
+    </div>
 </body>
 </html>
