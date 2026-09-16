@@ -3,340 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月15日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要</title>
     <style>
+        /* Global Styles */
         body {
-            background-color: #0f172a; /* Deep charcoal background */
-            color: #e2e8f0; /* Off-white text */
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0f172a; /* Dark blue-gray */
+            color: #e2e8f0; /* Off-white */
             margin: 0;
-            padding: 2rem;
+            padding: 20px;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            line-height: 1.6;
+            align-items: center; /* Center the entire presentation */
         }
 
-        a {
-            color: #3b82f6; /* Bright blue for links */
-            text-decoration: none;
+        /* Presentation Container */
+        .presentation-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Space between slides */
         }
 
-        a:hover {
-            text-decoration: underline;
+        /* Card Base Styles for all slides */
+        .slide-card {
+            background-color: #1e293b; /* Slightly lighter dark blue-gray */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155; /* Subtle border */
         }
 
-        .presentation-slide {
-            background-color: #1e293b; /* Darker blue-gray for cards */
-            border-radius: 0.75rem; /* Rounded corners */
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            border: 1px solid #334155; /* Slightly lighter border */
-        }
-
-        /* Cover Slide */
-        .cover-slide {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
+        /* Cover Slide Specific Styles */
         .cover-slide h1 {
-            font-size: 3rem;
+            font-size: 2.8em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-align: center;
+            background: linear-gradient(45deg, #a78bfa, #3b82f6); /* Blue-purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #e2e8f0;
         }
 
         .cover-slide h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #94a3b8; /* Muted gray for subtitle */
-            margin-bottom: 2rem;
-        }
-
-        .cover-slide p.date {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
-
-        .tags {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: linear-gradient(to right, #6d28d9, #7c3aed); /* Purple gradient accent */
-            color: #e2e8f0;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px; /* Pill shape */
-            font-size: 0.9rem;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        /* Content Slides */
-        .content-slide h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .content-slide h2 a {
-            color: #e2e8f0;
-            text-decoration: none;
-        }
-
-        .content-slide h2 a:hover {
-            color: #a78bfa; /* Lighter purple on hover */
-            text-decoration: underline;
-        }
-
-        .content-slide h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #a78bfa; /* Accent purple */
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .content-slide p, .content-slide li {
-            font-size: 1rem;
-            color: #cbd5e1; /* Lighter gray for body text */
-        }
-
-        .content-slide ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            padding: 0;
-        }
-
-        .content-slide ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .community-button {
-            display: inline-block;
-            background-color: #2563eb; /* Blue button background */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            margin-top: 1.5rem;
-        }
-
-        .community-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
-            text-decoration: none;
-        }
-
-        /* Final Slide */
-        .final-slide {
+            font-size: 1.8em;
+            color: #94a3b8; /* Light gray */
             text-align: center;
-            padding: 4rem 2rem;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
 
-        .final-slide h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #e2e8f0;
-        }
-
-        .final-slide p {
-            font-size: 1.1rem;
+        .cover-slide .date {
+            font-size: 1.1em;
             color: #cbd5e1;
-            max-width: 800px;
-            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cover-slide .tags {
+            text-align: center;
+            font-size: 1.1em;
+            color: #94a3b8;
+        }
+
+        .cover-slide .tags span {
+            display: inline-block;
+            background-color: #334155;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            color: #c7d2fe;
+            font-weight: 500;
+        }
+
+        /* Article Card Specific Styles */
+        .article-card h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #c7d2fe; /* Lighter blue-purple for titles */
+            font-weight: 600;
+        }
+
+        .article-card h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .article-card h3 a:hover {
+            color: #818cf8; /* Lighter on hover */
+        }
+
+        .article-card strong {
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        .article-card p {
+            margin-bottom: 10px;
+            color: #cbd5e1;
+        }
+
+        .article-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .article-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #a78bfa; /* Accent color for bullet points */
+        }
+
+        .article-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6; /* A slightly different blue for the bullet itself */
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .article-card .community-reaction {
+            margin-top: 25px;
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+        }
+
+        .article-card .community-reaction p {
+            font-style: italic;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        /* Button Styles */
+        .hn-button {
+            display: inline-block;
+            background-color: #2563eb; /* Blue */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .hn-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Summary Slide Specific Styles */
+        .summary-slide h2 {
+            font-size: 2em;
+            color: #a78bfa; /* Blue-purple */
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .summary-slide p {
+            font-size: 1.1em;
+            color: #cbd5e1;
+            text-align: justify;
         }
     </style>
 </head>
 <body>
+    <div class="presentation-container">
 
-    <!-- Slide 1: Cover Page -->
-    <div class="presentation-slide cover-slide">
-        <h1>Hacker News 每日科技熱點摘要</h1>
-        <h2>基於最新社群討論自動生成</h2>
-        <p class="date">生成日期：2026年09月15日</p>
-        <div class="tags">
-            <span class="tag">AI與自動化</span>
-            <span class="tag">開源軟體與硬體</span>
-            <span class="tag">系統與生態系</span>
+        <!-- Slide 1: Cover Page -->
+        <div class="slide-card cover-slide">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p class="date">生成日期：2026年09月16日</p>
+            <div class="tags">
+                <span>#AI進展</span>
+                <span>#數位體驗</span>
+                <span>#社群洞察</span>
+            </div>
         </div>
-    </div>
 
-    <!-- Article 1: I can't stop thinking about Papua New Guinea -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://notnottalmud.substack.com/p/why-i-cant-stop-thinking-about-papua" target="_blank" rel="noopener noreferrer">I can't stop thinking about Papua New Guinea</a></h2>
-        <h3>核心摘要</h3>
-        <p>這篇文章深入探討了巴布亞新幾內亞的複雜性與獨特性，尤其是在其驚人的語言多樣性、部落文化、經濟發展挑戰以及全球地緣政治中的關鍵位置。它分析了該國在文化保留與現代化之間面臨的平衡困境。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>全球語言密度最高的國家，文化多樣性極其豐富。</li>
-            <li>面臨基礎設施匱乏、腐敗、醫療與教育資源不足等發展挑戰。</li>
-            <li>地緣戰略重要性日益提升，成為國際勢力競逐焦點。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>文章深入探討了一個相對不為人知但地緣政治與文化意義重大的國家，激發了社群對其社會結構、發展困境與未來走向的廣泛討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49708431" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 59 則討論)</a>
-    </div>
+        <!-- Slide for Article: Introducing System One Models and Jev -->
+        <div class="slide-card article-card">
+            <h3><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank">Introducing System One Models and Jev</a></h3>
+            <p><strong>核心摘要：</strong> 這篇文章引入了「System One Models」的新型AI架構與「Jev」程式語言，旨在結合符號AI的推理能力與深度學習的模式識別，以創建更可靠、可解釋且不易產生幻覺的AI模型。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>推動AI從單純的模式匹配走向更深層次的因果理解與邏輯推理。</li>
+                <li>融合了傳統符號AI的結構化知識與現代深度學習的強大學習能力。</li>
+                <li>目標是減少大型語言模型的幻覺現象，提升AI在複雜任務中的決策可靠性。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 高達1418點的熱度與402則討論，顯示社群對當前LLM局限性的解決方案充滿期待。此類討論往往聚焦於AI基礎架構的未來，以及如何平衡性能與可信度。</p>
+                <a href="https://news.ycombinator.com/item?id=49717558" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 402 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 2: Let's make quality the norm again -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://www.forbrukerradet.no/short-life/" target="_blank" rel="noopener noreferrer">Let's make quality the norm again</a></h2>
-        <h3>核心摘要</h3>
-        <p>挪威消費者委員會倡議終結「計畫性報廢」和低品質產品設計，呼籲立法確保產品耐用性、可修復性與可回收性。這旨在對抗消費主義文化，促進更永續的消費模式。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>挑戰當前產品「短命」設計的商業模式。</li>
-            <li>推動歐盟及全球範圍內制定產品耐用性標準。</li>
-            <li>強調產品生命週期管理與消費者的修理權利。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>該倡議反映了許多消費者對產品品質下滑的不滿，引發了對永續消費、環境保護以及企業責任的熱烈討論，觸及了現代消費社會的核心問題。</p>
-        <a href="https://news.ycombinator.com/item?id=49710109" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 2 則討論)</a>
-    </div>
+        <!-- Slide for Article: Learning Programming in an Age of LLMs -->
+        <div class="slide-card article-card">
+            <h3><a href="https://blog.ploeh.dk/2026/09/16/on-learning-programming-in-an-age-of-llms/" target="_blank">Learning Programming in an Age of LLMs</a></h3>
+            <p><strong>核心摘要：</strong> 探討在大型語言模型(LLMs)普及的時代，學習程式設計的意義、方法及重點應如何轉變，強調理解概念和解決問題的能力遠比記憶語法更重要。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>LLMs改變了程式碼撰寫的方式，降低了初學者對語法記憶的需求。</li>
+                <li>教育應更側重於運算思維、問題解決策略及程式設計的核心原則。</li>
+                <li>程式設計師的角色正從「程式碼編寫者」轉變為「解決方案設計者」與「AI協作者」。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 雖然熱度較低，但此話題觸及了當前開發者教育的痛點。討論可能圍繞教學模式的創新、學習者的心態調整，以及未來程式設計技能的界定。</p>
+                <a href="https://news.ycombinator.com/item?id=49723873" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 9 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 3: iOS 27, iPadOS 27, and macOS 27 -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://www.apple.com/newsroom/2026/09/major-updates-for-apples-software-platforms-are-now-available/" target="_blank" rel="noopener noreferrer">iOS 27, iPadOS 27, and macOS 27</a></h2>
-        <h3>核心摘要</h3>
-        <p>這篇文章假想了蘋果在2026年發布的iOS 27、iPadOS 27和macOS 27的重大更新，描繪了一個整合度更高、AI功能深度融合且跨裝置體驗無縫銜接的未來操作系統生態系統。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>深度整合生成式AI於核心應用，提升用戶生產力與創意。</li>
-            <li>跨裝置通用應用體驗進一步增強，模糊行動與桌面界線。</li>
-            <li>引入創新的空間運算及沉浸式介面設計。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>作為一個虛構但極具前瞻性的蘋果未來操作系統預測，這篇文章激發了社群對蘋果未來軟體走向、AI整合潛力及技術創新的巨大想像與辯論，吸引了大量蘋果愛好者和科技觀察者參與。</p>
-        <a href="https://news.ycombinator.com/item?id=49701004" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 691 則討論)</a>
-    </div>
+        <!-- Slide for Article: Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations -->
+        <div class="slide-card article-card">
+            <h3><a href="https://github.com/arnegiacomo/fugleramme" target="_blank">Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations</a></h3>
+            <p><strong>核心摘要：</strong> 這是一個「Show HN」專案，展示了一個獨特的電子墨水屏相框。它能識別鳥鳴聲，並將聲音來源的鳥類以19世紀插畫風格自動繪製並顯示出來。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>巧妙結合了聲學識別、圖像生成AI與電子墨水屏技術。</li>
+                <li>為自然愛好者提供沉浸式且具藝術感的互動體驗。</li>
+                <li>開源專案性質，鼓勵DIY愛好者參與創造與客製化。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 獲得高達1662點的超高熱度與208則討論，顯示其獨特的創意、美學設計與技術融合引起了極大共鳴。社群熱愛這類將藝術與科技完美結合的個人專案。</p>
+                <a href="https://news.ycombinator.com/item?id=49711544" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 208 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 4: OpenArm: An open-source 7DOF humanoid arm -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://github.com/enactic/OpenArm" target="_blank" rel="noopener noreferrer">OpenArm: An open-source 7DOF humanoid arm</a></h2>
-        <h3>核心摘要</h3>
-        <p>OpenArm是一個開源的七自由度 (7DOF) 人形機械手臂專案，旨在提供一個低成本、易於組裝和控制的平台，推動機器人技術在研究、教育和個人專案領域的普及應用。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>提供完整的開源硬體設計、軟體控制和組裝指南。</li>
-            <li>採用模組化設計，便於客製化與功能擴展。</li>
-            <li>降低了高性能機器人手臂的進入門檻，促進協作創新。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>開源硬體專案在Hacker News上一直備受關注，OpenArm提供了一個具體且實用的機器人手臂方案，激發了工程師和愛好者對其潛力、應用場景及未來改進的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49684289" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 20 則討論)</a>
-    </div>
+        <!-- Slide for Article: Apple Reference Image: A New Approach for Verified Photography -->
+        <div class="slide-card article-card">
+            <h3><a href="https://security.apple.com/blog/apple-reference-image/" target="_blank">Apple Reference Image: A New Approach for Verified Photography</a></h3>
+            <p><strong>核心摘要：</strong> Apple推出「參考圖像」新方法，旨在為數位照片提供加密驗證機制，證明影像的真實性，防範深度偽造(deepfake)和內容篡改。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>透過數位簽章與安全硬體，在照片拍攝時即建立可信賴的源頭。</li>
+                <li>為打擊虛假信息與視覺內容的操縱提供技術解決方案。</li>
+                <li>Apple的參與可能推動此類驗證技術成為行業標準，提升數位內容的信任度。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 266點熱度與195則討論反映了社群對數位內容真實性問題的深切關注，尤其是在AI生成內容日益普及的背景下。大家對Apple如何實施及推動此技術充滿好奇。</p>
+                <a href="https://news.ycombinator.com/item?id=49721322" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 195 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 5: How much of F-Droid is LLM generated? -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://tintotint.eu/whacky-corner/f-droid_slop/" target="_blank" rel="noopener noreferrer">How much of F-Droid is LLM generated?</a></h2>
-        <h3>核心摘要</h3>
-        <p>這篇文章質疑了F-Droid（一個開源Android應用程式庫）中是否存在大量由大型語言模型 (LLM) 生成的內容，尤其是應用程式描述和評論，探討了AI內容對平台真實性和可靠性的潛在影響。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>探討LLM內容生成對開源社群和內容品質的影響。</li>
-            <li>呼籲對平台內容來源進行更嚴格的審查和標記。</li>
-            <li>引發了對「真實人類創作」與「AI輔助生成」界限的思考。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>關於AI生成內容的討論在當前科技界熱度極高，此文直接觸及開源專案的信任基礎，激發了社群對AI濫用、內容真實性及平台治理的擔憂和討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49710015" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 4 則討論)</a>
-    </div>
+        <!-- Slide for Article: Mistral X Mozilla: Private, Multilingual AI Browsing -->
+        <div class="slide-card article-card">
+            <h3><a href="https://mistral.ai/news/mistral-x-mozilla/" target="_blank">Mistral X Mozilla: Private, Multilingual AI Browsing</a></h3>
+            <p><strong>核心摘要：</strong> Mistral AI與Mozilla宣布合作，將Mistral的AI技術整合至Mozilla瀏覽器，重點關注在設備端(on-device)處理，以提供私密且多語言的AI瀏覽體驗。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>將強大的AI能力直接帶到用戶端，減少對雲端服務的依賴。</li>
+                <li>強調用戶隱私保護，避免個人數據上傳伺服器。</li>
+                <li>為瀏覽器帶來智慧化的多語言處理能力，提升網頁互動體驗。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 雖然熱度較低，但這項合作在隱私權倡導者和開源愛好者中引發了關注。討論可能聚焦於設備端AI的性能、隱私模型如何實現，以及這對瀏覽器生態的影響。</p>
+                <a href="https://news.ycombinator.com/item?id=49723408" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 8 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 6: Linux from Scratch -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://www.linuxfromscratch.org/" target="_blank" rel="noopener noreferrer">Linux from Scratch</a></h2>
-        <h3>核心摘要</h3>
-        <p>Linux from Scratch (LFS) 是一個提供逐步指導的專案，教導用戶如何從原始碼手動編譯一個完整的、客製化的Linux系統。這不僅是技術挑戰，也是深入理解Linux內部運作機制的最佳途徑。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>提供從零開始建構Linux系統的詳細手冊。</li>
-            <li>幫助用戶深刻理解Linux核心、工具鏈和系統架構。</li>
-            <li>高度客製化，可打造極簡或專用作業系統。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>LFS長期以來都是技術愛好者和系統工程師的經典挑戰，它的復活或更新總能激發社群對系統底層知識、個人化作業系統和對Linux社群精神的懷舊與熱情。</p>
-        <a href="https://news.ycombinator.com/item?id=49707627" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 62 則討論)</a>
-    </div>
+        <!-- Slide for Article: Show HN: I made a flight simulator, except you're just a passenger -->
+        <div class="slide-card article-card">
+            <h3><a href="https://inflightsimulator.com" target="_blank">Show HN: I made a flight simulator, except you're just a passenger</a></h3>
+            <p><strong>核心摘要：</strong> 這是一個顛覆傳統的飛行模擬器專案，玩家不再扮演飛行員，而是以一名普通乘客的視角體驗飛行，專注於旅程中的觀察與氛圍感。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>提供獨特且富有創意的遊戲體驗，重新定義模擬器類型。</li>
+                <li>強調沉浸式情境與細節觀察，而非操作技巧。</li>
+                <li>展示了個人獨立開發者如何透過巧思創造出新穎的互動內容。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 207點熱度與105則討論顯示社群對這類「Show HN」的創意專案很感興趣。其反主流的設計理念引發了人們對遊戲本質、體驗與敘事方式的討論。</p>
+                <a href="https://news.ycombinator.com/item?id=49693971" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 105 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 7: Alternatives to MinIO for single-node local S3 -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://rmoff.net/2026/01/14/alternatives-to-minio-for-single-node-local-s3/" target="_blank" rel="noopener noreferrer">Alternatives to MinIO for single-node local S3</a></h2>
-        <h3>核心摘要</h3>
-        <p>這篇文章探討了MinIO之外，針對單節點本地S3兼容儲存解決方案的替代選項，滿足開發者在本地開發和測試環境中對輕量級、S3 API兼容儲存的需求。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>分析本地S3兼容儲存的需求場景。</li>
-            <li>比較不同替代方案在功能、性能和易用性上的差異。</li>
-            <li>為開發者提供選擇合適工具的參考指南。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>對於開發者而言，本地模擬雲服務環境是日常工作的一部分。此文提供了實用的替代方案，滿足了社群中對高效、靈活開發工具的實際需求，引發了工具選型方面的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49709381" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 11 則討論)</a>
-    </div>
+        <!-- Slide for Article: An update on Wayback Machine access -->
+        <div class="slide-card article-card">
+            <h3><a href="https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/" target="_blank">An update on Wayback Machine access</a></h3>
+            <p><strong>核心摘要：</strong> Internet Archive發布了關於Wayback Machine訪問狀況的更新，詳述其面臨的技術、法律和財政挑戰，並重申其保存數位歷史的使命。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>揭示了Wayback Machine在維護與擴展全球數位檔案庫方面的巨大壓力。</li>
+                <li>強調開放資訊與數位保存對未來研究和歷史紀錄的重要性。</li>
+                <li>呼籲公眾與技術社群關注並支持非營利組織的數位遺產保護工作。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 544點熱度與273則討論反映了Wayback Machine作為公共資源的巨大價值。社群對其營運困境表示擔憂，並積極探討如何支持數位保存的倡議。</p>
+                <a href="https://news.ycombinator.com/item?id=49716176" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 273 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 8: Pion, an agent designed to run any company autonomously -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://andonlabs.com/blog/why-we-built-pion" target="_blank" rel="noopener noreferrer">Pion, an agent designed to run any company autonomously</a></h2>
-        <h3>核心摘要</h3>
-        <p>Pion 是一個雄心勃勃的 AI 代理專案，旨在透過自動化決策與執行，實現公司運營的全面自主化。它挑戰了傳統組織架構，展望了未來企業管理的革新模式。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>利用AI代理實現跨部門的自主決策與任務執行。</li>
-            <li>目標是顛覆傳統企業管理，提高效率和規模化能力。</li>
-            <li>面臨技術實現、信任建立與倫理規範等重大挑戰。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>作為一個前瞻性的AI自主代理概念，Pion觸及了未來工作、組織模式和AI潛力的核心，其高度的野心和潛在影響力激發了社群對未來科技願景和現實挑戰的廣泛討論。</p>
-        <a href="https://news.ycombinator.com/item?id=49700477" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 513 則討論)</a>
-    </div>
+        <!-- Slide for Article: Doing Everyone Else's Job -->
+        <div class="slide-card article-card">
+            <h3><a href="https://yosefk.com/blog/doing-everyone-elses-job.html" target="_blank">Doing Everyone Else's Job</a></h3>
+            <p><strong>核心摘要：</strong> 這篇文章探討了在軟體開發團隊中，成員經常「做其他人的工作」這一普遍現象，分析了其背後的原因、潛在的優缺點以及對效率和專業分工的影響。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>分析了職責重疊在跨職能團隊中的利弊權衡。</li>
+                <li>探討過度多工和模糊職責對個人成長與團隊效率的影響。</li>
+                <li>引導開發者思考如何有效溝通職責，避免「包山包海」的文化。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 76點熱度與39則討論顯示，這是許多開發者在職場中會遇到的實際問題。討論可能聚焦於如何劃清界限、團隊管理策略，以及個人在職業發展中的角色定位。</p>
+                <a href="https://news.ycombinator.com/item?id=49705944" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 39 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 9: 4,400-Year-Old Tomb of Egyptian Judge Found at Saqqara with Colors on Walls -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://arkeonews.net/4400-year-old-tomb-of-an-egyptian-judge-found-at-saqqara-with-colors-still-on-the-walls/" target="_blank" rel="noopener noreferrer">4,400-Year-Old Tomb of Egyptian Judge Found at Saqqara with Colors on Walls</a></h2>
-        <h3>核心摘要</h3>
-        <p>在埃及薩卡拉地區發現了一座擁有4,400年歷史的古埃及法官墓，其壁畫色彩保存完好，為研究古王國時期的藝術、社會階層和喪葬習俗提供了珍貴的新視角。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>新發現的墓葬為古埃及藝術與文化研究提供重要資料。</li>
-            <li>壁畫色彩保存完好，展現了當時高超的藝術成就。</li>
-            <li>有助於拼湊古埃及官員職責與社會地位的細節。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>科技社群對歷史和考古發現也抱有濃厚興趣，這項引人入勝的古埃及遺址發現，展現了人類文明的宏偉與持久，為社群提供了一個超越日常科技話題的文化與歷史視角。</p>
-        <a href="https://news.ycombinator.com/item?id=49675817" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 40 則討論)</a>
-    </div>
+        <!-- Slide for Article: Gemini 3.8 Live and 3.8 Live Extended Thinking -->
+        <div class="slide-card article-card">
+            <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/" target="_blank">Gemini 3.8 Live and 3.8 Live Extended Thinking</a></h3>
+            <p><strong>核心摘要：</strong> Google發布了其Gemini AI模型的最新更新，包括Gemini 3.8 Live版本以及具備「擴展思維」能力的3.8 Live Extended Thinking，旨在提升模型的即時反應和複雜問題處理能力。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>Gemini 3.8 Live實現了更快的交互響應，增強了即時對話體驗。</li>
+                <li>「擴展思維」功能賦予模型更深層次的推理能力，適用於多步驟、複雜任務。</li>
+                <li>展現了Google在提升AI模型智慧化與實用性方面的持續投入。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 419點熱度與273則討論，反映了對Google最新AI進展的高度關注。社群會仔細分析這些更新對實際應用、性能基準以及AI未來發展方向的影響。</p>
+                <a href="https://news.ycombinator.com/item?id=49715947" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 273 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Article 10: Charts built for Chat -->
-    <div class="presentation-slide content-slide">
-        <h2><a href="https://dbtcharts.com/blog/charts-built-for-chat/" target="_blank" rel="noopener noreferrer">Charts built for Chat</a></h2>
-        <h3>核心摘要</h3>
-        <p>dbtCharts 是一個新興工具，旨在將數據可視化與對話式介面深度整合，讓用戶能夠透過自然語言查詢和互動，即時生成並解讀複雜的圖表，極大地簡化了數據分析的門檻。</p>
-        <h3>關鍵要點</h3>
-        <ul>
-            <li>將自然語言處理 (NLP) 引入數據可視化流程。</li>
-            <li>提升非技術用戶進行數據探索和分析的能力。</li>
-            <li>簡化圖表生成和洞察提取的過程，提高效率。</li>
-        </ul>
-        <h3>社群觀點與連結</h3>
-        <p>在AI和數據驅動的時代，如何讓數據分析更易於大眾是個熱點。dbtCharts將聊天介面與圖表結合，解決了實際痛點，引發了社群對其潛力、應用場景和未來發展的期待。</p>
-        <a href="https://news.ycombinator.com/item?id=49704246" target="_blank" rel="noopener noreferrer" class="community-button">前往 Hacker News 討論區 (含 72 則討論)</a>
-    </div>
+        <!-- Slide for Article: Negativland, Culture Jamming, and the Art of Making Something New -->
+        <div class="slide-card article-card">
+            <h3><a href="https://blog.archive.org/2026/09/11/negativland-culture-jamming-and-the-art-of-making-something-new/" target="_blank">Negativland, Culture Jamming, and the Art of Making Something New</a></h3>
+            <p><strong>核心摘要：</strong> Internet Archive部落格文章回顧了美國實驗音樂團體Negativland及其在「文化干擾」(Culture Jamming)領域的開創性工作，探討了創意取樣、知識產權和藝術創新。</p>
+            <ul>
+                <li><strong>關鍵要點：</strong></li>
+                <li>介紹Negativland作為文化干擾運動先驅的藝術實踐與影響。</li>
+                <li>引發對數位時代內容創作、版權限制與言論自由的思考。</li>
+                <li>鼓勵從現有材料中重新組合與創造新意義的藝術手法。</li>
+            </ul>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong> 中等熱度，此類討論往往吸引對文化、版權、數位藝術與社會評論感興趣的群體。它引發對創新與合法性邊界問題的探討。</p>
+                <a href="https://news.ycombinator.com/item?id=49721548" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 20 則討論)</a>
+            </div>
+        </div>
 
-    <!-- Final Slide: Conclusion Page -->
-    <div class="presentation-slide final-slide">
-        <h2>今日技術趨勢歸納</h2>
-        <p>今天的 Hacker News 熱點深刻反映了當前科技領域的三大核心動能：人工智慧正從工具走向自主代理，預示著企業運營與軟體體驗的革命性變革；開源精神依然活躍，無論是底層系統的深度探索 (如 Linux from Scratch) 還是創新的硬體平台 (如 OpenArm)，都彰顯了社群協作的巨大能量；同時，關於產品品質與永續性的討論，以及對AI內容真實性的反思，也提醒我們在追求技術進步的同時，不應忽視其社會與倫理影響。此外，對未來軟體生態系統的想像（如假想的 Apple OS 27）也激發了對未來用戶體驗的無盡思考。</p>
-    </div>
+        <!-- Final Slide: Summary Page -->
+        <div class="slide-card summary-slide">
+            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+            <p>今日Hacker News熱點顯示，AI技術持續演進，不僅在基礎模型架構（如System One Models、Gemini 3.8）上尋求突破，更透過與瀏覽器（Mistral X Mozilla）及硬體（e-ink bird frame）結合，拓展了實際應用與個人體驗的邊界。同時，數位內容的真實性（Apple Reference Image）與長久保存（Wayback Machine）也成為社群關注的焦點，反映了在數位化日益深化的時代，信任與永續發展的重要性。開發者文化與教育方式的變革（Learning Programming in an Age of LLMs, Doing Everyone Else's Job）則促使我們反思技術與人的關係，如何在工具輔助下保持核心競爭力與創造力。</p>
+        </div>
 
+    </div>
 </body>
 </html>
