@@ -4,7 +4,7 @@ from datetime import datetime  # 1. 引入 datetime 模組
 from google import genai
 from google.genai import types
 
-def fetch_hn_stories(limit=5):
+def fetch_hn_stories(limit=10):
     """抓取 Hacker News 前 N 大熱門文章及其熱門留言概況"""
     print("正在擷取 Hacker News 熱門趨勢...")
     top_ids_url = "https://hacker-news.firebaseio.com/v0/topstories.json"
@@ -90,7 +90,7 @@ def generate_notebook_style_slides(stories):
     return content
 
 def main():
-    stories = fetch_hn_stories(10)
+    stories = fetch_hn_stories(5)
     slides_html = generate_notebook_style_slides(stories)
     
     output_filename = "index.html"
