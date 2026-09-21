@@ -3,377 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月21日</title>
     <style>
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f172a; /* Deep dark blue-gray */
-            color: #e2e8f0; /* Off-white for text */
+            color: #e2e8f0; /* Off-white */
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            line-height: 1.6;
         }
-
-        .presentation-container {
+        .container {
             max-width: 900px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Space between cards */
+            margin-bottom: 30px;
         }
-
-        .slide-card {
+        .card {
             background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border: 1px solid #334155; /* Subtle border */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Cover Slide */
-        .cover-slide {
+        .cover-card {
             text-align: center;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 60px 30px;
-            border: none;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            padding: 50px 30px;
         }
-
-        .cover-slide h1 {
-            font-size: 3.2em;
+        .cover-card h1 {
+            font-size: 2.8em;
             color: #ffffff;
-            margin-bottom: 10px;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(100, 100, 255, 0.4);
         }
-
-        .cover-slide h2 {
-            font-size: 1.6em;
-            color: #94a3b8; /* Lighter gray for subtitle */
-            margin-top: 0;
-            font-weight: 300;
+        .cover-card h2 {
+            font-size: 1.5em;
+            color: #94a3b8;
+            margin-bottom: 30px;
         }
-
-        .cover-slide p.date {
+        .cover-card p {
             font-size: 1.1em;
             color: #cbd5e1;
-            margin-top: 30px;
-            font-weight: 500;
         }
-
         .tags-container {
-            margin-top: 40px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-
         .tag {
-            display: inline-block;
-            background-color: #4f46e5; /* Primary accent blue-purple */
+            background-image: linear-gradient(to right, #4c1d95, #7c3aed); /* Purple gradient */
             color: #ffffff;
             padding: 8px 20px;
-            border-radius: 20px;
+            border-radius: 25px;
+            font-weight: bold;
             font-size: 0.9em;
-            font-weight: 600;
-            margin: 0 8px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* Article Slides */
-        .article-title {
+        h3 {
             font-size: 1.8em;
-            color: #818cf8; /* Light purple for titles */
+            color: #60a5fa; /* Light blue accent */
             margin-top: 0;
             margin-bottom: 15px;
-            font-weight: 700;
         }
-
-        .article-title a {
-            color: inherit;
+        h3 a {
+            color: #60a5fa;
             text-decoration: none;
-            transition: color 0.2s ease-in-out;
         }
-
-        .article-title a:hover {
-            color: #a78bfa; /* Lighter purple on hover */
+        h3 a:hover {
             text-decoration: underline;
+            color: #93c5fd;
         }
-
-        .section-header {
-            font-size: 1.2em;
-            color: #94a3b8;
+        .section-title {
+            font-size: 1.3em;
+            color: #a78bfa; /* Light purple accent */
             margin-top: 25px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #475569;
             padding-bottom: 5px;
         }
-
-        .core-insight {
-            font-size: 1.05em;
+        ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            padding: 0;
             color: #cbd5e1;
-            margin-bottom: 20px;
         }
-
-        .key-takeaways ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .key-takeaways ul li {
-            position: relative;
-            padding-left: 25px;
+        li {
             margin-bottom: 8px;
-            color: #e2e8f0;
         }
-
-        .key-takeaways ul li::before {
-            content: '•';
-            color: #818cf8; /* Purple bullet point */
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .community-reaction {
-            font-size: 0.95em;
-            color: #a1aabf;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #334155;
-        }
-
-        .discussion-button {
+        .btn {
             display: inline-block;
-            background-color: #2563eb; /* Blue background */
+            background-color: #3b82f6; /* Blue */
             color: #ffffff;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             margin-top: 25px;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .discussion-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
+        .btn:hover {
+            background-color: #2563eb; /* Darker blue on hover */
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
-
-        /* Final Slide */
-        .summary-slide {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            padding: 50px 30px;
-            text-align: center;
-            border: none;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .summary-slide h3 {
+        .final-summary h3 {
+            color: #ffffff;
             font-size: 2em;
-            color: #818cf8;
+            text-align: center;
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        .summary-slide p {
+        .final-summary p {
             font-size: 1.15em;
             color: #cbd5e1;
+            text-align: center;
             max-width: 700px;
             margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
-
-        <!-- Slide 1: Cover Page -->
-        <div class="slide-card cover-slide">
+    <div class="container">
+        <!-- 封面頁 (Slide 1) -->
+        <div class="card cover-card">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p class="date">生成日期: 2026年09月21日</p>
+            <p>生成日期：2026年09月21日</p>
             <div class="tags-container">
-                <span class="tag">AI</span>
-                <span class="tag">Retro Computing</span>
-                <span class="tag">Tech Infrastructure</span>
+                <span class="tag">AI趨勢</span>
+                <span class="tag">半導體</span>
+                <span class="tag">數位典藏</span>
             </div>
         </div>
 
-        <!-- Article: Grim Fandango Puzzle Document (1996) [pdf] -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="http://gameshelf.jmac.org/2008/11/13/GrimPuzzleDoc_small.pdf" target="_blank" rel="noopener noreferrer">Grim Fandango Puzzle Document (1996)</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">這份1996年的文件揭示了經典冒險遊戲《Grim Fandango》的謎題設計過程，為遊戲開發者和愛好者提供了一個獨特的視角，理解如何構建複雜且引人入勝的遊戲挑戰。它深入探討了設計背後的思路與迭代過程。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>經典遊戲設計文檔的保存與研究價值。</li>
-                <li>透視LucasArts黃金時期遊戲謎題設計的哲學與方法。</li>
-                <li>對比現代遊戲設計，審視敘事與機制融合的演變。</li>
+        <!-- 文章內容頁：Grim Fandango Puzzle Document (1996) -->
+        <div class="card">
+            <h3><a href="http://gameshelf.jmac.org/2008/11/13/GrimPuzzleDoc_small.pdf" target="_blank">Grim Fandango Puzzle Document (1996)</a></h3>
+            <p class="section-title">核心摘要 (Core Insight)</p>
+            <p>這是一份來自經典冒險遊戲《Grim Fandango》的原始解謎文件，揭示了其複雜而精妙的遊戲設計過程。它提供了深入的洞察，讓開發者和玩家得以一窺上世紀90年代末期遊戲設計師如何構思並建構沉浸式的互動體驗。</p>
+            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+            <ul>
+                <li>**復古遊戲設計方法：** 展現了在當時技術限制下，如何以創意彌補不足，專注於叙事與邏輯。</li>
+                <li>**深度解謎結構：** 詳細闡述了謎題的層次設計、提示線索以及玩家心理預期管理。</li>
+                <li>**數位文化遺產：** 強調了保存遊戲開發文檔的重要性，作為對歷史和藝術的貢獻。</li>
             </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">社群對此展現出強烈的懷舊情感與對遊戲設計歷史的濃厚興趣。許多討論集中在遊戲的創新性、對遊戲產業的影響，以及該文件如何作為遊戲開發的教學案例，引發對過往開發流程的深入探討。</p>
-            <a href="https://news.ycombinator.com/item?id=49783495" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 20 則討論)</a>
+            <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+            <p>這篇文章因其獨特的歷史價值和對遊戲設計愛好者的啟發而受到熱烈討論。社群成員對其帶來的懷舊感以及從中汲取經典設計原則的可能性感到興奮。</p>
+            <a href="https://news.ycombinator.com/item?id=49783495" target="_blank" class="btn">前往 Hacker News 討論區 (含 20 則討論)</a>
         </div>
 
-        <!-- Article: AX – Google’s Open Agentic Orchestrator -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://agentexecutor.io" target="_blank" rel="noopener noreferrer">AX – Google’s Open Agentic Orchestrator</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">Google 推出 AX，一個開源的代理協調器框架，旨在簡化 AI 代理的開發、管理與協同，讓多個 AI 代理能更有效地協作以解決複雜問題。它為構建具備「智能體系」的應用提供了基礎。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>提升 AI 代理間的協作與任務分配效率。</li>
-                <li>Google 在 AI 開源生態系統的戰略佈局。</li>
-                <li>推動通用人工智能 (AGI) 複雜任務處理能力的進展。</li>
+        <!-- 文章內容頁：AX – Google’s Open Agentic Orchestrator -->
+        <div class="card">
+            <h3><a href="https://agentexecutor.io" target="_blank">AX – Google’s Open Agentic Orchestrator</a></h3>
+            <p class="section-title">核心摘要 (Core Insight)</p>
+            <p>Google 推出了 AX，一個開源的代理式編排器，旨在簡化和標準化多個 AI 代理的協調與任務執行。它解決了在構建複雜 AI 應用時，如何有效管理和調度不同 AI 模組協同工作的挑戰。</p>
+            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+            <ul>
+                <li>**AI 代理編排：** 提供框架來定義、執行和監控由多個 AI 代理組成的複雜工作流程。</li>
+                <li>**開放標準與擴展性：** 作為開源項目，鼓勵社區貢獻並支持廣泛的 AI 模型和工具集成。</li>
+                <li>**簡化 AI 開發：** 旨在降低開發者構建強大、模組化 AI 系統的門檻。</li>
             </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">社群對 Google 提出的 AI 代理編排框架表現出高度關注，特別是其開源性質。討論圍繞著如何利用 AX 構建更強大的自主代理系統、其潛在應用場景以及與現有代理框架的比較。</p>
-            <a href="https://news.ycombinator.com/item?id=49780797" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 172 則討論)</a>
+            <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+            <p>社群對 Google 推出此工具表現出高度興趣，認為其可能成為 AI 代理領域的基礎設施。討論集中在它如何推動 AI 應用從單一模型走向複雜協作、其實際應用場景以及與其他類似框架的比較。</p>
+            <a href="https://news.ycombinator.com/item?id=49780797" target="_blank" class="btn">前往 Hacker News 討論區 (含 174 則討論)</a>
         </div>
 
-        <!-- Article: Samsung is expected to more than double output of its HBM4 and HBM4E DRAM -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://en.sedaily.com/finance/2026/09/20/samsung-to-double-hbm4-output-next-year-sources-say" target="_blank" rel="noopener noreferrer">Samsung is expected to more than double output of its HBM4 and HBM4E DRAM</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">三星預計將 HBM4 和 HBM4E DRAM 的產量翻倍，以應對人工智能加速器和高性能計算領域對高頻寬記憶體日益增長的需求。這反映出AI產業對核心硬體供應鏈的巨大壓力與戰略投資。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>HBM 技術成為 AI 硬體發展的關鍵瓶頸。</li>
-                <li>半導體產業對 AI 爆發式增長做出積極回應。</li>
-                <li>預計未來高性能計算的成本和可用性將受影響。</li>
+        <!-- 文章內容頁：Samsung is expected to more than double output of its HBM4 and HBM4E DRAM -->
+        <div class="card">
+            <h3><a href="https://en.sedaily.com/finance/2026/09/20/samsung-to-double-hbm4-output-next-year-sources-say" target="_blank">Samsung is expected to more than double output of its HBM4 and HBM4E DRAM</a></h3>
+            <p class="section-title">核心摘要 (Core Insight)</p>
+            <p>三星電子預計在明年將其 HBM4 和 HBM4E 高頻寬記憶體（High Bandwidth Memory）的產量翻倍，以應對全球 AI 晶片市場對先進記憶體日益增長的需求。這項擴產計畫是為了鞏固其在 AI 供應鏈中的關鍵地位。</p>
+            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+            <ul>
+                <li>**AI 算力基石：** HBM 是 AI 加速器不可或缺的組件，直接影響運算效率與效能。</li>
+                <li>**供應鏈戰略：** 三星大規模擴產 HBM，顯示出其對未來 AI 市場爆發式增長的強烈信心和戰略佈局。</li>
+                <li>**技術競爭加劇：** 記憶體製造商之間的 HBM 技術與產能競賽將更加白熱化，影響整個 AI 硬體格局。</li>
             </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">此消息在社群中引發了對 AI 產業供應鏈、記憶體技術競爭以及未來 AI 硬體成本趨勢的熱烈討論。許多人關注這對 Nvidia 等 AI 晶片巨頭的影響，以及是否能緩解當前的供不應求狀況。</p>
-            <a href="https://news.ycombinator.com/item?id=49778029" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 288 則討論)</a>
+            <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+            <p>這則新聞引起了關於 AI 基礎設施和半導體產業未來的廣泛討論。社群關注 AI 發展瓶頸是否會轉移至記憶體供應，以及這對地緣政治和技術自主性可能造成的影響。</p>
+            <a href="https://news.ycombinator.com/item?id=49778029" target="_blank" class="btn">前往 Hacker News 討論區 (含 290 則討論)</a>
         </div>
 
-        <!-- Article: Winning the visa lottery -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://www.aeaweb.org/research/immigration-restrictions-firms-workers" target="_blank" rel="noopener noreferrer">Winning the visa lottery</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">這篇研究探討了移民限制對企業和勞工的經濟影響，特別是透過簽證抽籤機制，分析其如何形塑勞動市場的構成、人才流動與創新能力。研究揭示了政策對經濟增長的深遠作用。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>移民政策直接影響高科技產業的人才供應。</li>
-                <li>簽證抽籤機制對企業營運和創新潛力的經濟衝擊。</li>
-                <li>探討全球人才流動與國家經濟競爭力之間的關係。</li>
+        <!-- 文章內容頁：Kev: Tiny Jev-like family of decision models built on top of Qwen3.5 -->
+        <div class="card">
+            <h3><a href="https://github.com/jaredpalmer/kev/tree/main" target="_blank">Kev: Tiny Jev-like family of decision models built on top of Qwen3.5</a></h3>
+            <p class="section-title">核心摘要 (Core Insight)</p>
+            <p>Kev 是一個基於 Qwen3.5 構建的輕量級決策模型家族，旨在提供類似 Jev 但更小巧、更聚焦於特定決策任務的解決方案。它專注於從大型語言模型中提取精煉的、可解釋的決策能力，以應用於更精簡的場景。</p>
+            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+            <ul>
+                <li>**小型化決策模型：** 致力於開發針對特定領域進行優化的輕量級 AI 決策模型。</li>
+                <li>**基於 Qwen3.5：** 利用 Qwen3.5 的能力，進行精煉和定制，實現高效的特定決策。</li>
+                <li>**專注可解釋性：** 旨在提供不僅做出決策，還能清晰解釋其推理過程的 AI 工具。</li>
             </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">作為一個由全球技術工作者組成的社群，Hacker News 對移民政策和簽證議題有著天然的高討論度。討論聚焦於技術人才引進的必要性、簽證制度的公平性，以及對不同國家科技產業發展的長期影響。</p>
-            <a href="https://news.ycombinator.com/item?id=49782775" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 42 則討論)</a>
+            <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+            <p>儘管熱度不高，社群對這種「小型化」和「專業化」的 AI 模型方向表示關注。討論集中在如何在資源受限或需要快速響應的環境中有效部署這類模型，以及它們在特定垂直領域的潛力。</p>
+            <a href="https://news.ycombinator.com/item?id=49783999" target="_blank" class="btn">前往 Hacker News 討論區 (含 2 則討論)</a>
         </div>
 
-        <!-- Article: What happened to the Snowden archive -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://libroot.org/posts/what-happened-to-the-snowden-archive" target="_blank" rel="noopener noreferrer">What happened to the Snowden archive</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">這篇文章深入探討了愛德華·斯諾登洩露的大量機密文件檔案的現狀與命運，包括其公開、保存、分析及對全球隱私與安全對話的持續影響。它審視了數位時代資訊保存的挑戰。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>重大洩密資料的長期保存與公共可訪問性。</li>
-                <li>數位檔案管理與資訊安全的倫理困境。</li>
-                <li>斯諾登事件對全球監控與隱私權討論的持久影響。</li>
+        <!-- 文章內容頁：What happened to the Snowden archive -->
+        <div class="card">
+            <h3><a href="https://libroot.org/posts/what-happened-to-the-snowden-archive" target="_blank">What happened to the Snowden archive</a></h3>
+            <p class="section-title">核心摘要 (Core Insight)</p>
+            <p>這篇文章深入探討了由愛德華·斯諾登洩露的龐大檔案資料，在過去多年間的儲存、管理與可訪問性現狀。它審視了這些高度敏感信息如何被處理，以及其對數位典藏、新聞自由和國家安全的持續影響。</p>
+            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+            <ul>
+                <li>**數位資料長期保存挑戰：** 揭示了大型、敏感數位資料庫在時間流逝下面臨的持久化與可訪問性問題。</li>
+                <li>**新聞自由與公共利益：** 討論了洩露資料在揭露真相與維護公共監督中的作用，以及其倫理困境。</li>
+                <li>**透明度與國家安全平衡：** 反思了資訊公開與國家安全之間不斷變化的複雜關係。</li>
             </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">斯諾登檔案持續引發社群對國家監控、個人隱私權和資訊透明度的深刻討論。許多人關心這些重要文件的完整性與未來用途，並對其在資訊自由運動中的歷史地位進行評價。</p>
-            <a href="https://news.ycombinator.com/item?id=49780820" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 248 則討論)</a>
+            <p class="section-title">社群觀點與連結 (Community Reaction)</p>
+            <p>這篇文章激發了關於數位典藏、新聞倫理和政府透明度的高度爭論。社群成員討論了歷史性資料的保存責任、對權力制衡的重要性，以及技術在促進或阻礙信息流動方面的作用。</p>
+            <a href="https://news.ycombinator.com/item?id=49780820" target="_blank" class="btn">前往 Hacker News 討論區 (含 251 則討論)</a>
         </div>
 
-        <!-- Article: Qwen Image 2.1 -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://qwen.ai/blog?id=qwen-image-2.1" target="_blank" rel="noopener noreferrer">Qwen Image 2.1</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">阿里巴巴推出的 Qwen Image 2.1 是一款先進的多模態大語言模型 (MLLM)，專為圖像理解而設計，大幅提升了模型在視覺推理和圖像內容交互方面的能力，進一步縮小了圖像與文本之間的鴻溝。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>多模態 AI 在圖像理解領域的最新突破。</li>
-                <li>提升視覺語言模型在複雜場景下的應用潛力。</li>
-                <li>揭示大型科技公司在通用 AI 領域的激烈競爭。</li>
-            </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">社群對 Qwen Image 2.1 的發布表現出極大興趣，尤其是對其在圖像理解和多模態交互方面展現出的最新能力。討論聚焦於其性能基準、潛在應用（如自動標註、內容生成）以及與其他頂級 MLLM 的比較。</p>
-            <a href="https://news.ycombinator.com/item?id=49775499" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 168 則討論)</a>
-        </div>
-
-        <!-- Article: Kev: Tiny Jev-like family of decision models built on top of Qwen3.5 -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://github.com/jaredpalmer/kev/tree/main" target="_blank" rel="noopener noreferrer">Kev: Tiny Jev-like family of decision models built on top of Qwen3.5</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">Kev 是一個基於 Qwen3.5 開發的輕量級決策模型系列，旨在為應用程式提供簡潔高效的決策智能。它特別適用於資源受限或需要快速響應的邊緣計算環境，將複雜的 LLM 能力濃縮成實用的決策組件。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>在現有強大 LLM 基礎上進行模型微調與輕量化。</li>
-                <li>為邊緣 AI 和嵌入式系統提供高效決策能力。</li>
-                <li>探索 LLM 在實際業務邏輯整合方面的應用。</li>
-            </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">儘管討論數較少，但對於追求效率和實用性的開發者而言，Kev 展現了 LLM 應用的一個重要方向：如何在資源有限的環境中實現智能決策。討論可能涉及其易用性、性能表現和潛在的垂直應用。</p>
-            <a href="https://news.ycombinator.com/item?id=49783999" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 0 則討論)</a>
-        </div>
-
-        <!-- Article: The Effect of CRTs on Pixel Art (2024) -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://datagubbe.se/crt/" target="_blank" rel="noopener noreferrer">The Effect of CRTs on Pixel Art (2024)</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">這篇文章深入探討了陰極射線管 (CRT) 顯示器對像素藝術美學的獨特影響，解釋了其掃描線、色彩渲染和模糊特性如何塑造並增強了復古遊戲和藝術的視覺風格。它呼籲重新審視經典媒介對藝術形式的塑造作用。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>重溫 CRT 顯示器對復古像素藝術視覺效果的關鍵影響。</li>
-                <li>深入理解舊式顯示技術與藝術創作之間的共生關係。</li>
-                <li>為現代像素藝術創作者提供復刻原汁原味美學的思路。</li>
-            </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">社群表現出強烈的懷舊情感和對技術細節的熱愛。討論圍繞著像素藝術如何在不同顯示器上呈現、CRT 顯示器的獨特魅力，以及如何在現代重現這種「舊」的視覺體驗。</p>
-            <a href="https://news.ycombinator.com/item?id=49768336" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 55 則討論)</a>
-        </div>
-
-        <!-- Article: Mini-AGI – dynamic continual learning model trained from scratch on 8GB VRAM -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://github.com/volotat/mini-AGI/" target="_blank" rel="noopener noreferrer">Mini-AGI – dynamic continual learning model trained from scratch on 8GB VRAM</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">Mini-AGI 是一個開創性的項目，展示了如何在僅有 8GB VRAM 的環境下，從頭開始訓練一個動態持續學習模型，推動了通用人工智能 (AGI) 在資源受限環境中的研究與實現可能性。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>大幅降低 AGI 研究的硬體門檻，提升可訪問性。</li>
-                <li>探索高效的持續學習算法，應對知識遺忘問題。</li>
-                <li>為個人開發者和小型團隊參與 AGI 探索提供新路徑。</li>
-            </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">社群對能在低硬體成本下實現 AGI 持續學習的潛力感到興奮。討論聚焦於模型的創新性、其實現的技術細節、擴展性，以及如何讓 AGI 研究更為普及和民主化。</p>
-            <a href="https://news.ycombinator.com/item?id=49783133" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 3 則討論)</a>
-        </div>
-
-        <!-- Article: Amiga Unix, Again -->
-        <div class="slide-card">
-            <h2 class="article-title"><a href="https://amigaux.org/" target="_blank" rel="noopener noreferrer">Amiga Unix, Again</a></h2>
-            <p class="section-header">核心摘要 (Core Insight)</p>
-            <p class="core-insight">這個項目重新審視並復興了 Amiga Unix，探索在 Amiga 硬體上運行類 Unix 作業系統的歷史意義和技術細節。它展現了復古計算領域對歷史軟硬體的熱情與維護，以及技術傳承的價值。</p>
-            <p class="section-header">關鍵要點 (Key Takeaways)</p>
-            <ul class="key-takeaways">
-                <li>對早期 Unix 系統在非主流硬體上的移植探索。</li>
-                <li>Amiga 平台在個人電腦歷史上的獨特地位。</li>
-                <li>復古計算社群在軟硬體保存和復興上的努力。</li>
-            </ul>
-            <p class="section-header">社群觀點與連結 (Community Reaction)</p>
-            <p class="community-reaction">Amiga 社群對此表現出高度的懷舊與技術興趣。討論集中在 Amiga Unix 的稀有性、其歷史背景、復興過程中遇到的技術挑戰，以及對 Amiga 遺產保護的意義。</p>
-            <a href="https://news.ycombinator.com/item?id=49781436" class="discussion-button" target="_blank" rel="noopener noreferrer">前往 Hacker News 討論區 (含 26 則討論)</a>
-        </div>
-
-        <!-- Final Slide: Summary Page -->
-        <div class="slide-card summary-slide">
+        <!-- 總結頁 (Final Slide) -->
+        <div class="card final-summary">
             <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <p>今日 Hacker News 的熱門話題清晰地反映了科技世界的兩大脈動：一方面是 <strong>人工智能</strong> 領域的迅猛發展，從 Google 的代理協調器 AX 到阿里巴巴的 Qwen Image 2.1，再到三星 HBM 記憶體的產能翻倍，都指向 AI 軟硬體生態的成熟與深化。另一方面，對 <strong>復古計算</strong> 和數位文化遺產的濃厚興趣也持續不減，無論是《Grim Fandango》的設計文檔，CRT 顯示器對像素藝術的影響，還是 Amiga Unix 的復興，都顯示出開發者社群對技術歷史和經典的珍視與回顧。</p>
+            <p>今日 Hacker News 的熱點清晰地描繪了 AI 技術在不同層面的深度滲透與發展。從 Google 的開源 AI 代理編排器 AX，到三星為 AI 算力基礎設施翻倍擴產 HBM，都預示著 AI 應用將更加複雜和普及。同時，Kev 這樣的輕量級 AI 模型也顯示出 AI 正在走向專業化和邊緣化。此外，對 Grim Fandango 遊戲文檔和 Snowden 檔案的關注，則突顯了數位時代對歷史資料保存、信息透明度與文化遺產的持續重視。</p>
         </div>
-
     </div>
 </body>
 </html>
