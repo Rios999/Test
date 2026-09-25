@@ -3,337 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月24日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月25日</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: #0f172a; /* 深灰色背景 */
-            color: #e2e8f0; /* 淺色文字 */
-            line-height: 1.6;
+            color: #f8fafc; /* 高對比白字 */
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 900px;
+        .slide-container {
             width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .slide {
+        .slide, .card {
             background-color: #1e293b; /* 卡片背景色 */
             border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 32px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             border: 1px solid #334155;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .slide:hover {
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        .cover-slide {
+        h1 {
+            font-size: 2.8em;
+            color: #e0f2fe; /* 淺藍色標題 */
             text-align: center;
-            padding: 60px 32px;
-        }
-
-        .cover-slide h1 {
-            font-size: 3.2em;
-            color: #e2e8f0;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #6366f1, #a855f7); /* 藍紫漸層 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
             font-weight: 700;
         }
 
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: #94a3b8;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .cover-slide p {
-            font-size: 1.1em;
-            color: #cbd5e1;
-            margin-bottom: 40px;
-        }
-
-        .tags-container {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background-color: #4f46e5; /* 藍色 */
-            color: #e0e7ff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        h2 {
+            font-size: 1.6em;
+            color: #94a3b8; /* 次要標題色 */
+            text-align: center;
+            margin-bottom: 25px;
             font-weight: 500;
-            white-space: nowrap;
         }
 
         h3 {
             font-size: 1.8em;
-            color: #818cf8; /* 藍紫色 */
             margin-top: 0;
             margin-bottom: 15px;
             font-weight: 600;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa); /* 藍紫漸層 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h3 a {
-            color: #818cf8;
             text-decoration: none;
-            transition: color 0.3s ease;
+            color: inherit; /* 繼承漸層色 */
         }
 
-        h3 a:hover {
-            color: #a78bfa; /* 更亮的紫色 */
-            text-decoration: underline;
+        p {
+            margin-bottom: 15px;
+            color: #cbd5e1; /* 內文顏色 */
+            font-size: 1.1em;
         }
 
-        .section-title {
-            font-size: 1.2em;
-            color: #94a3b8;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 500;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
+        strong {
+            color: #e0f2fe;
+            font-weight: 600;
         }
 
         ul {
             list-style-type: none;
             padding-left: 0;
-            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         ul li {
             position: relative;
             padding-left: 25px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: #aebfd4;
+            font-size: 1.05em;
         }
 
         ul li::before {
             content: '•';
-            color: #818cf8; /* 藍紫色 */
+            color: #818cf8; /* 藍紫色圓點 */
+            font-size: 1.2em;
             position: absolute;
             left: 0;
-            font-size: 1.2em;
-            line-height: 1;
+            top: -2px;
         }
 
-        .community-reaction {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px dashed #334155;
+        .tags {
+            text-align: center;
+            margin-top: 30px;
         }
 
-        .discussion-button {
+        .tag {
             display: inline-block;
-            background-color: #2563eb; /* 藍色 */
+            background-color: #334155;
+            color: #94a3b8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #475569;
+        }
+
+        .hn-button {
+            display: inline-block;
+            background-color: #2563eb; /* 藍色背景 */
             color: #ffffff;
-            padding: 12px 24px;
+            padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            font-size: 1em;
         }
 
-        .discussion-button:hover {
-            background-color: #1d4ed8; /* 深藍色 */
+        .hn-button:hover {
+            background-color: #3b82f6; /* 淺藍色 */
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.6);
         }
 
-        .summary-slide {
-            text-align: center;
-            padding: 40px 32px;
-        }
-
-        .summary-slide h3 {
-            font-size: 2.2em;
-            background: linear-gradient(90deg, #a855f7, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .summary-slide p {
+        .summary-pulse {
             font-size: 1.2em;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto;
+            color: #e2e8f0;
+            background: linear-gradient(45deg, #374151, #4b5563);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #4a5a6b;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-            }
-            .slide {
-                padding: 20px;
-            }
-            .cover-slide h1 {
-                font-size: 2.5em;
-            }
-            .cover-slide h2 {
-                font-size: 1.4em;
-            }
-            h3 {
-                font-size: 1.5em;
-            }
-            .section-title {
-                font-size: 1.1em;
-            }
-            .summary-slide h3 {
-                font-size: 1.8em;
-            }
-            .summary-slide p {
-                font-size: 1em;
-            }
-            .discussion-button {
-                padding: 10px 18px;
-                font-size: 0.9em;
-            }
+        .footer-date {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="slide-container">
+
         <!-- 封面頁 (Slide 1) -->
         <div class="slide cover-slide">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年09月24日</p>
-            <div class="tags-container">
-                <span class="tag">AI進化</span>
-                <span class="tag">硬體生態</span>
-                <span class="tag">社群洞察</span>
+            <p class="footer-date">生成日期: 2026年09月25日</p>
+            <div class="tags">
+                <span class="tag">#開源生態</span>
+                <span class="tag">#開發者工具</span>
+                <span class="tag">#創新應用</span>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 2) -->
-        <div class="slide">
-            <h3><a href="https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux" target="_blank">Linux support is coming to Snapdragon X2 Series</a></h3>
-            <p class="section-title">核心摘要 (Core Insight)</p>
-            <p>Qualcomm正積極推動其Snapdragon X系列晶片在Windows筆電市場的應用，並預告將為新一代X2系列處理器提供官方Linux支援，旨在擴大其硬體生態系統的作業系統兼容性。</p>
-
-            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <!-- 文章內容頁 1: F-Droid 2.0 -->
+        <div class="card article-card">
+            <h3><a href="https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html" target="_blank">F-Droid 2.0</a></h3>
+            <p><strong>核心摘要:</strong> F-Droid 2.0 預示著 Android 開源應用商店的新時代，旨在大幅改善使用者體驗、提升應用管理效率，並為開發者提供更現代化的發佈流程，鞏固其作為 Android 自由軟體生態基石的地位。</p>
+            <h4>關鍵要點:</h4>
             <ul>
-                <li>Snapdragon X2將原生支援主流Linux發行版，有望提升ARM平台開發者體驗。</li>
-                <li>此舉意在挑戰Intel/AMD在PC市場的主導地位，特別是在AI PC領域。</li>
-                <li>預計將加速ARM架構在伺服器、邊緣計算及專業工作站的普及。</li>
+                <li><strong>重新設計的使用者介面:</strong> 提供更直觀、流暢的應用探索與管理體驗。</li>
+                <li><strong>效能與穩定性提升:</strong> 核心架構優化，改善應用更新與下載效率。</li>
+                <li><strong>開發者工具現代化:</strong> 簡化應用提交與維護流程，鼓勵更多開源專案參與。</li>
             </ul>
-
-            <div class="community-reaction">
-                <p class="section-title">社群觀點與連結 (Community Reaction)</p>
-                <p>高通此舉象徵著ARM架構在PC生態系中的重要進展，開發者對於Linux原生支援的期待很高，討論集中在性能、驅動程式成熟度以及對生態系統的潛在影響。</p>
-                <a href="https://news.ycombinator.com/item?id=49823582" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 120 則討論)</a>
-            </div>
+            <h4>社群觀點與連結:</h4>
+            <p>F-Droid 作為開源自由軟體的長期支持者，其重大版本更新自然引發了社群對去中心化應用發佈、隱私權保護及替代 Google Play 生態系統未來走向的熱烈討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49831968" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 281 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 (Slide 3) -->
-        <div class="slide">
-            <h3><a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system" target="_blank">Claude discovers a novel enzyme system with CRISPR-like repeats</a></h3>
-            <p class="section-title">核心摘要 (Core Insight)</p>
-            <p>Anthropic的AI模型Claude在分析微生物基因組數據時，自主發現了一種全新的酶系統，其結構和功能與CRISPR基因編輯技術有驚人的相似之處，展示了AI在科學探索和新生物學機制發現上的巨大潛力。</p>
-
-            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <!-- 文章內容頁 2: Show HN: Make cursed fonts like Times New Bastard -->
+        <div class="card article-card">
+            <h3><a href="https://bastardica.mitpit.com" target="_blank">Show HN: Make cursed fonts like Times New Bastard</a></h3>
+            <p><strong>核心摘要:</strong> 這是一個展示性的「Show HN」專案，透過獨特演算法生成具備破壞性或詭異視覺效果的字體，如其名「Times New Bastard」，旨在探索字體設計的極限與可能性，為數位藝術和創意表達提供新奇工具。</p>
+            <h4>關鍵要點:</h4>
             <ul>
-                <li>AI超越資料分析，能主動識別並提出全新的科學假說。</li>
-                <li>發現新酶系統可能為生物技術、基因編輯帶來新的工具或啟發。</li>
-                <li>預示著AI與生物科學結合將加速基礎研究的進程。</li>
+                <li><strong>程式化字體破壞:</strong> 透過演算法自動扭曲、變形字體，創造獨特視覺風格。</li>
+                <li><strong>開源與可客製化:</strong> 提供原始碼，允許使用者深入研究或開發自己的「詛咒字體」。</li>
+                <li><strong>創意設計工具:</strong> 為藝術家、設計師及開發者提供實驗性字體生成平台。</li>
             </ul>
-
-            <div class="community-reaction">
-                <p class="section-title">社群觀點與連結 (Community Reaction)</p>
-                <p>AI在基礎科學發現上的突破性進展，引發了社群對於AI能力邊界、科學研究範式變革以及AI倫理的熱烈討論。許多人對AI的創造力感到震驚。</p>
-                <a href="https://news.ycombinator.com/item?id=49820134" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 588 則討論)</a>
-            </div>
+            <h4>社群觀點與連結:</h4>
+            <p>這個專案以其新穎且略帶顛覆性的概念吸引了開發者和設計師的目光，討論多圍繞在字體生成技術、創意應用潛力以及它在惡搞或藝術表達上的可能性。</p>
+            <a href="https://news.ycombinator.com/item?id=49823738" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 79 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 (Slide 4) -->
-        <div class="slide">
-            <h3><a href="https://github.com/karmanyaahm/budget-tools/tree/main/fire" target="_blank">Show HN: How long do I need to work at my salary before I can coast, or retire?</a></h3>
-            <p class="section-title">核心摘要 (Core Insight)</p>
-            <p>這是一個Hacker News上的展示專案，提供了一個簡單的開源工具集，幫助個人根據目前的薪資和儲蓄率，計算達到財務自由（FI/RE，Financial Independence, Retire Early）所需的年限或投資累積。</p>
-
-            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <!-- 文章內容頁 3: Show HN: Whiteboard (YC W26) – An open-source IDE for thoughtful software design -->
+        <div class="card article-card">
+            <h3><a href="https://github.com/devdotfast/whiteboard" target="_blank">Show HN: Whiteboard (YC W26) – An open-source IDE for thoughtful software design</a></h3>
+            <p><strong>核心摘要:</strong> Whiteboard 是一個開源整合開發環境 (IDE)，專注於協助開發者在程式碼撰寫前進行深思熟慮的設計，透過視覺化工具、協作功能和結構化思維導圖，將設計理念與程式實作無縫結合，提升軟體開發品質。</p>
+            <h4>關鍵要點:</h4>
             <ul>
-                <li>該工具旨在簡化財務規劃，提供個人「何時能退休」的估算。</li>
-                <li>基於簡單假設與參數，用戶可自行調整以符合個人情況。</li>
-                <li>展示了開發者社群對個人財務管理和FIRE運動的興趣。</li>
+                <li><strong>設計導向的開發流程:</strong> 強調事前規劃，將設計思想融入程式開發初期。</li>
+                <li><strong>視覺化協作工具:</strong> 支援團隊成員共同發想、討論和精煉設計方案。</li>
+                <li><strong>開源與擴展性:</strong> 作為 YC W26 專案，具備潛力成為新一代開發者青睞的設計型 IDE。</li>
             </ul>
-
-            <div class="community-reaction">
-                <p class="section-title">社群觀點與連結 (Community Reaction)</p>
-                <p>作為一個實用的「Show HN」專案，它吸引了對個人財務規劃、FIRE運動有興趣的開發者，討論多圍繞工具的準確性、假設條件以及不同財務策略的探討。</p>
-                <a href="https://news.ycombinator.com/item?id=49826059" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 9 則討論)</a>
-            </div>
+            <h4>社群觀點與連結:</h4>
+            <p>作為一個旨在改善軟體設計流程的開源 IDE，它觸及了開發者普遍關注的痛點，引發了對開發效率、團隊協作及未來 IDE 發展方向的深入探討。</p>
+            <a href="https://news.ycombinator.com/item?id=49833867" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 93 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 (Slide 5) -->
-        <div class="slide">
-            <h3><a href="https://www.kenklippenstein.com/p/feds-think-ai-critics-are-foreign" target="_blank">Feds Target AI Critics as "Foreign Agents"</a></h3>
-            <p class="section-title">核心摘要 (Core Insight)</p>
-            <p>一篇報導揭露美國聯邦政府可能正在將對人工智慧發展提出質疑或批評的個人和團體，視為可能受外國勢力影響的「外國代理人」，引發了對言論自由、國家安全與技術發展之間平衡的擔憂。</p>
-
-            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <!-- 文章內容頁 4: Why is the liver so weirdly regenerative? -->
+        <div class="card article-card">
+            <h3><a href="https://dynomight.substack.com/p/liver" target="_blank">Why is the liver so weirdly regenerative?</a></h3>
+            <p><strong>核心摘要:</strong> 這篇文章深入探討了人類肝臟在再生能力上的獨特之處，分析其背後的生物學機制，並試圖解釋為何肝臟擁有遠超其他器官的自我修復與恢復功能，為生物醫學研究提供啟發。</p>
+            <h4>關鍵要點:</h4>
             <ul>
-                <li>AI安全與倫理討論可能面臨政治化和壓制風險。</li>
-                <li>政府對新興科技的國家安全考量可能擴大至言論審查。</li>
-                <li>對話與開放批評對於負責任的AI發展至關重要。</li>
+                <li><strong>獨特的再生機制:</strong> 肝臟能夠在失去大部分組織後完全恢復其功能和質量。</li>
+                <li><strong>細胞可塑性研究:</strong> 深入探討肝細胞在損傷修復過程中的轉化能力。</li>
+                <li><strong>醫學應用潛力:</strong> 對肝臟再生的理解有助於器官移植、再生醫學及肝病治療的進展。</li>
             </ul>
-
-            <div class="community-reaction">
-                <p class="section-title">社群觀點與連結 (Community Reaction)</p>
-                <p>該文章觸及了社群對於政府權力、言論自由以及AI未來走向的敏感神經，引發了廣泛而激烈的討論，許多人表達了對潛在言論壓制的擔憂。</p>
-                <a href="https://news.ycombinator.com/item?id=49824686" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 134 則討論)</a>
-            </div>
+            <h4>社群觀點與連結:</h4>
+            <p>關於人體生物學的奧秘，特別是像肝臟再生這樣引人入勝的話題，總能激發 HN 社群的科學愛好者、醫生和工程師從不同角度進行熱烈討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49832938" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 171 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 (Slide 6) -->
-        <div class="slide">
-            <h3><a href="https://nanochess.org/transputer_c_compiler.html" target="_blank">Making portable my unportable transputer C compiler</a></h3>
-            <p class="section-title">核心摘要 (Core Insight)</p>
-            <p>作者分享了如何將一個年代久遠、專為Transputer平行處理器設計且高度不具可攜性的C語言編譯器，進行現代化改造，使其能在當前主流系統上運行，這是一項關於復古計算和編譯器移植的技術挑戰。</p>
-
-            <p class="section-title">關鍵要點 (Key Takeaways)</p>
+        <!-- 文章內容頁 5: 2DWillNeverDie -->
+        <div class="card article-card">
+            <h3><a href="https://2dwillneverdie.com/" target="_blank">2DWillNeverDie</a></h3>
+            <p><strong>核心摘要:</strong> 2DWillNeverDie 是一個旨在致敬和推廣 2D 藝術與設計的專案，強調 2D 在視覺傳達、遊戲和動畫領域中永恆的魅力與不可替代性，並收集展示相關的優秀作品與資源。</p>
+            <h4>關鍵要點:</h4>
             <ul>
-                <li>展示了對舊有計算架構和技術的熱情與復興。</li>
-                <li>涉及底層編譯器技術、指令集架構和程式碼移植的專業知識。</li>
-                <li>強調了軟體可移植性在長期維護中的重要性。</li>
+                <li><strong>致敬 2D 藝術:</strong> 收集並展示各種形式的 2D 創意作品，從遊戲到插畫。</li>
+                <li><strong>宣導 2D 價值:</strong> 強調 2D 設計在現代數位環境中的獨特美學與溝通效率。</li>
+                <li><strong>社群與資源分享:</strong> 建立一個平台，讓 2D 愛好者交流和發掘相關資源。</li>
             </ul>
-
-            <div class="community-reaction">
-                <p class="section-title">社群觀點與連結 (Community Reaction)</p>
-                <p>這是一篇典型的Hacker News技術深度文，吸引了對編譯器開發、復古計算、系統程式設計感興趣的硬核技術人員，討論集中在技術細節和挑戰。</p>
-                <a href="https://news.ycombinator.com/item?id=49795600" target="_blank" class="discussion-button">前往 Hacker News 討論區 (含 1 則討論)</a>
-            </div>
+            <h4>社群觀點與連結:</h4>
+            <p>這個專案觸動了許多在數位時代成長的開發者和設計師的情懷，關於 2D 藝術的經典地位、演變及未來潛力的討論，反映了對數位美學多樣性的追求。</p>
+            <a href="https://news.ycombinator.com/item?id=49801436" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 22 則討論)</a>
         </div>
 
         <!-- 總結頁 (Final Slide) -->
-        <div class="slide summary-slide">
-            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <p>今日Hacker News熱點顯示，AI正從輔助工具進化為科學發現的驅動者，其影響已延伸至生物醫學等基礎研究。同時，硬體生態正經歷ARM架構的崛起，官方Linux支援將加速其在PC市場的普及。然而，隨著技術進步，關於AI倫理、政府監管與言論自由的討論也日益浮現，凸顯出科技發展與社會影響之間的複雜互動。開發者社群對復古計算的熱情和個人財務工具的關注，則展現了技術愛好者對專業深度與生活品質的雙重追求。</p>
+        <div class="slide final-slide">
+            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+            <p class="summary-pulse">
+                今日 Hacker News 的熱門話題展現了技術社群對<strong>開源生態系統的持續投入</strong>（F-Droid 2.0、Whiteboard IDE），強調在<strong>自由軟體、開發工具與設計流程上的創新</strong>。同時，我們也看到了對<strong>創意程式設計與數位藝術形式的探索</strong>（詛咒字體、2D 藝術），以及對<strong>基礎科學前沿研究的濃烈興趣</strong>（肝臟再生機制）。這反映了開發者不僅追求實用工具的進化，也持續保持著對技術應用邊界與生命科學奧秘的好奇心。
+            </p>
         </div>
+
     </div>
 </body>
 </html>
