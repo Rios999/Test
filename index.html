@@ -3,165 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年09月27日</title>
+    <title>Hacker News 每日科技熱點摘要</title>
+    <!-- 引入 Google Fonts 的 Inter 字體，提供現代感和可讀性 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a; /* 深灰色背景 (Dark Mode) */
+            color: #f8fafc; /* 高對比白字 */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* 卡片間距 */
+            align-items: center; /* 卡片置中 */
+            line-height: 1.6;
+        }
+
+        .card {
+            background-color: #1e293b; /* 卡片背景色，比主背景稍亮 */
+            border-radius: 12px; /* 圓角邊框 */
+            padding: 30px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h1 {
+            font-size: 2.5em;
+            color: #6366f1; /* 藍紫色 accent color for main title */
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            color: #a78bfa; /* 淺紫色 accent color for article titles */
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.4em;
+            color: #94a3b8; /* 稍淺的灰藍色用於副標題 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #334155; /* 分隔線 */
+            padding-bottom: 5px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .card ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .card a {
+            color: #93c5fd; /* 淺藍色連結 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: #38b2ac; /* 連結 hover 效果 */
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2563eb; /* 醒目藍色按鈕 */
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: flex-start; /* 按鈕靠左對齊 */
+        }
+
+        .button:hover {
+            background-color: #1d4ed8; /* 按鈕 hover 效果 */
+            transform: translateY(-2px); /* 輕微上浮效果 */
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap; /* 標籤換行 */
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center; /* 標籤置中 */
+        }
+
+        .tag {
+            background-color: #4f46e5; /* 標籤背景色 */
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px; /* 藥丸狀標籤 */
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .cover-subtitle {
+            font-size: 1.4em;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .date {
+            font-size: 1.1em;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .footer-text {
+            text-align: justify; /* 總結文字左右對齊 */
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .summary-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
-<body style="font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 0;">
+<body>
 
-    <div style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
-
-        <!-- Slide 1: Cover Page -->
-        <div style="text-align: center; padding: 80px 40px; background-color: #1a202c; border-radius: 12px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); margin-bottom: 40px;">
-            <h1 style="font-size: 2.8em; color: #f8fafc; margin-bottom: 15px; background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                Hacker News 每日科技熱點摘要
-            </h1>
-            <p style="font-size: 1.4em; color: #cbd5e1; margin-bottom: 30px;">
-                基於最新社群討論自動生成
-            </p>
-            <p style="font-size: 1.1em; color: #94a3b8;">
-                生成日期：2026年09月27日
-            </p>
-            <div style="margin-top: 40px;">
-                <span style="display: inline-block; background-color: #4f46e5; color: #f8fafc; padding: 8px 18px; border-radius: 20px; font-size: 0.9em; font-weight: 600; margin: 0 8px;">AI算力</span>
-                <span style="display: inline-block; background-color: #a855f7; color: #f8fafc; padding: 8px 18px; border-radius: 20px; font-size: 0.9em; font-weight: 600; margin: 0 8px;">開源工具</span>
-                <span style="display: inline-block; background-color: #ec4899; color: #f8fafc; padding: 8px 18px; border-radius: 20px; font-size: 0.9em; font-weight: 600; margin: 0 8px;">開發者文化</span>
-            </div>
+    <!-- 簡報封面頁 (Slide 1) -->
+    <div class="card">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <p class="cover-subtitle">基於最新社群討論自動生成</p>
+        <p class="date">生成日期：2026年09月28日</p>
+        <div class="tags-container">
+            <span class="tag">AI發展</span>
+            <span class="tag">科技產業脈動</span>
+            <span class="tag">使用者體驗</span>
         </div>
+    </div>
 
-        <!-- Slide 2: Go Concurrency Distilled -->
-        <div style="background-color: #1a202c; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <h2 style="font-size: 1.8em; color: #6366f1; margin-top: 0; margin-bottom: 15px;">
-                <a href="https://antonz.org/go-concurrency-distilled/" target="_blank" style="color: #6366f1; text-decoration: none;">Go Concurrency Distilled</a>
-            </h2>
-            <p style="font-size: 1.1em; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">核心摘要：</strong>這篇文章提供了一份關於 Go 語言並行模型精華的實用指南，著重於透過 <code style="background-color: #2d3748; padding: 3px 6px; border-radius: 4px; font-family: monospace;">goroutines</code> 和 <code style="background-color: #2d3748; padding: 3px 6px; border-radius: 4px; font-family: monospace;">channels</code> 實現高效的並行編程。它旨在幫助開發者清晰理解並運用 Go 的並發特性，避免常見錯誤。
-            </p>
-            <h3 style="font-size: 1.3em; color: #f8fafc; margin-bottom: 10px;">關鍵要點：</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1; line-height: 1.6;">
-                <li>深入淺出 Go 協程與通道機制。</li>
-                <li>強調實用模式與常見錯誤規避。</li>
-                <li>提升 Go 應用程式的並行處理效能與可靠性。</li>
-            </ul>
-            <hr style="border: 0; height: 1px; background-color: #4a5568; margin: 25px 0;">
-            <p style="font-size: 1em; color: #a0aec0; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">社群觀點：</strong>Go 的並行模型一直是其核心賣點，但理解與正確使用仍是許多開發者的痛點。這篇「精煉」的指南提供了快速掌握並行編程的實用方法，受到了 Go 開發者的高度關注，討論集中在如何最佳化並行邏輯和處理邊緣情況。
-            </p>
-            <div style="text-align: center;">
-                <a href="https://news.ycombinator.com/item?id=49856988" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                    前往 Hacker News 討論區 (含 36 則討論)
-                </a>
-            </div>
-        </div>
+    <!-- 文章內容頁 (Slide 2): Owed a billion dollars in Nvidia stock -->
+    <div class="card">
+        <h2><a href="https://colo.to/nvidia-stock-narrative.html" target="_blank">Owed a billion dollars in Nvidia stock</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇敘事文章探討了一起涉及Nvidia公司股票的巨額財務爭議，估計價值高達十億美元。它揭示了在AI晶片巨頭Nvidia股價飆升的背景下，圍繞股權所有權與法律主張的複雜性和高風險性。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>揭示科技巨頭高估值下潛在的法律與財務糾紛。</li>
+            <li>強調Nvidia在AI浪潮中作為關鍵參與者的股權價值爭議。</li>
+            <li>反映個人或企業在高速成長科技市場中，資產配置與所有權的複雜挑戰。</li>
+        </ul>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>此話題因其驚人的金額、涉及炙手可熱的Nvidia，以及潛在的金融戲劇性，在Hacker News上引發了廣泛關注。討論區可能聚焦於科技投資合約細節、法律風險分析，以及在高市值公司中如何保障股權歸屬。</p>
+        <a href="https://news.ycombinator.com/item?id=49872723" target="_blank" class="button">前往 Hacker News 討論區 (含 155 則討論)</a>
+    </div>
 
-        <!-- Slide 3: PipePipe: NewPipe hard fork implementing SponsorBlock -->
-        <div style="background-color: #1a202c; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <h2 style="font-size: 1.8em; color: #6366f1; margin-top: 0; margin-bottom: 15px;">
-                <a href="https://github.com/InfinityLoop1303/PipePipe" target="_blank" style="color: #6366f1; text-decoration: none;">PipePipe: NewPipe hard fork implementing SponsorBlock</a>
-            </h2>
-            <p style="font-size: 1.1em; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">核心摘要：</strong>PipePipe 是一個基於 NewPipe 程式碼庫的硬分叉專案，旨在將廣受歡迎的 SponsorBlock 功能整合到離線 YouTube 客戶端。它為使用者提供了一個無廣告、無贊助商內容干擾的影音觀看體驗，同時保留了 NewPipe 的隱私優勢。
-            </p>
-            <h3 style="font-size: 1.3em; color: #f8fafc; margin-bottom: 10px;">關鍵要點：</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1; line-height: 1.6;">
-                <li>整合 SponsorBlock 實現無干擾觀影。</li>
-                <li>基於 NewPipe，維護使用者隱私。</li>
-                <li>開源社群對抗廣告與內容置入的積極嘗試。</li>
-            </ul>
-            <hr style="border: 0; height: 1px; background-color: #4a5568; margin: 25px 0;">
-            <p style="font-size: 1em; color: #a0aec0; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">社群觀點：</strong>YouTube 廣告和贊助商內容日益增多，嚴重影響觀影體驗，導致社群對此類工具的需求極高。PipePipe 結合了兩個強力功能，直接解決了用戶痛點，因此在尋求更佳觀影體驗的用戶群中引起了廣泛討論和積極迴響。
-            </p>
-            <div style="text-align: center;">
-                <a href="https://news.ycombinator.com/item?id=49842764" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                    前往 Hacker News 討論區 (含 200 則討論)
-                </a>
-            </div>
-        </div>
+    <!-- 文章內容頁 (Slide 3): Thinking Fast and Slow in AI: The Role of Metacognition -->
+    <div class="card">
+        <h2><a href="https://arxiv.org/abs/2110.01834" target="_blank">Thinking Fast and Slow in AI: The Role of Metacognition</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇學術論文將人類認知中的「快思慢想」（System 1 & System 2）模型引入人工智慧領域，強調元認知——即AI對其自身思考過程的反思能力——對於開發更穩健、能自我修正並進行深度推理的智能系統至關重要。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>將丹尼爾·卡尼曼的雙系統思考模型引入AI設計，以提升決策品質。</li>
+            <li>強調元認知（Metacognition）在AI中扮演關鍵角色，助其自我監控與修正。</li>
+            <li>為開發更具彈性、能進行深度推理的下一代AI系統提供理論框架。</li>
+        </ul>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>儘管討論數較少，這篇文章對AI研究者和認知科學愛好者極具吸引力。它提供了一個理論性深度思考，探索AI如何超越簡單模式識別，發展出更接近人類的推理和反思能力，對於AI的未來發展具有啟發意義。</p>
+        <a href="https://news.ycombinator.com/item?id=49873241" target="_blank" class="button">前往 Hacker News 討論區 (含 2 則討論)</a>
+    </div>
 
-        <!-- Slide 4: DeepSeek Elastic Compute (DSec) -->
-        <div style="background-color: #1a202c; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <h2 style="font-size: 1.8em; color: #6366f1; margin-top: 0; margin-bottom: 15px;">
-                <a href="https://arxiv.org/abs/2609.22978" target="_blank" style="color: #6366f1; text-decoration: none;">DeepSeek Elastic Compute (DSec)</a>
-            </h2>
-            <p style="font-size: 1.1em; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">核心摘要：</strong>DeepSeek Elastic Compute (DSec) 是一項新提出的分散式訓練系統，旨在為大型語言模型 (LLM) 提供高效且具彈性的算力基礎設施。它透過優化模型並行化和資源調度，有效解決了訓練龐大模型時的算力瓶頸與資源浪費問題。
-            </p>
-            <h3 style="font-size: 1.3em; color: #f8fafc; margin-bottom: 10px;">關鍵要點：</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1; line-height: 1.6;">
-                <li>專為 LLM 訓練優化的高彈性分散式算力平台。</li>
-                <li>提升資源利用率，加速大模型訓練效率。</li>
-                <li>應對 AI 大模型算力需求的關鍵基礎設施突破。</li>
-            </ul>
-            <hr style="border: 0; height: 1px; background-color: #4a5568; margin: 25px 0;">
-            <p style="font-size: 1em; color: #a0aec0; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">社群觀點：</strong>隨著 AI 模型規模的爆炸式成長，算力成本和效率已成為 AI 發展的核心挑戰。DeepSeek 作為知名 AI 團隊，其提出的彈性算力解決方案，直接觸及了業界痛點，引起了從研究人員到企業開發者的高度興趣，討論集中在其實際性能和部署成本。
-            </p>
-            <div style="text-align: center;">
-                <a href="https://news.ycombinator.com/item?id=49859112" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                    前往 Hacker News 討論區 (含 62 則討論)
-                </a>
-            </div>
-        </div>
+    <!-- 文章內容頁 (Slide 4): Nissan's third generation e-POWER powertrain -->
+    <div class="card">
+        <h2><a href="https://www.nissan-global.com/EN/INNOVATION/TECHNOLOGY/ARCHIVE/E_POWER_GEN3/" target="_blank">Nissan's third generation e-POWER powertrain</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>日產推出了其第三代e-POWER動力系統，這是一種獨特的增程式電動技術，其內燃機僅負責發電，不直接驅動車輪。該系統旨在提供近似電動車的駕馭感受、優異的燃油效率，並解決傳統電動車的里程焦慮問題。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>採用獨特的「增程式電動」系統，汽油引擎僅發電，電動馬達驅動。</li>
+            <li>旨在提供近似電動車的駕駛體驗，同時解決續航里程焦慮。</li>
+            <li>提升燃油效率與動力輸出，代表日產在混合動力技術上的創新方向。</li>
+        </ul>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>社群對日產在電動化轉型中的獨特戰略表現出濃厚興趣。討論可能圍繞其作為純電動車與燃油車之間務實過渡方案的優勢、與其他品牌混合動力技術的比較，以及這對未來汽車市場的潛在影響。</p>
+        <a href="https://news.ycombinator.com/item?id=49872883" target="_blank" class="button">前往 Hacker News 討論區 (含 37 則討論)</a>
+    </div>
 
-        <!-- Slide 5: If we do not stop to help each other, what do we become? -->
-        <div style="background-color: #1a202c; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <h2 style="font-size: 1.8em; color: #6366f1; margin-top: 0; margin-bottom: 15px;">
-                <a href="https://blog.codinghorror.com/if-we-do-not-stop-to-help-each-other-what-do-we-become/" target="_blank" style="color: #6366f1; text-decoration: none;">If we do not stop to help each other, what do we become?</a>
-            </h2>
-            <p style="font-size: 1.1em; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">核心摘要：</strong>這篇文章從一個哲學角度，探討了在快速發展的科技社群和廣泛社會中，互相幫助的重要性。作者呼籲開發者和個體反思在追求技術進步的同時，是否忽略了人際連結與互助合作的本質，並警告若缺乏此精神可能帶來的負面後果。
-            </p>
-            <h3 style="font-size: 1.3em; color: #f8fafc; margin-bottom: 10px;">關鍵要點：</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1; line-height: 1.6;">
-                <li>反思科技發展中的人文關懷與互助精神。</li>
-                <li>強調社群協作對於個人成長與技術生態的重要性。</li>
-                <li>警示過度競爭與孤立可能導致的潛在風險。</li>
-            </ul>
-            <hr style="border: 0; height: 1px; background-color: #4a5568; margin: 25px 0;">
-            <p style="font-size: 1em; color: #a0aec0; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">社群觀點：</strong>在高度競爭和快速迭代的科技行業中，關於開發者文化、倫理和社群互助的討論往往能引起共鳴。Coding Horror 的作者 Jeff Atwood 在社群中具有高聲望，這篇文章觸及了許多開發者內心深處的價值觀，因此獲得了深度思考與討論。
-            </p>
-            <div style="text-align: center;">
-                <a href="https://news.ycombinator.com/item?id=49863062" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                    前往 Hacker News 討論區 (含 22 則討論)
-                </a>
-            </div>
-        </div>
+    <!-- 文章內容頁 (Slide 5): Ember-1 -->
+    <div class="card">
+        <h2><a href="https://fireworks.ai/blog/ember-1" target="_blank">Ember-1</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>Fireworks.ai發布了Ember-1，這是一個高效且功能強大的開源大型語言模型（LLM），專為快速推理和便捷部署而設計。其目標是為開發者提供一個高性能、成本效益更佳的基礎模型，以民主化LLM技術的應用。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>Fireworks.ai發布開源大型語言模型Ember-1，專注於高效能推理。</li>
+            <li>目標是提供開發者更快速、成本效益更高的AI應用基礎。</li>
+            <li>推動LLM技術的民主化，降低中小型企業與開發者導入AI的門檻。</li>
+        </ul>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>Ember-1因其開源性質和對高效能推理的強調而受到開發者社群的熱烈歡迎。討論聚焦於其實際應用潛力、降低AI模型運行成本的能力，以及它如何挑戰現有大型專有模型的地位，展現了社群對實用、開放AI解決方案的強烈需求。</p>
+        <a href="https://news.ycombinator.com/item?id=49868830" target="_blank" class="button">前往 Hacker News 討論區 (含 199 則討論)</a>
+    </div>
 
-        <!-- Slide 6: Show HN: Reladraw – A diagram language where you decide where to place things -->
-        <div style="background-color: #1a202c; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <h2 style="font-size: 1.8em; color: #6366f1; margin-top: 0; margin-bottom: 15px;">
-                <a href="https://github.com/reladraw/reladraw" target="_blank" style="color: #6366f1; text-decoration: none;">Show HN: Reladraw – A diagram language where you decide where to place things</a>
-            </h2>
-            <p style="font-size: 1.1em; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">核心摘要：</strong>Reladraw 是一個創新的圖表繪製語言，它賦予使用者精確控制圖表中元素擺放位置的能力，而非依賴自動排版。這為需要精準佈局以傳達複雜結構或概念的技術文件和演示提供了極大的靈活性。
-            </p>
-            <h3 style="font-size: 1.3em; color: #f8fafc; margin-bottom: 10px;">關鍵要點：</h3>
-            <ul style="list-style-type: disc; margin-left: 20px; color: #cbd5e1; line-height: 1.6;">
-                <li>提供高度自由的圖表元素位置控制。</li>
-                <li>解決傳統自動排版工具的局限性。</li>
-                <li>提升技術文件和演示的可視化表達力與精確度。</li>
-            </ul>
-            <hr style="border: 0; height: 1px; background-color: #4a5568; margin: 25px 0;">
-            <p style="font-size: 1em; color: #a0aec0; margin-bottom: 20px;">
-                <strong style="color: #f8fafc;">社群觀點：</strong>開發者對圖表工具的需求巨大，但現有工具在自動化和手動控制之間往往難以平衡。Reladraw 提出一個新的解決方案，讓使用者擁有最終排版權，這對追求精確視覺表達的工程師和設計師具有強大吸引力，因此引發了高度關注與熱烈討論。
-            </p>
-            <div style="text-align: center;">
-                <a href="https://news.ycombinator.com/item?id=49858513" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.05em; transition: background-color 0.3s ease; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                    前往 Hacker News 討論區 (含 68 則討論)
-                </a>
-            </div>
-        </div>
+    <!-- 文章內容頁 (Slide 6): When did Google get so weird? -->
+    <div class="card">
+        <h2><a href="https://sancho.bearblog.dev/google-weird/" target="_blank">When did Google get so weird?</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇文章深刻地反思了許多用戶普遍感受到的問題：Google的產品和服務近年來變得越來越「怪異」或不盡人意。作者質疑Google是否已偏離其最初的簡潔和用戶至上原則，導致產品功能過於臃腫、體驗複雜且逐漸惡化。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>探討Google產品與服務日益臃腫、複雜化，影響使用者體驗。</li>
+            <li>反映社群對Google產品策略與設計方向轉變的普遍不滿。</li>
+            <li>引發對科技巨頭在追求營收與創新時，如何平衡使用者需求的思考。</li>
+        </ul>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這篇文章在Hacker News上引發了極其熱烈的共鳴，因為它觸及了大量Google用戶的共同心聲。社群成員積極分享他們對Google產品（如搜尋、Gmail、YouTube等）品質下降的個人經歷和不滿，反映了廣大用戶對科技巨頭服務品質的深切關注和集體焦慮。</p>
+        <a href="https://news.ycombinator.com/item?id=49870367" target="_blank" class="button">前往 Hacker News 討論區 (含 537 則討論)</a>
+    </div>
 
-        <!-- Final Slide: Summary Page -->
-        <div style="text-align: center; padding: 60px 40px; background-color: #1a202c; border-radius: 12px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); margin-top: 40px;">
-            <h2 style="font-size: 2em; color: #f8fafc; margin-bottom: 20px; background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                今日技術趨勢歸納
-            </h2>
-            <p style="font-size: 1.15em; color: #cbd5e1; line-height: 1.8;">
-                今日 Hacker News 熱點反映出開發者社群對<strong style="color: #a855f7;">核心編程效率</strong>（如 Go 並行）、<strong style="color: #6366f1;">新興技術基礎設施</strong>（如 AI 算力優化）以及<strong style="color: #ec4899;">使用者體驗與隱私保護</strong>（如去廣告工具）的持續關注。同時，對<strong style="color: #facc15;">精準開發工具</strong>和<strong style="color: #38bdf8;">開發者文化與社群互助</strong>等議題的討論，也凸顯了科技人不僅追求技術創新，更重視工具的實用性、人文關懷與社群連結。
-            </p>
-        </div>
-
+    <!-- 總結頁 (Final Slide) -->
+    <div class="card summary-card">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p class="footer-text">
+            今日 Hacker News 的熱門話題描繪了一個充滿活力與挑戰的科技圖景。我們看到 **AI領域** 正以驚人的速度持續發展，從深層次的理論思考（如AI的元認知）到實際應用（如開源高效LLM Ember-1），致力於讓AI更智能、更具可操作性。這股趨勢預示著未來AI將更加普及且能解決複雜問題。與此同時，**傳統科技巨頭如Google** 正面臨嚴峻的用戶體驗考驗，社群對其產品「變得怪異」的廣泛共鳴，反映了在追求創新與商業化的過程中，維護核心產品體驗的艱鉅挑戰。此外，**電動化交通技術** 仍在穩步前行，日產e-POWER的獨特方案展現了汽車產業對多元化解決方案的探索。最後，**高科技投資** 的巨大潛力也伴隨著複雜的財務和法律風險，Nvidia股票的億元糾紛便是明證。整體而言，今天的趨勢是創新與反思並存，技術的飛速進步與對其影響的審視同等重要。
+        </p>
     </div>
 
 </body>
