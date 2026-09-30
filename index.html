@@ -3,210 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年09月30日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;404;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
-
         body {
-            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
             background-color: #0f172a; /* 深灰色背景 */
-            color: #e2e8f0; /* 高對比白字 */
+            color: #f8fafc; /* 高對比白字 */
             line-height: 1.6;
+            margin: 0;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 960px;
             width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
+            max-width: 900px; /* 限制內容最大寬度 */
+            margin: auto;
         }
 
-        .slide {
-            background-color: #1e293b; /* 卡片背景色 */
+        .slide, .card {
+            background-color: #1e293b; /* 卡片深藍灰色 */
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            margin-bottom: 40px;
             padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px; /* 統一卡片最小高度 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+            transition: transform 0.2s ease-in-out;
         }
 
-        .slide:hover {
+        .slide:hover, .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
         }
 
         .cover-slide {
             text-align: center;
             padding: 60px 30px;
-            min-height: 400px;
-            justify-content: center;
+            background: linear-gradient(135deg, #1e293b 0%, #374151 100%); /* 封面漸層背景 */
+            border: none;
         }
 
         .cover-slide h1 {
-            font-size: 3em;
-            color: #a78bfa; /* 紫色 accent */
+            font-size: 3.5em;
+            color: #ffffff;
             margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-weight: 800;
         }
 
         .cover-slide h2 {
             font-size: 1.5em;
-            color: #94a3b8;
+            color: #cbd5e1;
             margin-bottom: 30px;
             font-weight: 400;
         }
 
         .cover-slide p {
-            font-size: 1em;
-            color: #cbd5e1;
-            margin-top: 50px;
+            font-size: 1.1em;
+            color: #94a3b8;
         }
 
         .tags {
             margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
         }
 
         .tag {
-            background-color: #4c1d95; /* 深紫色 */
-            color: #f0f9ff;
-            padding: 8px 18px;
+            display: inline-block;
+            background-color: #4c1d95; /* 紫色標籤 */
+            color: #e0e7ff;
+            padding: 8px 15px;
             border-radius: 20px;
+            margin: 0 5px 10px;
             font-size: 0.9em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        h3 {
+        .card h3 {
             font-size: 1.8em;
-            color: #8b5cf6; /* 紫色 */
-            margin-top: 0;
+            color: #60a5fa; /* 藍色標題 */
             margin-bottom: 15px;
-            line-height: 1.4;
+            font-weight: 700;
         }
 
-        h3 a {
-            color: #8b5cf6;
+        .card h3 a {
+            color: #60a5fa;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
-        h3 a:hover {
-            color: #a78bfa;
+        .card h3 a:hover {
             text-decoration: underline;
         }
 
-        .section-title {
-            font-size: 1.2em;
+        .card p {
             color: #cbd5e1;
-            margin-top: 20px;
+            margin-bottom: 1em;
+        }
+
+        .card strong {
+            color: #e2e8f0;
+        }
+
+        .key-takeaways ul {
+            list-style-type: '⚡️ '; /* 子彈點圖示 */
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+
+        .key-takeaways li {
             margin-bottom: 8px;
-            font-weight: 500;
+            color: #a7b7cd;
         }
 
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding: 0;
-            color: #cbd5e1;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .community-reaction-section {
+        .community-reaction {
             margin-top: 25px;
-            border-top: 1px solid #334155;
             padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
+            border-top: 1px dashed #334155;
         }
 
-        .community-reaction-text {
-            font-size: 0.95em;
-            color: #a0aec0;
+        .community-reaction p {
+            font-style: italic;
+            color: #94a3b8;
+            margin-bottom: 20px;
         }
 
-        .hn-button {
+        .button {
             display: inline-block;
             background-color: #2563eb; /* 藍色按鈕 */
-            color: white;
+            color: #ffffff;
             padding: 12px 25px;
-            border-radius: 6px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95em;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
         }
 
-        .hn-button:hover {
-            background-color: #3b82f6; /* 淺藍色 */
+        .button:hover {
+            background-color: #3b82f6;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.6);
         }
 
         .final-slide {
+            padding: 40px;
             text-align: center;
-            padding: 50px 30px;
-            min-height: 300px;
-            justify-content: center;
         }
 
         .final-slide h2 {
             font-size: 2.2em;
-            color: #60a5fa; /* 淺藍色 */
-            margin-bottom: 25px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .final-slide p {
             font-size: 1.1em;
+            color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto;
-            color: #cdd4e0;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .cover-slide h1 {
-                font-size: 2.5em;
-            }
-            .cover-slide h2 {
-                font-size: 1.2em;
-            }
-            h3 {
-                font-size: 1.5em;
-            }
-            .slide {
-                padding: 20px;
-                min-height: unset;
-            }
-            .hn-button {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-            .tags {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .tag {
-                margin-bottom: 10px;
-            }
         }
     </style>
 </head>
@@ -216,98 +173,110 @@
         <div class="slide cover-slide">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
+            <p>生成日期：2026年09月30日</p>
             <div class="tags">
-                <span class="tag">AI模型</span>
-                <span class="tag">開源硬體</span>
-                <span class="tag">數位倫理</span>
-            </div>
-            <p>生成日期：2026年09月29日</p>
-        </div>
-
-        <!-- 文章內容頁 (Slide 2) -->
-        <div class="slide">
-            <h3><a href="https://jagi.studio/posts/phyllotaxis/" target="_blank">Phyllotaxis: An audio-reactive LED display</a></h3>
-            <p><strong>核心摘要：</strong>這個專案深入探索了植物葉序（Phyllotaxis）的自然模式，並將其巧妙地應用於一個聲光互動的LED顯示裝置。它旨在透過演算法將音頻視覺化，創造出既科學又具藝術美感的沉浸式體驗。</p>
-            <p class="section-title">關鍵要點：</p>
-            <ul>
-                <li>利用植物學的黃金角度原理設計獨特的視覺流動模式。</li>
-                <li>整合ESP32微控制器與多個LED驅動器實現實時音頻響應。</li>
-                <li>展示了物理世界規律與數字藝術創作的創新結合潛力。</li>
-            </ul>
-            <div class="community-reaction-section">
-                <p class="community-reaction-text">這個專案吸引了對DIY硬體、藝術與科學結合感興趣的讀者。Hacker News 社群常欣賞這種將複雜原理轉化為具體應用的創意工程。討論雖然不多，但展現了對個人專案的技術細節與美學的認可。</p>
-                <a href="https://news.ycombinator.com/item?id=49880411" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 4 則討論)</a>
+                <span class="tag">AI模型監控</span>
+                <span class="tag">AI應用與倫理</span>
+                <span class="tag">新型語言模型</span>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 3) -->
-        <div class="slide">
-            <h3><a href="https://mubi.com/en/notebook/posts/pirating-the-pirates" target="_blank">Pirating the Pirates</a></h3>
-            <p><strong>核心摘要：</strong>Mubi Notebook 的這篇文章深入探討了電影盜版文化在數位時代如何產生諷刺性的反噬現象——即盜版內容的傳播者也可能成為被盜版的對象。文章揭示了盜版產業鏈中複雜的道德困境與實踐悖論。</p>
-            <p class="section-title">關鍵要點：</p>
-            <ul>
-                <li>分析數位內容所有權與分發的界限日益模糊。</li>
-                <li>揭示了盜版圈內部也存在的「抄襲」與「二次盜版」現象。</li>
-                <li>引發對數位時代道德標準、智慧財產權的廣泛思辨。</li>
-            </ul>
-            <div class="community-reaction-section">
-                <p class="community-reaction-text">這篇文章獲得極高討論度，因為它觸及了智慧財產權、網路倫理和社群行為等核心議題。Hacker News 社群對內容所有權、版權法規的灰色地帶以及「盜亦有道」的哲學討論一直抱有濃厚興趣。</p>
-                <a href="https://news.ycombinator.com/item?id=49880036" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 244 則討論)</a>
+        <!-- 文章內容頁 -->
+
+        <!-- Livenerf -->
+        <div class="card">
+            <h3><a href="https://github.com/ninjahawk/livenerf" target="_blank">Livenerf: Has Opus 5.5 been nerfed yet?</a></h3>
+            <p><strong>核心摘要：</strong>Livenerf 是一個社群專案，旨在監控並公開報告 AI 模型（如 Opus 5.5）性能的潛在「弱化」現象。它透過實時測試和數據分析，幫助使用者了解模型在更新後是否出現效果下降或行為改變。</p>
+            <div class="key-takeaways">
+                <p><strong>關鍵要點：</strong></p>
+                <ul>
+                    <li><strong>AI模型品質監控：</strong>提供工具和數據，讓開發者和使用者能獨立驗證大型語言模型的性能穩定性。</li>
+                    <li><strong>社群透明度：</strong>響應社群對商業AI模型不透明更新的擔憂，促進模型提供商負起責任。</li>
+                    <li><strong>「模型弱化」現象：</strong>凸顯了AI服務在產品迭代中可能面臨的性能漂移問題，以及其對依賴模型的應用造成的影響。</li>
+                </ul>
+            </div>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong>此話題獲得高討論度，反映了廣大AI使用者對於模型穩定性及品質下降的普遍焦慮。尤其當AI模型被廣泛整合到關鍵應用中，任何性能變化都可能帶來顯著影響。</p>
+                <a href="https://news.ycombinator.com/item?id=49901736" target="_blank" class="button">前往 Hacker News 討論區 (含 164 則討論)</a>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 4) -->
-        <div class="slide">
-            <h3><a href="https://stateofutopia.com/experiments/microllmlab/" target="_blank">MicroLLM Lab – Try 7 tiny LLM's in the browser</a></h3>
-            <p><strong>核心摘要：</strong>MicroLLM Lab 提供了一個創新的實驗平台，讓用戶無需複雜設置，即可直接在瀏覽器中體驗七種不同的輕量級大型語言模型（LLMs）。這個工具旨在顯著降低LLM的試用門檻，並展示小型模型在終端設備上的強大潛力。</p>
-            <p class="section-title">關鍵要點：</p>
-            <ul>
-                <li>展示了在瀏覽器端同時運行多個微型LLM的技術實現。</li>
-                <li>極大簡化了用戶探索不同模型性能的過程，提升可訪問性。</li>
-                <li>預示著邊緣AI、本地化LLM應用以及輕量級模型優化的重要趨勢。</li>
-            </ul>
-            <div class="community-reaction-section">
-                <p class="community-reaction-text">該專案引起廣泛關注，特別是對於LLM的易用性與本地運行能力。在瀏覽器中直接測試多個模型的能力，迎合了開發者對於AI民主化和降低實驗成本的渴望，是當前AI發展熱點之一。</p>
-                <a href="https://news.ycombinator.com/item?id=49882781" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 74 則討論)</a>
+        <!-- LinkedIn Larpmaxxing -->
+        <div class="card">
+            <h3><a href="https://hereticpleb.vercel.app/blog/linkedin-larpmaxxing/" target="_blank">LinkedIn Larpmaxxing</a></h3>
+            <p><strong>核心摘要：</strong>這篇文章探討了在 LinkedIn 等專業社交平台上，透過高度優化甚至誇大的方式來包裝個人經歷和形象的現象，並深入分析了其背後的原因、手段和對職業生態的影響。</p>
+            <div class="key-takeaways">
+                <p><strong>關鍵要點：</strong></p>
+                <ul>
+                    <li><strong>數位身份構築：</strong>分析在求職市場競爭激烈下，個人如何在線上建立「最佳化」但可能失真的專業形象。</li>
+                    <li><strong>AI輔助內容：</strong>探討AI工具在生成個人簡介、職涯故事等方面的應用，及其對真實性的衝擊。</li>
+                    <li><strong>職場文化反思：</strong>引發對當前職場文化、招聘流程以及專業平台真實性問題的廣泛討論。</li>
+                </ul>
+            </div>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong>此文章觸及了許多人有共鳴的職場焦慮和數位時代的身份管理困境，讓大家思考個人品牌與誠信之間的平衡。</p>
+                <a href="https://news.ycombinator.com/item?id=49904314" target="_blank" class="button">前往 Hacker News 討論區 (含 18 則討論)</a>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 5) -->
-        <div class="slide">
-            <h3><a href="https://github.com/firelex/jeff" target="_blank">Jeff – Jev-compatible 0.8B decision models, trained at home, ~30 ms</a></h3>
-            <p><strong>核心摘要：</strong>Jeff 是一個開源專案，開發了與 Jev 相容的 0.8 億參數決策模型。這些模型不僅可以在消費級硬體上於家中輕鬆訓練，還能實現約 30 毫秒的極速推斷。這為個人和小型團隊提供了高性能、低成本的AI決策解決方案。</p>
-            <p class="section-title">關鍵要點：</p>
-            <ul>
-                <li>開源且可在消費級硬體上實現高效率訓練。</li>
-                <li>具備極低的推斷延遲，適合對實時性要求高的應用。</li>
-                <li>推動了小型化、高效能AI模型在邊緣運算與個人開發領域的普及。</li>
-            </ul>
-            <div class="community-reaction-section">
-                <p class="community-reaction-text">這個專案在HN上獲得高度認可，因為它結合了「居家訓練」、「快速推斷」和「開源」等關鍵優勢。這代表了AI工具的民主化趨勢，讓更多開發者能夠以低門檻參與到AI模型的開發和應用中。</p>
-                <a href="https://news.ycombinator.com/item?id=49883844" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 156 則討論)</a>
+        <!-- Dots: Always-on agents -->
+        <div class="card">
+            <h3><a href="https://openai.com/index/introducing-dots/" target="_blank">Dots: Always-on agents</a></h3>
+            <p><strong>核心摘要：</strong>OpenAI 正式推出「Dots」，一種全新的、始終在線的AI代理（Always-on agents），旨在透過持續學習和主動預測使用者需求，將AI互動從指令式提升為更具上下文感知和主動性的層次。</p>
+            <div class="key-takeaways">
+                <p><strong>關鍵要點：</strong></p>
+                <ul>
+                    <li><strong>主動式AI互動：</strong>「Dots」將改變傳統的「提問-回答」模式，主動在後台學習並在適當的時機提供幫助或執行任務。</li>
+                    <li><strong>持續學習與記憶：</strong>具備跨裝置、跨應用程序的長期記憶和學習能力，使AI能更好地理解使用者偏好和工作流程。</li>
+                    <li><strong>倫理與隱私挑戰：</strong>「始終在線」的特性引發了大量關於數據隱私、監控、自主性以及AI過度介入生活的倫理討論。</li>
+                </ul>
+            </div>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong>作為OpenAI的最新力作，此話題獲得極高關注，顯示開發者和公眾對通用AI代理的潛力與風險都抱持極大興趣和擔憂。</p>
+                <a href="https://news.ycombinator.com/item?id=49896604" target="_blank" class="button">前往 Hacker News 討論區 (含 393 則討論)</a>
             </div>
         </div>
 
-        <!-- 文章內容頁 (Slide 6) -->
-        <div class="slide">
-            <h3><a href="http://www.jimsitu.com" target="_blank">Tank Body Problem</a></h3>
-            <p><strong>核心摘要：</strong>這個專案或文章描述了一個關於解決在三維空間中，多個「坦克」（或泛指複雜物體）之間進行碰撞檢測、交互作用及排斥的物理模擬挑戰。它可能旨在探索複雜多體動力學的視覺化和計算方法。</p>
-            <p class="section-title">關鍵要點：</p>
-            <ul>
-                <li>處理三維環境下複雜物體間的精確物理互動。</li>
-                <li>涉及潛在的優化演算法以有效管理大量動態物體。</li>
-                <li>在遊戲開發、視覺模擬、機器人路徑規劃等領域具有廣泛應用潛力。</li>
-            </ul>
-            <div class="community-reaction-section">
-                <p class="community-reaction-text">Hacker News 社群對物理模擬、圖形渲染和計算幾何等領域的挑戰始終保持興趣。「多體問題」本身就是一個經典的計算難題，吸引了對演算法優化和高性能計算有熱情的讀者。</p>
-                <a href="https://news.ycombinator.com/item?id=49886482" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 13 則討論)</a>
+        <!-- PSSA: A non-transformer language model written from scratch in Rust -->
+        <div class="card">
+            <h3><a href="https://github.com/Sparticle62ops/pssa" target="_blank">PSSA: A non-transformer language model written from scratch in Rust</a></h3>
+            <p><strong>核心摘要：</strong>PSSA 是一個從頭開始用 Rust 編寫的非 Transformer 語言模型，旨在探索新的架構設計，以期在效率、記憶體使用或處理方式上超越目前主流的 Transformer 模型。</p>
+            <div class="key-takeaways">
+                <p><strong>關鍵要點：</strong></p>
+                <ul>
+                    <li><strong>超越Transformer架構：</strong>挑戰當前AI領域Transformer模型的主導地位，探索更高效或創新的語言模型設計。</li>
+                    <li><strong>Rust語言應用：</strong>展示了Rust在高性能AI/ML開發中的潛力，尤其是在記憶體安全和系統級優化方面。</li>
+                    <li><strong>基礎研究突破：</strong>為AI研究者提供了一個新的視角，鼓勵對更底層模型架構的持續創新和實驗。</li>
+                </ul>
+            </div>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong>對於追求技術創新和性能優化的開發者來說，這是一個令人興奮的專案，特別是Rust的引入讓其在效率和可靠性方面備受期待。</p>
+                <a href="https://news.ycombinator.com/item?id=49903993" target="_blank" class="button">前往 Hacker News 討論區 (含 11 則討論)</a>
+            </div>
+        </div>
+
+        <!-- U.S. postal inspectors shut down website selling counterfeit postage labels -->
+        <div class="card">
+            <h3><a href="https://postalemployeenetwork.com/news/2026/09/26/u-s-postal-inspectors-shut-down-website-selling-millions-of-counterfeit-postage-labels/" target="_blank">U.S. postal inspectors shut down website selling counterfeit postage labels</a></h3>
+            <p><strong>核心摘要：</strong>美國郵政檢查員成功關閉了一個大規模販售數百萬張偽造郵資標籤的網站。這起事件凸顯了數位時代下，網路詐騙與執法機構之間持續的攻防戰。</p>
+            <div class="key-takeaways">
+                <p><strong>關鍵要點：</strong></p>
+                <ul>
+                    <li><strong>網路犯罪打擊：</strong>展示了執法機構在打擊網路詐騙和偽造商品方面的能力和決心。</li>
+                    <li><strong>電商平台安全：</strong>提醒了電商平台和消費者應警惕假冒商品及欺詐性交易，並強化安全措施。</li>
+                    <li><strong>全球執法協作：</strong>此類大規模詐騙往往涉及跨國操作，凸顯國際執法合作的重要性。</li>
+                </ul>
+            </div>
+            <div class="community-reaction">
+                <p><strong>社群觀點：</strong>這則新聞引起了對網路安全、消費者保護以及大型網路詐騙運作方式的廣泛關注，提醒大家提高警惕。</p>
+                <a href="https://news.ycombinator.com/item?id=49899090" target="_blank" class="button">前往 Hacker News 討論區 (含 118 則討論)</a>
             </div>
         </div>
 
         <!-- 總結頁 (Final Slide) -->
         <div class="slide final-slide">
             <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>今日Hacker News熱門話題清晰地勾勒出幾個關鍵技術轉變與開發者關注焦點：首先是<strong>AI民主化與邊緣運算</strong>的興起，特別是微型LLM在瀏覽器及消費級硬體上的高效運行，預示著AI正變得更加普及和本地化。其次，對<strong>數位內容倫理與智慧財產權</strong>的深入探討，反映了社群對技術社會影響的持續關注。最後，<strong>硬體創新與跨領域融合</strong>（如藝術與科學結合的LED顯示）以及對<strong>複雜計算問題</strong>（如物理模擬）的熱情不減，共同描繪了一個技術不斷下沉、應用邊界持續拓寬、同時不忘反思其社會意義的活躍科技生態。</p>
+            <p>今天的熱門話題清晰地描繪了AI技術進步帶來的新機遇與挑戰。從OpenAI的「始終在線代理」預示著AI互動模式的重大轉變，到「Livenerf」對AI模型穩定性的社群監督，再到Rust實作非Transformer模型的創新嘗試，都反映出開發者對AI前沿探索的熱情與對其影響的深刻反思。同時，數位身份的「優化」與網路犯罪的打擊，也提醒我們在科技浪潮中，倫理、真實性與安全性永遠是不可忽視的重要議題。</p>
         </div>
     </div>
 </body>
