@@ -1,345 +1,296 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月02日</title>
     <style>
-        /* Base styles */
         body {
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f172a; /* Deep dark blue/gray */
-            color: #f8fafc; /* Off-white text */
+            background-color: #0f172a; /* 深灰色背景 */
+            color: #f8fafc; /* 高對比白字 */
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        .presentation-container {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Spacing between slides */
-            max-width: 900px; /* Constrain width for better readability */
-            margin: 0 auto; /* Center the presentation */
+            align-items: center;
         }
 
-        /* Slide/Card Base */
-        .slide {
-            background-color: #1a2035; /* Slightly lighter dark for card background */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #1e293b; /* 卡片背景色 */
             border-radius: 12px;
             padding: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             border: 1px solid #334155;
-            position: relative;
+            transition: transform 0.2s ease-in-out;
         }
 
-        /* Headings */
-        h1, h2, h3, h4 {
-            color: #cbd5e1; /* Lighter gray for headings */
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; }
-        h3 { font-size: 1.5em; }
-
-        /* Links */
-        a {
-            color: #6366f1; /* Purple-blue for links */
-            text-decoration: none;
-            transition: color 0.2s ease, text-decoration 0.2s ease;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #818cf8;
-        }
-
-        /* Lists */
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Cover Slide Specifics */
-        .cover-slide {
+        /* 封面頁特定樣式 */
+        .cover-card {
             text-align: center;
             padding: 60px 30px;
+            background: linear-gradient(135deg, #1e293b, #334155); /* 封面漸層背景 */
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
-        .cover-slide h1 {
-            font-size: 3.5em;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Blue-purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            font-weight: 700;
+
+        .cover-card h1 {
+            font-size: 2.8em;
+            color: #a855f7; /* 紫色 accent */
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
         }
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: #94a3b8;
+
+        .cover-card h2 {
+            font-size: 1.6em;
+            color: #94a3b8; /* 淺灰色 */
+            margin-top: 0;
             margin-bottom: 25px;
-            font-weight: 400;
         }
-        .cover-slide p {
+
+        .cover-card p {
             font-size: 1.1em;
-            color: #a0aec0;
-            margin-bottom: 30px;
+            color: #cbd5e1;
         }
+
         .tags {
-            margin-top: 40px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .tags span {
-            background-color: #4f46e5; /* Purple */
+
+        .tag {
+            background-color: #4f46e5; /* 靛藍色 */
             color: white;
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9em;
-            font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Article Slide Specifics */
-        .article-slide .article-title {
+        h3 {
             font-size: 1.8em;
-            margin-bottom: 10px;
-            font-weight: 600;
-            line-height: 1.3;
+            color: #6366f1; /* 藍色 accent */
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
         }
-        .article-slide .section-title {
-            color: #94a3b8;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+
+        h3 a {
+            color: #6366f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        h3 a:hover {
+            color: #818cf8;
+        }
+
+        h4 {
+            font-size: 1.3em;
+            color: #a855f7; /* 紫色 accent */
             margin-top: 25px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 5px;
-            font-weight: 600;
-        }
-        .article-slide p, .article-slide li {
-            font-size: 1.05em;
-            color: #e2e8f0;
         }
 
-        /* HN Discussion Button */
-        .hn-discussion-button {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #a855f7; /* 紫色項目符號 */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .button-hn {
             display: inline-block;
-            background-color: #2563eb; /* Blue */
+            background-color: #2563eb; /* 藍色背景 */
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.05em;
+            margin-top: 20px;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
             border: none;
             cursor: pointer;
-            font-size: 1em;
-            margin-top: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .hn-discussion-button:hover {
-            background-color: #3b82f6;
+
+        .button-hn:hover {
+            background-color: #3b82f6; /* Hover 效果 */
             transform: translateY(-2px);
-            text-decoration: none; /* Override underline on hover for button */
-        }
-        .hn-discussion-button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Final Summary Slide */
-        .summary-slide {
-            padding: 40px 30px;
-        }
-        .summary-slide h2 {
-            font-size: 2.2em;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-        .summary-slide p {
-            font-size: 1.15em;
-            color: #e2e8f0;
-            line-height: 1.8;
+        .community-reaction-text {
+            color: #94a3b8;
+            font-size: 0.95em;
+            margin-top: 15px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            .slide {
-                padding: 25px;
-            }
-            .cover-slide h1 {
-                font-size: 2.8em;
-            }
-            .cover-slide h2 {
-                font-size: 1.5em;
-            }
-            .article-slide .article-title {
-                font-size: 1.6em;
-            }
-            .hn-discussion-button {
-                padding: 10px 20px;
-                font-size: 0.95em;
-            }
+        .final-slide-card {
+            background: linear-gradient(135deg, #1e293b, #334155); /* 總結頁漸層背景 */
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .slide {
-                padding: 20px;
-            }
-            .cover-slide h1 {
-                font-size: 2.2em;
-            }
-            .cover-slide h2 {
-                font-size: 1.2em;
-            }
-            .article-slide .article-title {
-                font-size: 1.4em;
-            }
-            .tags span {
-                padding: 6px 12px;
-                font-size: 0.8em;
-            }
-            .hn-discussion-button {
-                display: block;
-                width: calc(100% - 20px);
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-                font-size: 0.9em;
-            }
+        .final-slide-card h3 {
+            color: #60a5fa; /* 總結頁標題顏色 */
+            border-bottom: 2px solid #60a5fa;
+            padding-bottom: 10px;
+        }
+
+        .final-slide-card p {
+            font-size: 1.1em;
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
 
-        <!-- Cover Page (Slide 1) -->
-        <div class="slide cover-slide">
+    <!-- Slide 1: 封面頁 -->
+    <div class="container">
+        <div class="card cover-card">
             <h1>Hacker News 每日科技熱點摘要</h1>
             <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年10月01日</p>
+            <p>生成日期：2026年10月02日</p>
             <div class="tags">
-                <span>#AI模型</span>
-                <span>#太空探索</span>
-                <span>#軟體開發</span>
+                <span class="tag">程式語言與系統開發</span>
+                <span class="tag">人工智慧應用</span>
+                <span class="tag">社會與數據科技</span>
             </div>
         </div>
-
-        <!-- Gemini 4 Argon -->
-        <div class="slide article-slide">
-            <h3 class="article-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank">Gemini 4 Argon</a></h3>
-            <p class="section-title">核心摘要</p>
-            <p>Google 推出新一代的 Gemini 4 Argon 模型，旨在提供更強大的多模態能力，並專注於提高效率與成本效益，以便能更廣泛地應用於實際產品與服務中。</p>
-
-            <p class="section-title">關鍵要點</p>
-            <ul>
-                <li>強調多模態處理能力，能理解並生成文本、圖像、音訊等。</li>
-                <li>專為效率和成本最佳化設計，適合規模化部署。</li>
-                <li>旨在加速 AI 創新在各產業的落地應用。</li>
-            </ul>
-
-            <p class="section-title">社群觀點</p>
-            <p>作為 Google AI 的旗艦模型，社群對其效能提升、應用潛力以及與 GPT-4 等競品的比較充滿好奇。開發者尤其關注其 API 易用性與實際部署的成本效益。</p>
-            <a href="https://news.ycombinator.com/item?id=49913571" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 785 則討論)</a>
-        </div>
-
-        <!-- The top secret URSALA, RAQUEL, and FARRAH satellites (2025) -->
-        <div class="slide article-slide">
-            <h3 class="article-title"><a href="https://www.thespacereview.com/article/4951/1" target="_blank">The top secret URSALA, RAQUEL, and FARRAH satellites (2025)</a></h3>
-            <p class="section-title">核心摘要</p>
-            <p>這篇文章揭露了美國在冷戰末期至後冷戰初期秘密開發的三個高度機密偵察衛星計畫：URSALA、RAQUEL 和 FARRAH，它們代表了當時最尖端的地球觀測和情報蒐集技術。</p>
-
-            <p class="section-title">關鍵要點</p>
-            <ul>
-                <li>揭示了冷戰時期美國在太空情報領域的隱藏實力。</li>
-                <li>這些衛星旨在提供前所未有的高解析度偵察能力。</li>
-                <li>討論了這些機密計畫對未來太空技術發展的深遠影響。</li>
-            </ul>
-
-            <p class="section-title">社群觀點</p>
-            <p>軍事歷史和太空科技愛好者對這種解密的「黑科技」情報有著天然的興趣。討論集中於這些技術在當時的領先性、對地緣政治的影響以及與現代衛星技術的對比。</p>
-            <a href="https://news.ycombinator.com/item?id=49915082" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 80 則討論)</a>
-        </div>
-
-        <!-- Why the Bronze Age Collapsed -->
-        <div class="slide article-slide">
-            <h3 class="article-title"><a href="https://www.worksinprogress.news/p/why-really-caused-the-bronze-age" target="_blank">Why the Bronze Age Collapsed</a></h3>
-            <p class="section-title">核心摘要</p>
-            <p>探討了公元前12世紀青銅時代文明崩潰的複雜原因，挑戰了單一因素導致滅亡的傳統觀點，提出了一系列相互作用的環境、社會和經濟壓力。</p>
-
-            <p class="section-title">關鍵要點</p>
-            <ul>
-                <li>青銅時代崩潰並非單一事件，而是多種因素交織的結果。</li>
-                <li>氣候變遷、大規模遷徙、貿易路線中斷等是關鍵因素。</li>
-                <li>對理解複雜系統的脆弱性及現代社會的警示作用。</li>
-            </ul>
-
-            <p class="section-title">社群觀點</p>
-            <p>歷史、考古學和系統複雜性愛好者對此類跨學科分析高度感興趣。討論圍繞不同理論的優劣、歷史事件的解釋以及對現代文明的借鑒。</p>
-            <a href="https://news.ycombinator.com/item?id=49890732" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 82 則討論)</a>
-        </div>
-
-        <!-- Surprisingly complex waves reveal the brain's inner workings -->
-        <div class="slide article-slide">
-            <h3 class="article-title"><a href="https://www.quantamagazine.org/surprisingly-complex-waves-reveal-the-brains-inner-workings-20260930/" target="_blank">Surprisingly complex waves reveal the brain's inner workings</a></h3>
-            <p class="section-title">核心摘要</p>
-            <p>研究發現，人類大腦的電活動表現出比預期更為複雜的波形模式，這些「意想不到的複雜波」可能揭示了神經網絡如何處理資訊和進行決策的深層機制。</p>
-
-            <p class="section-title">關鍵要點</p>
-            <ul>
-                <li>大腦電活動的複雜波形為理解認知功能提供新線索。</li>
-                <li>這些波可能參與了資訊整合、記憶形成和行為控制。</li>
-                <li>對神經科學、AI 學習模型及腦機接口有潛在影響。</li>
-            </ul>
-
-            <p class="section-title">社群觀點</p>
-            <p>神經科學、AI 和生物學領域的讀者對此類基礎研究感到興奮。討論聚焦於這些發現如何改變我們對大腦運作的理解，以及未來研究方向和技術應用。</p>
-            <a href="https://news.ycombinator.com/item?id=49912955" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 51 則討論)</a>
-        </div>
-
-        <!-- EDG C++ front-end goes public -->
-        <div class="slide article-slide">
-            <h3 class="article-title"><a href="https://edgcpp.org/#transition" target="_blank">EDG C++ front-end goes public</a></h3>
-            <p class="section-title">核心摘要</p>
-            <p>專門為 C++ 編譯器提供前端服務的公司 EDG 宣布其 C++ 前端技術公開，這將允許更多開發者和組織利用其高品質、符合標準的 C++ 解析和語義分析能力。</p>
-
-            <p class="section-title">關鍵要點</p>
-            <ul>
-                <li>EDG C++ 前端在業界廣受好評，以其嚴格的標準符合性和強大的功能著稱。</li>
-                <li>公開化將有助於 C++ 工具鏈的生態系統發展和創新。</li>
-                <li>對編譯器開發者、IDE 提供商和靜態分析工具製造商意義重大。</li>
-            </ul>
-
-            <p class="section-title">社群觀點</p>
-            <p>C++ 開發者和編譯器工程師對這一事件高度關注。討論集中於 EDG 前端對 C++ 生態的影響、其與 Clang 等開源方案的比較，以及如何利用其能力改進開發工具。</p>
-            <a href="https://news.ycombinator.com/item?id=49913192" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 88 則討論)</a>
-        </div>
-
-        <!-- Final Summary Page -->
-        <div class="slide summary-slide">
-            <h2>今日技術趨勢歸納</h2>
-            <p>今天 Hacker News 的熱門話題反映了技術社群對前沿 AI 模型（如 Gemini 4 Argon）的持續熱情與其在實際應用中效率和成本的考量。同時，對於底層軟體開發工具（EDG C++ 前端開源）以及科學基礎研究（複雜腦波、青銅時代崩潰的跨學科分析）的關注也從未間斷。此外，歷史上與現代的太空探索（秘密衛星）也持續激發著人們對技術發展和地緣戰略的好奇心。整體而言，今日熱點展現了從尖端 AI 到基礎科學，再到核心軟體基礎設施和歷史科技的廣泛興趣。</p>
-        </div>
-
     </div>
+
+    <!-- Slide 2: Pi 1.0 -->
+    <div class="container">
+        <div class="card">
+            <h3><a href="https://earendil.com/posts/pi-1-0/" target="_blank">Pi 1.0</a></h3>
+            <h4>核心摘要</h4>
+            <p>Pi 1.0 是一個新推出的程式語言，旨在透過其獨特的設計，為系統程式和嵌入式開發提供兼具簡潔性與高性能的解決方案。它嘗試解決現有語言在易用性、安全性和運行效率之間難以兼顧的痛點。</p>
+            <h4>關鍵要點</h4>
+            <ul>
+                <li>引入了創新的型別系統與記憶體管理機制，提升程式碼安全性和運行效率。</li>
+                <li>專為低層級系統開發和嵌入式應用最佳化，可能成為 C/C++ 或 Rust 的潛在替代方案。</li>
+                <li>強調簡潔的語法和高效能的編譯器，旨在提供更好的開發者體驗與更快的執行速度。</li>
+            </ul>
+            <h4>社群觀點</h4>
+            <p class="community-reaction-text">Hacker News 社群對新的程式語言抱持高度興趣，尤其是那些承諾解決現有語言痛點或提供性能突破的專案。Pi 1.0 的討論熱度極高，反映出開發者對更優異的系統程式設計工具的渴望，以及對語言設計哲學和實際應用潛力的深度探討。</p>
+            <a href="https://news.ycombinator.com/item?id=49926069" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 317 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 3: DeepSeek Harness -->
+    <div class="container">
+        <div class="card">
+            <h3><a href="https://www.deepseek.com/en/harness/" target="_blank">DeepSeek Harness</a></h3>
+            <h4>核心摘要</h4>
+            <p>DeepSeek Harness 是一個由 DeepSeek 推出的平台或工具集，旨在簡化大型語言模型 (LLM) 的部署、評估和應用過程。它為開發者提供了一個更便捷的方式，將 DeepSeek 的先進 AI 模型整合到自己的應用中，加速 AI 專案的開發週期。</p>
+            <h4>關鍵要點</h4>
+            <ul>
+                <li>提供一站式解決方案，涵蓋 DeepSeek LLM 的快速部署與高效管理。</li>
+                <li>內建模型評估工具和微調功能，助力開發者最佳化模型在特定任務上的表現。</li>
+                <li>降低了運用前沿 AI 技術的門檻，讓更多開發者能輕鬆實驗並建構 AI 應用。</li>
+            </ul>
+            <h4>社群觀點</h4>
+            <p class="community-reaction-text">AI 相關的開發工具和平台在 Hacker News 上始終是熱門話題。DeepSeek Harness 引起討論的原因在於其作為知名 LLM 提供者的配套工具，開發者們關注其易用性、效能以及與現有 AI 生態系統的整合能力。</p>
+            <a href="https://news.ycombinator.com/item?id=49929489" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 25 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 4: How Singapore's government-run dating service works -->
+    <div class="container">
+        <div class="card">
+            <h3><a href="https://www.singapore-samizdat.com/p/how-singapores-government-run-dating-service-firstdate-works" target="_blank">How Singapore's government-run dating service works</a></h3>
+            <h4>核心摘要</h4>
+            <p>這篇文章深入探討了新加坡政府運營的約會服務 "FirstDate" 的運作模式。該服務旨在透過政府的介入，協助公民建立穩定關係，以應對國家面臨的人口結構挑戰，展示了科技與數據在社會政策實踐中的應用。</p>
+            <h4>關鍵要點</h4>
+            <ul>
+                <li>政府運用數據分析和技術手段，為公民提供匹配服務以促進婚姻和生育。</li>
+                <li>探討政府在公民個人生活領域的干預程度，引發關於隱私、自由和社會工程的討論。</li>
+                <li>該模式為其他國家提供了在人口結構變遷背景下，如何創新性地應用技術和政策的案例。</li>
+            </ul>
+            <h4>社群觀點</h4>
+            <p class="community-reaction-text">對於 Hacker News 社群來說，政府運營約會服務是一個非常規但引人入勝的話題。討論的焦點通常圍繞著數據隱私、國家干預個人選擇的倫理界線，以及此類「社會工程」專案的有效性和潛在影響。</p>
+            <a href="https://news.ycombinator.com/item?id=49929113" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 29 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 5: Meta's Muse is fantastic for web scraping -->
+    <div class="container">
+        <div class="card">
+            <h3><a href="https://sigh.dev/posts/metas-muse-is-fantastic-for-web-scraping/" target="_blank">Meta's Muse is fantastic for web scraping</a></h3>
+            <h4>核心摘要</h4>
+            <p>這篇文章揭示了 Meta 的 Muse 平台或瀏覽器引擎在網頁爬蟲領域展現出的卓越能力。其特有的技術特性，使得它比傳統工具更能高效、穩定地抓取和處理複雜的網頁內容，為開發者提供了強大的數據獲取新選項。</p>
+            <h4>關鍵要點</h4>
+            <ul>
+                <li>Meta Muse 的渲染引擎和自動化接口，使其在處理現代動態網頁時表現優異。</li>
+                <li>相較於 Selenium 或 Playwright 等工具，Muse 可能提供更快的執行速度或更高的成功率。</li>
+                <li>開闢了網頁數據採集和自動化領域的新途徑，對於市場情報、內容聚合等應用具潛在影響。</li>
+            </ul>
+            <h4>社群觀點</h4>
+            <p class="community-reaction-text">網頁爬蟲是許多開發者日常任務的一部分，任何能顯著提升效率的新工具都會引起廣泛關注。Meta Muse 作為來自大型科技公司的解決方案，其在爬蟲方面的優勢自然會激發社群對其性能、穩定性和使用技巧的討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49929970" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 6 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 6: Shimano Bicycle Museum Review -->
+    <div class="container">
+        <div class="card">
+            <h3><a href="https://inrng.com/2026/10/shimano-bicycle-museum/" target="_blank">Shimano Bicycle Museum Review</a></h3>
+            <h4>核心摘要</h4>
+            <p>這是一篇關於 Shimano 自行車博物館的評論文章，詳細介紹了博物館的展品、Shimano 公司在自行車技術發展史上的重要貢獻，以及參觀者的體驗。它提供了從工程和設計角度回顧自行車演變的機會。</p>
+            <h4>關鍵要點</h4>
+            <ul>
+                <li>深入了解 Shimano 在自行車零件製造領域的創新歷程和技術積累。</li>
+                <li>展示了工業設計如何影響產品功能和使用者體驗的演變。</li>
+                <li>為自行車愛好者和對機械工程史感興趣的人提供了獨特的視角。</li>
+            </ul>
+            <h4>社群觀點</h4>
+            <p class="community-reaction-text">雖然這篇文章與主流科技趨勢的直接關聯度較低，但它代表了 HN 社群中對工程、歷史和特定領域技術創新故事的零星興趣。其低討論量也印證了這類主題在廣泛的科技討論中屬於小眾。</p>
+            <a href="https://news.ycombinator.com/item?id=49930047" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 0 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide: 總結頁 -->
+    <div class="container">
+        <div class="card final-slide-card">
+            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
+            <p>今日 Hacker News 的熱門話題顯示了科技領域的多元發展與開發者關注的焦點：核心系統開發仍在追求更高效、更安全的程式語言革新（如 Pi 1.0）；人工智慧的應用正從模型研發深化到更易於開發者使用的工具和平台（如 DeepSeek Harness），加速其產業落地。同時，我們也看到了技術觸角延伸至社會治理和個人生活（如新加坡的政府約會服務），以及對數據獲取和自動化工具的持續探索（如 Meta Muse 的爬蟲應用）。這不僅反映了技術深度的演進，也揭示了技術如何廣泛地重塑社會互動與信息流動方式。</p>
+        </div>
+    </div>
+
 </body>
 </html>
