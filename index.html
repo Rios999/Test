@@ -3,294 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月02日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月03日</title>
     <style>
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: #0f172a; /* 深灰色背景 */
             color: #f8fafc; /* 高對比白字 */
-            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            line-height: 1.6;
         }
-
         .container {
             max-width: 900px;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background-color: #1e293b; /* 卡片背景色 */
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 封面頁特定樣式 */
-        .cover-card {
-            text-align: center;
-            padding: 60px 30px;
-            background: linear-gradient(135deg, #1e293b, #334155); /* 封面漸層背景 */
-            border: none;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        .cover-card h1 {
-            font-size: 2.8em;
-            color: #a855f7; /* 紫色 accent */
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-        }
-
-        .cover-card h2 {
-            font-size: 1.6em;
-            color: #94a3b8; /* 淺灰色 */
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
-
-        .cover-card p {
-            font-size: 1.1em;
-            color: #cbd5e1;
-        }
-
-        .tags {
-            margin-top: 30px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 30px;
         }
-
-        .tag {
-            background-color: #4f46e5; /* 靛藍色 */
-            color: white;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        .card {
+            background: #1e293b; /* 卡片背景 */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #334155;
         }
-
-        h3 {
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 10px;
+            background-image: linear-gradient(to right, #6d28d9, #a78bfa); /* 藍紫漸層 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers not supporting -webkit-text-fill-color */
+        }
+        h2 {
             font-size: 1.8em;
-            color: #6366f1; /* 藍色 accent */
+            color: #a78bfa; /* 柔和的紫色 */
             margin-top: 0;
             margin-bottom: 15px;
-            border-bottom: 2px solid #334155;
-            padding-bottom: 10px;
         }
-
-        h3 a {
-            color: #6366f1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        h3 a:hover {
-            color: #818cf8;
-        }
-
-        h4 {
-            font-size: 1.3em;
-            color: #a855f7; /* 紫色 accent */
+        h3 {
+            font-size: 1.4em;
+            color: #8b5cf6; /* 稍淺的紫色 */
             margin-top: 25px;
             margin-bottom: 10px;
         }
-
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #60a5fa; /* 藍色連結 */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
         ul {
-            list-style-type: none;
+            list-style-type: disc;
+            margin-left: 20px;
             padding-left: 0;
+            margin-bottom: 15px;
         }
-
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            color: #cbd5e1;
+        li {
+            margin-bottom: 8px;
         }
-
-        ul li::before {
-            content: '•';
-            color: #a855f7; /* 紫色項目符號 */
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        .subtitle {
+            text-align: center;
             font-size: 1.2em;
-            line-height: 1;
+            color: #94a3b8;
+            margin-bottom: 20px;
         }
-
-        .button-hn {
+        .date {
+            text-align: center;
+            font-size: 1em;
+            color: #a78bfa;
+            margin-bottom: 30px;
+        }
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: #475569; /* 標籤背景 */
+            color: #e0e7ff; /* 標籤文字 */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .button {
             display: inline-block;
-            background-color: #2563eb; /* 藍色背景 */
+            background-color: #2563eb; /* 藍色按鈕背景 */
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05em;
-            margin-top: 20px;
+            font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            margin-top: 20px;
             border: none;
             cursor: pointer;
         }
-
-        .button-hn:hover {
-            background-color: #3b82f6; /* Hover 效果 */
+        .button:hover {
+            background-color: #3b82f6; /* 淺藍色 hover 效果 */
             transform: translateY(-2px);
         }
-
-        .community-reaction-text {
-            color: #94a3b8;
-            font-size: 0.95em;
-            margin-top: 15px;
-        }
-
-        .final-slide-card {
-            background: linear-gradient(135deg, #1e293b, #334155); /* 總結頁漸層背景 */
-            border: none;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-        }
-
-        .final-slide-card h3 {
-            color: #60a5fa; /* 總結頁標題顏色 */
-            border-bottom: 2px solid #60a5fa;
-            padding-bottom: 10px;
-        }
-
-        .final-slide-card p {
+        .final-summary {
             font-size: 1.1em;
             color: #cbd5e1;
+        }
+        .flex-end {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-    <!-- Slide 1: 封面頁 -->
     <div class="container">
-        <div class="card cover-card">
+        <!-- 封面頁 (Slide 1) -->
+        <div class="card">
             <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年10月02日</p>
-            <div class="tags">
-                <span class="tag">程式語言與系統開發</span>
-                <span class="tag">人工智慧應用</span>
-                <span class="tag">社會與數據科技</span>
+            <p class="subtitle">基於最新社群討論自動生成</p>
+            <p class="date">生成日期：2026年10月03日</p>
+            <div class="tags-container">
+                <span class="tag">網路隱私</span>
+                <span class="tag">開源硬體</span>
+                <span class="tag">社群文化</span>
             </div>
         </div>
-    </div>
 
-    <!-- Slide 2: Pi 1.0 -->
-    <div class="container">
+        <!-- 文章內容頁 (Slide 2) -->
         <div class="card">
-            <h3><a href="https://earendil.com/posts/pi-1-0/" target="_blank">Pi 1.0</a></h3>
-            <h4>核心摘要</h4>
-            <p>Pi 1.0 是一個新推出的程式語言，旨在透過其獨特的設計，為系統程式和嵌入式開發提供兼具簡潔性與高性能的解決方案。它嘗試解決現有語言在易用性、安全性和運行效率之間難以兼顧的痛點。</p>
-            <h4>關鍵要點</h4>
+            <h2><a href="https://www.newgrounds.com/" target="_blank">Newgrounds.com – A community of games, music, and art</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Newgrounds 是一個歷史悠久的線上平台，專注於推動獨立創作者在遊戲、動畫、音樂和藝術領域的創作與交流。它提供了一個社群驅動的環境，讓用戶可以上傳、分享並評論彼此的作品，成為許多數位藝術家和遊戲開發者的早期孵化器。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>引入了創新的型別系統與記憶體管理機制，提升程式碼安全性和運行效率。</li>
-                <li>專為低層級系統開發和嵌入式應用最佳化，可能成為 C/C++ 或 Rust 的潛在替代方案。</li>
-                <li>強調簡潔的語法和高效能的編譯器，旨在提供更好的開發者體驗與更快的執行速度。</li>
+                <li>長壽的獨立創作者平台，見證網路文化演變與發展。</li>
+                <li>強調社群互動與用戶生成內容 (UGC) 的核心價值。</li>
+                <li>作為許多知名遊戲和動畫創作者的發源地與試驗場。</li>
             </ul>
-            <h4>社群觀點</h4>
-            <p class="community-reaction-text">Hacker News 社群對新的程式語言抱持高度興趣，尤其是那些承諾解決現有語言痛點或提供性能突破的專案。Pi 1.0 的討論熱度極高，反映出開發者對更優異的系統程式設計工具的渴望，以及對語言設計哲學和實際應用潛力的深度探討。</p>
-            <a href="https://news.ycombinator.com/item?id=49926069" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 317 則討論)</a>
+            <h3>社群觀點 (Community Reaction)</h3>
+            <p>這篇文章引起討論，在於其代表了互聯網早期獨立、草根創作精神的延續，許多使用者懷舊其在數位創作啟蒙階段的影響。討論可能集中於它如何在當今巨頭林立的內容平台中保持其獨特文化和生命力。</p>
+            <div class="flex-end">
+                <a href="https://news.ycombinator.com/item?id=49940394" target="_blank" class="button">前往 Hacker News 討論區 (含 29 則討論)</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Slide 3: DeepSeek Harness -->
-    <div class="container">
+        <!-- 文章內容頁 (Slide 3) -->
         <div class="card">
-            <h3><a href="https://www.deepseek.com/en/harness/" target="_blank">DeepSeek Harness</a></h3>
-            <h4>核心摘要</h4>
-            <p>DeepSeek Harness 是一個由 DeepSeek 推出的平台或工具集，旨在簡化大型語言模型 (LLM) 的部署、評估和應用過程。它為開發者提供了一個更便捷的方式，將 DeepSeek 的先進 AI 模型整合到自己的應用中，加速 AI 專案的開發週期。</p>
-            <h4>關鍵要點</h4>
+            <h2><a href="https://www.extrabigassintelligence.com/" target="_blank">Extra Big Ass Intelligence</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇文章標題具挑釁性，可能在探討或諷刺當前「大模型」與「通用人工智慧」的過度炒作與實際效益。它可能以幽默或批判的角度，檢視大型語言模型 (LLMs) 的極限，以及業界對其能力膨脹的現象。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>提供一站式解決方案，涵蓋 DeepSeek LLM 的快速部署與高效管理。</li>
-                <li>內建模型評估工具和微調功能，助力開發者最佳化模型在特定任務上的表現。</li>
-                <li>降低了運用前沿 AI 技術的門檻，讓更多開發者能輕鬆實驗並建構 AI 應用。</li>
+                <li>對當前 AI 產業中誇大其詞的現象進行反思。</li>
+                <li>探討 AI 模型的規模與實際智能間的關係及差距。</li>
+                <li>促使讀者思考 AI 技術的務實應用與倫理邊界。</li>
             </ul>
-            <h4>社群觀點</h4>
-            <p class="community-reaction-text">AI 相關的開發工具和平台在 Hacker News 上始終是熱門話題。DeepSeek Harness 引起討論的原因在於其作為知名 LLM 提供者的配套工具，開發者們關注其易用性、效能以及與現有 AI 生態系統的整合能力。</p>
-            <a href="https://news.ycombinator.com/item?id=49929489" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 25 則討論)</a>
+            <h3>社群觀點 (Community Reaction)</h3>
+            <p>由於標題的特殊性，討論可能聚焦於 AI 炒作、諷刺文化，以及對當前 AI 發展方向的質疑。其熱度反映了社群對技術宣傳與實際落差的警惕與批判。</p>
+            <div class="flex-end">
+                <a href="https://news.ycombinator.com/item?id=49941114" target="_blank" class="button">前往 Hacker News 討論區 (含 5 則討論)</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Slide 4: How Singapore's government-run dating service works -->
-    <div class="container">
+        <!-- 文章內容頁 (Slide 4) -->
         <div class="card">
-            <h3><a href="https://www.singapore-samizdat.com/p/how-singapores-government-run-dating-service-firstdate-works" target="_blank">How Singapore's government-run dating service works</a></h3>
-            <h4>核心摘要</h4>
-            <p>這篇文章深入探討了新加坡政府運營的約會服務 "FirstDate" 的運作模式。該服務旨在透過政府的介入，協助公民建立穩定關係，以應對國家面臨的人口結構挑戰，展示了科技與數據在社會政策實踐中的應用。</p>
-            <h4>關鍵要點</h4>
+            <h2><a href="https://yuka.dev/blog-2026-10-02-linux-m4.html" target="_blank">The Forgetful CPU (Linux on M4)</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這篇技術文章深入探討了在 Apple M4 晶片上運行 Linux 作業系統時遇到的特定問題，特別是一個導致 CPU「遺忘」某些狀態的罕見硬體/韌體互動挑戰。作者分析了問題的根源，並分享了潛在的解決方案或繞過方法，對於推動 ARM 架構上的 Linux 相容性至關重要。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>政府運用數據分析和技術手段，為公民提供匹配服務以促進婚姻和生育。</li>
-                <li>探討政府在公民個人生活領域的干預程度，引發關於隱私、自由和社會工程的討論。</li>
-                <li>該模式為其他國家提供了在人口結構變遷背景下，如何創新性地應用技術和政策的案例。</li>
+                <li>克服 Apple Silicon (M4) 上運行 Linux 的技術挑戰與障礙。</li>
+                <li>深入分析低層級 CPU 行為與記憶體一致性問題的複雜性。</li>
+                <li>對開源社群在非官方硬體支援上的努力具參考價值與啟發。</li>
             </ul>
-            <h4>社群觀點</h4>
-            <p class="community-reaction-text">對於 Hacker News 社群來說，政府運營約會服務是一個非常規但引人入勝的話題。討論的焦點通常圍繞著數據隱私、國家干預個人選擇的倫理界線，以及此類「社會工程」專案的有效性和潛在影響。</p>
-            <a href="https://news.ycombinator.com/item?id=49929113" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 29 則討論)</a>
+            <h3>社群觀點 (Community Reaction)</h3>
+            <p>高討論度源於其硬核技術內容，以及許多開發者對在 Apple Silicon 上運行替代作業系統的興趣。討論可能圍繞 M4 架構的細節、Linux 移植的困難以及潛在的解決方案，顯示社群對底層技術探索的熱情。</p>
+            <div class="flex-end">
+                <a href="https://news.ycombinator.com/item?id=49933869" target="_blank" class="button">前往 Hacker News 討論區 (含 72 則討論)</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Slide 5: Meta's Muse is fantastic for web scraping -->
-    <div class="container">
+        <!-- 文章內容頁 (Slide 5) -->
         <div class="card">
-            <h3><a href="https://sigh.dev/posts/metas-muse-is-fantastic-for-web-scraping/" target="_blank">Meta's Muse is fantastic for web scraping</a></h3>
-            <h4>核心摘要</h4>
-            <p>這篇文章揭示了 Meta 的 Muse 平台或瀏覽器引擎在網頁爬蟲領域展現出的卓越能力。其特有的技術特性，使得它比傳統工具更能高效、穩定地抓取和處理複雜的網頁內容，為開發者提供了強大的數據獲取新選項。</p>
-            <h4>關鍵要點</h4>
+            <h2><a href="https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility" target="_blank">Court agrees with EFF: Utah's VPN law demands a technical impossibility</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>電子前哨基金會 (EFF) 成功挑戰了猶他州一項法案，該法案要求 VPN 服務提供商監控並封鎖未成年人訪問色情內容，但法院裁定這項法律在技術上是不可行的。這項裁決是保護網路隱私和網路技術可行性原則的重要勝利，凸顯了立法者在制定網路相關法律時應考慮技術現實的重要性。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>Meta Muse 的渲染引擎和自動化接口，使其在處理現代動態網頁時表現優異。</li>
-                <li>相較於 Selenium 或 Playwright 等工具，Muse 可能提供更快的執行速度或更高的成功率。</li>
-                <li>開闢了網頁數據採集和自動化領域的新途徑，對於市場情報、內容聚合等應用具潛在影響。</li>
+                <li>法律與技術現實的衝突案例，維護網路隱私權的重要性。</li>
+                <li>EFF 在數位權利保護方面的關鍵作用及其法律影響。</li>
+                <li>為未來類似網路監管法案設立了重要的司法判例。</li>
             </ul>
-            <h4>社群觀點</h4>
-            <p class="community-reaction-text">網頁爬蟲是許多開發者日常任務的一部分，任何能顯著提升效率的新工具都會引起廣泛關注。Meta Muse 作為來自大型科技公司的解決方案，其在爬蟲方面的優勢自然會激發社群對其性能、穩定性和使用技巧的討論。</p>
-            <a href="https://news.ycombinator.com/item?id=49929970" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 6 則討論)</a>
+            <h3>社群觀點 (Community Reaction)</h3>
+            <p>極高的熱度反映了社群對網路自由、隱私權以及政府過度監管的普遍關注。討論將聚焦於技術與法律的界限、政府監管的效率與影響，以及隱私保護的倫理考量，突顯了數位公民權利的核心價值。</p>
+            <div class="flex-end">
+                <a href="https://news.ycombinator.com/item?id=49927754" target="_blank" class="button">前往 Hacker News 討論區 (含 252 則討論)</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Slide 6: Shimano Bicycle Museum Review -->
-    <div class="container">
+        <!-- 文章內容頁 (Slide 6) -->
         <div class="card">
-            <h3><a href="https://inrng.com/2026/10/shimano-bicycle-museum/" target="_blank">Shimano Bicycle Museum Review</a></h3>
-            <h4>核心摘要</h4>
-            <p>這是一篇關於 Shimano 自行車博物館的評論文章，詳細介紹了博物館的展品、Shimano 公司在自行車技術發展史上的重要貢獻，以及參觀者的體驗。它提供了從工程和設計角度回顧自行車演變的機會。</p>
-            <h4>關鍵要點</h4>
+            <h2><a href="https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/" target="_blank">Cloudflare OHTTP gateway</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Cloudflare 宣佈推出 OHTTP gateway 服務，這是一種基於 Oblivious HTTP (OHTTP) 標準的新型隱私保護技術。它旨在通過在客戶端和伺服器之間引入一個中介，分離 IP 位址和應用層請求，從而提高網路請求的匿名性與隱私性，使得內容提供者無法直接知道請求來源。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
             <ul>
-                <li>深入了解 Shimano 在自行車零件製造領域的創新歷程和技術積累。</li>
-                <li>展示了工業設計如何影響產品功能和使用者體驗的演變。</li>
-                <li>為自行車愛好者和對機械工程史感興趣的人提供了獨特的視角。</li>
+                <li>導入 Oblivious HTTP (OHTTP) 標準，增強網路隱私保護。</li>
+                <li>實現 IP 位址與請求內容的解耦，提高用戶匿名性。</li>
+                <li>Cloudflare 在推動網路隱私技術發展上的新進展與貢獻。</li>
             </ul>
-            <h4>社群觀點</h4>
-            <p class="community-reaction-text">雖然這篇文章與主流科技趨勢的直接關聯度較低，但它代表了 HN 社群中對工程、歷史和特定領域技術創新故事的零星興趣。其低討論量也印證了這類主題在廣泛的科技討論中屬於小眾。</p>
-            <a href="https://news.ycombinator.com/item?id=49930047" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 0 則討論)</a>
+            <h3>社群觀點 (Community Reaction)</h3>
+            <p>討論可能圍繞 OHTTP 的技術細節、其在現實世界中的應用場景，以及與其他隱私技術（如 Tor 或 VPN）的比較。這項技術吸引了對網路安全與隱私解決方案感興趣的開發者和專家。</p>
+            <div class="flex-end">
+                <a href="https://news.ycombinator.com/item?id=49941091" target="_blank" class="button">前往 Hacker News 討論區 (含 6 則討論)</a>
+            </div>
+        </div>
+
+        <!-- 總結頁 (Final Slide) -->
+        <div class="card">
+            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+            <p class="final-summary">
+                今日 Hacker News 的熱門話題清晰地描繪了科技社群對「網路隱私」的高度重視，這不僅體現在通過法律途徑對抗不合理監管 (EFF 成功挑戰猶他州 VPN 法案)，也展現在對先進隱私保護技術的持續探索與實踐 (Cloudflare OHTTP gateway)。此外，對底層硬體與作業系統相容性的硬核技術挑戰 (Linux on M4) 依舊是開發者社群關注的焦點，顯示對技術深度的追求。同時，社群對網路文化根源 (Newgrounds) 的回顧以及對當前 AI 發展過度宣傳的反思 (Extra Big Ass Intelligence)，也反映了技術進步中不忘人文關懷和批判性思考的社群精神。
+            </p>
         </div>
     </div>
-
-    <!-- Final Slide: 總結頁 -->
-    <div class="container">
-        <div class="card final-slide-card">
-            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <p>今日 Hacker News 的熱門話題顯示了科技領域的多元發展與開發者關注的焦點：核心系統開發仍在追求更高效、更安全的程式語言革新（如 Pi 1.0）；人工智慧的應用正從模型研發深化到更易於開發者使用的工具和平台（如 DeepSeek Harness），加速其產業落地。同時，我們也看到了技術觸角延伸至社會治理和個人生活（如新加坡的政府約會服務），以及對數據獲取和自動化工具的持續探索（如 Meta Muse 的爬蟲應用）。這不僅反映了技術深度的演進，也揭示了技術如何廣泛地重塑社會互動與信息流動方式。</p>
-        </div>
-    </div>
-
 </body>
 </html>
