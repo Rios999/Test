@@ -3,304 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月04日</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - NotebookLM 風格</title>
+    <!-- 引入 Google Fonts 讓中文字體更現代美觀 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent-blue: #2563eb;
-            --accent-purple: #7c3aed;
-            --button-bg: #2563eb;
-            --button-hover-bg: #1d4ed8;
-            --border-radius: 12px;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
+        /* 全域樣式設定：深色模式背景、基礎字體與顏色 */
         body {
-            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            padding: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a; /* 深藍灰背景 */
+            color: #e2e8f0; /* 柔和的白色文字 */
             line-height: 1.6;
+            margin: 0;
+            padding: 2.5rem 1.5rem; /* 頁面邊距 */
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 2.5rem; /* 卡片間距 */
             min-height: 100vh;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .presentation-container {
-            width: 100%;
-            max-width: 900px; /* Adjust as needed for presentation width */
+        h1, h2, h3, h4, h5, h6 {
+            color: #f8fafc; /* 更亮的白色標題 */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #60a5fa; /* 淺藍色連結文字 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 卡片化 UI 樣式 */
+        .card {
+            background-color: #1e293b; /* 稍淺的深藍灰作為卡片背景 */
+            border-radius: 0.75rem; /* 圓角邊框 */
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* 陰影效果 */
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            width: 100%;
+            max-width: 900px; /* 限制卡片最大寬度以提高可讀性 */
+            margin: 0 auto; /* 卡片置中 */
         }
 
-        .slide {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .card-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #334155; /* 分隔線 */
         }
 
-        .cover-slide {
-            text-align: center;
-            padding: 60px 30px;
+        .card-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
-        .cover-slide h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
+        .card-subtitle {
+            font-size: 1.15rem;
+            color: #94a3b8; /* 副標題文字顏色 */
         }
 
-        .cover-slide h2 {
-            font-size: 1.8em;
-            color: var(--text-secondary);
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .cover-slide p {
-            font-size: 1.1em;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
+        .meta-info {
+            font-size: 0.9rem;
+            color: #a7b7cf; /* 元資訊文字顏色 */
+            margin-top: 0.5rem;
         }
 
         .tags-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            margin-top: 1.5rem;
         }
 
         .tag {
-            background-color: rgba(var(--accent-blue), 0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
-            color: var(--accent-blue);
-            font-weight: 500;
-            font-size: 0.9em;
-            border: 1px solid rgba(var(--accent-blue), 0.5);
+            display: inline-block;
+            background-color: #312e81; /* 深紫色標籤背景 */
+            color: #e0e7ff; /* 淺紫色標籤文字 */
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px; /* 圓角膠囊形狀 */
+            font-size: 0.85rem;
+            margin-right: 0.75rem;
+            font-weight: 600;
         }
 
-        .article-card h3 {
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .article-card h3 a {
-            color: var(--text-light);
-            text-decoration: none;
-            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .article-card h3 a:hover {
-            opacity: 0.9;
-            /* text-decoration: underline; */
+        /* 文章內容區塊樣式 */
+        .article-section {
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
-            font-size: 1.3em;
-            color: var(--text-light);
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 5px;
+            font-size: 1.25rem;
+            color: #cbd5e1; /* 區塊標題文字顏色 */
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #8b5cf6; /* 紫色重點線條 */
+            padding-left: 0.75rem;
         }
 
-        .article-card p {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-        }
-
-        .article-card ul {
-            list-style-type: none;
+        ul {
+            list-style: none; /* 移除預設項目符號 */
             padding-left: 0;
-            margin-top: 10px;
-            margin-bottom: 20px;
         }
 
-        .article-card ul li {
+        ul li {
             position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .article-card ul li::before {
-            content: '•';
-            color: var(--accent-blue);
-            font-size: 1.2em;
+        ul li::before {
+            content: '•'; /* 自訂項目符號 */
+            color: #8b5cf6; /* 紫色項目符號 */
             position: absolute;
             left: 0;
-            top: -2px;
+            font-size: 1.2em;
+            line-height: 1;
         }
 
-        .community-reaction strong {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .discussion-button {
+        /* 按鈕樣式 */
+        .button {
             display: inline-block;
-            background-color: var(--button-bg);
-            color: var(--text-light);
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
+            background-color: #2563eb; /* 藍色按鈕背景 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 25px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .discussion-button:hover {
-            background-color: var(--button-hover-bg);
-            transform: translateY(-2px);
-        }
-
-        .summary-slide {
-            padding: 40px;
+            transition: background-color 0.3s ease; /* 平滑過渡效果 */
+            margin-top: 1.5rem;
             text-align: center;
         }
 
-        .summary-slide h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
+        .button:hover {
+            background-color: #3b82f6; /* 懸停時顏色變淺 */
+            text-decoration: none;
         }
 
-        .summary-slide p {
-            font-size: 1.2em;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
+        /* 封面頁特有樣式 */
+        #cover-slide .card-title {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, #a78bfa, #8b5cf6); /* 紫色漸變標題 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        #cover-slide .card-subtitle {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #a78bfa;
+            margin-bottom: 1.5rem;
+        }
+        #cover-slide .meta-info {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+        #cover-slide .tags-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        #cover-slide .tag {
+             font-size: 1rem;
+             padding: 0.6rem 1.2rem;
+        }
+
+        /* 總結頁特有樣式 */
+        #final-slide .card-title {
+            font-size: 2rem;
+            text-align: center;
+            color: #8b5cf6; /* 紫色標題 */
+        }
+        #final-slide p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.5rem;
+            }
+            #cover-slide .card-title {
+                font-size: 2rem;
+            }
+            #cover-slide .card-subtitle {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+            .tag {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
 
-        <!-- Slide 1: Cover Page -->
-        <div class="slide cover-slide">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p>生成日期：2026年10月04日</p>
-            <div class="tags-container">
-                <span class="tag">技術回顧</span>
-                <span class="tag">開發效率</span>
-                <span class="tag">成本管理</span>
-                <span class="tag">硬體優化</span>
-            </div>
+    <!-- Slide 1: 封面頁 -->
+    <div id="cover-slide" class="card">
+        <h1 class="card-title">Hacker News 每日科技熱點摘要</h1>
+        <p class="card-subtitle">基於最新社群討論自動生成</p>
+        <p class="meta-info">生成日期：2026年10月05日</p>
+        <div class="tags-container">
+            <span class="tag">AI模型</span>
+            <span class="tag">系統效能</span>
+            <span class="tag">數位典藏</span>
         </div>
-
-        <!-- Article Card: Tell HN: Bob Cringely has died -->
-        <div class="slide article-card">
-            <h3><a href="https://news.ycombinator.com/item?id=49949438" target="_blank" rel="noopener noreferrer">Tell HN: Bob Cringely has died</a></h3>
-            <h4 class="section-title">核心摘要</h4>
-            <p>本文是 Hacker News 社群對於著名科技記者與專欄作家 Bob Cringely 逝世的悼念。他以對早期蘋果公司的深刻洞察和預言性的技術評論而聞名，對科技新聞和產業觀察產生了深遠影響。</p>
-            <h4 class="section-title">關鍵要點</h4>
-            <ul>
-                <li>開創性的科技報導風格，結合深度分析與個人視角，引領科技新聞趨勢。</li>
-                <li>長期關注蘋果生態，曾精準預測賈伯斯回歸及其他關鍵事件，展現獨到眼光。</li>
-                <li>其作品持續影響科技社群對產業動態的理解與反思，留下豐富思想遺產。</li>
-            </ul>
-            <h4 class="section-title">社群觀點與連結</h4>
-            <p class="community-reaction">這篇悼念文在 Hacker News 獲得高討論度，反映了社群對科技歷史和具影響力人物的尊重與緬懷。許多開發者和科技愛好者視其為啟蒙者，分享他的著作如何影響了他們對科技世界的認知，以及對其預言性洞察力的讚賞。</p>
-            <a href="https://news.ycombinator.com/item?id=49949438" target="_blank" rel="noopener noreferrer" class="discussion-button">前往 Hacker News 討論區 (含 59 則討論)</a>
-        </div>
-
-        <!-- Article Card: Why don't more developers "use the platform"? -->
-        <div class="slide article-card">
-            <h3><a href="https://nolanlawson.com/2026/10/03/why-dont-more-developers-use-the-platform/" target="_blank" rel="noopener noreferrer">Why don't more developers "use the platform"?</a></h3>
-            <h4 class="section-title">核心摘要</h4>
-            <p>這篇文章探討了現代網頁開發者為何普遍傾向於使用大型框架（如 React, Vue）而非直接利用原生 Web 平台 API（HTML, CSS, JavaScript）來構建應用程式，並深入分析了這種趨勢背後的原因與其可能帶來的影響。</p>
-            <h4 class="section-title">關鍵要點</h4>
-            <ul>
-                <li>大型框架提供開箱即用的生產力工具與抽象化層，顯著降低開發複雜度和入門門檻。</li>
-                <li>原生平台 API 的碎片化、瀏覽器兼容性挑戰及缺乏標準化工具，增加了直接使用的難度。</li>
-                <li>過度依賴框架可能導致應用程式體積膨脹、性能開銷，並限制開發者對原生平台特性的深入利用。</li>
-            </ul>
-            <h4 class="section-title">社群觀點與連結</h4>
-            <p class="community-reaction">此話題在 HN 引起共鳴，因為它觸及了網頁開發社群的核心辯論。開發者們就效率、性能、維護性、學習曲線以及社群支持等方面，比較了框架與原生平台之間的優劣。討論凸顯了在快速變化的網頁生態中，如何在開發速度與技術債之間取得平衡。</p>
-            <a href="https://news.ycombinator.com/item?id=49950554" target="_blank" rel="noopener noreferrer" class="discussion-button">前往 Hacker News 討論區 (含 23 則討論)</a>
-        </div>
-
-        <!-- Article Card: So you think you could be an electrician? -->
-        <div class="slide article-card">
-            <h3><a href="https://asteriskmag.com/issues/15/so-you-think-you-could-be-an-electrician" target="_blank" rel="noopener noreferrer">So you think you could be an electrician?</a></h3>
-            <h4 class="section-title">核心摘要</h4>
-            <p>本文挑戰了普遍認為科技業是唯一高收入、有前途的職業道路的觀念，深入探討了電工等熟練技工的專業性、高技術門檻及豐厚報酬，並反思這些對社會至關重要的實用技能的真正價值。</p>
-            <h4 class="section-title">關鍵要點</h4>
-            <ul>
-                <li>熟練技工行業（如電工）需要高度專業技能、嚴格的學徒培訓和持續學習。</li>
-                <li>這些行業提供穩定且具競爭力的高收入，其工作並非「低技術」而是專業性極強。</li>
-                <li>文章呼籲社會重新評估教育與職業選擇，強調實用技能和藍領工作的核心社會價值。</li>
-            </ul>
-            <h4 class="section-title">社群觀點與連結</h4>
-            <p class="community-reaction">這篇文章在 Hacker News 上獲得了熱烈迴響，許多科技業工作者對其觀點表示贊同。討論內容廣泛，從美國技工培訓體系、工會作用，到現代社會對技術專業人員的偏見，以及個人職業發展路徑的多樣性。社群普遍認為，社會應給予各行各業的專業技能同等尊重。</p>
-            <a href="https://news.ycombinator.com/item?id=49910462" target="_blank" rel="noopener noreferrer" class="discussion-button">前往 Hacker News 討論區 (含 63 則討論)</a>
-        </div>
-
-        <!-- Article Card: We're going to need default hard budget caps on pretty much everything -->
-        <div class="slide article-card">
-            <h3><a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank" rel="noopener noreferrer">We're going to need default hard budget caps on pretty much everything</a></h3>
-            <h4 class="section-title">核心摘要</h4>
-            <p>作者 Simon Willison 強調了在雲端服務和訂閱經濟日益普及的時代，為避免資源浪費和成本失控，設定「硬性預算上限」（Hard Budget Caps）的迫切必要性，並呼籲將其作為所有服務的預設機制。</p>
-            <h4 class="section-title">關鍵要點</h4>
-            <ul>
-                <li>雲端資源和訂閱服務的成本管理日益複雜，容易因疏忽或預設擴展導致費用超支。</li>
-                <li>預設的硬性預算帽能有效控制開銷，提升企業和個人用戶的財務可預測性與責任感。</li>
-                <li>呼籲服務提供商和開發者社群將成本控制和預算管理作為產品設計的核心考量。</li>
-            </ul>
-            <h4 class="section-title">社群觀點與連結</h4>
-            <p class="community-reaction">此議題在 Hacker News 上引起廣泛共鳴，特別是來自雲端基礎設施使用者和開發者。許多人分享了因忘記關閉服務、無限擴展或未監控成本而遭受的「雲帳單震驚」經歷。討論聚焦於 FinOps 實踐、自動化成本控制工具的需求，以及服務供應商在提供預算管理功能方面的責任。</p>
-            <a href="https://news.ycombinator.com/item?id=49949235" target="_blank" rel="noopener noreferrer" class="discussion-button">前往 Hacker News 討論區 (含 169 則討論)</a>
-        </div>
-
-        <!-- Article Card: The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux -->
-        <div class="slide article-card">
-            <h3><a href="https://www.phoronix.com/news/XDC-2026-Valve-Timur-AMDGPU" target="_blank" rel="noopener noreferrer">The work by Valve's Timur Kristóf on improving old AMD GPUs on Linux</a></h3>
-            <h4 class="section-title">核心摘要</h4>
-            <p>本文報導了 Valve 工程師 Timur Kristóf 在 Linux 平台上優化舊款 AMD GPU 效能的傑出工作。他對開源驅動（特別是 AMDGPU 驅動）的貢獻，顯著提升了舊硬體的遊戲體驗和整體穩定性，為 Linux 遊戲生態帶來積極影響。</p>
-            <h4 class="section-title">關鍵要點</h4>
-            <ul>
-                <li>通過開源驅動的深度優化，大幅提升了舊款 AMD GPU 在 Linux 環境下的遊戲與圖形渲染效能。</li>
-                <li>展示了 Valve 對 Linux 遊戲生態系統和促進硬體兼容性的持續投入與技術實力。</li>
-                <li>延長了舊硬體的使用壽命，促進了資源的再利用和可持續性，降低了升級門檻。</li>
-            </ul>
-            <h4 class="section-title">社群觀點與連結</h4>
-            <p class="community-reaction">這篇關於 Valve 貢獻的報導在注重開源和 Linux 的 Hacker News 社群中廣受好評。討論聚焦於 Valve 在推動 Linux 遊戲方面的領先作用，對開源驅動開發的正面影響，以及如何讓舊款硬體在現代系統中發揮餘熱的技術細節。社群對 Timur Kristóf 的努力表示讚賞，認為這對提升 Linux 桌面的用戶體驗至關重要。</p>
-            <a href="https://news.ycombinator.com/item?id=49946895" target="_blank" rel="noopener noreferrer" class="discussion-button">前往 Hacker News 討論區 (含 24 則討論)</a>
-        </div>
-
-        <!-- Final Slide: Summary Page -->
-        <div class="slide summary-slide">
-            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <p>今日 Hacker News 的熱門話題展現了科技社群對「過去與未來」、「效率與成本」以及「虛擬與實體」的多元關注。從緬懷科技巨匠的影響力，到探討網頁開發的基礎與框架之爭，再到對雲端資源成本控制的呼籲，以及對實體技工專業價值的重新認識，都反映出開發者們在快速演進的技術浪潮中，不忘回顧歷史、追求效率、管理風險，並重視實用與可持續性的綜合視角。同時，Valve 對 Linux 硬體的優化工作，也凸顯了開源協作與硬體生命週期延續的重要性。</p>
-        </div>
-
     </div>
+
+    <!-- Slide 2: Run Qwen 3.8 Flash Next (125B) on consumer hardware -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"><a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener noreferrer">Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s</a></h2>
+            <p class="meta-info">作者: snehesht | 熱度: 685 points | 討論數: 316</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這個專案展示了如何在單一消費者級 NVIDIA RTX 4090 顯示卡上高效運行規模達 125B 參數的 Qwen 3.8 Flash Next 大型語言模型。透過創新的量化與推理優化技術，它旨在大幅降低高性能 LLM 的硬體門檻，使其在個人電腦上也能達到每秒百兆次的推斷速度。</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>突破性效能:</strong> 在 RTX 4090 上實現 100 T/s 的推斷速度，打破了大型模型對昂貴專業硬體的依賴。</li>
+                <li><strong>模型小型化:</strong> 採用 Qwen 3.8 Flash Next 模型，結合高效能優化，使其能在消費級顯存中運行。</li>
+                <li><strong>普及化AI:</strong> 為研究者和開發者提供了在本地端實驗和部署大型語言模型的經濟可行方案。</li>
+            </ul>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p>這是個極具吸引力的話題，因為它直接解決了運行大型 AI 模型的高昂成本和硬體限制，預示著個人AI時代的加速到來。開發者們對於如何在消費級硬體上實現如此高效能感到興奮，並積極討論其技術細節和潛在應用。</p>
+            <a href="https://news.ycombinator.com/item?id=49953495" target="_blank" rel="noopener noreferrer" class="button">前往 Hacker News 討論區 (含 316 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 3: In the wake of closure, a digital archive of animated materials appears online -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"><a href="https://filmstories.co.uk/news/tippett-studios-in-the-wake-of-its-closure-a-digital-archive-of-animated-materials-appears-online/" target="_blank" rel="noopener noreferrer">In the wake of closure, a digital archive of animated materials appears online</a></h2>
+            <p class="meta-info">作者: rdmuser | 熱度: 86 points | 討論數: 8</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">核心摘要</h3>
+            <p>隨著傳奇視覺特效公司 Tippett Studios 的關閉，一份珍貴的動畫製作數位檔案庫被上傳至線上，為電影歷史和動畫藝術的愛好者提供了前所未有的幕後資料。這個數位典藏確保了該工作室對電影產業的貢獻得以保存和研究。</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>文化遺產保存:</strong> 透過數位化技術，確保了重要電影製作工作室的創作資料得以永久保存。</li>
+                <li><strong>教育與研究價值:</strong> 為學生、研究人員和動畫師提供寶貴的學習資源，理解動畫製作的演變。</li>
+                <li><strong>社群貢獻:</strong> 在工作室關閉後，以開放形式回饋社群，促進知識共享與傳播。</li>
+            </ul>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p>儘管討論數不高，但這個話題觸及了數位典藏、文化遺產保存以及電影藝術的熱情。對於動畫和電影史愛好者來說，這是一份重要的資源釋出。</p>
+            <a href="https://news.ycombinator.com/item?id=49957812" target="_blank" rel="noopener noreferrer" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 4: A 40ms Go garbage collector pause caused by swap -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"><a href="https://frn.sh/go-gc/" target="_blank" rel="noopener noreferrer">A 40ms Go garbage collector pause caused by swap</a></h2>
+            <p class="meta-info">作者: shellpipe | 熱度: 34 points | 討論數: 8</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這篇文章深入探討了 Go 語言應用程式中因記憶體交換 (swap) 操作導致的垃圾回收 (GC) 暫停問題，特別是當系統資源緊張時，Go 的 GC 可能會引入顯著的延遲。作者詳細分析了問題成因並提供了最佳化建議，以減少此類性能瓶頸。</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>GC效能瓶頸:</strong> 揭示了在特定條件下，即使是現代高效的 Go GC 也可能因底層系統資源（如swap）導致性能問題。</li>
+                <li><strong>系統級互動:</strong> 強調了應用程式性能不僅依賴程式碼本身，也與作業系統的記憶體管理策略緊密相關。</li>
+                <li><strong>最佳化策略:</strong> 提供具體建議，如監控 swap 使用情況、調整記憶體限制或重新配置系統，以改善Go應用程式的穩定性和響應速度。</li>
+            </ul>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p>對於 Go 語言開發者來說，這是一個非常實用的性能調優話題。它深入探討了在實際生產環境中可能遇到的底層性能問題，對於追求低延遲和高吞吐量的應用至關重要。</p>
+            <a href="https://news.ycombinator.com/item?id=49959654" target="_blank" rel="noopener noreferrer" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 5: Infidel goes wild -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"><a href="https://blog.zarfhome.com/2026/10/infidel-goes-wild" target="_blank" rel="noopener noreferrer">Infidel goes wild</a></h2>
+            <p class="meta-info">作者: tobr | 熱度: 108 points | 討論數: 15</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">核心摘要</h3>
+            <p>這篇文章似乎是關於遊戲《Infidel》的一篇日誌或評論，作者可能分享了在遊玩過程中遇到的一些有趣或挑戰性的體驗，或者是對遊戲設計的獨特見解。由於原文連結指向一個未來日期 (2026/10)，這可能是一個提前發布的預告或虛構的文章，但HN的討論表明它是一個真實存在並引發興趣的內容。</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>遊戲評論與分享:</strong> 內容聚焦於特定遊戲《Infidel》的遊玩體驗或深度分析。</li>
+                <li><strong>懷舊與探索:</strong> 此類文章常能吸引對復古遊戲或小眾遊戲有興趣的玩家社群。</li>
+                <li><strong>作者視角:</strong> 通常會提供作者獨到的見解和發現，而非單純的遊戲介紹。</li>
+            </ul>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p>這類個人化的遊戲體驗或評論，尤其是針對特定遊戲的深入探討，往往能引起遊戲愛好者社群的共鳴，引發對於遊戲內容、機制或歷史的討論。</p>
+            <a href="https://news.ycombinator.com/item?id=49943637" target="_blank" rel="noopener noreferrer" class="button">前往 Hacker News 討論區 (含 15 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 6: Nearly 200 people under observation after Irkutsk lab worker dies from plague -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title"><a href="https://www.themoscowtimes.com/2026/10/02/nearly-200-people-under-observation-after-irkutsk-lab-worker-dies-from-plague-a93857" target="_blank" rel="noopener noreferrer">Nearly 200 people under observation after Irkutsk lab worker dies from plague</a></h2>
+            <p class="meta-info">作者: ericmay | 熱度: 148 points | 討論數: 99</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">核心摘要</h3>
+            <p>俄羅斯伊爾庫茨克一家實驗室的工作人員因鼠疫去世，導致近 200 人被隔離觀察。這起事件引起了公眾對生物安全和傳染病傳播的關注，特別是考慮到鼠疫的潛在危險性和歷史上的影響。</p>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">關鍵要點</h3>
+            <ul>
+                <li><strong>生物安全警示:</strong> 強調了生物實驗室安全協議的重要性，以及處理高危病原體時的風險管理。</li>
+                <li><strong>傳染病監測:</strong> 凸顯了對潛在傳染病爆發的快速反應和追蹤接觸者的關鍵性。</li>
+                <li><strong>全球公共衛生:</strong> 雖然是局部事件，但也提醒了世界各地傳染病防控網絡的重要性，尤其是在全球化的背景下。</li>
+            </ul>
+        </div>
+        <div class="article-section">
+            <h3 class="section-title">社群觀點與連結</h3>
+            <p>這是個關於公共衛生和潛在危險的話題，自然會引起廣泛關注。人們會討論生物安全、疫情應對、病毒溯源以及類似事件的歷史案例，導致高討論度。它觸及了對未知疾病的恐懼和對公共安全的擔憂。</p>
+            <a href="https://news.ycombinator.com/item?id=49960084" target="_blank" rel="noopener noreferrer" class="button">前往 Hacker News 討論區 (含 99 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide: 總結頁 -->
+    <div id="final-slide" class="card">
+        <h2 class="card-title">今日技術趨勢歸納</h2>
+        <p>今日 Hacker News 的熱點文章揭示了技術社群對AI普惠化、系統性能極限優化以及數位文化遺產保存的高度關注。從在消費級硬體上運行大型AI模型，到深入探討Go語言的GC問題，再到對珍貴動畫資料的數位典藏，這些都反映出開發者們在追求技術創新之餘，也日益重視技術的實用性、效率與永續性。同時，對公共衛生事件的關切也提醒我們，科技發展始終與社會福祉和安全息息相關。</p>
+    </div>
+
 </body>
 </html>
