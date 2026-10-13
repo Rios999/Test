@@ -5,222 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker News 每日科技熱點摘要</title>
     <style>
+        /* Base Styles - Dark Mode */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* 深灰色背景 */
-            color: #e2e8f0; /* 高對比白字 */
-            line-height: 1.6;
+            background-color: #0f172a; /* Deep dark blue-gray */
+            color: #e2e8f0; /* Light off-white */
             margin: 0;
-            padding: 2rem;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 30px;
+            line-height: 1.6;
         }
-        .container {
-            width: 100%;
-            max-width: 900px; /* 限制內容寬度 */
-        }
+
+        /* Card-based UI */
         .slide-card {
-            background-color: #1a202c; /* 卡片背景色 */
+            background-color: #1e293b; /* Slightly lighter dark blue-gray */
             border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #334155; /* Subtle border */
         }
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
-        }
+
+        /* Headings */
         h1 {
-            font-size: 3rem;
-            color: #fff;
+            color: #93c5fd; /* Light blue accent */
+            font-size: 2.8em;
             text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #6366f1, #9333ea); /* 藍紫漸層 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
+
         h2 {
-            font-size: 2rem;
-            color: #a78bfa; /* 淺紫 accent */
+            color: #93c5fd;
+            font-size: 1.8em;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 25px;
         }
+
         h3 {
-            font-size: 1.75rem;
-            color: #7dd3fc; /* 亮藍 accent */
-            margin-bottom: 1rem;
-            line-height: 1.3;
+            color: #93c5fd;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
+
+        h4 {
+            color: #a78bfa; /* Light purple accent */
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraphs and Lists */
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Links */
         a {
-            color: #3b82f6; /* 藍色連結 */
+            color: #60a5fa; /* Blue for links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         a:hover {
-            color: #60a5fa;
+            color: #3b82f6;
             text-decoration: underline;
         }
-        p {
-            margin-bottom: 1rem;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 1.5rem;
-        }
-        ul li {
-            position: relative;
-            padding-left: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        ul li::before {
-            content: '•';
-            color: #818cf8; /* 藍紫點 */
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        em {
-            color: #94a3b8; /* 淺灰強調 */
-            font-style: normal;
-            font-weight: 500;
-        }
-        .hn-button {
+
+        /* Tags */
+        .tag {
+            background-color: #334155;
+            color: #cbd5e1;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-right: 8px;
+            font-size: 0.9em;
             display: inline-block;
-            background-color: #2563eb; /* 藍色背景 */
+            margin-top: 10px;
+        }
+
+        /* Button Style */
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2563eb; /* Strong blue */
             color: #fff;
-            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            margin-top: 1.5rem;
+            font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
         }
-        .hn-button:hover {
-            background-color: #3b82f6; /* 懸停變亮 */
+
+        .button:hover {
+            background-color: #1d4ed8; /* Darker blue on hover */
             transform: translateY(-2px);
             text-decoration: none;
         }
-        .cover-meta {
+
+        /* Cover Slide Specifics */
+        .cover-slide {
             text-align: center;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            color: #94a3b8;
+            padding: 60px 30px;
         }
-        .tags {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .tags span {
-            display: inline-block;
-            background-color: #334155; /* 標籤背景 */
+
+        .cover-slide p {
+            font-size: 1.1em;
             color: #cbd5e1;
-            padding: 0.4em 1em;
-            border-radius: 20px;
-            margin: 0.5em;
-            font-size: 0.9em;
-            font-weight: 500;
+        }
+
+        .cover-slide .tags-container {
+            margin-top: 40px;
+        }
+
+        /* Final Slide Specifics */
+        .final-slide {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .final-slide p {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 20px auto 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 封面頁 (Slide 1) -->
-        <div class="slide-card">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p class="cover-meta">生成日期: 2026年10月12日</p>
-            <div class="tags">
-                <span>#網路安全與隱私</span>
-                <span>#軟體工程與開源</span>
-                <span>#新興平台與懷舊</span>
-            </div>
-        </div>
 
-        <!-- 文章內容頁 (Slide 2) -->
-        <div class="slide-card">
-            <h3><a href="https://radar.cloudflare.com/bots/as13238?dateRange=7d#bot-traffic" target="_blank">Yandex bot traffic down 99% after data center attack</a></h3>
-            <p><em>核心摘要:</em> Cloudflare發布報告，揭示在Yandex遭遇某次數據中心攻擊後，來自其自主系統(ASN)的機器人流量驟降99%。這項數據突顯了網路攻擊對大型服務供應商營運的劇烈衝擊，及其對整體網路流量結構的影響。</p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li>網路攻擊能夠對大型線上服務的流量模式造成近乎毀滅性的影響。</li>
-                <li>大規模機器人流量在某些網路生態中佔比極高，且對服務可用性至關重要。</li>
-                <li>Cloudflare的數據洞察能力為理解複雜的網路事件提供了寶貴視角。</li>
-            </ul>
-            <h4>社群觀點與連結:</h4>
-            <p><em>這篇文章為何受到高度關注？</em> 社群對大型科技公司遭受攻擊的事件總是充滿好奇，尤其當其可能涉及地緣政治背景，或突顯了關鍵基礎設施的脆弱性時。Cloudflare的權威數據報告增加了可信度與討論價值。</p>
-            <a href="https://news.ycombinator.com/item?id=50051532" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 19 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 3) -->
-        <div class="slide-card">
-            <h3><a href="https://lalinsky.com/2026/10/11/type-safe-html-templating-in-zig.html" target="_blank">Type-safe HTML templating in Zig</a></h3>
-            <p><em>核心摘要:</em> 本文探討了在Zig語言中如何實現類型安全的HTML模板方案。作者旨在利用Zig強大的編譯時檢查能力，在開發階段就捕獲潛在的模板渲染錯誤，從而提高Web應用程式的穩定性和開發效率。</p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li>在低階語言如Zig中實現高層次的類型安全模板是一項技術挑戰。</li>
-                <li>類型安全模板能有效減少運行時錯誤，提升Web應用程式的健壯性。</li>
-                <li>此方案展示了Zig在除了系統編程之外，在Web開發領域的潛在應用。</li>
-            </ul>
-            <h4>社群觀點與連結:</h4>
-            <p><em>這篇文章為何受到關注？</em> 儘管Zig語言相對小眾，但對其高階應用（如Web模板）的探索吸引了一部分關注其潛力，或對類型安全編程有興趣的開發者。這是一個展示特定技術如何解決特定問題的案例。</p>
-            <a href="https://news.ycombinator.com/item?id=50051573" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 6 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 4) -->
-        <div class="slide-card">
-            <h3><a href="https://royfish.dev/fingerprints-are-the-new-cookies" target="_blank">Fingerprints are the new cookies</a></h3>
-            <p><em>核心摘要:</em> 作者深入分析了瀏覽器指紋技術如何日益取代傳統Cookie，成為網站追蹤用戶行為的新手段。文章強調了這種無感追蹤技術帶來的深遠隱私影響，並探討了其工作原理及用戶面臨的挑戰。</p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li>瀏覽器指紋技術利用設備配置差異，實現無須Cookie的持久性用戶追蹤。</li>
-                <li>該技術對個人網路隱私構成嚴重威脅，因其難以被用戶察覺或禁用。</li>
-                <li>隨著Cookie受到越來越多限制，指紋技術正成為廣告和數據分析行業的新寵。</li>
-            </ul>
-            <h4>社群觀點與連結:</h4>
-            <p><em>這篇文章為何受到高度關注？</em> 網路隱私是Hacker News社群的常青話題。指紋追蹤技術直接觸及每個網路用戶的痛點，其隱蔽性和難以防範的特性引發了廣泛的擔憂和討論，使得這類文章總是能獲得高熱度。</p>
-            <a href="https://news.ycombinator.com/item?id=50048642" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 118 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 5) -->
-        <div class="slide-card">
-            <h3><a href="https://amosbbatto.wordpress.com/2026/10/05/linux-phones-alternative/" target="_blank">Will Linux phones become a viable alternative to the Android/iOS duopoly?</a></h3>
-            <p><em>核心摘要:</em> 這篇文章探討了Linux手機是否有可能在未來成為Android和iOS雙寡頭市場的有效替代品。作者分析了目前Linux手機面臨的生態系、硬體支持和應用程式兼容性等挑戰，以及其在隱私和開放性方面的潛在優勢。</p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li>Linux手機的核心吸引力在於提供更佳的用戶控制權和隱私保護。</li>
-                <li>缺乏主流應用程式、硬體驅動問題和小眾市場是其發展的主要障礙。</li>
-                <li>儘管有熱情社群支持，但挑戰Google和Apple的生態系仍顯艱鉅。</li>
-            </ul>
-            <h4>社群觀點與連結:</h4>
-            <p><em>這篇文章為何受到關注？</em> 關於「開源手機OS能否挑戰現有巨頭」的話題在開源社群中一直存在，但通常難以引發爆炸性討論，因為進展緩慢且面臨的難題眾所周知。文章的討論度反映了其議題的持續性而非突破性。</p>
-            <a href="https://news.ycombinator.com/item?id=50051530" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
-        </div>
-
-        <!-- 文章內容頁 (Slide 6) -->
-        <div class="slide-card">
-            <h3><a href="https://nanolathe.gg" target="_blank">Total Annihilation, rebuilt for modern computers</a></h3>
-            <p><em>核心摘要:</em> 一個名為Nanolathe的團隊正在著手重製經典即時戰略遊戲《Total Annihilation》，目標是使其能在現代電腦上流暢運行，並引入新的功能和改進，旨在為新老玩家帶來更優質的遊戲體驗。</p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li>《Total Annihilation》的重製滿足了大量懷舊玩家的需求。</li>
-                <li>社區驅動的遊戲復興專案，展示了技術熱情對經典的延續。</li>
-                <li>現代化引擎與兼容性改造，為老遊戲注入新生命，擴展其生命週期。</li>
-            </ul>
-            <h4>社群觀點與連結:</h4>
-            <p><em>這篇文章為何受到極高關注？</em> 《Total Annihilation》是一款擁有龐大忠實粉絲群的RTS經典遊戲。任何關於其現代化的嘗試都會觸發玩家強烈的懷舊情懷和期待，尤其當專案看起來有潛力實現時，討論熱度會迅速飆升。</p>
-            <a href="https://news.ycombinator.com/item?id=50045984" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 187 則討論)</a>
-        </div>
-
-        <!-- 總結頁 (Final Slide) -->
-        <div class="slide-card">
-            <h2>今日技術趨勢歸納</h2>
-            <p>今日Hacker News的熱點話題，呈現了網路世界在「網路安全」、「用戶隱私」以及「開源技術與社區力量」三大領域的持續關注與挑戰。從Yandex數據中心攻擊引發的流量異動，到瀏覽器指紋技術對傳統Cookie的替代，都凸顯了網路攻防與用戶數據保護的緊迫性。同時，Zig語言在類型安全模板上的探索，以及《Total Annihilation》這類經典遊戲的社區驅動重製，則展現了開發者社群對技術創新、提升開發體驗及復興經典的持續熱情。</p>
+    <!-- 封面頁 (Slide 1) -->
+    <div class="slide-card cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期：2026年10月13日</p>
+        <div class="tags-container">
+            <span class="tag">AI 倫理</span>
+            <span class="tag">軟體開發</span>
+            <span class="tag">硬體創新</span>
         </div>
     </div>
+
+    <!-- 文章內容頁 (Slide 2) -->
+    <div class="slide-card">
+        <h3><a href="https://arxiv.org/abs/2610.13928" target="_blank">AI Models Can Provably Hide Arbitrary Capabilities</a></h3>
+        <h4>核心摘要 (Core Insight):</h4>
+        <p>這項研究揭示了AI模型在訓練後仍能隱藏其任意能力的潛在風險。即便經過嚴格的透明化處理，模型也能被設計成在特定條件下才顯現出惡意或非預期的功能，對AI安全與可信賴性構成嚴峻挑戰。</p>
+        <h4>關鍵要點 (Key Takeaways):</h4>
+        <ul>
+            <li>研究證明AI模型可被刻意設計來隱藏任意功能，而非僅是限制其表現。</li>
+            <li>此發現大幅增加了模型審計與後門檢測的複雜性與難度。</li>
+            <li>強調了在AI系統廣泛部署前，進行更深層次安全性驗證的迫切需求。</li>
+        </ul>
+        <h4>社群觀點與連結 (Community Reaction):</h4>
+        <p>該話題直接觸及AI倫理和安全的核心痛點，引發社群對AI失控、隱藏風險的深刻擔憂。討論聚焦於如何有效監督AI、防範潛在威脅以及提升模型透明度的策略。</p>
+        <a href="https://news.ycombinator.com/item?id=50065692" target="_blank" class="button">前往 Hacker News 討論區 (含 67 則討論)</a>
+    </div>
+
+    <!-- 文章內容頁 (Slide 3) -->
+    <div class="slide-card">
+        <h3><a href="https://jsomers.net/e-coli-chemotaxis/" target="_blank">The baffling intelligence of a single cell (2024)</a></h3>
+        <h4>核心摘要 (Core Insight):</h4>
+        <p>文章深入探討了單細胞生物，特別是大腸桿菌，如何透過趨化性等簡單機制展現出令人驚訝的決策與適應能力。這挑戰了我們對「智能」的傳統定義，並揭示了生命底層精妙的演算法。</p>
+        <h4>關鍵要點 (Key Takeaways):</h4>
+        <ul>
+            <li>單細胞生物的行為與決策機制比想像中更為複雜和高效。</li>
+            <li>趨化性等基礎生命活動展現出如同計算機程式般的精準度。</li>
+            <li>為人工智慧、機器學習及生物啟發型設計提供了全新的視角與靈感。</li>
+        </ul>
+        <h4>社群觀點與連結 (Community Reaction):</h4>
+        <p>社群討論高度聚焦於生物學的奇蹟及其與計算機科學的潛在交叉，激發了讀者對「智能」本質、生命演化以及如何從生物系統中獲得仿生應用啟發的大量思考。</p>
+        <a href="https://news.ycombinator.com/item?id=50041866" target="_blank" class="button">前往 Hacker News 討論區 (含 27 則討論)</a>
+    </div>
+
+    <!-- 文章內容頁 (Slide 4) -->
+    <div class="slide-card">
+        <h3><a href="https://z.ai/blog/glm-legal" target="_blank">GLM-Legal</a></h3>
+        <h4>核心摘要 (Core Insight):</h4>
+        <p>GLM-Legal 是一個專為法律領域量身打造的大型語言模型，旨在透過深度學習技術，提升法律文本分析、合同審閱、法規查詢及案件研究的效率與準確性。它透過大量法律數據訓練，以滿足法律專業人士的嚴苛需求。</p>
+        <h4>關鍵要點 (Key Takeaways):</h4>
+        <ul>
+            <li>模型專注於法律垂直領域，能夠精確處理複雜的專業術語與法律邏輯。</li>
+            <li>提供高精度的法律文件理解、摘要與資訊檢索能力。</li>
+            <li>有望革新法律行業的工作模式，大幅提高法律服務的效率和可及性。</li>
+        </ul>
+        <h4>社群觀點與連結 (Community Reaction):</h4>
+        <p>作為一個針對特定垂直領域的AI應用，GLM-Legal的實用性與潛力受到法律界和AI開發者的廣泛關注。討論集中在模型的可靠性、對法律實務的影響、倫理考量以及其未來商業化前景。</p>
+        <a href="https://news.ycombinator.com/item?id=50058507" target="_blank" class="button">前往 Hacker News 討論區 (含 298 則討論)</a>
+    </div>
+
+    <!-- 文章內容頁 (Slide 5) -->
+    <div class="slide-card">
+        <h3><a href="https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html" target="_blank">Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X</a></h3>
+        <h4>核心摘要 (Core Insight):</h4>
+        <p>Intel 正式發布了其專為AI工作負載設計的D270 GPU AI加速器，這款產品搭載了高達480GB的LPDDR5X記憶體。它旨在提供卓越的計算能力，以應對日益增長的AI模型訓練和推理需求，特別是針對處理大型複雜模型。</p>
+        <h4>關鍵要點 (Key Takeaways):</h4>
+        <ul>
+            <li>Intel在AI加速器市場的最新布局，意圖挑戰現有市場巨頭地位。</li>
+            <li>高達480GB LPDDR5X記憶體容量為大型AI模型提供強大的數據處理能力。</li>
+            <li>這款產品將加劇AI硬體領域的競爭，預計會推動整體技術創新。</li>
+        </ul>
+        <h4>社群觀點與連結 (Community Reaction):</h4>
+        <p>社群討論熱烈，主要聚焦於Intel在AI硬體領域的競爭力、D270的實際性能與成本效益，以及這款加速器可能對NVIDIA等市場領導者帶來的潛在影響和市場格局變化。</p>
+        <a href="https://news.ycombinator.com/item?id=50063365" target="_blank" class="button">前往 Hacker News 討論區 (含 72 則討論)</a>
+    </div>
+
+    <!-- 文章內容頁 (Slide 6) -->
+    <div class="slide-card">
+        <h3><a href="https://prophitt.me/writing/a-modern-web-app-in-c" target="_blank">A Modern Web App in C</a></h3>
+        <h4>核心摘要 (Core Insight):</h4>
+        <p>本文展示了如何利用C語言開發一個現代化的網頁應用程式，挑戰了傳統上認為C語言不適合Web開發的觀念。作者深入探討了C語言在極致性能、底層資源控制上的獨特優勢，並結合現代工具與技術實現Web應用程式。</p>
+        <h4>關鍵要點 (Key Takeaways):</h4>
+        <ul>
+            <li>顛覆Web開發的語言選擇慣例，證明C語言在Web領域的可能性。</li>
+            <li>強調C語言在效能優化和底層資源管理方面的無可比擬潛力。</li>
+            <li>激發了關於Web技術棧多元化、新興開發模式以及極致效能追求的討論。</li>
+        </ul>
+        <h4>社群觀點與連結 (Community Reaction):</h4>
+        <p>該文章引發了關於「造輪子」、極致效能最佳化，以及C語言在Web開發領域實用性與未來前景的熱烈討論。許多開發者對此創新方法表示高度好奇，但也伴隨著對其複雜性和維護成本的質疑。</p>
+        <a href="https://news.ycombinator.com/item?id=50058528" target="_blank" class="button">前往 Hacker News 討論區 (含 212 則討論)</a>
+    </div>
+
+    <!-- 總結頁 (Final Slide) -->
+    <div class="slide-card final-slide">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>今日Hacker News熱門話題清晰描繪了AI技術在多個維度的深度與廣度演進：從探討AI模型潛在的隱藏能力（AI倫理與安全），到針對法律領域的AI垂直應用，再到Intel在AI硬體加速器上的最新突破。同時，我們也看到了對生命底層智能的持續探索，以及對傳統軟體開發範式（C語言Web應用）的創新挑戰。這些都反映出科技社群對前沿創新、底層效率優化與多樣化解決方案的持續關注與熱烈追求。</p>
+    </div>
+
 </body>
 </html>
