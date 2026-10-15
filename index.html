@@ -1,244 +1,305 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月15日</title>
     <style>
-        /* 全域樣式 */
+        :root {
+            --bg-color: #0f172a; /* Deep blue-gray */
+            --card-bg: #1e293b; /* Darker blue-gray for cards */
+            --text-color: #f8fafc; /* Near white */
+            --light-text-color: #cbd5e1; /* Lighter gray for secondary text */
+            --accent-blue: #2563eb; /* Primary accent blue */
+            --accent-purple: #7c3aed; /* Secondary accent purple */
+            --heading-purple: #a78bfa; /* Lighter purple for section headings */
+            --border-color: #334155; /* Subtle border for cards */
+            --shadow-color: rgba(0, 0, 0, 0.4); /* Dark shadow */
+            --hover-shadow-color: rgba(0, 0, 0, 0.6); /* Darker shadow on hover */
+        }
+
         body {
-            background-color: #0f172a; /* 深炭灰 */
-            color: #f8fafc; /* 淺米白 */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
-        }
-        .presentation-container {
-            max-width: 960px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 25px; /* 卡片間距 */
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* 卡片樣式 */
+        .presentation-container {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-bottom: 50px; /* Space at the bottom */
+        }
+
         .slide-card {
-            background-color: #1e293b; /* 較深炭藍 */
+            background-color: var(--card-bg);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid #334155; /* 細微邊框 */
+            box-shadow: 0 10px 20px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        /* 標題排版 */
+        .slide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--hover-shadow-color);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
         h1 {
             font-size: 2.8em;
-            color: #a855f7; /* 紫色強調 */
             text-align: center;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8em;
-            color: #38bdf8; /* 藍色強調 */
-            margin-bottom: 15px;
-        }
-        h3 {
-            font-size: 1.4em;
-            color: #bae6fd; /* 淺藍強調 */
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
+            font-weight: 800; /* Extra bold */
         }
 
-        /* 連結樣式 */
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-            transition: color 0.2s ease;
+        .cover-subtitle {
+            font-size: 1.4em;
+            text-align: center;
+            color: var(--light-text-color);
+            margin-bottom: 15px;
         }
-        a:hover {
-            color: #60a5fa;
+
+        .cover-date {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-text-color);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .tags-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 0 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .article-title a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .article-title a:hover {
+            color: var(--accent-purple);
             text-decoration: underline;
         }
 
-        /* 按鈕樣式 */
-        .hn-discussion-button {
+        .section-heading {
+            font-size: 1.3em;
+            color: var(--heading-purple);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style-type: '👉 '; /* Custom bullet point */
+            margin-left: 20px;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .button {
             display: inline-block;
-            background-color: #2563eb; /* 標準藍色 */
-            color: #fff;
-            padding: 12px 24px;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 20px;
-            border: none;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
             cursor: pointer;
         }
-        .hn-discussion-button:hover {
-            background-color: #1d4ed8; /* 深藍色 */
+
+        .button:hover {
+            background-color: var(--accent-purple);
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--hover-shadow-color);
         }
 
-        /* 封面頁特定樣式 */
-        .cover-page {
-            text-align: center;
-            padding: 60px 30px;
+        .summary-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 0;
+            color: var(--light-text-color);
         }
-        .cover-page h1 {
-            font-size: 3.5em;
-            background: linear-gradient(90deg, #a855f7, #ec4899); /* 紫粉漸層 */
+        
+        /* Specific styling for the final slide */
+        .final-slide h2 {
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-        .cover-page .subtitle {
-            font-size: 1.5em;
-            color: #94a3b8; /* 石板灰 */
+            text-align: center;
+            font-size: 2.5em;
             margin-bottom: 25px;
-        }
-        .cover-page .date {
-            font-size: 1em;
-            color: #64748b; /* 淺石板灰 */
-            margin-bottom: 30px;
-        }
-        .cover-page .tags {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        .cover-page .tag {
-            background-color: #334155; /* 中等深灰 */
-            color: #a855f7; /* 紫色強調 */
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 0.9em;
-            border: 1px solid rgba(168, 85, 247, 0.5); /* 紫色邊框 */
+            font-weight: 800;
         }
 
-        /* 總結頁特定樣式 */
-        .summary-page h2 {
+        .final-slide .summary-text {
             text-align: center;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8); /* 藍靛漸層 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2.2em;
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--light-text-color);
         }
     </style>
 </head>
 <body>
     <div class="presentation-container">
-        <!-- 封面頁 (Slide 1) -->
+
+        <!-- Slide 1: Cover Page -->
         <div class="slide-card cover-page">
             <h1>Hacker News 每日科技熱點摘要</h1>
-            <p class="subtitle">基於最新社群討論自動生成</p>
-            <p class="date">生成日期：2026年10月14日</p>
-            <div class="tags">
-                <span class="tag">人工智慧</span>
-                <span class="tag">資訊安全</span>
-                <span class="tag">開發工具</span>
+            <p class="cover-subtitle">基於最新社群討論自動生成</p>
+            <p class="cover-date">生成日期：2026年10月15日</p>
+            <div class="tags-container">
+                <span class="tag">網路安全</span>
+                <span class="tag">AI工具</span>
+                <span class="tag">開發者心法</span>
             </div>
         </div>
 
-        <!-- 文章內容頁 1: Gemini 4 Argon -->
+        <!-- Slide 2: Things to know when you get cancer -->
         <div class="slide-card">
-            <h2><a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">Gemini 4 Argon</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>Google DeepMind 推出 Gemini 4 Argon，這是其下一代人工智慧模型的最新進展，旨在推動多模態推理與理解能力的極限。該模型展現了在複雜任務處理上的顯著提升，預示著 AI 應用將迎來更深層次的互動與自動化。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
+            <h3 class="article-title"><a href="https://jjmaxwell4.com/writing/things-to-know-when-you-get-cancer/" target="_blank">Things to know when you get cancer</a></h3>
+            <h4 class="section-heading">核心摘要 (Core Insight)</h4>
+            <p>這篇文章提供了一份個人化且務實的指南，旨在幫助癌症患者及其親友應對確診後的實際挑戰。作者分享了他在醫療系統中導航、財務規劃和尋求情緒支持等方面的寶貴經驗和建議。</p>
+            <h4 class="section-heading">關鍵要點 (Key Takeaways)</h4>
             <ul>
-                <li>**多模態能力升級：** 顯著提升處理和理解文本、圖像、音訊等多種模態資訊的能力，實現更自然的交談與推理。</li>
-                <li>**複雜推理與規劃：** 在解決需要多步驟邏輯思考和跨領域知識的複雜問題上展現出卓越性能。</li>
-                <li>**潛在的產業影響：** 為未來產品開發、科學研究及日常應用帶來革新，尤其在需要高度智慧化輔助的領域。</li>
+                <li><strong>資訊與倡導：</strong> 患者需積極學習疾病知識，並成為自身醫療決策的倡導者。</li>
+                <li><strong>財務規劃：</strong> 癌症治療費用高昂，提前理解保險、政府補助和潛在財務負擔至關重要。</li>
+                <li><strong>尋求支持：</strong> 除了專業醫療，家庭、朋友和支持團體在心理和實際層面提供不可或缺的幫助。</li>
             </ul>
-            <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>作為 Google 在 AI 領域的旗艦級更新，Gemini 4 Argon 自然成為 Hacker News 的焦點。社群熱烈討論其技術細節、潛在應用、以及對整個 AI 生態系統的衝擊，尤其關注其實際性能與競爭力。</p>
-            <a href="https://news.ycombinator.com/item?id=50073879" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 821 則討論)</a>
+            <h4 class="section-heading">社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇文章因其極高的個人相關性和實用性在 Hacker News 上獲得了巨大關注。許多讀者分享了他們的類似經歷，並稱讚作者提供了面對生命中艱難挑戰時的坦誠和建設性意見。</p>
+            <a href="https://news.ycombinator.com/item?id=50093568" target="_blank" class="button">前往 Hacker News 討論區 (含 332 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 2: Sound – Bartosz Ciechanowski -->
+        <!-- Slide 3: Wanted to download an ISO, ended up writing a kernel exploit -->
         <div class="slide-card">
-            <h2><a href="https://ciechanow.ski/sound/" target="_blank" rel="noopener noreferrer">Sound – Bartosz Ciechanowski</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>Bartosz Ciechanowski 的最新互動式網頁文章《Sound》深入淺出地解釋了聲音的物理學、感知方式及其背後的複雜機制。透過豐富的視覺化和互動範例，它將抽象的聲學原理具體化，讓讀者能直觀理解。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
+            <h3 class="article-title"><a href="https://blog.dfb.sh/blog/eap770-root-for-two-zeros/" target="_blank">Wanted to download an ISO, ended up writing a kernel exploit</a></h3>
+            <h4 class="section-heading">核心摘要 (Core Insight)</h4>
+            <p>作者在嘗試下載一個作業系統 ISO 檔案時，意外發現了其供應商專有軟體中的多個漏洞。這些漏洞最終被利用來在未打補丁的 Linux 系統上實現核心權限升級，揭示了看似無害的互動如何導致嚴重的安全發現。</p>
+            <h4 class="section-heading">關鍵要點 (Key Takeaways)</h4>
             <ul>
-                <li>**卓越的互動式教學：** 結合動態圖形和可操作元件，將複雜的聲學概念變得易於理解與探索。</li>
-                <li>**深度技術解析：** 從聲波、頻率、振幅到人耳的聽覺機制，提供了全面且精確的科學解釋。</li>
-                <li>**高品質的視覺化：** 延續作者一貫的高標準，其作品以出色的視覺設計和清晰的資訊呈現聞名。</li>
+                <li><strong>意外發現：</strong> 一個簡單的日常任務如何引發對複雜系統的安全審查。</li>
+                <li><strong>多重漏洞利用：</strong> 結合了本地文件包含 (LFI) 和符號連結技巧，最終導向核心權限。</li>
+                <li><strong>軟體供應鏈風險：</strong> 即使是專有軟體中看似不重要的功能，也可能成為系統級別攻擊的入口。</li>
             </ul>
-            <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>Bartosz 的作品在 HN 社群中素來擁有極高的口碑，這次關於「聲音」的深入探討也受到熱烈歡迎。工程師和科學愛好者讚賞其將複雜技術簡化並提供優雅學習體驗的能力。</p>
-            <a href="https://news.ycombinator.com/item?id=50045147" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 1 則討論)</a>
+            <h4 class="section-heading">社群觀點與連結 (Community Reaction)</h4>
+            <p>Hacker News 社群對這種從日常小事中挖掘出重大安全漏洞的故事總是充滿熱情。讀者們對作者的技術深度、好奇心和解決問題的能力表示讚嘆，並強調了持續安全審查的重要性。</p>
+            <a href="https://news.ycombinator.com/item?id=50070625" target="_blank" class="button">前往 Hacker News 討論區 (含 28 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 3: Ledger confirms spy chip implant behind wallet crypto thefts -->
+        <!-- Slide 4: Creating a Garmin "MCP" -->
         <div class="slide-card">
-            <h2><a href="https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/" target="_blank" rel="noopener noreferrer">Ledger confirms spy chip implant behind wallet crypto thefts</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>知名加密貨幣硬體錢包製造商 Ledger 證實，有惡意行為者在供應鏈中植入間諜晶片，導致部分用戶的加密資產被盜。這起事件揭示了硬體產品在生產環節面臨的嚴峻供應鏈攻擊威脅，對區塊鏈資產安全構成直接挑戰。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
+            <h3 class="article-title"><a href="https://jackantico.io/garmin-mcp" target="_blank">Creating a Garmin "MCP"</a></h3>
+            <h4 class="section-heading">核心摘要 (Core Insight)</h4>
+            <p>這篇文章記錄了作者如何逆向工程並自行打造一個功能類似於 Garmin GFC 700 自動駕駛系統的「主控制面板」(MCP)。透過結合客製化硬體和軟體，他成功模擬了真實飛機儀表的功能，為飛行模擬愛好者提供了一個詳細的 DIY 指南。</p>
+            <h4 class="section-heading">關鍵要點 (Key Takeaways)</h4>
             <ul>
-                <li>**供應鏈攻擊的現實威脅：** 惡意晶片植入證明硬體層面的安全漏洞可能來自製造或物流環節。</li>
-                <li>**硬體錢包信任危機：** 削弱了用戶對硬體錢包最高安全性的預期，強調了軟硬體驗證的重要性。</li>
-                <li>**資安防禦新挑戰：** 促使業界重新審視端到端供應鏈安全，並加強防篡改措施。</li>
+                <li><strong>硬體結合軟體：</strong> 透過 Arduino 和客製化電路板，與飛行模擬器軟體進行通信。</li>
+                <li><strong>逆向工程應用：</strong> 詳細展示了如何解析專有通訊協定和UI行為來實現功能複製。</li>
+                <li><strong>小眾市場創新：</strong> 針對航空模擬愛好者的需求，創造出價格實惠且功能豐富的替代方案。</li>
             </ul>
-            <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>作為一個備受信任的硬體錢包品牌，Ledger 傳出供應鏈攻擊事件在 Hacker News 上引發了廣泛的恐慌與討論。社群對如何驗證硬體真偽、如何確保數位資產安全、以及硬體錢包是否仍值得信任等問題進行了深度探討。</p>
-            <a href="https://news.ycombinator.com/item?id=50054092" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 383 則討論)</a>
+            <h4 class="section-heading">社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇文章吸引了對硬體駭客、逆向工程和航空模擬感興趣的技術社群。人們對作者將軟體開發與物理硬體製造結合的能力印象深刻，並討論了將其應用於其他類似專案的可能性。</p>
+            <a href="https://news.ycombinator.com/item?id=50081045" target="_blank" class="button">前往 Hacker News 討論區 (含 35 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 4: Show HN: Guitoro, a virtual guitar you strum with your keyboard -->
+        <!-- Slide 5: OpenCode 2.0 -->
         <div class="slide-card">
-            <h2><a href="https://guitoro.com/" target="_blank" rel="noopener noreferrer">Show HN: Guitoro, a virtual guitar you strum with your keyboard</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>Guitoro 是一個創新的「Show HN」專案，它提供了一個基於網頁的虛擬吉他，用戶可以透過鍵盤來模擬吉他掃弦和彈奏。這個專案將傳統樂器與現代網路技術結合，為音樂愛好者提供了一個新穎且便捷的互動體驗。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
+            <h3 class="article-title"><a href="https://anoma.ly/notes/opencode-2-0/" target="_blank">OpenCode 2.0</a></h3>
+            <h4 class="section-heading">核心摘要 (Core Insight)</h4>
+            <p>OpenCode 2.0 代表了開源程式碼生成器的一次重大升級，旨在提供更強大、更靈活的程式碼自動生成能力。它透過改進底層模型和整合更多的上下文感知功能，讓開發者能夠以前所未有的效率構建和迭代軟體。</p>
+            <h4 class="section-heading">關鍵要點 (Key Takeaways)</h4>
             <ul>
-                <li>**直觀的鍵盤操作：** 設計巧妙的鍵盤映射，讓用戶可以模擬吉他的掃弦、彈撥和和弦變換。</li>
-                <li>**網路技術的創造力：** 展現了 Web Audio API 和現代前端技術在音樂應用領域的巨大潛力。</li>
-                <li>**娛樂與學習兼具：** 不僅提供趣味的演奏體驗，也可能成為學習吉他指法和樂理的輔助工具。</li>
+                <li><strong>AI程式碼助手進化：</strong> 從簡單的程式碼片段生成發展到理解更複雜的軟體結構和意圖。</li>
+                <li><strong>效率與靈活性：</strong> 賦予開發者在多種程式語言和框架中快速生成、修改和測試程式碼的能力。</li>
+                <li><strong>開源協作潛力：</strong> 作為一個開源專案，它鼓勵社群參與和創新，共同推動程式碼生成技術的邊界。</li>
             </ul>
-            <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>這個充滿創意和實用性的「Show HN」專案在 HN 社群中獲得了高度關注。開發者們對其技術實現、互動性以及作為一個有趣工具的潛力表示讚賞，尤其對於其使用者體驗和跨平台可用性感到驚艷。</p>
-            <a href="https://news.ycombinator.com/item?id=50077020" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 97 則討論)</a>
+            <h4 class="section-heading">社群觀點與連結 (Community Reaction)</h4>
+            <p>AI 輔助程式碼開發一直是 Hacker News 的熱門話題。OpenCode 2.0 的發布吸引了開發者們對其性能改進、實際應用場景和未來發展方向的廣泛討論，尤其關注其在開源領域的潛力。</p>
+            <a href="https://news.ycombinator.com/item?id=50094994" target="_blank" class="button">前往 Hacker News 討論區 (含 239 則討論)</a>
         </div>
 
-        <!-- 文章內容頁 5: Redesigning source control at Anthropic -->
+        <!-- Slide 6: Tiny Little Office -->
         <div class="slide-card">
-            <h2><a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener noreferrer">Redesigning source control at Anthropic</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>Anthropic 團隊分享了他們如何為大規模 AI 模型開發重新設計其源碼控制系統的經驗。面對巨型模型、龐大數據集和複雜協作帶來的挑戰，他們從頭開始思考，構建了一個能高效管理和協同開發的定制化解決方案。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
+            <h3 class="article-title"><a href="https://tinylittleoffice.com/" target="_blank">Tiny Little Office</a></h3>
+            <h4 class="section-heading">核心摘要 (Core Insight)</h4>
+            <p>Tiny Little Office 是一個關於建立和經營小型、獨立軟體企業的理念和實踐。它提倡一種更可持續、更注重個人生活品質的創業模式，強調透過專注於利基市場和提供卓越價值來實現盈利，而非追求快速擴張或外部融資。</p>
+            <h4 class="section-heading">關鍵要點 (Key Takeaways)</h4>
             <ul>
-                <li>**大規模單體倉儲 (Monorepo) 優化：** 針對大型 AI 專案特點，設計高效的代碼管理策略以應對龐大體積。</li>
-                <li>**版本控制與數據同步：** 解決了在多個開發者同時操作大型文件和模型參數時的版本衝突與數據一致性問題。</li>
-                <li>**工程效率提升：** 透過定制化工具和流程，顯著提高團隊在快速迭代 AI 模型和實驗時的協作效率。</li>
+                <li><strong>精實創業哲學：</strong> 專注於開發核心功能，避免過度工程和不必要的複雜性。</li>
+                <li><strong>自我資金運營：</strong> 強調透過客戶收入來支撐業務增長，保持完全的控制權和決策自由。</li>
+                <li><strong>利基市場策略：</strong> 尋找特定且服務不足的市場，提供高度專業化的解決方案。</li>
             </ul>
-            <h3>社群觀點與連結 (Community Reaction)</h3>
-            <p>Anthropic 作為領先的 AI 研究公司，其內部工程挑戰與解決方案對於廣大開發者社群具有極高的參考價值。社群熱烈討論了大型 monorepo 的最佳實踐、AI 時代版本控制的新需求、以及傳統 VCS 工具的局限性。</p>
-            <a href="https://news.ycombinator.com/item?id=50073633" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 609 則討論)</a>
+            <h4 class="section-heading">社群觀點與連結 (Community Reaction)</h4>
+            <p>在充斥著創業和快速成長故事的科技界，Tiny Little Office 提供了一股清流。Hacker News 社群對這種「獨立駭客」(indie hacking) 的理念產生共鳴，許多人討論了如何在不犧牲個人生活的情況下建立可持續發展的軟體業務。</p>
+            <a href="https://news.ycombinator.com/item?id=50096142" target="_blank" class="button">前往 Hacker News 討論區 (含 67 則討論)</a>
         </div>
 
-        <!-- 總結頁 (Final Slide) -->
-        <div class="slide-card summary-page">
+        <!-- Final Slide: Summary -->
+        <div class="slide-card final-slide">
             <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p>今日 Hacker News 的熱門話題清晰地勾勒出當前科技領域的幾個關鍵方向。首先，人工智慧的發展持續加速，Google Gemini 4 Argon 的發布顯示了多模態與高級推理能力的巨大潛力。其次，資訊安全，特別是針對硬體供應鏈的攻擊，正成為一個日益嚴峻的挑戰，Ledger 的案例敲響了警鐘，促使業界更加關注端到端防護。同時，開發工具與工程效率的議題依然核心，Anthropic 重新設計源碼控制的經驗，體現了為適應 AI 時代大規模開發需求而進行的深層次工程創新。最後，創意型網路應用，如 Guitoro 的虛擬吉他，展現了利用現代 Web 技術創造新穎互動體驗的無限可能。總體而言，技術社群正積極探索 AI 的邊界、加固基礎安全、並持續優化開發協作模式，同時不忘將技術融入生活，帶來更多樂趣與便利。</p>
+            <p class="summary-text">
+                今日 Hacker News 熱點展現了科技社群的多元興趣。從深入的<span style="color: var(--accent-blue); font-weight: bold;">網路安全研究</span>（意外發現核心漏洞）到<span style="color: var(--accent-purple); font-weight: bold;">AI輔助開發工具</span>的演進（OpenCode 2.0），再到<span style="color: #6ee7b7; font-weight: bold;">DIY硬體創新</span>（Garmin MCP），技術前沿的探索持續活躍。同時，社群也高度關注<span style="color: #fcd34d; font-weight: bold;">開發者文化與創業模式</span>（Tiny Little Office 的精實理念），以及對<span style="color: #ef4444; font-weight: bold;">個人生活與挑戰</span>的深刻反思（應對癌症的經驗分享）。這反映出 Hacker News 不僅是技術的競技場，也是個人成長與社群共鳴的平台。
+            </p>
         </div>
+
     </div>
 </body>
 </html>
