@@ -3,267 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月16日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月17日</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        :root {
+            --bg-dark: #0f172a;
+            --text-light: #e2e8f0; /* Slightly off-white for better contrast */
+            --card-bg: #1e293b;
+            --accent-blue: #2563eb;
+            --accent-purple: #8b5cf6;
+            --border-color: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --gradient-1: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            --gradient-2: linear-gradient(to right, #6366f1, #d946ef);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* 深灰色背景 */
-            color: #ffffff; /* 白字 */
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            line-height: 1.6;
-        }
-
-        .slide-card {
-            background-color: #1e293b; /* 卡片背景色 */
-            padding: 25px 35px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            max-width: 850px;
-            width: 100%;
-            border: 1px solid #334155; /* 輕微邊框 */
+            gap: 25px;
+            min-height: 100vh;
             box-sizing: border-box;
         }
 
-        .slide-card h1 {
-            color: #c4b5fd; /* 淺紫色 */
-            font-size: 2.8em;
+        h1, h2, h3, h4 {
+            color: var(--text-light);
+            margin-top: 0;
             margin-bottom: 15px;
-            text-align: center;
         }
 
-        .slide-card h2 {
-            color: #a78bfa; /* 較深的紫色 */
-            font-size: 1.8em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #6366f1; /* 藍紫色下劃線 */
-            padding-bottom: 8px;
-        }
-
-        .slide-card h2 a {
-            color: #a78bfa; /* 標題連結顏色 */
+        a {
+            color: var(--accent-blue);
             text-decoration: none;
         }
 
-        .slide-card h2 a:hover {
+        a:hover {
             text-decoration: underline;
-            color: #c4b5fd;
+            color: var(--accent-purple);
         }
 
-        .slide-card h3 {
-            color: #818cf8; /* 藍色 */
-            font-size: 1.4em;
-            margin-top: 20px;
-            margin-bottom: 8px;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .slide-card p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #e2e8f0;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .slide-card ul {
-            list-style-type: none;
-            padding-left: 0;
+        .cover-card {
+            text-align: center;
+            padding: 50px;
+            margin-bottom: 20px;
+            background-image: var(--gradient-2);
+            color: #ffffff;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover-card h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cover-card h2 {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #e0e7ff;
             margin-bottom: 20px;
         }
 
-        .slide-card li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            color: #cbd5e1;
+        .cover-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
         }
 
-        .slide-card li::before {
-            content: '•';
-            color: #3b82f6; /* 藍色圓點 */
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .slide-card a {
-            color: #60a5fa; /* 藍色連結 */
-            text-decoration: none;
-        }
-
-        .slide-card a:hover {
-            text-decoration: underline;
-            color: #93c5fd;
-        }
-
-        .tag-container {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 30px;
+        .tags {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
         .tag {
-            display: inline-block;
-            background-color: #4f46e5; /* 較深的藍色 */
-            color: #ffffff;
-            padding: 8px 15px;
+            background-color: rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            margin: 0 8px;
+            padding: 8px 18px;
             font-size: 0.9em;
-            font-weight: 600;
+            font-weight: 500;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .button-hn {
-            display: inline-block;
-            background-color: #2563eb; /* 藍色背景 */
-            color: white;
-            padding: 12px 22px;
-            border-radius: 8px;
+        .article-title a {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-blue); /* Default blue */
+            display: block;
+            margin-bottom: 10px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .article-title a:hover {
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.05em;
-            margin-top: 25px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.2);
         }
 
-        .button-hn:hover {
-            background-color: #3b82f6; /* 較淺的藍色 */
+        .section-heading {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        ul li::before {
+            content: '•'; /* Custom bullet point */
+            color: var(--accent-purple);
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            line-height: 1.6;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+            margin-top: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-link:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
             transform: translateY(-2px);
-            text-decoration: none; /* 移除 hover 時的下劃線 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+        
+        .button-link:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .cover-subtitle {
-            font-size: 1.5em;
-            color: #a78bfa;
+        .final-card {
+            background-image: var(--gradient-1);
+            color: #ffffff;
+            padding: 40px;
             text-align: center;
-            margin-top: -10px;
-            margin-bottom: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .generation-date {
-            font-size: 1.2em;
-            color: #cbd5e1;
-            text-align: center;
-            margin-bottom: 30px;
+        .final-card h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        .final-summary {
-            font-size: 1.2em;
-            color: #e2e8f0;
-            line-height: 1.8;
+        .final-card p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
         }
     </style>
 </head>
 <body>
 
-    <!-- Slide 1: 封面頁 -->
-    <div class="slide-card">
+    <!-- Cover Page -->
+    <div class="card cover-card">
         <h1>Hacker News 每日科技熱點摘要</h1>
-        <p class="cover-subtitle">基於最新社群討論自動生成</p>
-        <p class="generation-date">生成日期：2026年10月16日</p>
-        <div class="tag-container">
-            <span class="tag">AI模型</span>
-            <span class="tag">網路安全</span>
-            <span class="tag">數據隱私</span>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期：2026年10月17日</p>
+        <div class="tags">
+            <span class="tag">#AI</span>
+            <span class="tag">#邊緣運算</span>
+            <span class="tag">#自動駕駛</span>
+            <span class="tag">#硬體創新</span>
         </div>
     </div>
 
-    <!-- Article 1: Muse Spark Open -->
-    <div class="slide-card">
-        <h2><a href="https://research.meta.ai/blog/muse-spark-open" target="_blank">Muse Spark Open</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>Meta AI 開源了 Muse Spark，這是一個新的生成式 AI 模型家族，專為快速、高效的圖像生成和編輯而設計。它提供比以往模型更快的生成速度，同時保持高視覺品質，目標是讓 AI 圖像創作更具可訪問性和實用性。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- Ultramarine 1 Flash -->
+    <div class="card">
+        <h3 class="article-title"><a href="https://www.paperinstruments.com/ultramarine" target="_blank">Ultramarine 1 Flash</a></h3>
+        <p><span class="section-heading">核心摘要：</span>Ultramarine 1 Flash 是一個開源、低成本的高速相機系統，旨在讓科學家和愛好者能以每秒數十萬幀的速度拍攝短暫物理現象，如液滴撞擊或彈道學研究。</p>
+        <p>它提供了一個可自行組裝的平台，將昂貴的高速攝影技術普及化，讓更多研究者得以進行過去受限於設備的實驗。</p>
         <ul>
-            <li>開源模型，促進社區協作與研究，加速創新應用開發。</li>
-            <li>強調生成速度與效率，支援即時圖像生成及互動式編輯應用。</li>
-            <li>多模態能力，涵蓋圖像生成、編輯及多樣化應用場景，拓展 AI 創作邊界。</li>
+            <li><span class="section-heading">關鍵要點：</span></li>
+            <li>實現每秒數十萬幀的超高速攝影，捕捉肉眼無法察覺的瞬間。</li>
+            <li>開源硬體與軟體設計，顯著降低了高速相機的建置成本。</li>
+            <li>廣泛應用於物理實驗、材料科學、生物研究及高速運動分析。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>高熱度（688 points, 373 discussions）表明開源大型 AI 模型持續受到高度關注，尤其是在圖像生成領域，開發者對其性能、應用潛力及 Meta 的策略充滿討論。</p>
-        <a href="https://news.ycombinator.com/item?id=50107379" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 373 則討論)</a>
+        <p><span class="section-heading">社群觀點：</span>Hacker News 社群對這種將昂貴實驗設備開源化、普及化的努力表現出高度興趣。討論集中在 DIY 門檻、潛在應用領域以及此類專案對科學研究平民化的影響。</p>
+        <a href="https://news.ycombinator.com/item?id=50106747" target="_blank" class="button-link">前往 Hacker News 討論區 (含 18 則討論)</a>
     </div>
 
-    <!-- Article 2: Any window from your Mac, on your iPhone and iPad -->
-    <div class="slide-card">
-        <h2><a href="https://github.com/Saffsanity/sill" target="_blank">Any window from your Mac, on your iPhone and iPad</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>Sill 是一個開源工具，允許用戶將 Mac 上的任何應用程式視窗即時串流到他們的 iPhone 或 iPad 上，實現無縫的跨裝置工作流程。這款工具旨在提升 Apple 生態系統內的生產力，讓行動裝置也能成為桌面應用的延伸。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- Tesla Roadster -->
+    <div class="card">
+        <h3 class="article-title"><a href="https://www.tesla.com/roadster" target="_blank">Tesla Roadster</a></h3>
+        <p><span class="section-heading">核心摘要：</span>Tesla Roadster 是電動車領域中的一款超高性能跑車，承諾提供驚人的加速性能（0-60mph 僅需 1.9 秒），並擁有超過 1000 公里的續航里程，重新定義了電動車的極限。</p>
+        <p>這款車輛旨在展示電動科技在速度、性能和效率方面的巔峰成就，挑戰傳統燃油超跑的地位。</p>
         <ul>
-            <li>開源項目，具高度客製化與透明度，鼓勵社群共同開發與改進。</li>
-            <li>實現 Mac 應用於 iOS/iPadOS 裝置的延伸，提升 Apple 生態系用戶生產力。</li>
-            <li>透過網路串流技術，提供低延遲的跨裝置視窗操作體驗。</li>
+            <li><span class="section-heading">關鍵要點：</span></li>
+            <li>具備媲美甚至超越頂級燃油超跑的瘋狂加速能力與最高時速。</li>
+            <li>超長續航里程設定了電動車的新標竿，減少里程焦慮。</li>
+            <li>採用先進的電池技術和空氣動力學設計，最大化性能與效率。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>較低熱度（67 points, 9 discussions），但仍具一定關注，顯示 Apple 生態系用戶對於提升裝置間互操作性、以及開源的桌面串流解決方案感興趣，討論可能圍繞其穩定性、性能和潛在用途。</p>
-        <a href="https://news.ycombinator.com/item?id=50112739" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 9 則討論)</a>
+        <p><span class="section-heading">社群觀點：</span>作為 Tesla 的旗艦級產品，Roadster 總是 HN 社群關注的焦點。高討論度主要來自其延期交付、承諾性能是否能實現的質疑、以及對其對未來高性能電動車市場影響的辯論。</p>
+        <a href="https://news.ycombinator.com/item?id=50112657" target="_blank" class="button-link">前往 Hacker News 討論區 (含 2290 則討論)</a>
     </div>
 
-    <!-- Article 3: RPKI now protects 70% of internet routes -->
-    <div class="slide-card">
-        <h2><a href="https://ipinfo.io/blog/rpki-protects-70-internet-routes" target="_blank">RPKI now protects 70% of internet routes</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>報告指出，路由原點授權基礎設施（RPKI）目前已保護全球 70% 的網路路由，顯著提升了網際網路路由的安全性和可靠性。RPKI 有效防止 BGP 劫持等路由攻擊，是保障網路核心基礎設施穩定的關鍵技術。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console -->
+    <div class="card">
+        <h3 class="article-title"><a href="https://github.com/cobanov/PS5LM" target="_blank">Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console</a></h3>
+        <p><span class="section-heading">核心摘要：</span>這個專案展示了如何在經過越獄的 PlayStation 5 主機上，利用 Llama.cpp 框架原生運行任何 GGUF 格式的大型語言模型 (LLM)。</p>
+        <p>它將遊戲主機強大的處理能力轉化為本地 AI 運算的平台，開啟了在消費級硬體上實現離線、高效 AI 推理的可能性。</p>
         <ul>
-            <li>RPKI 採用加密驗證，有效防止 BGP 路由劫持和誤導性路由宣告。</li>
-            <li>70% 的覆蓋率是網路安全領域的重要里程碑，大幅增強了全球網路的穩固性。</li>
-            <li>提升全球網際網路骨幹網路的彈性與信任度，確保資訊傳輸的完整性。</li>
+            <li><span class="section-heading">關鍵要點：</span></li>
+            <li>將越獄 PS5 變為具備本地 LLM 運行能力的邊緣 AI 裝置。</li>
+            <li>利用 PS5 強大的 CPU/GPU 資源，實現高效的 GGUF 模型推理。</li>
+            <li>推動 AI 模型去中心化部署，減少對雲端服務的依賴。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>中等熱度（81 points, 23 discussions），網路基礎設施安全是持續的重要議題。開發者和網路管理員對這項進展的技術細節、部署挑戰及其對全球網路穩定的影響有深入的興趣。</p>
-        <a href="https://news.ycombinator.com/item?id=50112330" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 23 則討論)</a>
+        <p><span class="section-heading">社群觀點：</span>社群對在遊戲主機上運行 AI 表現出極大熱情，討論涵蓋了技術實現細節、效能評估、以及對未來「邊緣 AI」發展的潛力與應用場景（如本地助手、遊戲 AI）的想像。</p>
+        <a href="https://news.ycombinator.com/item?id=50122431" target="_blank" class="button-link">前往 Hacker News 討論區 (含 62 則討論)</a>
     </div>
 
-    <!-- Article 4: Business accounts will consent to Meta scraping their websites Starting Oct. 30 -->
-    <div class="slide-card">
-        <h2><a href="https://www.niemanlab.org/2026/10/metas-new-commercial-terms-will-allow-the-scraping-of-news-sites-legal-experts-say/" target="_blank">Business accounts will consent to Meta scraping their websites Starting Oct. 30</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>Meta 更新了其商業服務條款，從 10 月 30 日起，使用 Meta 商業帳戶的企業將被視為同意 Meta 抓取其網站內容，以用於 AI 訓練及其他目的。此舉引發了關於資料隱私、版權和企業權益的廣泛討論。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- Claude reveals ECDSA curve origins -->
+    <div class="card">
+        <h3 class="article-title"><a href="https://www.anthropic.com/research/ecdsa-curve-origins" target="_blank">Claude reveals ECDSA curve origins</a></h3>
+        <p><span class="section-heading">核心摘要：</span>Anthropic 的研究展示了其 AI 模型 Claude 如何通過分析大量文本，自主發現並理解橢圓曲線數位簽章演算法 (ECDSA) 曲線背後的數學原理和起源，包括 NIST 曲線設計的歷史背景。</p>
+        <p>這項研究不僅突顯了大型語言模型在複雜科學領域的理解能力，也為密碼學研究帶來了新的視角。</p>
         <ul>
-            <li>Meta 擴大數據收集範圍，將商業網站內容納入 AI 訓練資料來源。</li>
-            <li>商業用戶將自動同意網站內容被抓取，對其數據主權提出挑戰。</li>
-            <li>引發資料倫理、內容所有權及法律合規性爭議，可能影響內容創作者和媒體產業。</li>
+            <li><span class="section-heading">關鍵要點：</span></li>
+            <li>AI 模型 Claude 能夠自主推導和解釋複雜密碼學原理。</li>
+            <li>展示了 LLM 在理解人類知識的深層結構方面的強大潛力。</li>
+            <li>對 AI 輔助科學發現、可解釋性 AI 及密碼學安全性產生深遠影響。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>中等熱度（108 points, 42 discussions），因其涉及大型科技公司數據政策、AI 倫理、隱私權和商業條款的敏感議題，社群對其法律影響和對網站經營者的潛在衝擊有強烈討論意願。</p>
-        <a href="https://news.ycombinator.com/item?id=50111852" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 42 則討論)</a>
+        <p><span class="section-heading">社群觀點：</span>這篇文章引發了關於 AI 理解能力、可解釋性、以及 AI 在數學和密碼學領域輔助甚至超越人類研究的巨大討論。人們對於 AI 揭示秘密或複雜知識的潛力感到興奮也有些許擔憂。</p>
+        <a href="https://news.ycombinator.com/item?id=50122800" target="_blank" class="button-link">前往 Hacker News 討論區 (含 293 則討論)</a>
     </div>
 
-    <!-- Article 5: Neural networks are clean -->
-    <div class="slide-card">
-        <h2><a href="https://already-clean.goodfire.com/" target="_blank">Neural networks are clean</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>這篇文章挑戰了人們對神經網路內部運作複雜和「混亂」的普遍認知，提出神經網路本質上是「乾淨」的，其內部結構和資訊流可能比想像中更有序和可解釋。它旨在提供一種新的視角來理解和分析深度學習模型。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- Waymo in Toronto -->
+    <div class="card">
+        <h3 class="article-title"><a href="https://waymo.com/blog/2026/10/waymo-in-toronto/" target="_blank">Waymo in Toronto</a></h3>
+        <p><span class="section-heading">核心摘要：</span>Waymo 宣布將其自動駕駛服務擴展至加拿大多倫多，標誌著其在北美市場的又一次重大佈局，並將在複雜的城市環境中部署其第五代 Driver 自動駕駛系統。</p>
+        <p>此舉旨在收集更多城市駕駛數據、測試和優化其技術，並逐步將自動駕駛出行推向更廣泛的地理區域。</p>
         <ul>
-            <li>重新定義神經網路「乾淨」的概念，提供對其內部結構和資訊流的新理解。</li>
-            <li>提出對模型可解釋性（Explainable AI, XAI）的新穎洞見，有助於未來 AI 的設計與審計。</li>
-            <li>挑戰傳統對 AI 模型內部運作的直觀理解，開啟新的研究方向與思考角度。</li>
+            <li><span class="section-heading">關鍵要點：</span></li>
+            <li>Waymo 自動駕駛技術首次進入加拿大，邁向國際化擴張。</li>
+            <li>在多倫多複雜的城市路況下測試，加速技術成熟與適應性。</li>
+            <li>預示著自動駕駛服務在北美主要城市商業化運營的潛力。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>高熱度（562 points, 216 discussions），由於它探討了 AI 領域的一個核心哲學和技術問題——神經網路的可解釋性與內部結構，這引起了研究人員和開發者對其理論依據和實際意義的熱烈探討。</p>
-        <a href="https://news.ycombinator.com/item?id=50105647" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 216 則討論)</a>
+        <p><span class="section-heading">社群觀點：</span>社群對自動駕駛技術的實際落地與擴張總是高度關注。討論集中在 Waymo 在多倫多部署的挑戰（天氣、交通法規）、其技術的安全性與可靠性，以及對未來城市交通的潛在影響。</p>
+        <a href="https://news.ycombinator.com/item?id=50118981" target="_blank" class="button-link">前往 Hacker News 討論區 (含 406 則討論)</a>
     </div>
 
-    <!-- Final Slide: 總結頁 -->
-    <div class="slide-card">
-        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p class="final-summary">
-            今天的 Hacker News 熱點深刻反映了當前科技領域的多元面貌。首先，AI 的快速進展無疑是焦點，無論是 Meta 開源高效圖像生成模型 <strong>Muse Spark</strong>，還是對神經網路「可解釋性」的深層探討，都顯示出 AI 技術正朝著更開放、更透明且應用更廣泛的方向發展。
-            其次，<strong>網路基礎設施的安全</strong>依然是不可或缺的基石，RPKI 路由保護的顯著進步，再次證明了對網路核心穩定性持續投入的重要性。
-            然而，技術的發展也伴隨著<strong>資料倫理與隱私的挑戰</strong>，Meta 更新商業條款引發的數據抓取爭議，正是科技巨頭與用戶、內容所有者之間權力平衡的縮影。
-            最後，像 <strong>Sill</strong> 這樣的開源工具則展現了開發者社群在提升跨裝置生產力方面的獨特價值和創新活力。
-            總體而言，今日趨勢預示著一個更智能、更互聯、但也更需謹慎處理數據權限的未來。
-        </p>
+    <!-- Final Slide -->
+    <div class="card final-card">
+        <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
+        <p>今天的 Hacker News 熱點顯示，開發者與研究者正積極探索 AI 的邊界與應用：從將 LLM 移植到消費級硬體（如 PS5）實現邊緣智能，到 AI 自主揭示複雜科學原理（如密碼學），人工智慧正滲透到更深層次的研究與日常實踐中。同時，自動駕駛技術（Waymo）持續擴張其服務範圍，以及硬體創新（Ultramarine 1 Flash）和未來交通工具（Tesla Roadster）仍是社群關注的焦點，共同勾勒出一個智能、互聯、高效的科技未來。</p>
     </div>
 
 </body>
