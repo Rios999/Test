@@ -3,314 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月17日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月18日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-
         :root {
-            --bg-dark: #0f172a;
-            --text-light: #e2e8f0; /* Slightly off-white for better contrast */
-            --card-bg: #1e293b;
-            --accent-blue: #2563eb;
-            --accent-purple: #8b5cf6;
-            --border-color: #334155;
-            --shadow-color: rgba(0, 0, 0, 0.25);
-            --gradient-1: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
-            --gradient-2: linear-gradient(to right, #6366f1, #d946ef);
+            --bg-color-dark: #0f172a;
+            --card-bg-color: #1a202c;
+            --text-color-light: #ffffff;
+            --accent-color-primary: #6366f1; /* Purple */
+            --accent-color-secondary: #3b82f6; /* Blue */
+            --button-bg-color: #2563eb;
+            --button-hover-bg-color: #3b82f6;
+            --border-radius-lg: 12px;
+            --border-radius-md: 8px;
+            --box-shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
+            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-light);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            min-height: 100vh;
-            box-sizing: border-box;
+            align-items: center;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            color: var(--text-light);
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: var(--accent-purple);
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 20px var(--shadow-color);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .cover-card {
-            text-align: center;
-            padding: 50px;
-            margin-bottom: 20px;
-            background-image: var(--gradient-2);
-            color: #ffffff;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .cover-card h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .cover-card h2 {
-            font-size: 1.5em;
-            font-weight: 300;
-            color: #e0e7ff;
-            margin-bottom: 20px;
-        }
-
-        .cover-card p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
-        .tags {
-            margin-top: 25px;
+        .presentation-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .slide-card {
+            background-color: var(--card-bg-color);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            box-shadow: var(--box-shadow-dark);
+            flex: 1 1 calc(50% - 30px); /* Two columns on wide screens */
+            min-width: 320px; /* Minimum width for cards */
+            max-width: 650px; /* Maximum width for cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* Cover Slide Specifics */
+        .cover-slide {
+            background: linear-gradient(135deg, var(--accent-color-primary), var(--accent-color-secondary));
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            flex: 1 1 100%; /* Full width */
+            max-width: 1300px; /* Limit width */
+        }
+
+        .cover-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .cover-slide h2 {
+            font-size: 1.8em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cover-slide p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
         }
 
         .tag {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
             border-radius: 20px;
-            padding: 8px 18px;
-            font-size: 0.9em;
+            font-size: 1.1em;
             font-weight: 500;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color-light);
         }
 
-        .article-title a {
+        /* General Card Elements */
+        h2 {
+            color: var(--text-color-light);
             font-size: 1.8em;
-            font-weight: 700;
-            color: var(--accent-blue); /* Default blue */
-            display: block;
-            margin-bottom: 10px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .article-title a:hover {
-            text-decoration: none;
-            filter: brightness(1.2);
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
-        .section-heading {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: var(--text-light);
-            margin-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
+        h2 a {
+            color: var(--accent-color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        h2 a:hover {
+            color: var(--accent-color-secondary);
+        }
+
+        h3 {
+            color: var(--text-color-light);
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
         }
 
         ul {
             list-style-type: none;
             padding-left: 0;
-            margin-top: 5px;
-            margin-bottom: 0;
+            margin-top: 10px;
         }
 
-        ul li {
+        li {
             position: relative;
             padding-left: 25px;
             margin-bottom: 8px;
+            font-size: 1.0em;
         }
 
-        ul li::before {
-            content: '•'; /* Custom bullet point */
-            color: var(--accent-purple);
+        li::before {
+            content: '•';
+            color: var(--accent-color-secondary);
             font-size: 1.2em;
             position: absolute;
             left: 0;
             top: -2px;
-            line-height: 1.6;
         }
 
         .button-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 25px;
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
-            margin-top: 20px;
+            display: inline-block;
+            background-color: var(--button-bg-color);
+            color: var(--text-color-light);
+            padding: 12px 22px;
+            border-radius: var(--border-radius-md);
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
         }
 
         .button-link:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
+            background-color: var(--button-hover-bg-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            text-decoration: none;
-        }
-        
-        .button-link:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .final-card {
-            background-image: var(--gradient-1);
-            color: #ffffff;
-            padding: 40px;
+        /* Final Slide Specifics */
+        .summary-slide {
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            margin-top: 30px;
+            background: var(--card-bg-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow-dark);
+            flex: 1 1 100%; /* Full width */
+            max-width: 1300px;
         }
 
-        .final-card h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        .summary-slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: var(--accent-color-primary);
         }
 
-        .final-card p {
-            font-size: 1.1em;
+        .summary-slide p {
+            font-size: 1.2em;
             max-width: 800px;
             margin: 0 auto;
-            opacity: 0.95;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .slide-card {
+                flex: 1 1 100%; /* Single column on smaller screens */
+                max-width: 700px;
+            }
+            .cover-slide h1 {
+                font-size: 2.8em;
+            }
+            .cover-slide h2 {
+                font-size: 1.5em;
+            }
+            .summary-slide h2 {
+                font-size: 2em;
+            }
+            .summary-slide p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .cover-slide {
+                padding: 40px 20px;
+            }
+            .cover-slide h1 {
+                font-size: 2.2em;
+            }
+            .cover-slide h2 {
+                font-size: 1.2em;
+            }
+            .tag {
+                font-size: 1em;
+                padding: 6px 15px;
+            }
+            .slide-card {
+                padding: 25px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            p, li {
+                font-size: 0.95em;
+            }
+            .button-link {
+                padding: 10px 18px;
+                font-size: 0.9em;
+            }
+            .summary-slide h2 {
+                font-size: 1.8em;
+            }
+            .summary-slide p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="presentation-container">
+        <!-- 封面頁 (Slide 1) -->
+        <div class="slide-card cover-slide">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p>生成日期：2026年10月18日</p>
+            <div class="tags-container">
+                <span class="tag">#AI模型</span>
+                <span class="tag">#生態保育</span>
+                <span class="tag">#軟體工程</span>
+            </div>
+        </div>
 
-    <!-- Cover Page -->
-    <div class="card cover-card">
-        <h1>Hacker News 每日科技熱點摘要</h1>
-        <h2>基於最新社群討論自動生成</h2>
-        <p>生成日期：2026年10月17日</p>
-        <div class="tags">
-            <span class="tag">#AI</span>
-            <span class="tag">#邊緣運算</span>
-            <span class="tag">#自動駕駛</span>
-            <span class="tag">#硬體創新</span>
+        <!-- 文章內容頁 1 -->
+        <div class="slide-card">
+            <h2><a href="https://www.nature.com/articles/d41586-026-03266-x" target="_blank" rel="noopener noreferrer">Bleached corals thrive within days when touching healthy neighbour</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>這項突破性研究發現，瀕死的白化珊瑚能在短短數天內，透過接觸健康的鄰近珊瑚而奇蹟般地恢復生機。此機制可能涉及營養或共生微生物群的快速交換，為全球暖化下日益嚴峻的珊瑚礁保育帶來了新的希望與策略。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>研究揭示健康珊瑚具備驚人的「互助」能力，能迅速幫助白化鄰居恢復健康。</li>
+                <li>此快速復原過程挑戰了傳統認知，暗示珊瑚間存在複雜而有效的化學或生物交換機制。</li>
+                <li>新發現為氣候變遷壓力下的珊瑚礁復育提供了寶貴線索，有助於開發更具韌性的保育方案。</li>
+            </ul>
+            <a href="https://news.ycombinator.com/item?id=50126253" target="_blank" rel="noopener noreferrer" class="button-link">前往 Hacker News 討論區 (含 80 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 2 -->
+        <div class="slide-card">
+            <h2><a href="https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/" target="_blank" rel="noopener noreferrer">Lean now ships with verified kernels</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>知名數學證明助理 Lean 現已搭載經過形式化驗證的核心（kernel）。這意味著 Lean 用於檢查證明有效性的底層代碼，也已透過數學方法證明其正確性，大幅提升了透過 Lean 所產出數學證明與軟體驗證的最高級別可靠性與信任度。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>Lean 證明器的核心組件現在實現了形式化驗證，確保證明系統本身的無誤性。</li>
+                <li>這一進展為嚴謹的數學研究和高度可靠的軟體開發提供了更堅實的基礎。</li>
+                <li>強化了 Lean 在形式化方法領域的領導地位，推動了「證明證明器」的元驗證趨勢。</li>
+            </ul>
+            <a href="https://news.ycombinator.com/item?id=50114758" target="_blank" rel="noopener noreferrer" class="button-link">前往 Hacker News 討論區 (含 15 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 3 -->
+        <div class="slide-card">
+            <h2><a href="https://www.smithsonianmag.com/science-nature/dam-removals-are-bringing-fish-back-across-the-northeastern-united-states-striking-down-one-tiny-barrier-at-a-time-180989679/" target="_blank" rel="noopener noreferrer">Dam removals are bringing fish back across the northeastern United States</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>在美國東北部，移除老舊和不必要的微型水壩正顯著成功地復育當地的魚類族群。透過恢復河流的自然流動與連通性，這些行動不僅讓魚群重新洄游，也證明了即使是小規模的人為干預，也能對生態系統產生巨大且正面的影響。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>拆除水壩能有效恢復河流生態系統，特別是改善魚類洄游路徑與棲息地。</li>
+                <li>這項策略已在美國東北部成功實施，證明了人為移除基礎設施對環境的正面效應。</li>
+                <li>小型、目標明確的生態復育項目，對於提升區域生物多樣性與環境韌性至關重要。</li>
+            </ul>
+            <a href="https://news.ycombinator.com/item?id=50126312" target="_blank" rel="noopener noreferrer" class="button-link">前往 Hacker News 討論區 (含 59 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 4 -->
+        <div class="slide-card">
+            <h2><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener noreferrer">DeepSeek-v4.1-Flash-1017</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>DeepSeek AI 推出了其最新大型語言模型 DeepSeek-v4.1-Flash-1017，標榜「Flash」代表其在速度和效率上的顯著提升。這款新模型旨在提供更快的推理速度和更低的運行成本，同時維持甚至超越現有模型的語言理解與生成能力，回應了業界對高效能與可部署 AI 的迫切需求。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>DeepSeek AI 持續推進大型語言模型技術，專注於提升運算速度與資源效率。</li>
+                <li>「Flash」系列模型將加速 AI 在邊緣設備及實時應用場景中的普及與應用。</li>
+                <li>在模型性能不斷提升的同時，優化其部署成本與推論速度成為業界關注的焦點。</li>
+            </ul>
+            <a href="https://news.ycombinator.com/item?id=50129045" target="_blank" rel="noopener noreferrer" class="button-link">前往 Hacker News 討論區 (含 610 則討論)</a>
+        </div>
+
+        <!-- 文章內容頁 5 -->
+        <div class="slide-card">
+            <h2><a href="https://pele.run/" target="_blank" rel="noopener noreferrer">Pele – Mermaid diagrams as themeable SVG</a></h2>
+            <h3>核心摘要 (Core Insight)</h3>
+            <p>Pele 是一款創新工具，能夠將基於文本的 Mermaid 圖表轉換為可自訂主題的 SVG 格式。它解決了傳統圖表工具在視覺呈現和整合上的限制，為開發者和內容創作者提供了一個靈活且高度美觀的解決方案，讓他們能輕鬆地將動態、風格化的圖表嵌入到網頁或文件中。</p>
+            <h3>關鍵要點 (Key Takeaways)</h3>
+            <ul>
+                <li>Pele 提升了 Mermaid 圖表在視覺上的靈活性，支持多樣化的主題定制。</li>
+                <li>將圖表輸出為 SVG 格式，確保了高解析度和在任何螢幕尺寸上的清晰度。</li>
+                <li>為開發者提供更現代、更具表現力的圖表渲染選項，簡化文檔與網頁的視覺化流程。</li>
+            </ul>
+            <a href="https://news.ycombinator.com/item?id=50132193" target="_blank" rel="noopener noreferrer" class="button-link">前往 Hacker News 討論區 (含 29 則討論)</a>
+        </div>
+
+        <!-- 總結頁 (Final Slide) -->
+        <div class="slide-card summary-slide">
+            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+            <p>今日 Hacker News 的熱點話題清晰地描繪了科技社群對多領域進展的關注。人工智慧領域持續迭代，以 DeepSeek 的「Flash」模型為例，顯示了業界對高效能與部署效率並重的大語言模型的需求。在軟體可靠性方面，Lean 證明器核心的正式驗證，則標誌著對程式碼和數學證明更高信任度的追求。同時，開發者工具如 Pele，致力於提升視覺化與文檔體驗。此外，社群也高度關注環境與科學議題，從珊瑚礁的快速復原機制到水壩移除帶來魚群回歸，都展現了人類透過科技與智慧應對生態挑戰的努力與希望。</p>
         </div>
     </div>
-
-    <!-- Ultramarine 1 Flash -->
-    <div class="card">
-        <h3 class="article-title"><a href="https://www.paperinstruments.com/ultramarine" target="_blank">Ultramarine 1 Flash</a></h3>
-        <p><span class="section-heading">核心摘要：</span>Ultramarine 1 Flash 是一個開源、低成本的高速相機系統，旨在讓科學家和愛好者能以每秒數十萬幀的速度拍攝短暫物理現象，如液滴撞擊或彈道學研究。</p>
-        <p>它提供了一個可自行組裝的平台，將昂貴的高速攝影技術普及化，讓更多研究者得以進行過去受限於設備的實驗。</p>
-        <ul>
-            <li><span class="section-heading">關鍵要點：</span></li>
-            <li>實現每秒數十萬幀的超高速攝影，捕捉肉眼無法察覺的瞬間。</li>
-            <li>開源硬體與軟體設計，顯著降低了高速相機的建置成本。</li>
-            <li>廣泛應用於物理實驗、材料科學、生物研究及高速運動分析。</li>
-        </ul>
-        <p><span class="section-heading">社群觀點：</span>Hacker News 社群對這種將昂貴實驗設備開源化、普及化的努力表現出高度興趣。討論集中在 DIY 門檻、潛在應用領域以及此類專案對科學研究平民化的影響。</p>
-        <a href="https://news.ycombinator.com/item?id=50106747" target="_blank" class="button-link">前往 Hacker News 討論區 (含 18 則討論)</a>
-    </div>
-
-    <!-- Tesla Roadster -->
-    <div class="card">
-        <h3 class="article-title"><a href="https://www.tesla.com/roadster" target="_blank">Tesla Roadster</a></h3>
-        <p><span class="section-heading">核心摘要：</span>Tesla Roadster 是電動車領域中的一款超高性能跑車，承諾提供驚人的加速性能（0-60mph 僅需 1.9 秒），並擁有超過 1000 公里的續航里程，重新定義了電動車的極限。</p>
-        <p>這款車輛旨在展示電動科技在速度、性能和效率方面的巔峰成就，挑戰傳統燃油超跑的地位。</p>
-        <ul>
-            <li><span class="section-heading">關鍵要點：</span></li>
-            <li>具備媲美甚至超越頂級燃油超跑的瘋狂加速能力與最高時速。</li>
-            <li>超長續航里程設定了電動車的新標竿，減少里程焦慮。</li>
-            <li>採用先進的電池技術和空氣動力學設計，最大化性能與效率。</li>
-        </ul>
-        <p><span class="section-heading">社群觀點：</span>作為 Tesla 的旗艦級產品，Roadster 總是 HN 社群關注的焦點。高討論度主要來自其延期交付、承諾性能是否能實現的質疑、以及對其對未來高性能電動車市場影響的辯論。</p>
-        <a href="https://news.ycombinator.com/item?id=50112657" target="_blank" class="button-link">前往 Hacker News 討論區 (含 2290 則討論)</a>
-    </div>
-
-    <!-- Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console -->
-    <div class="card">
-        <h3 class="article-title"><a href="https://github.com/cobanov/PS5LM" target="_blank">Llama.cpp on a jailbroken PS5: run any GGUF model natively on the console</a></h3>
-        <p><span class="section-heading">核心摘要：</span>這個專案展示了如何在經過越獄的 PlayStation 5 主機上，利用 Llama.cpp 框架原生運行任何 GGUF 格式的大型語言模型 (LLM)。</p>
-        <p>它將遊戲主機強大的處理能力轉化為本地 AI 運算的平台，開啟了在消費級硬體上實現離線、高效 AI 推理的可能性。</p>
-        <ul>
-            <li><span class="section-heading">關鍵要點：</span></li>
-            <li>將越獄 PS5 變為具備本地 LLM 運行能力的邊緣 AI 裝置。</li>
-            <li>利用 PS5 強大的 CPU/GPU 資源，實現高效的 GGUF 模型推理。</li>
-            <li>推動 AI 模型去中心化部署，減少對雲端服務的依賴。</li>
-        </ul>
-        <p><span class="section-heading">社群觀點：</span>社群對在遊戲主機上運行 AI 表現出極大熱情，討論涵蓋了技術實現細節、效能評估、以及對未來「邊緣 AI」發展的潛力與應用場景（如本地助手、遊戲 AI）的想像。</p>
-        <a href="https://news.ycombinator.com/item?id=50122431" target="_blank" class="button-link">前往 Hacker News 討論區 (含 62 則討論)</a>
-    </div>
-
-    <!-- Claude reveals ECDSA curve origins -->
-    <div class="card">
-        <h3 class="article-title"><a href="https://www.anthropic.com/research/ecdsa-curve-origins" target="_blank">Claude reveals ECDSA curve origins</a></h3>
-        <p><span class="section-heading">核心摘要：</span>Anthropic 的研究展示了其 AI 模型 Claude 如何通過分析大量文本，自主發現並理解橢圓曲線數位簽章演算法 (ECDSA) 曲線背後的數學原理和起源，包括 NIST 曲線設計的歷史背景。</p>
-        <p>這項研究不僅突顯了大型語言模型在複雜科學領域的理解能力，也為密碼學研究帶來了新的視角。</p>
-        <ul>
-            <li><span class="section-heading">關鍵要點：</span></li>
-            <li>AI 模型 Claude 能夠自主推導和解釋複雜密碼學原理。</li>
-            <li>展示了 LLM 在理解人類知識的深層結構方面的強大潛力。</li>
-            <li>對 AI 輔助科學發現、可解釋性 AI 及密碼學安全性產生深遠影響。</li>
-        </ul>
-        <p><span class="section-heading">社群觀點：</span>這篇文章引發了關於 AI 理解能力、可解釋性、以及 AI 在數學和密碼學領域輔助甚至超越人類研究的巨大討論。人們對於 AI 揭示秘密或複雜知識的潛力感到興奮也有些許擔憂。</p>
-        <a href="https://news.ycombinator.com/item?id=50122800" target="_blank" class="button-link">前往 Hacker News 討論區 (含 293 則討論)</a>
-    </div>
-
-    <!-- Waymo in Toronto -->
-    <div class="card">
-        <h3 class="article-title"><a href="https://waymo.com/blog/2026/10/waymo-in-toronto/" target="_blank">Waymo in Toronto</a></h3>
-        <p><span class="section-heading">核心摘要：</span>Waymo 宣布將其自動駕駛服務擴展至加拿大多倫多，標誌著其在北美市場的又一次重大佈局，並將在複雜的城市環境中部署其第五代 Driver 自動駕駛系統。</p>
-        <p>此舉旨在收集更多城市駕駛數據、測試和優化其技術，並逐步將自動駕駛出行推向更廣泛的地理區域。</p>
-        <ul>
-            <li><span class="section-heading">關鍵要點：</span></li>
-            <li>Waymo 自動駕駛技術首次進入加拿大，邁向國際化擴張。</li>
-            <li>在多倫多複雜的城市路況下測試，加速技術成熟與適應性。</li>
-            <li>預示著自動駕駛服務在北美主要城市商業化運營的潛力。</li>
-        </ul>
-        <p><span class="section-heading">社群觀點：</span>社群對自動駕駛技術的實際落地與擴張總是高度關注。討論集中在 Waymo 在多倫多部署的挑戰（天氣、交通法規）、其技術的安全性與可靠性，以及對未來城市交通的潛在影響。</p>
-        <a href="https://news.ycombinator.com/item?id=50118981" target="_blank" class="button-link">前往 Hacker News 討論區 (含 406 則討論)</a>
-    </div>
-
-    <!-- Final Slide -->
-    <div class="card final-card">
-        <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-        <p>今天的 Hacker News 熱點顯示，開發者與研究者正積極探索 AI 的邊界與應用：從將 LLM 移植到消費級硬體（如 PS5）實現邊緣智能，到 AI 自主揭示複雜科學原理（如密碼學），人工智慧正滲透到更深層次的研究與日常實踐中。同時，自動駕駛技術（Waymo）持續擴張其服務範圍，以及硬體創新（Ultramarine 1 Flash）和未來交通工具（Tesla Roadster）仍是社群關注的焦點，共同勾勒出一個智能、互聯、高效的科技未來。</p>
-    </div>
-
 </body>
 </html>
