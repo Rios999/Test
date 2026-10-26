@@ -3,257 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月25日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月26日</title>
     <style>
         body {
-            background-color: #0f172a; /* 深藍灰色背景 */
-            color: #f8fafc; /* 近白色文字 */
-            font-family: 'Inter', sans-serif;
-            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a; /* Deep dark blue-gray */
+            color: #f8fafc; /* Light off-white */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 2rem; /* 卡片間距 */
             align-items: center;
             min-height: 100vh;
-            margin: 0;
+            padding: 2rem 0;
             box-sizing: border-box;
         }
 
-        .slide-card {
-            background-color: #1e293b; /* 稍淺的藍灰色作為卡片背景 */
-            border-radius: 0.75rem; /* 圓角邊框 */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* 柔和陰影 */
+        .card {
+            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
+            border-radius: 0.75rem;
             padding: 2rem;
+            margin: 1.5rem 0;
+            width: 90%;
             max-width: 800px;
-            width: 100%;
-            box-sizing: border-box;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2), 0 6px 10px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #e0f2fe; /* Lighter blue for headings */
+            margin-top: 0;
         }
 
         h1 {
-            color: #93c5fd; /* 淺藍色強調 */
-            text-align: center;
-            margin-bottom: 1rem;
             font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
+            text-align: center;
+            background: linear-gradient(to right, #60a5fa, #a78bfa); /* Blue to purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            color: #93c5fd; /* 淺藍色強調 */
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #8b5cf6); /* Blue to purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h3 {
-            color: #60a5fa; /* 中藍色用於文章標題 */
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        h3 a {
-            color: #60a5fa;
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
-        }
-
-        h3 a:hover {
-            color: #93c5fd; /* 懸停時顏色變淺 */
+            font-size: 1.4rem;
+            color: #94a3b8; /* Grayish blue for sub-headings */
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
         p {
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1; /* Slightly darker white for paragraphs */
+        }
+
+        a {
+            color: #60a5fa; /* Bright blue for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #a78bfa; /* Lighter purple on hover */
+            text-decoration: underline;
         }
 
         ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
         }
 
-        li {
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
             margin-bottom: 0.5rem;
-            line-height: 1.5;
+            color: #cbd5e1;
         }
 
-        .tag-container {
-            text-align: center;
-            margin-top: 1.5rem;
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #60a5fa; /* Blue bullet points */
+            font-weight: bold;
         }
 
-        .tag {
-            background-color: #4f46e5; /* 深紫色 */
-            color: #e0e7ff; /* 淺紫色文字 */
-            padding: 0.3rem 0.8rem;
-            border-radius: 9999px; /* 藥丸形狀 */
-            font-size: 0.875rem;
-            margin: 0.25rem;
+        .button {
             display: inline-block;
-            font-weight: 600;
-        }
-
-        .hn-button {
-            display: inline-block;
-            background-color: #2563eb; /* 鮮藍色 */
-            color: #f8fafc;
+            background-color: #2563eb; /* Strong blue for button */
+            color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             margin-top: 1.5rem;
-            border: none;
-            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .hn-button:hover {
-            background-color: #3b82f6; /* 懸停時顏色變淺 */
-            transform: translateY(-2px); /* 輕微上浮效果 */
-            box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.15), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+        .button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            text-decoration: none;
         }
 
-        .card-footer {
-            margin-top: 2rem;
+        .cover-subtitle {
             text-align: center;
-        }
-
-        .core-insight-label, .key-takeaways-label, .community-reaction-label {
-            font-weight: 700;
-            color: #a78bfa; /* 淺紫色用於標籤 */
-            margin-bottom: 0.5rem;
-            display: block;
-            font-size: 1.1rem;
-        }
-
-        .final-summary-title {
-            text-align: center;
-            color: #93c5fd;
-            font-size: 2rem;
+            font-size: 1.2rem;
+            color: #94a3b8;
             margin-bottom: 1.5rem;
         }
 
-        .final-summary-text {
-            text-align: left;
-            font-size: 1.1rem;
-            line-height: 1.7;
+        .cover-date {
+            text-align: center;
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #334155; /* Darker gray-blue for tags */
+            color: #94a3b8;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px; /* Pill shape */
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-container {
+            text-align: center;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
 
     <!-- Slide 1: Cover Page -->
-    <div class="slide-card">
+    <div class="card">
         <h1>Hacker News 每日科技熱點摘要</h1>
-        <h2>基於最新社群討論自動生成</h2>
-        <p style="text-align: center; color: #a0a0a0; font-size: 1.1rem; margin-top: 2rem;">生成日期：2026年10月25日</p>
+        <p class="cover-subtitle">基於最新社群討論自動生成</p>
+        <p class="cover-date">生成日期：2026年10月26日</p>
         <div class="tag-container">
-            <span class="tag">AI</span>
-            <span class="tag">Software Engineering</span>
-            <span class="tag">Emerging Tech</span>
+            <span class="tag">科技懷舊</span>
+            <span class="tag">開源工具</span>
+            <span class="tag">社會影響</span>
         </div>
     </div>
 
-    <!-- Slide 2: Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness -->
-    <div class="slide-card">
-        <h3><a href="https://github.com/slee-persis/GVS5H" target="_blank">Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness</a></h3>
-        <span class="core-insight-label">核心摘要:</span>
-        <p>該專案展示了五款基於 Qwen3.8-27B 架構的語言模型，在利用 GVS5H 評估工具集進行測試後，其性能表現足以媲美 Fable 5 模型。這證明了通過高效的評估框架，較小型的模型也能達到與大型或專有模型相近的效能。</p>
-        <span class="key-takeaways-label">關鍵要點:</span>
+    <!-- Slide 2: Article 1 - TitleArt -->
+    <div class="card">
+        <h2><a href="https://titleart.dvy.io/" target="_blank">Show HN: TitleArt – Make text like it's 1997</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>TitleArt 是一個讓使用者能以 1997 年風格創造復古文字藝術的線上工具。它將現代文字轉換為經典的 ASCII 或 ANSI 藝術風格，重現早年網路論壇和 BBS 文化的視覺體驗。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>**高效能評估**: GVS5H Harness 提供了一套標準化且高效的評估流程，精確衡量模型表現。</li>
-            <li>**小模型大潛力**: 27B 參數模型在特定場景下可匹敵更大模型，降低部署成本與資源需求。</li>
-            <li>**開源模型競爭力**: 預示了開源模型在特定任務上追趕甚至超越專有模型的趨勢。</li>
+            <li>懷舊的文字藝術生成器，重現早期網路風格。</li>
+            <li>簡單易用的網頁介面，即時預覽轉換效果。</li>
+            <li>可輸出多種經典字體與風格，適合社群媒體或個人專案。</li>
         </ul>
-        <span class="community-reaction-label">社群觀點:</span>
-        <p>討論度相對較低，可能集中在技術社群內部，對於模型評估方法、基準測試準確性或 Qwen 系列模型具體性能的深入探討。對於非專業人士而言，其技術細節門檻較高。</p>
-        <div class="card-footer">
-            <a href="https://news.ycombinator.com/item?id=50228167" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
-        </div>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>TitleArt 的發佈喚起了許多老網路使用者的懷舊情懷，以及對獨特視覺風格的興趣，顯示了社群對於重溫早期網路文化和數位藝術形式的喜愛。</p>
+        <a href="https://news.ycombinator.com/item?id=50238708" target="_blank" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
     </div>
 
-    <!-- Slide 3: We should be more ambitious with the software we build -->
-    <div class="slide-card">
-        <h3><a href="https://danluu.com/ambitious/" target="_blank">We should be more ambitious with the software we build</a></h3>
-        <span class="core-insight-label">核心摘要:</span>
-        <p>作者呼籲軟體開發者和企業應具備更大的野心，不要滿足於僅僅解決問題，而要追求創造出真正突破性的、能改變使用者體驗的創新軟體。文章批評了當前軟體開發中常見的平庸化趨勢，鼓勵挑戰現狀。</p>
-        <span class="key-takeaways-label">關鍵要點:</span>
+    <!-- Slide 3: Article 2 - PaperPilot -->
+    <div class="card">
+        <h2><a href="https://github.com/KrushnaVardhanReddy/PaperPilot" target="_blank">PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>PaperPilot 是一個純 Rust 開發的零雲端 PDF 引擎，強調本地端處理與隱私。它利用 WebAssembly (WASM) 和 Microcontroller-compatible Protocol (MCP) 技術，旨在提供高效、安全且輕量級的 PDF 解決方案。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>**創新思維**: 鼓勵開發者跳脫傳統框架，追求軟體產品的根本性創新與長期價值。</li>
-            <li>**使用者體驗升級**: 強調軟體應為使用者帶來超越預期的價值和愉悅感，而不僅僅是功能完備。</li>
-            <li>**反思現狀**: 批判業界普遍存在的低創新、重維護輕創造的保守心態，倡導更有野心的開發文化。</li>
+            <li>純 Rust 開發，注重效能與記憶體安全。</li>
+            <li>零雲端設計，確保使用者資料隱私與本地處理。</li>
+            <li>結合 WASM 提供跨平台能力，未來潛力巨大。</li>
         </ul>
-        <span class="community-reaction-label">社群觀點:</span>
-        <p>極高討論度，因為它觸及了許多軟體工程師內心的共鳴和焦慮。文章引發了關於軟體產業現狀、技術債、產品經理角色、以及個人職業發展抱負的廣泛而深入的辯論。</p>
-        <div class="card-footer">
-            <a href="https://news.ycombinator.com/item?id=50225695" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 231 則討論)</a>
-        </div>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>作為一個純 Rust 開發的零雲端 PDF 引擎，它觸及了 Rust 社群對效能、安全和隱私的關注，尤其 WASM 和 MCP 的應用前景，吸引了技術開發者的目光，期待其在特定領域的應用。</p>
+        <a href="https://news.ycombinator.com/item?id=50238739" target="_blank" class="button">前往 Hacker News 討論區 (含 2 則討論)</a>
     </div>
 
-    <!-- Slide 4: Cerebras Deploys Trillion-Parameter AI Models -->
-    <div class="slide-card">
-        <h3><a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank">Cerebras Deploys Trillion-Parameter AI Models</a></h3>
-        <span class="core-insight-label">核心摘要:</span>
-        <p>Cerebras 公司發佈了如何在其特製硬體 Cerebras CS-2 系統上成功部署萬億級參數規模 AI 模型的方法。這項突破性技術解決了訓練和運行超大型 AI 模型面臨的巨大計算資源挑戰，為 AI 領域的「巨無霸」模型實踐鋪平了道路。</p>
-        <span class="key-takeaways-label">關鍵要點:</span>
+    <!-- Slide 4: Article 3 - US Wages Share of GDI at 75 Year Low -->
+    <div class="card">
+        <h2><a href="https://fred.stlouisfed.org/series/W270RE1A156NBEA" target="_blank">US Wages Share of GDI at 75 Year Low</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇文章連結至聯邦儲備銀行聖路易斯分行的數據圖表，顯示美國工資佔國民總收入 (GDI) 的比例已降至 75 年來的最低點。這一趨勢引發了關於收入不平等和勞工市場結構變化的討論。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>**萬億級模型部署**: 成功展示了超大型 AI 模型在專用硬體上的可行性，打破傳統計算瓶頸。</li>
-            <li>**專用硬體優勢**: Cerebras CS-2 證明了其在處理超大規模 AI 計算上的獨特能力和效率。</li>
-            <li>**AI 算力邊界突破**: 為未來更大、更複雜的 AI 模型研究與應用奠定了堅實基礎。</li>
+            <li>美國勞工薪資在國民總收入中的佔比持續下降。</li>
+            <li>反映長期存在的收入不平等與勞工議價能力弱化。</li>
+            <li>該數據為經濟政策制定和社會議題討論提供重要依據。</li>
         </ul>
-        <span class="community-reaction-label">社群觀點:</span>
-        <p>中等討論度，吸引了對 AI 基礎設施、硬體加速和大規模模型部署感興趣的專業人士。討論可能聚焦於 Cerebras 的技術細節、其成本效益以及未來對 AI 發展的深遠影響。</p>
-        <div class="card-footer">
-            <a href="https://news.ycombinator.com/item?id=50227356" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 16 則討論)</a>
-        </div>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>該數據直指當代社會核心經濟問題，引發了對勞工權益、收入分配及宏觀經濟趨勢的嚴肅討論。雖然不是典型的技術話題，但其對社會的深遠影響使得 Hacker News 社群給予了關注。</p>
+        <a href="https://news.ycombinator.com/item?id=50238884" target="_blank" class="button">前往 Hacker News 討論區 (含 5 則討論)</a>
     </div>
 
-    <!-- Slide 5: Xbox Turns Down Netflix $500M Offer -->
-    <div class="slide-card">
-        <h3><a href="https://www.darkhorizons.com/xbox-turns-down-netflix-500-million-offer/" target="_blank">Xbox Turns Down Netflix $500M Offer</a></h3>
-        <span class="core-insight-label">核心摘要:</span>
-        <p>報導指出 Xbox 拒絕了 Netflix 提出的 5 億美元收購《黑神話：悟空》發行權的提議。這項決策凸顯了 Xbox 在遊戲內容獨占性和長期戰略上的考量，而非短期財務收益，意圖強化其在遊戲產業中的核心競爭力。</p>
-        <span class="key-takeaways-label">關鍵要點:</span>
+    <!-- Slide 5: Article 4 - Dolly Parton's Imagination Library -->
+    <div class="card">
+        <h2><a href="https://imaginationlibrary.com/" target="_blank">Dolly Parton's Imagination Library</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>Dolly Parton 的「想像力圖書館」是一個非營利專案，致力於為兒童免費提供書籍，以促進閱讀和識字。該計畫已向全球數百萬兒童寄送了超過兩億本書籍，對幼兒教育產生了深遠影響。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>**戰略內容投資**: Xbox 優先考量獨家內容對於平台生態系統的長期價值和用戶吸引力。</li>
-            <li>**品牌定位堅持**: 拒絕巨額誘惑，彰顯其作為核心遊戲平台的定位與內容策略。</li>
-            <li>**遊戲產業格局**: 反映了在內容戰中，各大科技巨頭對獨家資源的激烈爭奪與佈局。</li>
+            <li>由 Dolly Parton 發起的全球性兒童識字推廣計畫。</li>
+            <li>每月免費寄送書籍給兒童，培養閱讀習慣。</li>
+            <li>對幼兒教育和社區發展產生積極且廣泛的影響。</li>
         </ul>
-        <span class="community-reaction-label">社群觀點:</span>
-        <p>較高討論度，這是一個商業與遊戲產業的熱點新聞。討論可能圍繞 Xbox 的商業決策邏輯、對《黑神話：悟空》的潛力評估、以及串流媒體巨頭進入遊戲領域的策略影響。</p>
-        <div class="card-footer">
-            <a href="https://news.ycombinator.com/item?id=50227892" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 63 則討論)</a>
-        </div>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>這是今日最高熱度的話題。一個如此大規模且具正面社會影響力的計畫，觸動了廣大群眾的情感共鳴，顯示 Hacker News 社群不僅關注技術，也高度評價具有人文關懷的公益項目。其成功模式也引發了關於擴大社會影響力的討論。</p>
+        <a href="https://news.ycombinator.com/item?id=50234474" target="_blank" class="button">前往 Hacker News 討論區 (含 85 則討論)</a>
     </div>
 
-    <!-- Slide 6: The Goose Programming Language -->
-    <div class="slide-card">
-        <h3><a href="https://aardappel.github.io/goose/" target="_blank">The Goose Programming Language</a></h3>
-        <span class="core-insight-label">核心摘要:</span>
-        <p>Goose 是一種新開發的程式語言，專注於高效能、安全性及易用性，特別針對需要高性能和低延遲的應用場景（如遊戲開發或系統編程）設計。它旨在提供 C++ 的效能，同時避免其複雜性，並引入了現代語言的特性。</p>
-        <span class="key-takeaways-label">關鍵要點:</span>
+    <!-- Slide 6: Article 5 - Behind the scenes at the NeXT Computer office -->
+    <div class="card">
+        <h2><a href="https://exhibits.stanford.edu/menuez/browse/next-computer-inc?per_page=96&sort=pub_year_isi+asc%2C+title_sort+asc&view=masonry" target="_blank">Behind the scenes at the NeXT Computer office</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>這篇文章連結至史丹佛大學的數位典藏，展示了 NeXT Computer 公司辦公室的幕後照片與珍貴文件。這些影像記錄了史蒂夫·賈伯斯離開 Apple 後創立 NeXT 的歷史片段，為科技愛好者提供了深入了解這家創新公司的機會。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
         <ul>
-            <li>**性能與安全兼顧**: 旨在提供 C++ 級別的執行效能，同時提升記憶體安全與穩健性。</li>
-            <li>**簡化開發體驗**: 針對 C++ 等語言的複雜性痛點，提供更簡潔高效的語法與開發流程。</li>
-            <li>**潛力應用場景**: 尤其適用於遊戲引擎、即時系統和對效能敏感的應用，具備廣泛的應用前景。</li>
+            <li>重現 NeXT Computer 公司早期辦公室的歷史影像。</li>
+            <li>深入了解史蒂夫·賈伯斯在 Apple 之外的創業歷程。</li>
+            <li>展示了 NeXT 在軟硬體設計上的前瞻性思維。</li>
         </ul>
-        <span class="community-reaction-label">社群觀點:</span>
-        <p>極高討論度，新程式語言的發布總是能引發開發者社群的巨大興趣。討論會圍繞其設計哲學、與 Rust/Go/C++ 等現有語言的比較、語言特性、潛在採用前景以及工具鏈成熟度。</p>
-        <div class="card-footer">
-            <a href="https://news.ycombinator.com/item?id=50224100" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 187 則討論)</a>
-        </div>
+        <h3>社群觀點與連結 (Community Reaction)</h3>
+        <p>關於 NeXT Computer 的歷史檔案，對於科技歷史愛好者，尤其是對史蒂夫·賈伯斯和早期 Apple 生態系統感興趣的人來說，具有極高的吸引力，是了解科技發展歷程的珍貴資料，也引發了對過往科技創新的討論。</p>
+        <a href="https://news.ycombinator.com/item?id=50238763" target="_blank" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
     </div>
 
-    <!-- Final Slide: Today's Tech Pulse -->
-    <div class="slide-card">
-        <h2 class="final-summary-title">今日技術趨勢歸納</h2>
-        <p class="final-summary-text">
-            今日 Hacker News 的熱點文章展現了科技領域在多個維度的前沿探索與深層思考。AI 方面，我們看到模型評估效率的提升（Qwen3.8-27B）和超大規模模型部署的硬體突破（Cerebras），預示著 AI 應用將更廣泛且深入地融入各行各業。同時，開發者社群對軟體開發的「野心」進行了深刻反思，鼓勵突破現有框架，並有新的高效能程式語言（Goose）出現來支持這些雄心壯志，力求在性能與開發體驗之間取得平衡。商業層面，Xbox 拒絕 Netflix 鉅額收購，則透露出內容獨佔權在競爭日益激烈的數位娛樂市場中的戰略核心地位。總體而言，今日趨勢聚焦於技術性能的極限挑戰、開發者理念的提升，以及戰略性內容佈局。
-        </p>
+    <!-- Final Slide: Summary Page -->
+    <div class="card">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>綜合今日 Hacker News 熱點，我們觀察到開發者社群對「懷舊科技」的文化復興保持熱情 (TitleArt, NeXT)。同時，「高效、私有、開源」的基礎技術工具 (PaperPilot with Rust/WASM) 仍然是開發者關注的焦點。更重要的是，一個大規模且具「社會影響力」的非營利專案 (Dolly Parton's Imagination Library) 獲得了壓倒性的關注，這不僅體現了社群對人文關懷的重視，也提醒我們技術發展的終極目標是服務和改善人類生活。此外，對「經濟結構性問題」的數據化分析 (US Wages Share) 也反映了科技社群對現實世界挑戰的持續思考。</p>
     </div>
 
 </body>
