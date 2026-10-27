@@ -3,253 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年10月26日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月27日</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background-color: #0f172a; /* Deep dark blue-gray */
-            color: #f8fafc; /* Light off-white */
-            line-height: 1.6;
+            color: #e2e8f0; /* Off-white for readability */
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            gap: 30px;
             align-items: center;
-            min-height: 100vh;
-            padding: 2rem 0;
-            box-sizing: border-box;
         }
 
-        .card {
-            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin: 1.5rem 0;
+        .slide-card {
+            background-color: #1e293b; /* Slightly lighter card background */
+            border-radius: 12px;
+            padding: 30px;
             width: 90%;
             max-width: 800px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155; /* Subtle border */
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2), 0 6px 10px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            color: #e0f2fe; /* Lighter blue for headings */
-            margin-top: 0;
-        }
-
-        h1 {
-            font-size: 2.5rem;
+        .cover-slide {
             text-align: center;
-            background: linear-gradient(to right, #60a5fa, #a78bfa); /* Blue to purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #1e293b 0%, #2a3950 100%); /* Gradient for cover */
+            padding: 50px;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #60a5fa, #8b5cf6); /* Blue to purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .cover-slide h1 {
+            font-size: 2.8em;
+            color: #a78bfa; /* Light purple for main title */
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        h3 {
-            font-size: 1.4rem;
-            color: #94a3b8; /* Grayish blue for sub-headings */
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #cbd5e1; /* Slightly darker white for paragraphs */
-        }
-
-        a {
-            color: #60a5fa; /* Bright blue for links */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #a78bfa; /* Lighter purple on hover */
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #cbd5e1;
-        }
-
-        ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #60a5fa; /* Blue bullet points */
-            font-weight: bold;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* Strong blue for button */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        .button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        .cover-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
+        .cover-slide h2 {
+            font-size: 1.5em;
             color: #94a3b8;
-            margin-bottom: 1.5rem;
+            margin-top: 5px;
+            margin-bottom: 30px;
         }
 
-        .cover-date {
-            text-align: center;
-            font-size: 1rem;
-            color: #64748b;
-            margin-bottom: 2rem;
+        .cover-slide p {
+            font-size: 1.1em;
+            color: #cbd5e1;
+            margin-top: 40px;
+        }
+
+        .tags {
+            margin-top: 30px;
         }
 
         .tag {
             display: inline-block;
-            background-color: #334155; /* Darker gray-blue for tags */
-            color: #94a3b8;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px; /* Pill shape */
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
+            background-color: #4f46e5; /* Indigo for tags */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 0 8px 8px 0;
+            font-size: 0.9em;
+            font-weight: 500;
         }
 
-        .tag-container {
+        .article-title {
+            font-size: 1.8em;
+            color: #818cf8; /* Lighter blue for article titles */
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .article-title a {
+            color: #818cf8;
+            text-decoration: none;
+        }
+
+        .article-title a:hover {
+            text-decoration: underline;
+            color: #a78bfa; /* Purple on hover */
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #a78bfa; /* Purple for section headers */
+            border-bottom: 1px solid #475569;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .core-insight p, .community-reaction p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .hn-button {
+            display: inline-block;
+            background-color: #2563eb; /* Blue button */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hn-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-slide h2 {
+            font-size: 2em;
+            color: #a78bfa;
+            margin-bottom: 20px;
             text-align: center;
-            margin-top: 2rem;
+        }
+
+        .final-slide p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
 
-    <!-- Slide 1: Cover Page -->
-    <div class="card">
+    <!-- 封面頁 (Slide 1) -->
+    <div class="slide-card cover-slide">
         <h1>Hacker News 每日科技熱點摘要</h1>
-        <p class="cover-subtitle">基於最新社群討論自動生成</p>
-        <p class="cover-date">生成日期：2026年10月26日</p>
-        <div class="tag-container">
-            <span class="tag">科技懷舊</span>
-            <span class="tag">開源工具</span>
-            <span class="tag">社會影響</span>
+        <h2>基於最新社群討論自動生成</h2>
+        <div class="tags">
+            <span class="tag">AI 研究</span>
+            <span class="tag">計算機科學理論</span>
+            <span class="tag">軟體保存</span>
         </div>
+        <p>生成日期：2026年10月27日</p>
     </div>
 
-    <!-- Slide 2: Article 1 - TitleArt -->
-    <div class="card">
-        <h2><a href="https://titleart.dvy.io/" target="_blank">Show HN: TitleArt – Make text like it's 1997</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>TitleArt 是一個讓使用者能以 1997 年風格創造復古文字藝術的線上工具。它將現代文字轉換為經典的 ASCII 或 ANSI 藝術風格，重現早年網路論壇和 BBS 文化的視覺體驗。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- 文章內容頁 1 -->
+    <div class="slide-card">
+        <h2 class="article-title"><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/" target="_blank" rel="noopener noreferrer">Three new discoveries in mathematics, computer science, and physics</a></h2>
+        
+        <h3>核心摘要</h3>
+        <div class="core-insight">
+            <p>OpenAI 宣佈在數學、電腦科學和物理學領域取得了三項新發現，這標誌著該機構不僅專注於 AI，更將其研究範圍拓展至基礎科學研究。此舉旨在透過與學術社群的合作，共同推動人類對科學的理解。</p>
+        </div>
+        
+        <h3>關鍵要點</h3>
         <ul>
-            <li>懷舊的文字藝術生成器，重現早期網路風格。</li>
-            <li>簡單易用的網頁介面，即時預覽轉換效果。</li>
-            <li>可輸出多種經典字體與風格，適合社群媒體或個人專案。</li>
+            <li>OpenAI 正積極跨足基礎科學研究，超越其傳統 AI 領域。</li>
+            <li>強調與全球學術界協同合作，加速科學探索與知識共享。</li>
+            <li>預示 AI 在發現新科學原理和加速研究進程中的潛在重大作用。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>TitleArt 的發佈喚起了許多老網路使用者的懷舊情懷，以及對獨特視覺風格的興趣，顯示了社群對於重溫早期網路文化和數位藝術形式的喜愛。</p>
-        <a href="https://news.ycombinator.com/item?id=50238708" target="_blank" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
+        
+        <h3>社群觀點與連結</h3>
+        <div class="community-reaction">
+            <p>這篇文章引起了 Hacker News 社群的極大關注，因為 OpenAI 作為領先的 AI 組織，宣佈在多個基礎科學領域取得突破，這引發了關於 AI 在科學發現中角色、研究方法論，以及這些聲稱的潛在影響的廣泛討論。</p>
+        </div>
+        <a href="https://news.ycombinator.com/item?id=50251344" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 286 則討論)</a>
     </div>
 
-    <!-- Slide 3: Article 2 - PaperPilot -->
-    <div class="card">
-        <h2><a href="https://github.com/KrushnaVardhanReddy/PaperPilot" target="_blank">PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>PaperPilot 是一個純 Rust 開發的零雲端 PDF 引擎，強調本地端處理與隱私。它利用 WebAssembly (WASM) 和 Microcontroller-compatible Protocol (MCP) 技術，旨在提供高效、安全且輕量級的 PDF 解決方案。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- 文章內容頁 2 -->
+    <div class="slide-card">
+        <h2 class="article-title"><a href="https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf" target="_blank" rel="noopener noreferrer">The Exponential Time Hypothesis Is False [pdf]</a></h2>
+        
+        <h3>核心摘要</h3>
+        <div class="core-insight">
+            <p>OpenAI 的數學部門發表了一篇預印本論文，聲稱證明了「指數時間假設 (Exponential Time Hypothesis, ETH)」是錯誤的。ETH 是計算複雜性理論中的一個核心猜想，其被推翻將對演算法的設計與效率的理論極限產生深遠影響。</p>
+        </div>
+        
+        <h3>關鍵要點</h3>
         <ul>
-            <li>純 Rust 開發，注重效能與記憶體安全。</li>
-            <li>零雲端設計，確保使用者資料隱私與本地處理。</li>
-            <li>結合 WASM 提供跨平台能力，未來潛力巨大。</li>
+            <li>挑戰計算複雜性理論的基石之一，可能改寫學界對 NP 難題的認知。</li>
+            <li>若證實，可能為設計更高效的演算法開啟新的研究方向。</li>
+            <li>再次展現 OpenAI 在 AI 以外，對深層次理論計算機科學研究的投入。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>作為一個純 Rust 開發的零雲端 PDF 引擎，它觸及了 Rust 社群對效能、安全和隱私的關注，尤其 WASM 和 MCP 的應用前景，吸引了技術開發者的目光，期待其在特定領域的應用。</p>
-        <a href="https://news.ycombinator.com/item?id=50238739" target="_blank" class="button">前往 Hacker News 討論區 (含 2 則討論)</a>
+        
+        <h3>社群觀點與連結</h3>
+        <div class="community-reaction">
+            <p>這篇論文在 Hacker News 上引起了爆炸性的討論，原因在於它試圖推翻一個計算機科學領域的基礎性假設。社群成員對其證明嚴謹性、潛在影響以及 OpenAI 在純理論領域的權威性展開了激烈的辯論，吸引了大量的學術界和產業界人士參與。</p>
+        </div>
+        <a href="https://news.ycombinator.com/item?id=50251661" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 172 則討論)</a>
     </div>
 
-    <!-- Slide 4: Article 3 - US Wages Share of GDI at 75 Year Low -->
-    <div class="card">
-        <h2><a href="https://fred.stlouisfed.org/series/W270RE1A156NBEA" target="_blank">US Wages Share of GDI at 75 Year Low</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>這篇文章連結至聯邦儲備銀行聖路易斯分行的數據圖表，顯示美國工資佔國民總收入 (GDI) 的比例已降至 75 年來的最低點。這一趨勢引發了關於收入不平等和勞工市場結構變化的討論。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- 文章內容頁 3 -->
+    <div class="slide-card">
+        <h2 class="article-title"><a href="https://magazine.sebastianraschka.com/p/building-reasoning-models" target="_blank" rel="noopener noreferrer">Sebastian Raschka's from-scratch video course on building reasoning models</a></h2>
+        
+        <h3>核心摘要</h3>
+        <div class="core-insight">
+            <p>知名機器學習專家 Sebastian Raschka 推出了一套從零開始建構推理模型的影片課程。此課程旨在引導學習者深入理解和實作 AI 的推理能力，而非僅僅使用現成的工具，強調對核心原理的掌握。</p>
+        </div>
+        
+        <h3>關鍵要點</h3>
         <ul>
-            <li>美國勞工薪資在國民總收入中的佔比持續下降。</li>
-            <li>反映長期存在的收入不平等與勞工議價能力弱化。</li>
-            <li>該數據為經濟政策制定和社會議題討論提供重要依據。</li>
+            <li>提供實作導向的課程，深入講解如何從頭建構 AI 推理模型。</li>
+            <li>強調對 AI 核心認知機制和邏輯推理能力的理解。</li>
+            <li>滿足業界對建構更透明、可解釋和強大 AI 系統的需求。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>該數據直指當代社會核心經濟問題，引發了對勞工權益、收入分配及宏觀經濟趨勢的嚴肅討論。雖然不是典型的技術話題，但其對社會的深遠影響使得 Hacker News 社群給予了關注。</p>
-        <a href="https://news.ycombinator.com/item?id=50238884" target="_blank" class="button">前往 Hacker News 討論區 (含 5 則討論)</a>
+        
+        <h3>社群觀點與連結</h3>
+        <div class="community-reaction">
+            <p>這門課程在開發者和 AI 學習者中廣受歡迎，因為 Sebastian Raschka 以其深入淺出的教學風格而聞名。社群對其提供的實用知識、從基礎建構的理念以及對 AI 推理能力的重視給予高度評價，認為這是提升 AI 技能的寶貴資源。</p>
+        </div>
+        <a href="https://news.ycombinator.com/item?id=50245138" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 88 則討論)</a>
     </div>
 
-    <!-- Slide 5: Article 4 - Dolly Parton's Imagination Library -->
-    <div class="card">
-        <h2><a href="https://imaginationlibrary.com/" target="_blank">Dolly Parton's Imagination Library</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>Dolly Parton 的「想像力圖書館」是一個非營利專案，致力於為兒童免費提供書籍，以促進閱讀和識字。該計畫已向全球數百萬兒童寄送了超過兩億本書籍，對幼兒教育產生了深遠影響。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- 文章內容頁 4 -->
+    <div class="slide-card">
+        <h2 class="article-title"><a href="https://github.com/otya128/winevdm" target="_blank" rel="noopener noreferrer">16-bit Windows (Windows 1.x, 2.x, 3.0, 3.1, etc.) on 64-bit Windows</a></h2>
+        
+        <h3>核心摘要</h3>
+        <div class="core-insight">
+            <p><code>winevdm</code> 是一個開源專案，它使得古老的 16 位元 Windows 應用程式（如 Windows 1.x、2.x、3.x）得以在現代 64 位元 Windows 作業系統上執行。這解決了長期以來困擾使用者和研究者的舊軟體相容性問題。</p>
+        </div>
+        
+        <h3>關鍵要點</h3>
         <ul>
-            <li>由 Dolly Parton 發起的全球性兒童識字推廣計畫。</li>
-            <li>每月免費寄送書籍給兒童，培養閱讀習慣。</li>
-            <li>對幼兒教育和社區發展產生積極且廣泛的影響。</li>
+            <li>成功橋接了現代 64 位元 Windows 與 16 位元 Windows 應用程式的兼容性鴻溝。</li>
+            <li>對於軟體歷史研究、復古計算以及維護特定遺留系統具有重要意義。</li>
+            <li>展示了開源社群在解決複雜底層兼容性問題上的技術實力。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>這是今日最高熱度的話題。一個如此大規模且具正面社會影響力的計畫，觸動了廣大群眾的情感共鳴，顯示 Hacker News 社群不僅關注技術，也高度評價具有人文關懷的公益項目。其成功模式也引發了關於擴大社會影響力的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=50234474" target="_blank" class="button">前往 Hacker News 討論區 (含 85 則討論)</a>
+        
+        <h3>社群觀點與連結</h3>
+        <div class="community-reaction">
+            <p>儘管討論數相對較少，但這篇文章在懷舊電腦愛好者、軟體保存專家和需要執行特定舊版應用程式的專業人士中獲得了高度讚揚。社群成員對這種解決方案表達了感激，認為它為重要的歷史軟體提供了新的生命。</p>
+        </div>
+        <a href="https://news.ycombinator.com/item?id=50253529" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
     </div>
 
-    <!-- Slide 6: Article 5 - Behind the scenes at the NeXT Computer office -->
-    <div class="card">
-        <h2><a href="https://exhibits.stanford.edu/menuez/browse/next-computer-inc?per_page=96&sort=pub_year_isi+asc%2C+title_sort+asc&view=masonry" target="_blank">Behind the scenes at the NeXT Computer office</a></h2>
-        <h3>核心摘要 (Core Insight)</h3>
-        <p>這篇文章連結至史丹佛大學的數位典藏，展示了 NeXT Computer 公司辦公室的幕後照片與珍貴文件。這些影像記錄了史蒂夫·賈伯斯離開 Apple 後創立 NeXT 的歷史片段，為科技愛好者提供了深入了解這家創新公司的機會。</p>
-        <h3>關鍵要點 (Key Takeaways)</h3>
+    <!-- 文章內容頁 5 -->
+    <div class="slide-card">
+        <h2 class="article-title"><a href="https://blog.enlyth.com/posts/oldest-windows-gui-app-win-11/" target="_blank" rel="noopener noreferrer">Oldest GUI application that still runs on Windows 11</a></h2>
+        
+        <h3>核心摘要</h3>
+        <div class="core-insight">
+            <p>這篇文章探討了現存最古老的圖形使用者介面 (GUI) 應用程式，它竟然能夠在最新的 Windows 11 上順利運行。這揭示了微軟在作業系統設計上，對向後兼容性超乎尋常的承諾與實踐。</p>
+        </div>
+        
+        <h3>關鍵要點</h3>
         <ul>
-            <li>重現 NeXT Computer 公司早期辦公室的歷史影像。</li>
-            <li>深入了解史蒂夫·賈伯斯在 Apple 之外的創業歷程。</li>
-            <li>展示了 NeXT 在軟硬體設計上的前瞻性思維。</li>
+            <li>凸顯 Windows 作業系統令人印象深刻的向後兼容性設計。</li>
+            <li>深入解析早期 Windows API 的設計如何歷經數十年依然穩定。</li>
+            <li>引發對軟體設計壽命、系統架構穩定性和長期維護的思考。</li>
         </ul>
-        <h3>社群觀點與連結 (Community Reaction)</h3>
-        <p>關於 NeXT Computer 的歷史檔案，對於科技歷史愛好者，尤其是對史蒂夫·賈伯斯和早期 Apple 生態系統感興趣的人來說，具有極高的吸引力，是了解科技發展歷程的珍貴資料，也引發了對過往科技創新的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=50238763" target="_blank" class="button">前往 Hacker News 討論區 (含 8 則討論)</a>
+        
+        <h3>社群觀點與連結</h3>
+        <div class="community-reaction">
+            <p>這篇文章在 Hacker News 上引發了關於軟體工程、作業系統歷史和向後兼容性重要性的熱烈討論。許多開發者對微軟的兼容性壯舉表示驚訝和讚賞，並分享了他們自己在舊軟體兼容性方面的經驗和看法。</p>
+        </div>
+        <a href="https://news.ycombinator.com/item?id=50248055" target="_blank" rel="noopener noreferrer" class="hn-button">前往 Hacker News 討論區 (含 208 則討論)</a>
     </div>
 
-    <!-- Final Slide: Summary Page -->
-    <div class="card">
+    <!-- 總結頁 -->
+    <div class="slide-card final-slide">
         <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p>綜合今日 Hacker News 熱點，我們觀察到開發者社群對「懷舊科技」的文化復興保持熱情 (TitleArt, NeXT)。同時，「高效、私有、開源」的基礎技術工具 (PaperPilot with Rust/WASM) 仍然是開發者關注的焦點。更重要的是，一個大規模且具「社會影響力」的非營利專案 (Dolly Parton's Imagination Library) 獲得了壓倒性的關注，這不僅體現了社群對人文關懷的重視，也提醒我們技術發展的終極目標是服務和改善人類生活。此外，對「經濟結構性問題」的數據化分析 (US Wages Share) 也反映了科技社群對現實世界挑戰的持續思考。</p>
+        <p>今日 Hacker News 的熱門話題展現了科技社群的雙重焦點：一方面，我們見證了人工智慧領域的領軍者 OpenAI 大膽進軍基礎科學研究，甚至挑戰計算機科學的根基「指數時間假設」，預示著 AI 在推動人類知識前沿的巨大潛力。另一方面，社群也對軟體的「耐久性」和「兼容性」抱有濃厚興趣，無論是開源專案讓古老的 16 位元 Windows 應用程式在現代系統上復活，還是對能在 Windows 11 上運行最古老 GUI 應用程式的探尋，都反映出開發者對軟體遺產的尊重、歷史的保存，以及對強大向後兼容性架構的讚賞。這兩股趨勢共同描繪了一個既追求突破創新，又不忘鞏固基礎和傳承經典的科技生態。</p>
     </div>
 
 </body>
