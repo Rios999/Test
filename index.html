@@ -3,302 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年10月30日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles for dark mode */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg-color: #1a243d; /* Slightly lighter dark blue */
+            --text-color: #f8fafc; /* White */
+            --accent-blue: #3b82f6; /* Blue */
+            --accent-purple: #8b5cf6; /* Purple */
+            --button-bg: #2563eb;
+            --button-hover-bg: #1d4ed8;
+            --border-color: #334155; /* Subtle border */
+            --gradient-text: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
         body {
-            background-color: #0f172a; /* Deep charcoal */
-            color: #e2e8f0; /* Off-white */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 40px; /* Space between cards */
+            overflow-x: hidden;
             min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        /* Container for all cards */
-        .presentation-container {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* Space between cards */
-        }
-
-        /* Card base style */
-        .card {
-            background-color: #1a202c; /* Slightly lighter charcoal */
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid #334155; /* Subtle border */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Headings */
-        h1, h2, h3 {
-            color: #cbd5e1; /* Lighter off-white */
+        h1, h2, h3, h4 {
+            color: var(--text-color);
             margin-top: 0;
-            margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 2.8em;
-            text-align: center;
-            background: linear-gradient(to right, #6366f1, #a855f7); /* Blue/Purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            margin-bottom: 10px;
+        .container {
+            max-width: 900px; /* Max width for all cards/sections */
+            width: 100%;
         }
 
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #334155;
-            padding-bottom: 10px;
-        }
-        
-        h2 a {
-            color: #7dd3fc; /* Light blue for article titles */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        h2 a:hover {
-            color: #38b2ac; /* Teal on hover */
+        /* Card Base Styles */
+        .card-base {
+            background-color: var(--card-bg-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
         }
 
-        h3 {
-            font-size: 1.3em;
-            color: #94a3b8; /* Muted blue-gray */
-            margin-top: 25px;
-        }
-
-        /* Paragraphs */
-        p {
-            margin-bottom: 1em;
-        }
-
-        /* List items */
-        ul {
-            list-style: none; /* Remove default bullets */
-            padding-left: 0;
-            margin-bottom: 1.5em;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 25px; /* Space for custom bullet */
-            margin-bottom: 10px;
-        }
-
-        ul li::before {
-            content: '•'; /* Custom bullet point */
-            color: #a855f7; /* Purple accent */
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* Links */
-        a {
-            color: #60a5fa; /* Light blue for general links */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Buttons */
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* Strong blue */
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .button:hover {
-            background-color: #1d4ed8; /* Darker blue on hover */
-            transform: translateY(-2px);
-            text-decoration: none; /* Remove underline on hover for buttons */
-        }
-
-        /* Cover slide specific styles */
+        /* Cover Slide */
         .cover-slide {
             text-align: center;
-            padding: 50px;
-            background: linear-gradient(135deg, #1a202c, #0f172a); /* Subtle gradient background */
-            border: 1px solid #334155;
+            padding: 60px 40px;
         }
-
-        .cover-slide .subtitle {
-            font-size: 1.5em;
+        .cover-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers without clip */
+        }
+        .cover-slide h2 {
+            font-size: 1.8em;
+            font-weight: 400;
             color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        .cover-slide .date {
-            font-size: 1.2em;
-            color: #a855f7; /* Purple for date */
             margin-bottom: 30px;
-            font-weight: bold;
         }
-
+        .cover-slide p {
+            font-size: 1.1em;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+        }
         .tags {
             margin-top: 30px;
         }
-
-        .tags span {
+        .tag {
             display: inline-block;
-            background-color: #334155; /* Dark gray tag background */
-            color: #e2e8f0;
-            padding: 8px 15px;
+            background-color: #334155;
+            color: #a78bfa;
+            padding: 8px 18px;
             border-radius: 20px;
-            margin: 5px;
             font-size: 0.9em;
-            font-weight: bold;
-            border: 1px solid #475569;
+            margin: 5px;
+            font-weight: 600;
         }
 
-        /* Final slide specific styles */
+        /* Article Card */
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .article-card h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .article-card h3 a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .article-card h3 a:hover {
+            color: var(--accent-purple);
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 5px;
+        }
+        .core-insight p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #e2e8f0;
+        }
+        .key-takeaways ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .key-takeaways ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #cbd5e1;
+        }
+        .key-takeaways ul li::before {
+            content: '•';
+            color: var(--accent-purple);
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        .community-reaction {
+            font-size: 1em;
+            color: #cbd5e1;
+        }
+        .community-reaction p {
+            margin: 0;
+        }
+        .hn-button {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .hn-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Final Slide */
         .final-slide {
             text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, #1a202c, #0f172a);
+            padding: 60px 40px;
         }
-
         .final-slide h2 {
-            background: linear-gradient(to right, #6366f1, #a855f7);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 20px;
+            background-clip: text;
+            color: transparent; /* Fallback */
+        }
+        .final-slide p {
+            font-size: 1.2em;
+            color: #e2e8f0;
+            line-height: 1.8;
+            max-width: 700px; /* Slightly narrower for summary */
+            margin: 0 auto;
         }
 
-        .final-slide p {
-            font-size: 1.1em;
-            color: #cbd5e1;
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                gap: 30px;
+            }
+            .card-base {
+                padding: 30px 20px;
+            }
+            .cover-slide h1 {
+                font-size: 2.5em;
+            }
+            .cover-slide h2 {
+                font-size: 1.4em;
+            }
+            .article-card h3 {
+                font-size: 1.5em;
+            }
+            .section-title {
+                font-size: 1.1em;
+            }
+            .core-insight p, .key-takeaways ul li, .community-reaction p {
+                font-size: 0.95em;
+            }
+            .hn-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .final-slide h2 {
+                font-size: 2em;
+            }
+            .final-slide p {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
-
-        <!-- Slide 1: Cover Page -->
-        <div class="card cover-slide">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <p class="subtitle">基於最新社群討論自動生成</p>
-            <p class="date">生成日期：2026年10月29日</p>
-            <div class="tags">
-                <span>#AI</span>
-                <span>#Cybersecurity</span>
-                <span>#SoftwareEngineering</span>
-            </div>
+    <div class="container card-base cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期: 2026年10月30日</p>
+        <div class="tags">
+            <span class="tag">AI</span>
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">Open Source</span>
         </div>
+    </div>
 
-        <!-- Article 1: Qwenputer: A functioning, deterministic RISC-V CPU inside Qwen3.5 -->
-        <div class="card">
-            <h2><a href="https://divagr.com/blog/qwenputer" target="_blank">Qwenputer: A functioning, deterministic RISC-V CPU inside Qwen3.5</a></h2>
-            <h3>核心摘要</h3>
-            <p>本文探討了如何在大型語言模型(LLM) Qwen3.5 內部，以文本方式構建一個完整、確定性的 RISC-V CPU，並展示其運行能力。這項實驗證明了LLM在邏輯推導和複雜系統模擬上的潛力。</p>
-            <h3>關鍵要點</h3>
+    <div class="container card-base article-card">
+        <h3><a href="https://arkm.com/explorer/entity/21a94755-f604-45e5-9501-6542e23005e8" target="_blank">Binance-hacker-1029 – $5.6B stolen from Binance</a></h3>
+        <div class="core-insight">
+            <div class="section-title">核心摘要</div>
+            <p>這篇文章揭露了幣安平台在2022年經歷的重大安全漏洞，導致約5.6億美元的資金被盜，這突顯了中心化加密貨幣交易所面臨的巨大安全風險與挑戰。報告透過鏈上數據追蹤，揭示了駭客的資金流向。</p>
+        </div>
+        <div class="key-takeaways">
+            <div class="section-title">關鍵要點</div>
             <ul>
-                <li>在LLM中模擬實體CPU，展現其推理與邏輯一致性。</li>
-                <li>結合LLM與硬體架構設計，開創AI硬體協同新範式。</li>
-                <li>Qwen3.5具備足夠的內部狀態保持與指令執行能力。</li>
+                <li>加密貨幣交易所的資產安全與風險管理仍是業界焦點。</li>
+                <li>去中心化金融(DeFi)與中心化金融(CeFi)的安全性辯論持續升溫。</li>
+                <li>鏈上數據分析工具在追蹤非法資金流向方面展現關鍵作用。</li>
             </ul>
-            <h3>社群觀點與連結</h3>
-            <p>該話題因其獨特且科幻般的「LLM內建CPU」概念而引人注目，挑戰了人們對LLM能力的想像邊界，引發了對AI Agents與通用AI潛力的熱烈討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50282838" class="button" target="_blank">前往 Hacker News 討論區 (含 61 則討論)</a>
         </div>
+        <div class="community-reaction">
+            <div class="section-title">社群觀點</div>
+            <p>此事件因涉及巨額資金盜竊、知名交易所，並引發對加密貨幣安全性的普遍擔憂與信任危機，在 Hacker News 社群中引起了極高的討論度，反映了社群對金融安全與技術漏洞的敏感。</p>
+            <a href="https://news.ycombinator.com/item?id=50296470" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 611 則討論)</a>
+        </div>
+    </div>
 
-        <!-- Article 2: Why is this fingerprinting script creating bioweapons? -->
-        <div class="card">
-            <h2><a href="https://nullpt.rs/fingerprinting-bioweapons" target="_blank">Why is this fingerprinting script creating bioweapons?</a></h2>
-            <h3>核心摘要</h3>
-            <p>這篇文章揭露了一個惡意指紋追蹤腳本，其代碼經過高度混淆後，在特定環境下執行時，會無意中生成看似「生物武器」的亂碼字符。這並非真正製造生物武器，而是惡意代碼混淆的副作用，導致了意想不到的令人不安的輸出。</p>
-            <h3>關鍵要點</h3>
+    <div class="container card-base article-card">
+        <h3><a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank">We're releasing the weights of Mistral Large 4</a></h3>
+        <div class="core-insight">
+            <div class="section-title">核心摘要</div>
+            <p>Mistral AI宣布釋出其大型語言模型Mistral Large 4的權重，這代表著一個業界領先的先進AI模型，現在能被更廣泛的開發者和研究者用於本地部署與客製化，推動AI社群的創新與應用。</p>
+        </div>
+        <div class="key-takeaways">
+            <div class="section-title">關鍵要點</div>
             <ul>
-                <li>惡意腳本透過高度混淆技術躲避偵測。</li>
-                <li>「生物武器」文字是混淆代碼意外產生的亂碼。</li>
-                <li>凸顯了網路安全中代碼混淆分析的複雜性和重要性。</li>
+                <li>加速大型語言模型在邊緣設備及私有環境中的應用。</li>
+                <li>激勵開源AI社群基於Mistral Large 4進行二次開發與研究。</li>
+                <li>進一步降低企業與個人使用先進AI模型的技術門檻。</li>
             </ul>
-            <h3>社群觀點與連結</h3>
-            <p>標題的聳動性極強，結合「指紋追蹤」與「生物武器」的關鍵字，迅速抓住開發者對隱私、安全與惡意軟體的關注，引發了對混淆技術、解混淆方法以及網路道德的廣泛討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50276998" class="button" target="_blank">前往 Hacker News 討論區 (含 206 則討論)</a>
         </div>
+        <div class="community-reaction">
+            <div class="section-title">社群觀點</div>
+            <p>釋出如此強大的開源模型權重，對AI領域是重大事件，它極大影響了AI的發展路徑，因此在 Hacker News 上獲得了最高的討論熱度，展現社群對AI開源進展的極大熱情。</p>
+            <a href="https://news.ycombinator.com/item?id=50289418" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 360 則討論)</a>
+        </div>
+    </div>
 
-        <!-- Article 3: Claude Code burns ~15–20% of your tokens on a 3-word status line -->
-        <div class="card">
-            <h2><a href="https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce" target="_blank">Claude Code burns ~15–20% of your tokens on a 3-word status line</a></h2>
-            <h3>核心摘要</h3>
-            <p>本文指出 Anthropic 的 Claude Code 模型在每次輸出時，會在最開始浪費約 15-20% 的 token 用於一個短短的「狀態行」（如 `thought` 或 `tool_code`），這顯著增加了開發者的 API 使用成本並降低了效率。</p>
-            <h3>關鍵要點</h3>
+    <div class="container card-base article-card">
+        <h3><a href="https://github.com/da-luce/astroterm" target="_blank">Astroterm: A Planetarium for Your Terminal</a></h3>
+        <div class="core-insight">
+            <div class="section-title">核心摘要</div>
+            <p>Astroterm是一個創新的終端機應用程式，它將星象館體驗帶入命令行界面。用戶可以在終端機中即時觀看天文物體的位置、運動和相關資訊，提供一種獨特的學習與探索宇宙的方式。</p>
+        </div>
+        <div class="key-takeaways">
+            <div class="section-title">關鍵要點</div>
             <ul>
-                <li>LLM提示詞工程中，隱性成本不容忽視。</li>
-                <li>狀態行雖短，但累積的 token 消耗巨大。</li>
-                <li>開發者需警惕模型輸出格式對成本的影響。</li>
+                <li>展示了終端機應用程式在視覺化與互動性上的潛力。</li>
+                <li>結合科學教育與開發者工具，提供獨特的學習體驗。</li>
+                <li>開源專案，鼓勵社群共同參與天文資料的展示與功能擴展。</li>
             </ul>
-            <h3>社群觀點與連結</h3>
-            <p>此議題直接觸及到使用 LLM API 的核心痛點——成本與效率。開發者對如何優化 token 使用、降低費用有強烈需求，本文揭露的「隱藏成本」引發了強烈共鳴和對其他模型潛在問題的探討。</p>
-            <a href="https://news.ycombinator.com/item?id=50284255" class="button" target="_blank">前往 Hacker News 討論區 (含 39 則討論)</a>
         </div>
+        <div class="community-reaction">
+            <div class="section-title">社群觀點</div>
+            <p>此專案吸引了對創新CLI工具和天文學感興趣的小眾群體，展現了開發者對於酷炫、實用且具有教育意義的工具的持續追求。</p>
+            <a href="https://news.ycombinator.com/item?id=50270651" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 3 則討論)</a>
+        </div>
+    </div>
 
-        <!-- Article 4: GitLab Security Incident: Attempted Exploitation of CVE-2026-97229 -->
-        <div class="card">
-            <h2><a href="https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html" target="_blank">GitLab Security Incident: Attempted Exploitation of CVE-2026-97229</a></h2>
-            <h3>核心摘要</h3>
-            <p>這份報告描述了 GitLab 近期遭遇的一起安全事件，攻擊者試圖利用一個尚未公開的漏洞（CVE-2026-97229），雖然攻擊最終被成功阻止，但提醒業界對零日漏洞和持續安全監控的必要性。</p>
-            <h3>關鍵要點</h3>
+    <div class="container card-base article-card">
+        <h3><a href="https://cuis.st/" target="_blank">Cuis: The Modern Smalltalk-80</a></h3>
+        <div class="core-insight">
+            <div class="section-title">核心摘要</div>
+            <p>Cuis是一個現代化的Smalltalk-80實作，旨在提供一個輕量、高效且功能豐富的環境，讓開發者能體驗Smalltalk經典的物件導向程式設計哲學，並在此基礎上進行創新。它強調簡潔與可擴展性。</p>
+        </div>
+        <div class="key-takeaways">
+            <div class="section-title">關鍵要點</div>
             <ul>
-                <li>預防性安全監控與快速響應機制至關重要。</li>
-                <li>零日漏洞威脅始終存在，需高度警惕。</li>
-                <li>大規模協同開發平台是高價值攻擊目標。</li>
+                <li>重振經典Smalltalk程式設計語言的現代化應用。</li>
+                <li>為程式教育與研究提供一個簡潔且強大的開發平台。</li>
+                <li>展現了語言設計中「簡潔性」與「一致性」的持久價值。</li>
             </ul>
-            <h3>社群觀點與連結</h3>
-            <p>作為一個廣泛使用的開發平台，GitLab 的安全事件自然會引起廣大開發者和企業的高度關注。尤其是一個「未來」CVE編號的出現，更增添了神秘感和討論度，觸發了對軟體供應鏈安全、漏洞管理和事件響應流程的思考。</p>
-            <a href="https://news.ycombinator.com/item?id=50282544" class="button" target="_blank">前往 Hacker News 討論區 (含 56 則討論)</a>
         </div>
+        <div class="community-reaction">
+            <div class="section-title">社群觀點</div>
+            <p>這個專案主要吸引對歷史程式語言、物件導向哲學或簡潔開發環境感興趣的程式設計師，反映了對經典技術現代化演進的興趣。</p>
+            <a href="https://news.ycombinator.com/item?id=50255343" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 9 則討論)</a>
+        </div>
+    </div>
 
-        <!-- Article 5: The 'else' keyword is probably a literal translation from German (2020) -->
-        <div class="card">
-            <h2><a href="https://github.com/e-n-f/if-then-else/blob/master/if-then-else.md" target="_blank">The 'else' keyword is probably a literal translation from German (2020)</a></h2>
-            <h3>核心摘要</h3>
-            <p>本文追溯了程式語言中 `else` 關鍵字的詞源，推斷其很可能是直接從德語 `alles`（意為「如果不是這個，那麼所有其他情況」或「否則」）翻譯而來，揭示了程式語言設計中文化與歷史的影響。</p>
-            <h3>關鍵要點</h3>
+    <div class="container card-base article-card">
+        <h3><a href="https://www.youtube.com/watch?v=kL9BTbIGxLg" target="_blank">I'm so bad at billiards that I ended up in the hyperbolic plane [video]</a></h3>
+        <div class="core-insight">
+            <div class="section-title">核心摘要</div>
+            <p>這是一個具備幽默感的影片，透過誇張的撞球技巧不佳，將撞球檯的數學模型延伸到雙曲幾何平面。它以生動的方式介紹了雙曲幾何的視覺化概念，讓抽象的數學原理變得有趣易懂。</p>
+        </div>
+        <div class="key-takeaways">
+            <div class="section-title">關鍵要點</div>
             <ul>
-                <li>程式語言關鍵字受自然語言歷史影響。</li>
-                <li>德語在早期電腦科學發展中的潛在角色。</li>
-                <li>語言學角度解讀程式語言的設計哲學。</li>
+                <li>以日常現象巧妙引入複雜的數學或物理概念。</li>
+                <li>視覺化工具在科普教育與概念傳達中的重要性。</li>
+                <li>展現了數學與現實世界的奇妙連結，激發學習興趣。</li>
             </ul>
-            <h3>社群觀點與連結</h3>
-            <p>這個話題雖然發布於2020年，但其語言學和歷史深度吸引了對程式語言設計哲學、文化源流有興趣的開發者。這類「冷知識」式的探討常能激發程式設計師對其工具更深層次的理解和好奇心。</p>
-            <a href="https://news.ycombinator.com/item?id=50233059" class="button" target="_blank">前往 Hacker News 討論區 (含 44 則討論)</a>
         </div>
-
-        <!-- Final Slide: Summary -->
-        <div class="card final-slide">
-            <h2>今日技術趨勢歸納</h2>
-            <p>今日 Hacker News 的熱門話題展現了科技前沿的多面向：AI 正不斷拓展其邏輯與模擬的邊界（如LLM內建CPU），但也伴隨著新的使用成本挑戰（如Claude Code的Token消耗）。同時，網路安全威脅日益嚴峻（從惡意混淆腳本到GitLab的零日漏洞預防），凸顯了持續警惕和安全防禦的重要性。最後，社群對軟體工程的基礎知識與歷史淵源（如'else'關鍵字的詞源）保持著濃厚興趣，反映出開發者群體在追求創新之餘，也重視對技術根源的理解。</p>
+        <div class="community-reaction">
+            <div class="section-title">社群觀點</div>
+            <p>此影片屬於有趣的科普內容，吸引了對數學、物理或創新視覺化內容感興趣的用戶，證明了教育內容可以通過創意變得引人入勝。</p>
+            <a href="https://news.ycombinator.com/item?id=50273104" target="_blank" class="hn-button">前往 Hacker News 討論區 (含 6 則討論)</a>
         </div>
+    </div>
 
+    <div class="container card-base final-slide">
+        <h2>今日技術趨勢歸納</h2>
+        <p>今日 Hacker News 的熱門話題清晰地反映出科技社群對「開放」與「安全」這兩大核心價值的持續關注。從 Mistral AI 釋出開源大型模型的權重，顯示了AI民主化和邊緣智能化的趨勢，到幣安巨額盜竊案引發的對區塊鏈安全和中心化風險的深刻反思。同時，開發者對創新工具和跨領域應用的熱情不減，無論是將星象館帶入終端機，或是探索經典程式語言的現代化，都體現了技術的廣度與深度。</p>
     </div>
 </body>
 </html>
