@@ -3,283 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年11月01日</title>
+    <title>Hacker News 每日科技熱點摘要</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 整體佈局與深色模式基底樣式 */
+        /* Global Styles */
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f172a; /* 深藍灰色背景 */
-            color: #e2e8f0; /* 高對比的淡白色文字 */
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #0f172a; /* Deep slate blue/dark navy */
+            color: #e2e8f0; /* Off-white */
             margin: 0;
-            padding: 2rem;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
             line-height: 1.6;
-            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        #app {
-            width: 100%;
-            max-width: 1000px; /* 限制內容最大寬度 */
+        h1, h2, h3, h4 {
+            color: #f8fafc; /* Lighter white for headings */
+            margin-top: 0;
+            line-height: 1.3;
         }
 
-        /* 投影片/卡片樣式 */
-        .slide {
-            background-color: #1e293b; /* 卡片內部背景色，比主背景稍亮 */
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 陰影增加立體感 */
-            margin-bottom: 3rem; /* 卡片間距 */
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* 封面投影片的特殊樣式 */
-        .slide.cover-slide {
-            text-align: center;
-            min-height: 60vh;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem 2.5rem;
-        }
-
-        /* 標題與文字樣式 */
-        h1 {
-            color: #93c5fd; /* 淺藍色，作為主要 accent color */
-            font-size: 2.8em;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        h2 {
-            color: #cbd5e1; /* 較淺的灰色 */
-            font-size: 1.8em;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        h3 {
-            color: #93c5fd; /* 淺藍色，用於小節標題 */
-            font-size: 1.3em;
-            margin-top: 1.8rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 1.8rem;
-            margin-bottom: 1.5rem;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0.6em;
-        }
-
-        /* 連結樣式 */
         a {
-            color: #60a5fa; /* 一般連結藍色 */
+            color: #6366f1; /* Indigo for links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #93c5fd; /* 連結懸停時變淺 */
+            color: #8b5cf6; /* Violet on hover */
             text-decoration: underline;
         }
 
-        /* 按鈕樣式 */
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* 醒目的藍色按鈕背景 */
-            color: white;
-            padding: 0.85rem 1.8rem;
-            border-radius: 0.6rem;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 1.5rem;
+        /* Card Styles */
+        .slide-card {
+            background-color: #1e293b; /* Slightly lighter dark blue for cards */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .button:hover {
-            background-color: #3b82f6; /* 按鈕懸停時顏色變淺 */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 懸停時增加陰影 */
-            text-decoration: none;
+        .slide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        /* 封面頁標籤樣式 */
-        .tags {
-            margin-top: 2rem;
+        /* Cover Slide Specifics */
+        .cover-slide {
+            text-align: center;
+            padding: 60px 30px;
+            background-image: linear-gradient(to right bottom, #1a202c, #2d3748);
+            border-radius: 15px;
+        }
+
+        .cover-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #a78bfa, #8b5cf6); /* Purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .cover-slide h2 {
+            font-size: 1.8em;
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .cover-slide p {
+            font-size: 1.1em;
+            color: #94a3b8;
+            margin-top: 30px;
+        }
+
+        .tags-container {
+            margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 10px;
         }
 
-        .tags span {
-            background-color: #334155;
-            color: #93c5fd;
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.7rem;
-            font-size: 0.95em;
+        .tag {
+            background-color: #4338ca; /* Darker blue-purple */
+            color: #e0e7ff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9em;
             font-weight: 500;
-            white-space: nowrap; /* 防止標籤文字斷行 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        /* 頁腳文字（封面頁日期） */
-        .footer-text {
-            font-size: 1em;
-            color: #94a3b8; /* 柔和的灰色 */
-            margin-top: 2rem;
+        .tag:hover {
+            background-color: #6366f1; /* Lighter on hover */
+            transform: translateY(-2px);
         }
 
-        /* 總結頁文字樣式 */
-        .summary-text {
-            font-size: 1.2em;
-            line-height: 1.8;
+        /* Article Card Specifics */
+        .article-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #a78bfa; /* Light purple for article titles */
+        }
+
+        .article-card h4 {
+            font-size: 1.3em;
+            color: #c7d2fe;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .article-card ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
             color: #cbd5e1;
-            margin-top: 1.5rem;
         }
 
-        /* 社群觀點區塊樣式 */
+        .article-card ul li {
+            margin-bottom: 8px;
+        }
+
         .community-reaction {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #334155; /* 分隔線 */
+            margin-top: 25px;
+            border-top: 1px solid #334155; /* Lighter border */
+            padding-top: 20px;
+            font-size: 0.95em;
+            color: #94a3b8;
         }
 
-        .community-reaction p {
-            font-style: italic;
-            color: #a0aec0; /* 略帶灰色調的文字 */
-            margin-bottom: 1.5rem;
+        /* Button Styles */
+        .hn-discussion-button {
+            display: inline-block;
+            background-color: #2563eb; /* Strong blue */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hn-discussion-button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Final Slide Specifics */
+        .final-slide {
+            padding: 50px 30px;
+            text-align: center;
+            background-image: linear-gradient(to right top, #1a202c, #334155);
+            border-radius: 15px;
+        }
+
+        .final-slide h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #8b5cf6, #c084fc); /* Lighter purple gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .final-slide p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
         }
     </style>
 </head>
 <body>
-    <div id="app">
 
-        <!-- Slide 1: 封面頁 -->
-        <div class="slide cover-slide">
-            <div>
-                <h1>Hacker News 每日科技熱點摘要</h1>
-                <p style="font-size: 1.4em; color: #a0aec0; margin-top: 1rem;">基於最新社群討論自動生成</p>
-                <div class="tags">
-                    <span>#AI驅動</span>
-                    <span>#網路安全</span>
-                    <span>#社群創新</span>
-                </div>
-                <p class="footer-text">生成日期: 2026年11月01日</p>
-            </div>
+    <!-- Slide 1: Cover Page -->
+    <div class="slide-card cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期：2026年11月02日</p>
+        <div class="tags-container">
+            <span class="tag">社群策展</span>
+            <span class="tag">開發者工具</span>
+            <span class="tag">AI與軟體品質</span>
         </div>
-
-        <!-- Slide 2: HackerTube -->
-        <div class="slide">
-            <h2><a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank">HackerTube: YouTube built from videos recommended by HN</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>知名 AI 專家 Andrew Karpathy 推出了一個實驗性的 YouTube 替代品，其內容完全基於 Hacker News 社群推薦的影片。此專案旨在探索如何透過社群智慧來策展和發現高品質的科技影音內容，挑戰傳統中心化平台的演算法推薦模式。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>利用 HN 每日熱門連結中的 YouTube 影片作為內容來源，實現內容的去中心化策展。</li>
-                <li>自動化處理影片的爬取、轉錄與內容摘要，並輔以主題標籤，提升發現效率。</li>
-                <li>為科技愛好者提供一個由社群驅動、專注於學習與深度技術內容的影音平台。</li>
-            </ul>
-            <div class="community-reaction">
-                <h3>社群觀點與連結</h3>
-                <p>高熱度源於其知名作者 (Karpathy) 的號召力，以及對「社群策展」、「去中心化」與「YouTube 替代」等熱門話題的探討，引發了對內容發現機制、平台控制權與演算法倫理的廣泛討論。</p>
-                <a href="https://news.ycombinator.com/item?id=50319510" target="_blank" class="button">前往 Hacker News 討論區 (含 307 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 3: An Italian farmer found some unknown seeds in his attic and planted them -->
-        <div class="slide">
-            <h2><a href="https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/" target="_blank">An Italian farmer found some unknown seeds in his attic and planted them</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>一位義大利農民在閣樓意外發現了數百年前遺留的不知名古老種子，出於好奇將其種植。令人驚訝的是，這些種子成功發芽生長出具有聖經時代特徵的作物，不僅展示了古老植物物種驚人的生命力，也為植物遺傳學研究帶來了新的視角。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>發現了潛藏數世紀的古代作物種子，這些種子依然保持了發芽能力。</li>
-                <li>這項意外發現為研究植物物種的演變、抗逆性及歷史農業實踐提供了寶貴線索。</li>
-                <li>證明了特定條件下，植物種子具有遠超想像的長期存活與復甦潛力。</li>
-            </ul>
-            <div class="community-reaction">
-                <h3>社群觀點與連結</h3>
-                <p>故事性強且充滿神秘色彩，觸及了生物學、歷史、農業與意外發現等廣泛興趣點，激發了社群對生命韌性、歷史回溯及科學探索的好奇心，引發了大量討論。</p>
-                <a href="https://news.ycombinator.com/item?id=50320963" target="_blank" class="button">前往 Hacker News 討論區 (含 77 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 4: Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing -->
-        <div class="slide">
-            <h2><a href="https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/" target="_blank">Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>巴西法院對律師在法庭文件中使用「提示詞注入」（Prompt Injection）來惡意操控 AI 生成內容的行為進行制裁。這是全球首次法律界對此類 AI 濫用行為進行明確處罰，強調了在法律與專業領域應用 AI 時，對誠實、透明和倫理邊界的嚴格要求。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>律師利用提示詞注入技術，誤導 AI 系統生成並提交包含不實資訊的法庭文件。</li>
-                <li>此案例確立了法律系統對於 AI 濫用（特別是提示詞注入）的法律制裁先例。</li>
-                <li>凸顯了 AI 在高風險應用場景中，安全、倫理和負責任使用的重要性與迫切性。</li>
-            </ul>
-            <div class="community-reaction">
-                <h3>社群觀點與連結</h3>
-                <p>此事件標誌著 AI 濫用已從理論討論進入現實法律制裁階段，提示詞注入的法律後果首次被明確，促使人們重新審視 AI 系統的防護、監管機制與專業領域的責任歸屬，引發熱烈討論。</p>
-                <a href="https://news.ycombinator.com/item?id=50322173" target="_blank" class="button">前往 Hacker News 討論區 (含 22 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 5: TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8 -->
-        <div class="slide">
-            <h2><a href="https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf" target="_blank">TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>一篇詳盡的報告揭露了 Linux 內核中一個高危險等級的 TCP Use-After-Free 漏洞（CVE-2026-98432），其 CVSS 評分高達 9.8。這個漏洞存在於 IPv4 TCP 堆疊中，可能允許本地攻擊者提升權限，甚至在特定情況下實現遠端代碼執行，對運行 Linux 系統的伺服器和設備構成嚴重安全威脅。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>在 Linux 內核的 IPv4 TCP 實作中發現了嚴重的 Use-After-Free 漏洞。</li>
-                <li>該漏洞具有極高的潛在危害，可能導致系統的權限提升或遠端代碼執行。</li>
-                <li>敦促所有 Linux 系統管理員立即檢查並應用相關安全補丁，以避免潛在的攻擊。</li>
-            </ul>
-            <div class="community-reaction">
-                <h3>社群觀點與連結</h3>
-                <p>作為一個影響廣泛且危險等級極高的 Linux 內核漏洞，它迅速引起了資安研究員和系統管理員的極大關注。討論集中在漏洞的技術細節、攻擊向量、修復方案以及如何避免未來出現類似錯誤，以確保系統安全。</p>
-                <a href="https://news.ycombinator.com/item?id=50319143" target="_blank" class="button">前往 Hacker News 討論區 (含 205 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Slide 6: Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard -->
-        <div class="slide">
-            <h2><a href="https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve" target="_blank">Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>Memdoor 專案展示了一個由五個 Qwen3.8-27B 模型組成的團隊，在處理複雜編碼任務的 LiveCodeBench Hard 基準測試中，成功超越了單一大型模型 Fable 5 的性能。這項研究為透過多代理協作和優化工作流程來提升小型 LLM 的能力，提供了新的實驗性證據。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>採用多個協同工作的小型語言模型，透過「團隊」模式解決複雜的程式碼生成任務。</li>
-                <li>在權威編碼基準測試 LiveCodeBench Hard 上，證明其表現優於某些大型單一模型。</li>
-                <li>為資源受限環境下的 AI 應用提供了一種新思路，即透過智能協作而非單純擴大模型規模來提升性能。</li>
-            </ul>
-            <div class="community-reaction">
-                <h3>社群觀點與連結</h3>
-                <p>該專案挑戰了「越大越好」的傳統模型規模論，展示了多代理協作架構的潛力，特別是在資源優化和特定任務性能提升方面的突破，為 AI 系統的未來設計與優化提供了新的啟發，因此獲得較高熱度。</p>
-                <a href="https://news.ycombinator.com/item?id=50320995" target="_blank" class="button">前往 Hacker News 討論區 (含 90 則討論)</a>
-            </div>
-        </div>
-
-        <!-- Final Slide: 總結頁 -->
-        <div class="slide">
-            <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-            <p class="summary-text">今天的 Hacker News 熱點反映了科技界對 AI 領域多層次的關注：從社群驅動的內容策展（如 HackerTube 的創新模式、Memdoor 的多模型協作策略）到其在新興法律場景中面臨的倫理挑戰（巴西提示詞注入案）。同時，核心基礎設施的安全議題（Linux TCP 漏洞）依然是開發者社群關注的焦點，提示著技術革新與基礎穩固性缺一不可。這些討論共同描繪了一幅充滿創新、挑戰與持續安全意識的科技發展圖景，其中 AI 的應用、倫理邊界與底層系統的穩固性是當前最重要的趨勢。</p>
-        </div>
-
     </div>
+
+    <!-- Slide 2: HackerBooks -->
+    <div class="slide-card article-card">
+        <h3><a href="https://hackerbooks.org" target="_blank" rel="noopener noreferrer">Show HN: HackerBooks – HackerTube, but for books mentioned on HN</a></h3>
+        <h4>核心摘要 (Core Insight)</h4>
+        <p>HackerBooks 解決了在 Hacker News 上發現書籍推薦分散且難以追蹤的問題。它將所有在 HN 討論中被提及的書籍整理成一個可搜尋的、類似 YouTube 介面的平台，方便使用者瀏覽和探索，將非結構化討論轉化為有價值的知識庫。</p>
+        <h4>關鍵要點 (Key Takeaways)</h4>
+        <ul>
+            <li>基於社群內容自動策展，將非結構化討論轉化為結構化知識庫。</li>
+            <li>類 YouTube 介面設計，優化了書籍發現和內容消費體驗。</li>
+            <li>展現了將特定領域（如書籍）從廣泛論壇中提取並精煉的潛力。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong>高討論度源於對知識策展的強烈需求。許多 HN 用戶熱衷於閱讀和學習，這個工具直接解決了他們從海量討論中篩選有價值書籍推薦的痛點，其「HackerTube for books」的比喻也極具吸引力。</p>
+            <a href="https://news.ycombinator.com/item?id=50326821" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 246 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 3: Postgres 19 -->
+    <div class="slide-card article-card">
+        <h3><a href="http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html" target="_blank" rel="noopener noreferrer">Postgres 19 is late because so many more bugs are being found now</a></h3>
+        <h4>核心摘要 (Core Insight)</h4>
+        <p>本文指出 PostgreSQL 19 版本發布延遲的原因，歸咎於大量新發現的錯誤，並暗示人工智慧在軟體開發和錯誤檢測中扮演的角色。這可能是 AI 生成代碼引入了新複雜性，或是 AI 工具提高了發現錯誤的效率，引發了對 AI 時代軟體品質的思考。</p>
+        <h4>關鍵要點 (Key Takeaways)</h4>
+        <ul>
+            <li>大型開源專案如 PostgreSQL 的開發進度面臨意想不到的挑戰。</li>
+            <li>AI 技術對軟體開發流程的雙重影響：可能加速開發但也引入新問題，或提升質量控制。</li>
+            <li>資料庫核心技術的穩定性與進度，是廣泛開發者關注的焦點。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong>該文章觸及了開源社群最關心的資料庫核心穩定性、開發流程效率，以及 AI 在其間的角色。標題「AI's fault」具爭議性與吸引力，引發了對 AI 時代軟體品質、協作與維護模式的深入討論。</p>
+            <a href="https://news.ycombinator.com/item?id=50312408" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 335 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 4: Wikihack -->
+    <div class="slide-card article-card">
+        <h3><a href="https://wikihack.netlify.app" target="_blank" rel="noopener noreferrer">Show HN: Wikihack – HackerTube, but for Wikipedia articles mentioned on HN</a></h3>
+        <h4>核心摘要 (Core Insight)</h4>
+        <p>Wikihack 為 Hacker News 社群成員提供一個專門平台，彙整並展示在 HN 討論中被頻繁提及的 Wikipedia 文章。這類似於「HackerTube」的模式，但應用於維基百科內容，便於用戶快速發現和深入了解社群關注的知識點。</p>
+        <h4>關鍵要點 (Key Takeaways)</h4>
+        <ul>
+            <li>延續「HackerTube」模式，將社群策展應用到不同類型的知識資源。</li>
+            <li>簡化了 HN 用戶發現與其興趣相關的維基百科文章的過程。</li>
+            <li>展現了對特定社群內容偏好的深度理解和工具化轉化能力。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong>作為「HackerTube」和「HackerBooks」的姊妹專案，它同樣滿足了 HN 用戶對高效知識獲取的需求。雖然熱度相對較低，但它再次驗證了從社群討論中提煉有價值內容的模式，及其在不同內容類型上的可擴展性。</p>
+            <a href="https://news.ycombinator.com/item?id=50333339" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 74 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 5: Linux System Call website -->
+    <div class="slide-card article-card">
+        <h3><a href="https://syscall.sh/" target="_blank" rel="noopener noreferrer">Show HN: I've updated my Linux System Call website and API</a></h3>
+        <h4>核心摘要 (Core Insight)</h4>
+        <p>該專案提供了一個更新的 Linux 系統呼叫 (System Call) 參考網站與 API，旨在幫助開發者更便捷地查詢、理解和使用這些底層操作。它透過現代化的介面和可程式化介面，簡化了與 Linux 核心交互的過程，提升了系統開發的效率。</p>
+        <h4>關鍵要點 (Key Takeaways)</h4>
+        <ul>
+            <li>提供方便查詢的 Linux 系統呼叫文檔和可程式化 API，提升開發者效率。</li>
+            <li>聚焦於底層系統開發和操作，對系統程式設計師有高度實用價值。</li>
+            <li>展現了對核心系統組件資訊可訪問性的持續改進。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong>儘管熱度較低，但這類工具對系統級開發者、安全研究人員和核心程式設計師而言是極其實用的資源。它的價值在於填補了底層技術資訊整合的空白，簡化了複雜系統的探索和開發過程。</p>
+            <a href="https://news.ycombinator.com/item?id=50334704" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 16 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 6: HackerTube -->
+    <div class="slide-card article-card">
+        <h3><a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener noreferrer">HackerTube: YouTube built from videos recommended by HN</a></h3>
+        <h4>核心摘要 (Core Insight)</h4>
+        <p>HackerTube 是原始的「HackerTube」專案，它從 Hacker News 討論中自動提取並整理出推薦的 YouTube 影片。它將這些影片匯集成一個專屬的播放列表或觀看介面，讓 HN 社群成員能高效地發現和消費由社群智慧篩選出的優質影片內容。</p>
+        <h4>關鍵要點 (Key Takeaways)</h4>
+        <ul>
+            <li>開創性的社群策展模式，將分散的社群推薦轉化為結構化的內容平台。</li>
+            <li>由知名開發者 Andrej Karpathy 創建，具備高度的專業性和影響力。</li>
+            <li>定義了「Hacker-X」系列工具的基礎範式，激發了後續的同類專案。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong>作為系列專案的靈感來源和最高熱度文章，它證明了從社群推薦中提煉「有價值內容」的巨大需求。Andre Karpathy 的影響力、專案的實用性及其創新性，共同推動了其爆炸性的討論和廣泛的關注。</p>
+            <a href="https://news.ycombinator.com/item?id=50319510" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 579 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide: Summary Page -->
+    <div class="slide-card final-slide">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>今天的熱點話題清晰地揭示了開發者社群對「社群驅動的內容策展」的強烈需求，從影片到書籍再到維基百科，證明了利用集體智慧篩選資訊的價值。同時，PostgreSQL 19 的延遲和「AI 責任」的討論，凸顯了大型開源專案在快速演進的技術環境（尤其是 AI 影響下）所面臨的複雜性和質量挑戰。底層系統工具的更新則提醒我們，開發者對基礎設施效率和可訪問性的追求從未止步，這些都是驅動未來技術發展的關鍵力量。</p>
+    </div>
+
 </body>
 </html>
