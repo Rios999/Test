@@ -3,91 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hacker News 每日科技熱點摘要 - 2026年11月03日</title>
     <style>
-        /* Global Styles */
+        /* Base styles for the dark mode UI */
         body {
-            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #0f172a; /* Deep slate blue/dark navy */
-            color: #e2e8f0; /* Off-white */
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0f172a; /* Deep dark blue-gray */
+            color: #f8fafc; /* Near white text */
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1, h2, h3, h4 {
-            color: #f8fafc; /* Lighter white for headings */
-            margin-top: 0;
-            line-height: 1.3;
-        }
-
-        a {
-            color: #6366f1; /* Indigo for links */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #8b5cf6; /* Violet on hover */
-            text-decoration: underline;
-        }
-
-        /* Card Styles */
-        .slide-card {
-            background-color: #1e293b; /* Slightly lighter dark blue for cards */
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            margin-bottom: 30px;
-            width: 100%;
-            max-width: 900px;
+            align-items: center; /* Center content horizontally */
+            min-height: 100vh; /* Ensure body takes full viewport height */
             box-sizing: border-box;
+        }
+
+        /* Main container for the presentation */
+        .presentation-container {
+            max-width: 900px; /* Max width for content readability */
+            width: 100%;
+            margin: auto; /* Center the container */
+            padding: 0 15px; /* Padding on sides */
+            box-sizing: border-box;
+        }
+
+        /* Card styles for each slide */
+        .card {
+            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
+            padding: 30px;
+            margin-bottom: 30px; /* Space between cards */
+            border: 1px solid #334155; /* Subtle border */
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .slide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
-        /* Cover Slide Specifics */
-        .cover-slide {
+        /* Headings */
+        h1 {
+            font-size: 3em;
+            color: #e0e7ff; /* Lighter accent for main title */
             text-align: center;
-            padding: 60px 30px;
-            background-image: linear-gradient(to right bottom, #1a202c, #2d3748);
-            border-radius: 15px;
-        }
-
-        .cover-slide h1 {
-            font-size: 3.5em;
             margin-bottom: 15px;
-            background: linear-gradient(to right, #a78bfa, #8b5cf6); /* Purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             font-weight: 700;
         }
 
-        .cover-slide h2 {
+        h2 {
             font-size: 1.8em;
-            color: #cbd5e1;
+            color: #cbd5e1; /* Slightly muted white for subtitles */
+            text-align: center;
             margin-bottom: 25px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
-        .cover-slide p {
+        h3 {
+            font-size: 1.6em;
+            color: #93c5fd; /* Light blue accent for article titles */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #a78bfa; /* Light purple accent for section titles */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #475569; /* Subtle separator */
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 1em;
+            color: #e2e8f0; /* Standard text color */
+        }
+
+        .insight {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid #6366f1; /* Purple accent for core insight */
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        /* Links */
+        a {
+            color: #6366f1; /* Purple for general links */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #8b5cf6; /* Lighter purple on hover */
+            text-decoration: underline;
+        }
+
+        /* Button style */
+        .button {
+            display: inline-block;
+            background-color: #2563eb; /* Strong blue for buttons */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background-color: #3b82f6; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            text-decoration: none; /* Remove underline on hover for button */
+        }
+
+        /* Cover slide specific styles */
+        .cover-slide {
+            text-align: center;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 400px; /* Ensure cover slide has decent height */
+        }
+
+        .cover-slide h1 {
+            background: linear-gradient(90deg, #6366f1, #3b82f6); /* Gradient for main title */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3.8em;
+            margin-bottom: 10px;
+        }
+
+        .cover-slide h2 {
+            font-size: 2.2em;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .cover-date {
             font-size: 1.1em;
             color: #94a3b8;
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         .tags-container {
-            margin-top: 40px;
+            margin-top: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -95,203 +180,150 @@
         }
 
         .tag {
-            background-color: #4338ca; /* Darker blue-purple */
-            color: #e0e7ff;
-            padding: 8px 18px;
+            background-color: #334155;
+            color: #a78bfa;
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
             font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 1px solid #475569;
         }
 
-        .tag:hover {
-            background-color: #6366f1; /* Lighter on hover */
-            transform: translateY(-2px);
-        }
-
-        /* Article Card Specifics */
-        .article-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            color: #a78bfa; /* Light purple for article titles */
-        }
-
-        .article-card h4 {
-            font-size: 1.3em;
-            color: #c7d2fe;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .article-card ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 0;
-            color: #cbd5e1;
-        }
-
-        .article-card ul li {
-            margin-bottom: 8px;
-        }
-
-        .community-reaction {
-            margin-top: 25px;
-            border-top: 1px solid #334155; /* Lighter border */
-            padding-top: 20px;
-            font-size: 0.95em;
-            color: #94a3b8;
-        }
-
-        /* Button Styles */
-        .hn-discussion-button {
-            display: inline-block;
-            background-color: #2563eb; /* Strong blue */
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .hn-discussion-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        /* Final Slide Specifics */
-        .final-slide {
-            padding: 50px 30px;
-            text-align: center;
-            background-image: linear-gradient(to right top, #1a202c, #334155);
-            border-radius: 15px;
-        }
-
+        /* Final slide specific styles */
         .final-slide h2 {
-            font-size: 2.5em;
+            font-size: 2em;
+            color: #93c5fd;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #8b5cf6, #c084fc); /* Lighter purple gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 600;
+            text-align: center;
         }
-
         .final-slide p {
-            font-size: 1.2em;
+            font-size: 1.1em;
+            color: #e0e7ff;
+            text-align: center;
             max-width: 700px;
-            margin: 0 auto;
-            color: #cbd5e1;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
+    <div class="presentation-container">
 
-    <!-- Slide 1: Cover Page -->
-    <div class="slide-card cover-slide">
-        <h1>Hacker News 每日科技熱點摘要</h1>
-        <h2>基於最新社群討論自動生成</h2>
-        <p>生成日期：2026年11月02日</p>
-        <div class="tags-container">
-            <span class="tag">社群策展</span>
-            <span class="tag">開發者工具</span>
-            <span class="tag">AI與軟體品質</span>
+        <!-- Slide 1: Cover Page -->
+        <div class="card cover-slide">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p class="cover-date">生成日期: 2026年11月03日</p>
+            <div class="tags-container">
+                <span class="tag">AI / ML</span>
+                <span class="tag">開發者工具</span>
+                <span class="tag">硬體創新</span>
+            </div>
         </div>
-    </div>
 
-    <!-- Slide 2: HackerBooks -->
-    <div class="slide-card article-card">
-        <h3><a href="https://hackerbooks.org" target="_blank" rel="noopener noreferrer">Show HN: HackerBooks – HackerTube, but for books mentioned on HN</a></h3>
-        <h4>核心摘要 (Core Insight)</h4>
-        <p>HackerBooks 解決了在 Hacker News 上發現書籍推薦分散且難以追蹤的問題。它將所有在 HN 討論中被提及的書籍整理成一個可搜尋的、類似 YouTube 介面的平台，方便使用者瀏覽和探索，將非結構化討論轉化為有價值的知識庫。</p>
-        <h4>關鍵要點 (Key Takeaways)</h4>
-        <ul>
-            <li>基於社群內容自動策展，將非結構化討論轉化為結構化知識庫。</li>
-            <li>類 YouTube 介面設計，優化了書籍發現和內容消費體驗。</li>
-            <li>展現了將特定領域（如書籍）從廣泛論壇中提取並精煉的潛力。</li>
-        </ul>
-        <div class="community-reaction">
-            <p><strong>社群觀點：</strong>高討論度源於對知識策展的強烈需求。許多 HN 用戶熱衷於閱讀和學習，這個工具直接解決了他們從海量討論中篩選有價值書籍推薦的痛點，其「HackerTube for books」的比喻也極具吸引力。</p>
-            <a href="https://news.ycombinator.com/item?id=50326821" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 246 則討論)</a>
+        <!-- Slide 2: Astra can read and write weights to improve Qwen -->
+        <div class="card">
+            <h3><a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank">Astra: 權重空間編程改進Qwen模型</a></h3>
+            <p class="insight">
+                核心摘要: Astra引入了一種革新的「權重空間編程」方法，允許開發者直接在大型語言模型(LLMs)的權重層級進行操作。這提供了一個更深層次的控制粒度，超越傳統提示工程或微調，旨在實現更精細、更高效的模型行為微調與優化。
+            </p>
+            <h4>關鍵要點:</h4>
+            <ul>
+                <li><strong>LLM權重級別編程：</strong> 不同於傳統方法，直接操縱模型權重，實現對LLM行為的精準控制。</li>
+                <li><strong>加速模型探索與疊代：</strong> Astra框架提供讀寫權重能力，大幅縮短AI模型開發與實驗週期。</li>
+                <li><strong>AI模型開發新範式：</strong> 在Qwen模型上取得成功應用，預示未來AI模型微調和功能實現的新方向。</li>
+            </ul>
+            <h4>社群觀點:</h4>
+            <p>
+                這篇文章正中當前AI領域熱點，其針對LLM底層優化的突破性技術引發了廣泛關注。研究者和開發者對模型可控性、效率提升以及AI開發新潛力的討論異常熱烈，高達2374點和742則討論數證明其被視為具備顛覆性的創新。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=50341174" target="_blank" class="button">前往 Hacker News 討論區 (含 742 則討論)</a>
         </div>
-    </div>
 
-    <!-- Slide 3: Postgres 19 -->
-    <div class="slide-card article-card">
-        <h3><a href="http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html" target="_blank" rel="noopener noreferrer">Postgres 19 is late because so many more bugs are being found now</a></h3>
-        <h4>核心摘要 (Core Insight)</h4>
-        <p>本文指出 PostgreSQL 19 版本發布延遲的原因，歸咎於大量新發現的錯誤，並暗示人工智慧在軟體開發和錯誤檢測中扮演的角色。這可能是 AI 生成代碼引入了新複雜性，或是 AI 工具提高了發現錯誤的效率，引發了對 AI 時代軟體品質的思考。</p>
-        <h4>關鍵要點 (Key Takeaways)</h4>
-        <ul>
-            <li>大型開源專案如 PostgreSQL 的開發進度面臨意想不到的挑戰。</li>
-            <li>AI 技術對軟體開發流程的雙重影響：可能加速開發但也引入新問題，或提升質量控制。</li>
-            <li>資料庫核心技術的穩定性與進度，是廣泛開發者關注的焦點。</li>
-        </ul>
-        <div class="community-reaction">
-            <p><strong>社群觀點：</strong>該文章觸及了開源社群最關心的資料庫核心穩定性、開發流程效率，以及 AI 在其間的角色。標題「AI's fault」具爭議性與吸引力，引發了對 AI 時代軟體品質、協作與維護模式的深入討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50312408" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 335 則討論)</a>
+        <!-- Slide 3: DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs -->
+        <div class="card">
+            <h3><a href="https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio" target="_blank">DiscImageStudio: 將可視藝術圖案燒錄至光碟</a></h3>
+            <p class="insight">
+                核心摘要: DiscImageStudio是一款獨特的軟體工具，它使開發者和愛好者能夠將視覺藝術作品以數位資料的形式燒錄到光碟（CD, DVD, Blu-ray）的數據層，讓這些圖案能被肉眼直接看到，為實體媒體帶來了全新的美學和高度自定義的體驗。
+            </p>
+            <h4>關鍵要點:</h4>
+            <ul>
+                <li><strong>創新可視化燒錄：</strong> 將圖片編碼為光碟數據層的物理標記，創造獨特的盤面圖案。</li>
+                <li><strong>個性化實體媒體：</strong> 支援多種光碟格式，提供客製化收藏、紀念品或產品展示的可能性。</li>
+                <li><strong>結合復古與現代藝術：</strong> 為懷舊的實體媒體注入現代創意元素，展現獨特的數位物理藝術結合。</li>
+            </ul>
+            <h4>社群觀點:</h4>
+            <p>
+                儘管非主流技術，但其獨特的「懷舊與創新」結合點，尤其吸引了對復古技術、媒體收藏或創意設計有興趣的開發者。這項小眾而精緻的創新，讓一些用戶找到了新的表達方式，並引發了26則關於其潛在應用和技術實現的討論。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=50346849" target="_blank" class="button">前往 Hacker News 討論區 (含 26 則討論)</a>
         </div>
-    </div>
 
-    <!-- Slide 4: Wikihack -->
-    <div class="slide-card article-card">
-        <h3><a href="https://wikihack.netlify.app" target="_blank" rel="noopener noreferrer">Show HN: Wikihack – HackerTube, but for Wikipedia articles mentioned on HN</a></h3>
-        <h4>核心摘要 (Core Insight)</h4>
-        <p>Wikihack 為 Hacker News 社群成員提供一個專門平台，彙整並展示在 HN 討論中被頻繁提及的 Wikipedia 文章。這類似於「HackerTube」的模式，但應用於維基百科內容，便於用戶快速發現和深入了解社群關注的知識點。</p>
-        <h4>關鍵要點 (Key Takeaways)</h4>
-        <ul>
-            <li>延續「HackerTube」模式，將社群策展應用到不同類型的知識資源。</li>
-            <li>簡化了 HN 用戶發現與其興趣相關的維基百科文章的過程。</li>
-            <li>展現了對特定社群內容偏好的深度理解和工具化轉化能力。</li>
-        </ul>
-        <div class="community-reaction">
-            <p><strong>社群觀點：</strong>作為「HackerTube」和「HackerBooks」的姊妹專案，它同樣滿足了 HN 用戶對高效知識獲取的需求。雖然熱度相對較低，但它再次驗證了從社群討論中提煉有價值內容的模式，及其在不同內容類型上的可擴展性。</p>
-            <a href="https://news.ycombinator.com/item?id=50333339" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 74 則討論)</a>
+        <!-- Slide 4: Show HN: Hacker Times, a New York Times-inspired version of Hacker News -->
+        <div class="card">
+            <h3><a href="https://hackertimes.ca/" target="_blank">Show HN: Hacker Times - 《紐約時報》風格的Hacker News</a></h3>
+            <p class="insight">
+                核心摘要: Hacker Times是一個將Hacker News的內容，以《紐約時報》經典且優雅的報紙排版和視覺風格重新呈現的Web應用。其主要目標是為Hacker News提供一個更具傳統閱讀舒適度與美感的介面，顯著提升資訊的可讀性。
+            </p>
+            <h4>關鍵要點:</h4>
+            <ul>
+                <li><strong>經典排版重塑：</strong> 借鑒《紐約時報》的簡潔優雅設計，為Hacker News提供獨特視覺體驗。</li>
+                <li><strong>優化閱讀舒適度：</strong> 改善Hacker News原生介面的樸素風格，使內容呈現更具吸引力與可讀性。</li>
+                <li><strong>前端技術展示：</strong> 作為一個Show HN項目，展示了如何利用現代Web技術進行介面再設計和內容重組。</li>
+            </ul>
+            <h4>社群觀點:</h4>
+            <p>
+                這個Show HN專案以其巧妙的創意獲得了關注，它解決了部分用戶對Hacker News原生介面過於簡約的「痛點」。其對UI/UX設計的關注和Web開發的實踐，吸引了對介面美學和前端開發有興趣的開發者，產生了53則討論。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=50346981" target="_blank" class="button">前往 Hacker News 討論區 (含 53 則討論)</a>
         </div>
-    </div>
 
-    <!-- Slide 5: Linux System Call website -->
-    <div class="slide-card article-card">
-        <h3><a href="https://syscall.sh/" target="_blank" rel="noopener noreferrer">Show HN: I've updated my Linux System Call website and API</a></h3>
-        <h4>核心摘要 (Core Insight)</h4>
-        <p>該專案提供了一個更新的 Linux 系統呼叫 (System Call) 參考網站與 API，旨在幫助開發者更便捷地查詢、理解和使用這些底層操作。它透過現代化的介面和可程式化介面，簡化了與 Linux 核心交互的過程，提升了系統開發的效率。</p>
-        <h4>關鍵要點 (Key Takeaways)</h4>
-        <ul>
-            <li>提供方便查詢的 Linux 系統呼叫文檔和可程式化 API，提升開發者效率。</li>
-            <li>聚焦於底層系統開發和操作，對系統程式設計師有高度實用價值。</li>
-            <li>展現了對核心系統組件資訊可訪問性的持續改進。</li>
-        </ul>
-        <div class="community-reaction">
-            <p><strong>社群觀點：</strong>儘管熱度較低，但這類工具對系統級開發者、安全研究人員和核心程式設計師而言是極其實用的資源。它的價值在於填補了底層技術資訊整合的空白，簡化了複雜系統的探索和開發過程。</p>
-            <a href="https://news.ycombinator.com/item?id=50334704" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 16 則討論)</a>
+        <!-- Slide 5: European RISC-V Industrial Computing Initiative -->
+        <div class="card">
+            <h3><a href="https://erici.eu" target="_blank">歐洲RISC-V工業計算倡議 (ERICI)</a></h3>
+            <p class="insight">
+                核心摘要: 歐洲RISC-V工業計算倡議 (ERICI) 是一個大規模合作計畫，旨在推動RISC-V開放架構在歐洲工業領域的普及和應用。它專注於開發強大的開源硬體、軟體堆疊及建構完整的生態系統，以增強歐洲的技術主權並減少對外部技術的依賴。
+            </p>
+            <h4>關鍵要點:</h4>
+            <ul>
+                <li><strong>強化歐洲技術主權：</strong> 透過RISC-V推動本土硬體和軟體能力，減少外部依賴。</li>
+                <li><strong>RISC-V工業應用普及：</strong> 加速RISC-V在工業控制、嵌入式系統等關鍵領域的廣泛採用。</li>
+                <li><strong>構建開放生態系統：</strong> 建立從晶片設計到軟體工具、應用開發的完整RISC-V生態鏈。</li>
+            </ul>
+            <h4>社群觀點:</h4>
+            <p>
+                RISC-V作為開放硬體的重要趨勢，其發展代表著去中心化和技術自主。此倡議不僅是技術議題，更是地緣政治和產業策略的重要部分，吸引了對開放硬體、國家技術安全和歐洲產業佈局感興趣的社群，儘管討論數相對較少，但其戰略意義重大。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=50334523" target="_blank" class="button">前往 Hacker News 討論區 (含 11 則討論)</a>
         </div>
-    </div>
 
-    <!-- Slide 6: HackerTube -->
-    <div class="slide-card article-card">
-        <h3><a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener noreferrer">HackerTube: YouTube built from videos recommended by HN</a></h3>
-        <h4>核心摘要 (Core Insight)</h4>
-        <p>HackerTube 是原始的「HackerTube」專案，它從 Hacker News 討論中自動提取並整理出推薦的 YouTube 影片。它將這些影片匯集成一個專屬的播放列表或觀看介面，讓 HN 社群成員能高效地發現和消費由社群智慧篩選出的優質影片內容。</p>
-        <h4>關鍵要點 (Key Takeaways)</h4>
-        <ul>
-            <li>開創性的社群策展模式，將分散的社群推薦轉化為結構化的內容平台。</li>
-            <li>由知名開發者 Andrej Karpathy 創建，具備高度的專業性和影響力。</li>
-            <li>定義了「Hacker-X」系列工具的基礎範式，激發了後續的同類專案。</li>
-        </ul>
-        <div class="community-reaction">
-            <p><strong>社群觀點：</strong>作為系列專案的靈感來源和最高熱度文章，它證明了從社群推薦中提煉「有價值內容」的巨大需求。Andre Karpathy 的影響力、專案的實用性及其創新性，共同推動了其爆炸性的討論和廣泛的關注。</p>
-            <a href="https://news.ycombinator.com/item?id=50319510" target="_blank" rel="noopener noreferrer" class="hn-discussion-button">前往 Hacker News 討論區 (含 579 則討論)</a>
+        <!-- Slide 6: Scaling Git at OpenAI -->
+        <div class="card">
+            <h3><a href="https://openai.com/index/scaling-git-at-openai/" target="_blank">OpenAI 規模化管理 Git：實踐與挑戰</a></h3>
+            <p class="insight">
+                核心摘要: OpenAI詳細分享了他們在面對快速增長的代碼庫和大規模協作需求時，如何透過一系列精心設計的優化策略和工程實踐，成功擴展Git的使用。這確保了其內部開發流程的高效率和系統的穩定性，為其他大型開發團隊提供了寶貴的經驗。
+            </p>
+            <h4>關鍵要點:</h4>
+            <ul>
+                <li><strong>應對大規模代碼庫挑戰：</strong> 解決Git在超大型組織中遇到的性能瓶頸和協作複雜性。</li>
+                <li><strong>採用先進工程實踐：</strong> 詳述虛擬文件系統 (VFS) 和 Monorepo 管理等關鍵技術。</li>
+                <li><strong>高價值DevOps經驗：</strong> 提供了針對Git優化、大規模軟體工程的實用指南和案例。</li>
+            </ul>
+            <h4>社群觀點:</h4>
+            <p>
+                Git是所有開發者的核心工具，而OpenAI作為AI領域的領軍者，其內部工程實踐對所有大型開發團隊都具有極高的參考價值。這篇文章吸引了廣大對DevOps、擴展性架構、Git優化及軟體工程實踐感興趣的技術專業人士。
+            </p>
+            <a href="https://news.ycombinator.com/item?id=50345924" target="_blank" class="button">前往 Hacker News 討論區 (含 74 則討論)</a>
         </div>
-    </div>
 
-    <!-- Final Slide: Summary Page -->
-    <div class="slide-card final-slide">
-        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p>今天的熱點話題清晰地揭示了開發者社群對「社群驅動的內容策展」的強烈需求，從影片到書籍再到維基百科，證明了利用集體智慧篩選資訊的價值。同時，PostgreSQL 19 的延遲和「AI 責任」的討論，凸顯了大型開源專案在快速演進的技術環境（尤其是 AI 影響下）所面臨的複雜性和質量挑戰。底層系統工具的更新則提醒我們，開發者對基礎設施效率和可訪問性的追求從未止步，這些都是驅動未來技術發展的關鍵力量。</p>
-    </div>
+        <!-- Final Slide: Today's Tech Pulse -->
+        <div class="card final-slide">
+            <h2>今日技術趨勢歸納</h2>
+            <p>
+                今天Hacker News的熱點深刻反映了技術前沿的多元面貌。從AI模型底層優化（Astra的權重空間編程）探索更精準的AI控制，到基礎設施層面（OpenAI的Git擴展）提升開發效率，再到硬體層次（歐洲RISC-V倡議）追求開放與自主。同時，社群也不乏對經典介面（Hacker Times）的創新思考和對復古技術（DiscImageStudio）的藝術化再造，顯示了開發者社群既追求尖端科技，也重視工具的可用性、美學與文化價值。
+            </p>
+        </div>
 
+    </div>
 </body>
 </html>
