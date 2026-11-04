@@ -3,327 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年11月03日</title>
+    <title>Hacker News 每日科技熱點摘要</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles for the dark mode UI */
+        :root {
+            --bg-color: #0f172a; /* Slate 900 */
+            --card-bg-color: #1a202c; /* Gray 900 */
+            --text-color: #e2e8f0; /* Slate 200 */
+            --heading-color: #cbd5e1; /* Slate 300 */
+            --link-color: #3b82f6; /* Blue 500 */
+            --button-bg-color: #2563eb; /* Blue 600 */
+            --button-hover-bg-color: #3b82f6; /* Blue 500 */
+            --accent-gradient: linear-gradient(90deg, #6d28d9, #9333ea); /* Violet to Purple */
+            --tag-bg-color: #4c1d95; /* Purple 800 */
+            --tag-text-color: #f3e8ff; /* Purple 50 */
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0f172a; /* Deep dark blue-gray */
-            color: #f8fafc; /* Near white text */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 2rem 0;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            min-height: 100vh; /* Ensure body takes full viewport height */
-            box-sizing: border-box;
+            align-items: center;
         }
 
-        /* Main container for the presentation */
-        .presentation-container {
-            max-width: 900px; /* Max width for content readability */
-            width: 100%;
-            margin: auto; /* Center the container */
-            padding: 0 15px; /* Padding on sides */
-            box-sizing: border-box;
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin-bottom: 2rem;
         }
 
-        /* Card styles for each slide */
-        .card {
-            background-color: #1e293b; /* Slightly lighter dark blue-gray for cards */
+        .slide-card {
+            background-color: var(--card-bg-color);
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
-            padding: 30px;
-            margin-bottom: 30px; /* Space between cards */
-            border: 1px solid #334155; /* Subtle border */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .card:hover {
-            transform: translateY(-5px); /* Slight lift on hover */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Headings */
-        h1 {
-            font-size: 3em;
-            color: #e0e7ff; /* Lighter accent for main title */
-            text-align: center;
-            margin-bottom: 15px;
+        h1, h2, h3 {
+            color: var(--heading-color);
             font-weight: 700;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            font-size: 1.8em;
-            color: #cbd5e1; /* Slightly muted white for subtitles */
+            font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 25px;
-            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
         h3 {
-            font-size: 1.6em;
-            color: #93c5fd; /* Light blue accent for article titles */
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
-
-        h4 {
-            font-size: 1.2em;
-            color: #a78bfa; /* Light purple accent for section titles */
-            margin-top: 25px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #475569; /* Subtle separator */
-            padding-bottom: 5px;
-            font-weight: 600;
-        }
-
-        /* Paragraphs */
-        p {
-            margin-bottom: 1em;
-            color: #e2e8f0; /* Standard text color */
-        }
-
-        .insight {
-            font-style: italic;
-            color: #cbd5e1;
-            margin-top: 15px;
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 4px solid #6366f1; /* Purple accent for core insight */
-        }
-
-        /* Lists */
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #e2e8f0;
-        }
-
-        /* Links */
-        a {
-            color: #6366f1; /* Purple for general links */
+        
+        h3 a {
+            color: var(--link-color);
             text-decoration: none;
             transition: color 0.2s ease-in-out;
         }
 
-        a:hover {
-            color: #8b5cf6; /* Lighter purple on hover */
+        h3 a:hover {
+            color: var(--button-hover-bg-color);
             text-decoration: underline;
         }
 
-        /* Button style */
-        .button {
-            display: inline-block;
-            background-color: #2563eb; /* Strong blue for buttons */
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 25px;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        p {
+            margin-bottom: 1rem;
         }
 
-        .button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
-            transform: translateY(-2px);
-            text-decoration: none; /* Remove underline on hover for button */
-        }
-
-        /* Cover slide specific styles */
-        .cover-slide {
+        .cover-meta {
             text-align: center;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 400px; /* Ensure cover slide has decent height */
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
         }
 
-        .cover-slide h1 {
-            background: linear-gradient(90deg, #6366f1, #3b82f6); /* Gradient for main title */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 3.8em;
-            margin-bottom: 10px;
-        }
-
-        .cover-slide h2 {
-            font-size: 2.2em;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-        }
-
-        .cover-date {
-            font-size: 1.1em;
-            color: #94a3b8;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-
-        .tags-container {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+        .tags {
+            margin-top: 1rem;
+            text-align: center;
         }
 
         .tag {
-            background-color: #334155;
-            color: #a78bfa;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            display: inline-block;
+            background-color: var(--tag-bg-color);
+            color: var(--tag-text-color);
+            padding: 0.4em 0.8em;
+            border-radius: 6px;
+            font-size: 0.8em;
             font-weight: 500;
-            border: 1px solid #475569;
+            margin: 0 0.3rem;
+            letter-spacing: 0.05em;
         }
 
-        /* Final slide specific styles */
-        .final-slide h2 {
-            font-size: 2em;
-            color: #93c5fd;
-            margin-bottom: 20px;
-            text-align: center;
+        .insight, .community-reaction {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            border-left: 3px solid var(--link-color);
+            padding-left: 1rem;
+            color: var(--heading-color);
         }
-        .final-slide p {
-            font-size: 1.1em;
-            color: #e0e7ff;
-            text-align: center;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .key-takeaways ul {
+            list-style-type: '⚡ ';
+            padding-left: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .key-takeaways li {
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .hn-button {
+            display: inline-block;
+            background-color: var(--button-bg-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .hn-button:hover {
+            background-color: var(--button-hover-bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--link-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .final-summary {
+            font-size: 1.1rem;
+            text-align: justify;
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
 
-        <!-- Slide 1: Cover Page -->
-        <div class="card cover-slide">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p class="cover-date">生成日期: 2026年11月03日</p>
-            <div class="tags-container">
-                <span class="tag">AI / ML</span>
-                <span class="tag">開發者工具</span>
-                <span class="tag">硬體創新</span>
-            </div>
+    <!-- Slide 1: Cover Page -->
+    <div class="container slide-card">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p class="cover-meta">生成日期：2026年11月04日</p>
+        <div class="tags">
+            <span class="tag">系統內核</span>
+            <span class="tag">開發者工具</span>
+            <span class="tag">生物科技</span>
+            <span class="tag">安全漏洞</span>
         </div>
-
-        <!-- Slide 2: Astra can read and write weights to improve Qwen -->
-        <div class="card">
-            <h3><a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank">Astra: 權重空間編程改進Qwen模型</a></h3>
-            <p class="insight">
-                核心摘要: Astra引入了一種革新的「權重空間編程」方法，允許開發者直接在大型語言模型(LLMs)的權重層級進行操作。這提供了一個更深層次的控制粒度，超越傳統提示工程或微調，旨在實現更精細、更高效的模型行為微調與優化。
-            </p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li><strong>LLM權重級別編程：</strong> 不同於傳統方法，直接操縱模型權重，實現對LLM行為的精準控制。</li>
-                <li><strong>加速模型探索與疊代：</strong> Astra框架提供讀寫權重能力，大幅縮短AI模型開發與實驗週期。</li>
-                <li><strong>AI模型開發新範式：</strong> 在Qwen模型上取得成功應用，預示未來AI模型微調和功能實現的新方向。</li>
-            </ul>
-            <h4>社群觀點:</h4>
-            <p>
-                這篇文章正中當前AI領域熱點，其針對LLM底層優化的突破性技術引發了廣泛關注。研究者和開發者對模型可控性、效率提升以及AI開發新潛力的討論異常熱烈，高達2374點和742則討論數證明其被視為具備顛覆性的創新。
-            </p>
-            <a href="https://news.ycombinator.com/item?id=50341174" target="_blank" class="button">前往 Hacker News 討論區 (含 742 則討論)</a>
-        </div>
-
-        <!-- Slide 3: DiscImageStudio: burn visible artwork onto CDs, DVDs and Blu-ray discs -->
-        <div class="card">
-            <h3><a href="https://github.com/JiaFeiMiao-K-Cat/DiscImageStudio" target="_blank">DiscImageStudio: 將可視藝術圖案燒錄至光碟</a></h3>
-            <p class="insight">
-                核心摘要: DiscImageStudio是一款獨特的軟體工具，它使開發者和愛好者能夠將視覺藝術作品以數位資料的形式燒錄到光碟（CD, DVD, Blu-ray）的數據層，讓這些圖案能被肉眼直接看到，為實體媒體帶來了全新的美學和高度自定義的體驗。
-            </p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li><strong>創新可視化燒錄：</strong> 將圖片編碼為光碟數據層的物理標記，創造獨特的盤面圖案。</li>
-                <li><strong>個性化實體媒體：</strong> 支援多種光碟格式，提供客製化收藏、紀念品或產品展示的可能性。</li>
-                <li><strong>結合復古與現代藝術：</strong> 為懷舊的實體媒體注入現代創意元素，展現獨特的數位物理藝術結合。</li>
-            </ul>
-            <h4>社群觀點:</h4>
-            <p>
-                儘管非主流技術，但其獨特的「懷舊與創新」結合點，尤其吸引了對復古技術、媒體收藏或創意設計有興趣的開發者。這項小眾而精緻的創新，讓一些用戶找到了新的表達方式，並引發了26則關於其潛在應用和技術實現的討論。
-            </p>
-            <a href="https://news.ycombinator.com/item?id=50346849" target="_blank" class="button">前往 Hacker News 討論區 (含 26 則討論)</a>
-        </div>
-
-        <!-- Slide 4: Show HN: Hacker Times, a New York Times-inspired version of Hacker News -->
-        <div class="card">
-            <h3><a href="https://hackertimes.ca/" target="_blank">Show HN: Hacker Times - 《紐約時報》風格的Hacker News</a></h3>
-            <p class="insight">
-                核心摘要: Hacker Times是一個將Hacker News的內容，以《紐約時報》經典且優雅的報紙排版和視覺風格重新呈現的Web應用。其主要目標是為Hacker News提供一個更具傳統閱讀舒適度與美感的介面，顯著提升資訊的可讀性。
-            </p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li><strong>經典排版重塑：</strong> 借鑒《紐約時報》的簡潔優雅設計，為Hacker News提供獨特視覺體驗。</li>
-                <li><strong>優化閱讀舒適度：</strong> 改善Hacker News原生介面的樸素風格，使內容呈現更具吸引力與可讀性。</li>
-                <li><strong>前端技術展示：</strong> 作為一個Show HN項目，展示了如何利用現代Web技術進行介面再設計和內容重組。</li>
-            </ul>
-            <h4>社群觀點:</h4>
-            <p>
-                這個Show HN專案以其巧妙的創意獲得了關注，它解決了部分用戶對Hacker News原生介面過於簡約的「痛點」。其對UI/UX設計的關注和Web開發的實踐，吸引了對介面美學和前端開發有興趣的開發者，產生了53則討論。
-            </p>
-            <a href="https://news.ycombinator.com/item?id=50346981" target="_blank" class="button">前往 Hacker News 討論區 (含 53 則討論)</a>
-        </div>
-
-        <!-- Slide 5: European RISC-V Industrial Computing Initiative -->
-        <div class="card">
-            <h3><a href="https://erici.eu" target="_blank">歐洲RISC-V工業計算倡議 (ERICI)</a></h3>
-            <p class="insight">
-                核心摘要: 歐洲RISC-V工業計算倡議 (ERICI) 是一個大規模合作計畫，旨在推動RISC-V開放架構在歐洲工業領域的普及和應用。它專注於開發強大的開源硬體、軟體堆疊及建構完整的生態系統，以增強歐洲的技術主權並減少對外部技術的依賴。
-            </p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li><strong>強化歐洲技術主權：</strong> 透過RISC-V推動本土硬體和軟體能力，減少外部依賴。</li>
-                <li><strong>RISC-V工業應用普及：</strong> 加速RISC-V在工業控制、嵌入式系統等關鍵領域的廣泛採用。</li>
-                <li><strong>構建開放生態系統：</strong> 建立從晶片設計到軟體工具、應用開發的完整RISC-V生態鏈。</li>
-            </ul>
-            <h4>社群觀點:</h4>
-            <p>
-                RISC-V作為開放硬體的重要趨勢，其發展代表著去中心化和技術自主。此倡議不僅是技術議題，更是地緣政治和產業策略的重要部分，吸引了對開放硬體、國家技術安全和歐洲產業佈局感興趣的社群，儘管討論數相對較少，但其戰略意義重大。
-            </p>
-            <a href="https://news.ycombinator.com/item?id=50334523" target="_blank" class="button">前往 Hacker News 討論區 (含 11 則討論)</a>
-        </div>
-
-        <!-- Slide 6: Scaling Git at OpenAI -->
-        <div class="card">
-            <h3><a href="https://openai.com/index/scaling-git-at-openai/" target="_blank">OpenAI 規模化管理 Git：實踐與挑戰</a></h3>
-            <p class="insight">
-                核心摘要: OpenAI詳細分享了他們在面對快速增長的代碼庫和大規模協作需求時，如何透過一系列精心設計的優化策略和工程實踐，成功擴展Git的使用。這確保了其內部開發流程的高效率和系統的穩定性，為其他大型開發團隊提供了寶貴的經驗。
-            </p>
-            <h4>關鍵要點:</h4>
-            <ul>
-                <li><strong>應對大規模代碼庫挑戰：</strong> 解決Git在超大型組織中遇到的性能瓶頸和協作複雜性。</li>
-                <li><strong>採用先進工程實踐：</strong> 詳述虛擬文件系統 (VFS) 和 Monorepo 管理等關鍵技術。</li>
-                <li><strong>高價值DevOps經驗：</strong> 提供了針對Git優化、大規模軟體工程的實用指南和案例。</li>
-            </ul>
-            <h4>社群觀點:</h4>
-            <p>
-                Git是所有開發者的核心工具，而OpenAI作為AI領域的領軍者，其內部工程實踐對所有大型開發團隊都具有極高的參考價值。這篇文章吸引了廣大對DevOps、擴展性架構、Git優化及軟體工程實踐感興趣的技術專業人士。
-            </p>
-            <a href="https://news.ycombinator.com/item?id=50345924" target="_blank" class="button">前往 Hacker News 討論區 (含 74 則討論)</a>
-        </div>
-
-        <!-- Final Slide: Today's Tech Pulse -->
-        <div class="card final-slide">
-            <h2>今日技術趨勢歸納</h2>
-            <p>
-                今天Hacker News的熱點深刻反映了技術前沿的多元面貌。從AI模型底層優化（Astra的權重空間編程）探索更精準的AI控制，到基礎設施層面（OpenAI的Git擴展）提升開發效率，再到硬體層次（歐洲RISC-V倡議）追求開放與自主。同時，社群也不乏對經典介面（Hacker Times）的創新思考和對復古技術（DiscImageStudio）的藝術化再造，顯示了開發者社群既追求尖端科技，也重視工具的可用性、美學與文化價值。
-            </p>
-        </div>
-
     </div>
+
+    <!-- Slide 2: Jelly Sheet -->
+    <div class="container slide-card">
+        <h3><a href="https://mrdoob.github.io/codevember-2026/01/" target="_blank">Jelly Sheet</a></h3>
+        <p class="section-title">核心摘要:</p>
+        <p class="insight">此專案展示了一個基於網頁技術、實時互動的「果凍狀」物理模擬，著重於視覺吸引力和卓越性能。它探索了網頁3D圖形與互動式體驗在創意開發上的無限可能。</p>
+        
+        <p class="section-title">關鍵要點:</p>
+        <div class="key-takeaways">
+            <ul>
+                <li>利用GPU加速在網頁上實現複雜的物理模擬。</li>
+                <li>創造獨特的互動式3D圖形使用者體驗。</li>
+                <li>充分發揮現代Web API，提供高性能渲染效果。</li>
+            </ul>
+        </div>
+        
+        <p class="section-title">社群觀點:</p>
+        <p class="community-reaction">此作品以其引人入勝的視覺演示和「酷炫」的科技感，吸引了大量關注。它成功展示了網頁瀏覽器在實時物理模擬方面的潛力，深受對網頁圖形和創意編程感興趣的開發者青睞。</p>
+        <a class="hn-button" href="https://news.ycombinator.com/item?id=50361268" target="_blank">前往 Hacker News 討論區 (含 16 則討論)</a>
+    </div>
+
+    <!-- Slide 3: C++26 Disapproved -->
+    <div class="container slide-card">
+        <h3><a href="https://andreasfertig.com/blog/2026/11/cpp26-dis-failed-how-does-cpp-survive/" target="_blank">C++26 Disapproved</a></h3>
+        <p class="section-title">核心摘要:</p>
+        <p class="insight">這篇文章探討了C++26標準被否決的重大事件，分析了背後的原因及其對C++社群和語言未來發展的潛在影響。此挫折引發了社群對語言演進方向的深思。</p>
+        
+        <p class="section-title">關鍵要點:</p>
+        <div class="key-takeaways">
+            <ul>
+                <li>反映出大型語言標準化過程中的挑戰與複雜性。</li>
+                <li>凸顯社群對C++語言複雜度和功能過度膨脹的擔憂。</li>
+                <li>若C++發展停滯，可能加速其他替代語言的崛起。</li>
+            </ul>
+        </div>
+        
+        <p class="section-title">社群觀點:</p>
+        <p class="community-reaction">極高的討論度反映了C++社群內對語言走向、複雜性以及標準化流程的熱烈且時常分裂的意見。這篇文章觸及了C++這一基礎程式語言的核心身份和未來命運。</p>
+        <a class="hn-button" href="https://news.ycombinator.com/item?id=50360164" target="_blank">前往 Hacker News 討論區 (含 97 則討論)</a>
+    </div>
+
+    <!-- Slide 4: Distinct cellular and genetic differences in colorectal cancer in young patients -->
+    <div class="container slide-card">
+        <h3><a href="https://www.dana-farber.org/newsroom/news-releases/2026/study-reveals-distinct-cellular-and-genetic-differences-in-colorectal-cancer-in-younger-patients" target="_blank">Distinct cellular and genetic differences in colorectal cancer in young patients</a></h3>
+        <p class="section-title">核心摘要:</p>
+        <p class="insight">一項研究揭示了年輕患者大腸癌在細胞和基因層面與老年患者存在顯著差異，暗示著不同的生物學機制，可能需要針對性診斷與治療方案。</p>
+        
+        <p class="section-title">關鍵要點:</p>
+        <div class="key-takeaways">
+            <ul>
+                <li>識別出早發性大腸癌的獨特生物標誌物。</li>
+                <li>強調針對特定年齡群體進行癌症研究的重要性。</li>
+                <li>為年輕患者的精準醫療發展提供新思路。</li>
+            </ul>
+        </div>
+        
+        <p class="section-title">社群觀點:</p>
+        <p class="community-reaction">儘管討論數較少，但其醫學重要性不容小覷。這類研究引起了對生物技術、醫療保健和癌症研究突破感興趣的社群關注，可能激發對未來療法或早期檢測方法的討論。</p>
+        <a class="hn-button" href="https://news.ycombinator.com/item?id=50361154" target="_blank">前往 Hacker News 討論區 (含 1 則討論)</a>
+    </div>
+
+    <!-- Slide 5: The Internals of PostgreSQL -->
+    <div class="container slide-card">
+        <h3><a href="https://www.interdb.jp/pg/index.html" target="_blank">The Internals of PostgreSQL</a></h3>
+        <p class="section-title">核心摘要:</p>
+        <p class="insight">這份資源深入且全面地探討了PostgreSQL關聯式資料庫管理系統的內部架構與運作原理，提供了關於資料儲存、查詢處理和並發控制的寶貴洞見。</p>
+        
+        <p class="section-title">關鍵要點:</p>
+        <div class="key-takeaways">
+            <ul>
+                <li>詳細理解RDBMS的核心組件（如儲存、事務管理）。</li>
+                <li>對資料庫開發者和系統架構師具有極高價值。</li>
+                <li>有助於提升性能調優和故障排除能力。</li>
+            </ul>
+        </div>
+        
+        <p class="section-title">社群觀點:</p>
+        <p class="community-reaction">由於為廣泛使用的開源資料庫提供了寶貴的深入技術資源，該文章獲得了高點讚數。它吸引了系統程式設計師、資料庫管理員以及任何希望從根本上理解複雜軟體系統的人。</p>
+        <a class="hn-button" href="https://news.ycombinator.com/item?id=50358702" target="_blank">前往 Hacker News 討論區 (含 13 則討論)</a>
+    </div>
+
+    <!-- Slide 6: Jailbreaking my car's navigation system just so I can change the time -->
+    <div class="container slide-card">
+        <h3><a href="https://blog.nns.ee/2026/11/02/renault-hack/" target="_blank">Jailbreaking my car's navigation system just so I can change the time</a></h3>
+        <p class="section-title">核心摘要:</p>
+        <p class="insight">這篇個人經歷詳細描述了為了解決無法簡單更改時間顯示的惱人問題，而對汽車內建導航系統進行「越獄」的艱辛過程，揭示了汽車軟體在用戶體驗和安全方面的嚴重缺陷。</p>
+        
+        <p class="section-title">關鍵要點:</p>
+        <div class="key-takeaways">
+            <ul>
+                <li>暴露了汽車嵌入式系統糟糕的用戶體驗設計。</li>
+                <li>凸顯了專有汽車軟體的安全與隱私隱患。</li>
+                <li>DIY破解展現了對抗廠商鎖定的堅韌決心。</li>
+            </ul>
+        </div>
+        
+        <p class="section-title">社群觀點:</p>
+        <p class="community-reaction">此文章因其高度共鳴的挫敗感、「越獄」的膽量，以及對消費者權益、維修權和現代汽車資訊娛樂系統糟糕用戶體驗的更廣泛啟示，獲得了極高的關注和討論。它引起了所有面臨不必要數位限制的人的共鳴。</p>
+        <a class="hn-button" href="https://news.ycombinator.com/item?id=50339288" target="_blank">前往 Hacker News 討論區 (含 295 則討論)</a>
+    </div>
+
+    <!-- Final Slide: Summary -->
+    <div class="container slide-card">
+        <h2>今日技術趨勢歸納</h2>
+        <p class="final-summary">
+            今日 Hacker News 熱點呈現了一幅引人入勝的技術圖景：一方面，有推動網頁圖形和物理模擬界限的創新（如《Jelly Sheet》）；另一方面，核心程式語言（如《C++26 Disapproved》）面臨著演進的挑戰與深思，同時我們也見證了生物科技領域的關鍵進展（如《Distinct cellular and genetic differences in colorectal cancer in young patients》），以及對系統底層原理的深度探索（如《The Internals of PostgreSQL》）。最值得注意的是，最熱門話題《Jailbreaking my car's navigation system just so I can change the time》強烈反映出用戶對受限且設計不良的嵌入式系統日益增長的不滿，這激發了關於用戶控制權、維修權以及我們日益互聯世界中常被忽視的安全隱患的熱烈討論。
+        </p>
+    </div>
+
 </body>
 </html>
