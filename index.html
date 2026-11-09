@@ -3,51 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker News 每日科技熱點摘要 - 2026年11月08日</title>
+    <title>Hacker News 每日科技熱點摘要 - 2026年11月09日</title>
     <style>
-        /* 基本樣式，確保頁面元素在深色背景下清晰可見 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background-color: #0f172a; /* 深灰色背景 */
             color: #e2e8f0; /* 高對比白字 */
             margin: 0;
             padding: 20px;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 使所有卡片居中 */
         }
-        /* 統一卡片樣式 */
+        .presentation-container {
+            max-width: 800px; /* 限制整體內容寬度 */
+            width: 100%;
+            margin: 0 auto;
+        }
         .card {
-            background-color: #1a202c; /* 稍淺的深灰色作為卡片背景 */
-            border-radius: 12px;
+            background-color: #1e293b; /* 稍淺的深灰色卡片背景 */
             padding: 30px;
-            margin: 20px auto;
-            max-width: 800px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            border: 1px solid #2d3748; /* 輕微的邊框 */
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* 輕微陰影 */
+            border: 1px solid #334155; /* 輕微邊框 */
+            transition: transform 0.2s ease-in-out;
         }
-        /* 標題連結顏色 */
-        h2 a {
-            color: #60a5fa; /* 淺藍色連結 */
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .card:hover {
+            transform: translateY(-5px); /* hover 效果 */
         }
-        h2 a:hover {
-            color: #93c5fd; /* 懸停時顏色變亮 */
+        h1, h2, h3, h4 {
+            color: #f8fafc; /* 純白標題 */
+            margin-top: 0;
+            margin-bottom: 15px;
         }
-        /* 列表樣式 */
+        h1 { font-size: 2.5em; text-align: center; }
+        h2 { font-size: 1.8em; text-align: center; color: #94a3b8; }
+        h3 { font-size: 1.5em; color: #a5b4fc; /* 淺紫色強調 */ border-bottom: 1px solid #475569; padding-bottom: 10px; margin-bottom: 20px;}
+        h4 { font-size: 1.2em; color: #f8fafc; margin-bottom: 10px; }
+        p {
+            margin-bottom: 15px;
+        }
         ul {
             list-style-type: disc;
             margin-left: 20px;
-            padding: 0;
+            padding-left: 0;
+            margin-bottom: 15px;
         }
         li {
             margin-bottom: 8px;
         }
-        /* 關鍵要點中的強調文字 */
-        li strong {
-            color: #818cf8; /* 淺紫色/藍色強調 */
+        a {
+            color: #818cf8; /* 藍紫色連結 */
+            text-decoration: none;
         }
-        /* 按鈕樣式 */
-        .hn-button {
+        a:hover {
+            text-decoration: underline;
+            color: #a78bfa; /* hover 時顏色稍亮 */
+        }
+        .button {
             display: inline-block;
             background-color: #2563eb; /* 藍色背景 */
             color: white;
@@ -55,163 +70,139 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #3b82f6; /* hover 時顏色變淺 */
+            text-decoration: none;
+        }
+        .tags {
+            text-align: center;
             margin-top: 25px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 0.9em;
+            color: #94a3b8;
         }
-        .hn-button:hover {
-            background-color: #3b82f6; /* 懸停時變淺藍 */
-            transform: translateY(-2px); /* 輕微上浮效果 */
+        .tags span {
+            display: inline-block;
+            background-color: #334155;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin: 0 5px;
         }
-        /* 封面和總結頁的特殊標題樣式 */
-        .gradient-text {
-            background: linear-gradient(90deg, #6366f1, #a855f7); /* 藍紫漸層 */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* 封面和總結頁卡片 */
-        .cover-summary-card {
-            padding: 40px;
+        .cover-card {
             text-align: center;
         }
-        /* 標籤樣式 */
-        .tag {
-            display: inline-block;
-            background-color: #2d3748;
-            color: #94a3b8;
-            padding: 8px 18px;
-            border-radius: 20px;
+        .footer-date {
             font-size: 0.9em;
-            margin: 5px;
-            border: 1px solid #4a5568;
+            color: #94a3b8;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="presentation-container">
 
-    <!-- 封面頁 (Slide 1) -->
-    <div class="card cover-summary-card">
-        <h1 class="gradient-text" style="font-size: 2.8em; margin-bottom: 15px;">Hacker News 每日科技熱點摘要</h1>
-        <p style="font-size: 1.4em; color: #cbd5e1; margin-bottom: 30px;">基於最新社群討論自動生成</p>
-        <p style="font-size: 1.1em; color: #94a3b8;">生成日期: 2026年11月08日</p>
-        <div style="margin-top: 40px;">
-            <span class="tag">#AI安全</span>
-            <span class="tag">#個人化計算</span>
-            <span class="tag">#Rust開發</span>
+        <!-- 封面頁 (Slide 1) -->
+        <div class="card cover-card">
+            <h1>Hacker News 每日科技熱點摘要</h1>
+            <h2>基於最新社群討論自動生成</h2>
+            <p class="footer-date">生成日期：2026年11月09日</p>
+            <div class="tags">
+                <span>#分散式系統</span>
+                <span>#AI策略</span>
+                <span>#開源軟體</span>
+                <span>#資安</span>
+                <span>#WebGPU</span>
+            </div>
         </div>
-    </div>
 
-    <!-- 文章內容頁 (Slide 2) - Goodbye Claude, Hello Pi -->
-    <div class="card">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;"><a href="https://caleb.software/posts/claude-to-pi.html" target="_blank">Goodbye Claude, Hello Pi</a></h2>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            **核心摘要:** 這篇文章探討了作者從 Claude AI 轉向使用 Inflection AI 的 Pi 的原因與經驗，強調了 Pi 在回應品質、個性化互動及成本效益上的潛在優勢，特別是在語氣與細膩度方面。它分析了在實際應用中，不同大型語言模型如何滿足開發者特定需求。
-        </p>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">關鍵要點:</h3>
-        <ul>
-            <li><strong>模型選擇趨勢:</strong> 開發者根據個人偏好、特定任務要求及預算考量，持續評估並轉移至最適合的LLM。</li>
-            <li><strong>個性化與語氣:</strong> Pi 在提供更人性化、細膩的對話體驗方面獲得青睞，顯示LLM的「風格」日益重要。</li>
-            <li><strong>成本與效能平衡:</strong> 在多樣化的AI模型市場中，尋找性能與成本的最佳平衡點是開發者普遍面臨的挑戰。</li>
-        </ul>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">社群觀點與連結:</h3>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            這篇文章引起高討論度的原因在於它觸及了LLM使用者普遍關心的「最佳模型選擇」問題。隨著AI技術的發展，模型的效能、成本、輸出風格差異化日益明顯，開發者社群對於不同模型的實際應用體驗和取捨充滿好奇與共鳴。許多人也在積極尋找或分享他們認為更適合自身工作流程的替代方案。
-        </p>
-        <a href="https://news.ycombinator.com/item?id=50410107" target="_blank" class="hn-button">
-            前往 Hacker News 討論區 (含 41 則討論)
-        </a>
-    </div>
+        <!-- 文章內容頁 1 -->
+        <div class="card">
+            <h3><a href="https://aphyr.com/posts/427-rip-harvest" target="_blank">RIP, Harvest</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章深入探討了 Harvest 服務的生命週期終結，從技術設計、運營挑戰到最終的停止服務，闡述了分散式系統在面對複雜性與資源限制時的脆弱性。它不僅是技術上的回顧，更是一次關於服務永續性與架構選擇的深刻反思。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>大型分散式系統的生命週期管理與維護成本極高。</li>
+                <li>即使是成熟的系統也可能因資源與優先級調整而終止。</li>
+                <li>強調了在系統設計之初考慮彈性、可維護性與退役策略的重要性。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>Hacker News 社群對於這類深入的系統設計與工程文化文章總是反應熱烈。它觸及了許多工程師在實際工作中會遇到的挑戰，例如系統複雜性、技術債、以及如何面對「停止」一個產品的決策，引發了對工程決策、SRE實踐及系統可持續性的廣泛討論。</p>
+            <a href="https://news.ycombinator.com/item?id=50420035" target="_blank" class="button">前往 Hacker News 討論區 (含 81 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 3) - What I run on my $10 USD OpenStick homelab -->
-    <div class="card">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;"><a href="https://blog.bosscher.ch/posts/openstick/" target="_blank">What I run on my $10 USD OpenStick homelab</a></h2>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            **核心摘要:** 本文詳細介紹了作者如何在一個僅需10美元的 OpenStick 設備上搭建個人家庭實驗室 (homelab)，並運行多項服務，例如 Pi-hole、Home Assistant、WireGuard 等。它展示了低成本、低功耗硬體在實現個人資料自主管理與服務自託管方面的巨大潛力。
-        </p>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">關鍵要點:</h3>
-        <ul>
-            <li><strong>極致成本效益:</strong> 證明了僅需極低成本的硬體，也能運行多功能且實用的自託管服務。</li>
-            <li><strong>開源生態整合:</strong> 成功整合多個開源專案 (如 Pi-hole, Home Assistant) 於單一小型設備上，展現其靈活性。</li>
-            <li><strong>個人化控制與隱私:</strong> 強化了用戶對其網路流量、智能家居及個人數據的控制權，提升數位隱私。</li>
-        </ul>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">社群觀點與連結:</h3>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            這篇文章獲得極高熱度，主要原因在於它觸動了「DIY」、開源、自託管和節約成本這幾個社群熱點。許多開發者和技術愛好者都渴望擁有自己的小型伺服器，用以學習、實驗或將日常服務從雲端供應商遷回本地。OpenStick 這種超低價硬體的出現，極大地降低了入門門檻，激發了社群對於如何利用這些微型設備的無限想像。
-        </p>
-        <a href="https://news.ycombinator.com/item?id=50406670" target="_blank" class="hn-button">
-            前往 Hacker News 討論區 (含 97 則討論)
-        </a>
-    </div>
+        <!-- 文章內容頁 2 -->
+        <div class="card">
+            <h3><a href="https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget#story-1" target="_blank">Apple capped engineers at a $200 daily AI budget</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章揭露了 Apple 對其工程師在 AI 相關項目上設置了每日 200 美元的預算上限，以限制 AI 模型訓練與推論的雲端成本。此舉反映了大型科技公司在投入 AI 研發時，對於資源管理與成本控制的審慎態度。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>AI 研發成本高昂，即使是科技巨頭也面臨資源限制。</li>
+                <li>大型企業正積極探索更高效的 AI 資源分配策略。</li>
+                <li>此預算限制可能影響工程師的開發效率與創新空間。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>此話題雖然熱度不高，但因涉及 Apple 內部運作以及對 AI 開發資源的策略性限制，觸動了開發者對於 AI 時代工程資源分配與企業戰略的敏感神經。社群成員討論了此政策的合理性、對創新的潛在影響，以及其他公司如何管理類似成本。</p>
+            <a href="https://news.ycombinator.com/item?id=50421426" target="_blank" class="button">前往 Hacker News 討論區 (含 21 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 4) - Claude Code's "Don't Ask Again" exposes passwords in 1,122 public GitHub files -->
-    <div class="card">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;"><a href="https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again" target="_blank">Claude Code's "Don't Ask Again" exposes passwords in 1,122 public GitHub files</a></h2>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            **核心摘要:** 這篇報導揭露了 Anthropic 的程式碼生成AI模型 Claude Code 在訓練過程中，可能因其「Don't Ask Again」機制，導致大量敏感資訊（如API金鑰和密碼）從公開的GitHub儲存庫洩露。這突顯了大型語言模型在資料處理和安全方面的潛在風險，以及對開發者資安習慣的警示。
-        </p>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">關鍵要點:</h3>
-        <ul>
-            <li><strong>AI訓練資料安全:</strong> 再次強調AI模型訓練資料來源的篩選與脫敏處理至關重要。</li>
-            <li><strong>LLM潛在風險:</strong> AI助手在「記憶」或「重現」訓練數據時，可能無意中洩露敏感資訊。</li>
-            <li><strong>開發者資安意識:</strong> 提醒開發者應避免將機敏資訊直接硬編碼於公開代碼庫中，無論是否有AI介入。</li>
-        </ul>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">社群觀點與連結:</h3>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            此話題的高討論度源於其結合了當前最熱門的 AI 技術與最關鍵的資安議題。AI模型在協助開發的同時，其潛在的數據洩露風險令人擔憂。社群對於 AI 公司如何處理訓練資料、模型的安全邊界，以及開發者自身應如何防範此類風險，都表現出極大的關注和討論慾望。
-        </p>
-        <a href="https://news.ycombinator.com/item?id=50407882" target="_blank" class="hn-button">
-            前往 Hacker News 討論區 (含 205 則討論)
-        </a>
-    </div>
+        <!-- 文章內容頁 3 -->
+        <div class="card">
+            <h3><a href="https://ketchup3d.github.io/app/" target="_blank">KetchUp – Open-source SketchUp alternative built with Rust and WebGPU</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>KetchUp 是一款全新的開源 3D 模型軟體，旨在提供 SketchUp 的替代方案，其底層採用了現代技術 Rust 和 WebGPU 構建。它展現了利用前沿 Web 技術在瀏覽器中實現高性能 3D 建模的可能性。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>利用 Rust 確保高性能與內存安全，提高應用穩定性。</li>
+                <li>WebGPU 提供基於 Web 的 GPU 加速，實現跨平台 3D 渲染。</li>
+                <li>開源模型軟體為專業設計與業餘愛好者提供新選擇。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>這篇文章在 Hacker News 上獲得了極高的熱度，主要原因在於它結合了多個熱門技術點：開源、Rust、WebGPU，並直接挑戰了商業軟體 SketchUp。開發者對其技術棧的創新性、潛在的性能優勢以及開源社群力量充滿期待，引發了對 Web 3D 技術未來和開源軟體生態的熱烈討論。</p>
+            <a href="https://news.ycombinator.com/item?id=50418176" target="_blank" class="button">前往 Hacker News 討論區 (含 96 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 5) - Making any integer with four 2s (2025) -->
-    <div class="card">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;"><a href="https://eli.thegreenplace.net/2025/making-any-integer-with-four-2s/" target="_blank">Making any integer with four 2s (2025)</a></h2>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            **核心摘要:** 這篇文章深入探討了一個經典的數學謎題：如何僅使用四個數字「2」和任何數學運算符號來構造出任意正整數。作者不僅展示了解決方案，還探索了背後的數學原理和可能性，將一個看似簡單的遊戲提升到一個邏輯和創造力的層面。
-        </p>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">關鍵要點:</h3>
-        <ul>
-            <li><strong>數學創造力:</strong> 展現了如何透過巧妙運用基本運算符號，從有限元素中創造出無限可能。</li>
-            <li><strong>遞歸與組合思維:</strong> 解決此類問題通常需要遞歸思考和組合數學運算的策略。</li>
-            <li><strong>計算機輔助探索:</strong> 文章可能暗示或實際使用了程式設計來探索更多解決方案，體現了技術在數學問題解決中的應用。</li>
-        </ul>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">社群觀點與連結:</h3>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            Hacker News 社群不僅關注硬核技術，也對這種結合數學、邏輯與創造力的智力遊戲有著濃厚興趣。這篇文章之所以受歡迎，是因為它提供了一個有趣的挑戰，激發讀者思考和分享自己的解決方案，同時也帶有解謎和學習的樂趣，非常符合開發者對問題解決的熱情。
-        </p>
-        <a href="https://news.ycombinator.com/item?id=50408713" target="_blank" class="hn-button">
-            前往 Hacker News 討論區 (含 26 則討論)
-        </a>
-    </div>
+        <!-- 文章內容頁 4 -->
+        <div class="card">
+            <h3><a href="https://shubs.io/unlocking-any-car-from-x-brand-in-most-of-the-world/" target="_blank">Unlocking any car from X brand in most of the world</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章揭示了一個存在於「X 品牌」汽車中的重大安全漏洞，該漏洞允許攻擊者在全球大部分地區遠端解鎖任何該品牌的車輛。這突顯了物聯網 (IoT) 裝置，特別是汽車，在安全性設計與實施上的潛在缺陷。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>物聯網裝置的安全性是關鍵，一個漏洞可能導致全球性風險。</li>
+                <li>汽車系統的聯網功能帶來便利的同時，也增加了潛在攻擊面。</li>
+                <li>製造商需加強安全設計與即時更新機制，以保護使用者資產。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>汽車安全漏洞是 Hacker News 社群非常關注的話題，因為它直接影響到個人財產和隱私安全。文章的標題極具衝擊力，引發了社群對汽車資安標準、物聯網安全協議、以及製造商責任的熱烈討論，許多人也分享了對類似事件的擔憂與經驗。</p>
+            <a href="https://news.ycombinator.com/item?id=50419215" target="_blank" class="button">前往 Hacker News 討論區 (含 73 則討論)</a>
+        </div>
 
-    <!-- 文章內容頁 (Slide 6) - ZapFast: A fast, native WhatsApp client in Rust and egui -->
-    <div class="card">
-        <h2 style="font-size: 1.8em; margin-bottom: 15px;"><a href="https://github.com/crmne/zapfast" target="_blank">ZapFast: A fast, native WhatsApp client in Rust and egui</a></h2>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            **核心摘要:** ZapFast 是一個使用 Rust 和 egui 開發的快速、原生的 WhatsApp 桌面客戶端。這個專案旨在提供比官方網頁版或 Electron 應用更高效、更輕量的體驗，同時利用 Rust 的性能優勢和 egui 的跨平台 GUI 能力，為用戶提供更流暢的即時通訊服務。
-        </p>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">關鍵要點:</h3>
-        <ul>
-            <li><strong>原生應用性能優勢:</strong> 證明了原生客戶端在響應速度、資源佔用方面優於基於網頁技術的應用。</li>
-            <li><strong>Rust在GUI領域的崛起:</strong> 展示了 Rust 結合如 egui 等輕量級 GUI 框架在桌面應用開發中的潛力。</li>
-            <li><strong>替代客戶端需求:</strong> 用戶對主流應用提供高效、無廣告、高度客製化替代方案的需求持續存在。</li>
-        </ul>
-        <h3 style="font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; color: #94a3b8;">社群觀點與連結:</h3>
-        <p style="font-size: 1.1em; color: #cbd5e1;">
-            ZapFast 在 HN 受到關注，反映了社群對「非 Electron」、原生、高性能桌面應用程式的強烈需求。Rust 作為一門高效能語言，在系統編程和新興應用領域的應用日益廣泛，開發者渴望看到它在 GUI 領域的更多實踐。同時，為廣泛使用的服務如 WhatsApp 提供更好的體驗，總是能引起共鳴。
-        </p>
-        <a href="https://news.ycombinator.com/item?id=50409855" target="_blank" class="hn-button">
-            前往 Hacker News 討論區 (含 16 則討論)
-        </a>
-    </div>
+        <!-- 文章內容頁 5 -->
+        <div class="card">
+            <h3><a href="https://blog.zortax.de/posts/a-critique-of-gpui" target="_blank">A Critique of GPUI</a></h3>
+            <h4>核心摘要 (Core Insight)</h4>
+            <p>這篇文章對 GPUI（一個新的圖形使用者介面框架）進行了深入的技術評論，分析了其設計哲學、優點和潛在的不足。它提供了一個從實際開發者角度出發，對新興 UI 框架進行評估和反思的視角。</p>
+            <h4>關鍵要點 (Key Takeaways)</h4>
+            <ul>
+                <li>深入探討了 GPUI 在 UI 渲染性能和開發者體驗上的權衡。</li>
+                <li>強調了 UI 框架選擇對應用性能和開發效率的深遠影響。</li>
+                <li>鼓勵在採用新技術前進行嚴謹的技術評估與審視。</li>
+            </ul>
+            <h4>社群觀點與連結 (Community Reaction)</h4>
+            <p>技術框架的批評與討論在 Hacker News 上總能吸引技術導向的開發者。這篇文章之所以受到關注，是因為它不是盲目追捧新技術，而是以批判性思維深入分析了一個新興 UI 框架的優劣，為社群提供了寶貴的技術參考，引發了關於 UI/UX 開發哲學和技術選型的專業討論。</p>
+            <a href="https://news.ycombinator.com/item?id=50420857" target="_blank" class="button">前往 Hacker News 討論區 (含 24 則討論)</a>
+        </div>
 
-    <!-- 總結頁 (Final Slide) -->
-    <div class="card cover-summary-card">
-        <h2 class="gradient-text" style="font-size: 2.2em; margin-bottom: 20px;">今日技術趨勢歸納</h2>
-        <p style="font-size: 1.2em; color: #cbd5e1; line-height: 1.8; text-align: left;">
-            今日 Hacker News 的熱門話題清晰地反映了開發者社群在幾個關鍵領域的關注與思辨。我們看到大型語言模型 (LLM) 的競爭格局正在演變，不僅比拼原始性能，更深入到模型個性化與潛在安全漏洞 (AI安全)。同時，低成本的個人化計算和自託管服務依然是熱點，體現了對資料主權和高效資源利用的追求。此外，Rust 在構建高效能原生應用中的應用日益突出，證明其在挑戰傳統技術棧方面的潛力。最後，社群對基礎數學與邏輯解謎的熱情，提醒我們技術創新之餘，對科學基礎的好奇心始終不滅。
-        </p>
-    </div>
+        <!-- 總結頁 (Final Slide) -->
+        <div class="card">
+            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
+            <p>今日 Hacker News 的熱點話題清晰地勾勒出當前科技領域的幾個關鍵脈動：**系統級的挑戰與反思**（從分散式系統的生命週期到新 UI 框架的技術批判），**AI 發展的策略性考量**（從企業預算限制到資源分配），以及 **新技術融合帶來的突破與風險**（如 Rust/WebGPU 驅動的開源工具與物聯網汽車資安漏洞）。這反映出開發者社群對技術深度、實用創新、安全隱患及資源管理的持續關注。</p>
+        </div>
 
+    </div>
 </body>
 </html>
