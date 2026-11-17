@@ -5,235 +5,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker News 每日科技熱點摘要</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* Deep dark blue-gray */
-            color: #e2e8f0; /* Light gray text */
+            font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+            background-color: #0f172a; /* Dark blue-grey */
+            color: #e2e8f0; /* Light grey text */
             margin: 0;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        .presentation-container {
+
+        .slide-container {
+            width: 100%;
             max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        .slide-card {
-            background-color: #1a202c; /* Slightly lighter dark blue-gray for cards */
-            border-radius: 12px;
-            padding: 30px;
             margin-bottom: 30px;
+            background-color: #1a202c; /* Slightly lighter dark */
+            border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            padding: 30px 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
             border: 1px solid #2d3748; /* Subtle border */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .slide-card:hover {
+
+        .slide-container:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
+
         h1 {
-            color: #a78bfa; /* Soft purple for main titles */
+            color: #93c5fd; /* Light blue */
             font-size: 2.8em;
+            margin-bottom: 10px;
             text-align: center;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
         }
+
         h2 {
-            color: #818cf8; /* Lighter purple/blue for slide titles */
+            color: #a78bfa; /* Light purple */
             font-size: 1.8em;
+            margin-top: 30px;
             margin-bottom: 15px;
+            border-bottom: 2px solid #a78bfa;
+            padding-bottom: 8px;
+            font-weight: 600;
         }
+
         h3 {
-            color: #60a5fa; /* Blue accent for subheadings */
+            color: #cbd5e1; /* Off-white */
             font-size: 1.4em;
             margin-top: 25px;
             margin-bottom: 10px;
-            border-bottom: 1px solid #3b82f6;
-            padding-bottom: 5px;
+            font-weight: 500;
         }
-        h4 {
-            color: #a78bfa;
+
+        p, ul {
+            color: #e2e8f0;
             font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 1em;
         }
-        p {
-            margin-bottom: 10px;
+
+        ul {
+            list-style-type: '👉 '; /* Custom bullet point */
+            padding-left: 25px;
         }
+
+        li {
+            margin-bottom: 0.8em;
+        }
+
         a {
-            color: #60a5fa; /* Blue link color */
+            color: #63b3ed; /* Brighter blue for links */
             text-decoration: none;
-            transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease;
         }
+
         a:hover {
-            color: #818cf8; /* Lighter blue on hover */
+            color: #90cdf4;
             text-decoration: underline;
         }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding: 0;
+
+        .cover-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
         }
-        li {
-            margin-bottom: 8px;
-        }
-        .tag-container {
+
+        .cover-slide h2 {
+            font-size: 1.8em;
+            color: #a78bfa;
             text-align: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
+            border-bottom: none;
         }
+
+        .cover-slide p {
+            font-size: 1.2em;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        .tags {
+            text-align: center;
+            margin-top: 30px;
+        }
+
         .tag {
             display: inline-block;
-            background-color: #3f3f46; /* Dark gray for tags */
-            color: #f8fafc; /* White text for tags */
-            padding: 6px 15px;
+            background-color: #3b82f6; /* Blue tag */
+            color: white;
+            padding: 8px 15px;
             border-radius: 20px;
+            margin: 0 8px;
             font-size: 0.9em;
-            margin: 0 5px 10px 5px;
-            cursor: default;
-            transition: background-color 0.2s ease-in-out;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        .tag:hover {
-            background-color: #52525b;
-        }
-        .hn-discussion-button {
+
+        .button-hn {
             display: inline-block;
-            background-color: #2563eb; /* Strong blue */
+            background-image: linear-gradient(to right, #2563eb 0%, #7c3aed 100%); /* Blue to purple gradient */
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            font-size: 0.95em;
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-        .hn-discussion-button:hover {
-            background-color: #3b82f6; /* Lighter blue on hover */
+
+        .button-hn:hover {
+            background-image: linear-gradient(to right, #1d4ed8 0%, #6d28d9 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
-        .hn-discussion-button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+        .community-reaction {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed #4a5568;
         }
-        .footer-text {
+
+        .final-slide p {
+            font-size: 1.3em;
             text-align: center;
-            font-size: 0.85em;
-            color: #94a3b8;
-            margin-top: 40px;
-            padding-bottom: 20px;
+            line-height: 1.8;
+            color: #d1d5db;
         }
     </style>
 </head>
 <body>
-    <div class="presentation-container">
 
-        <!-- Slide 1: Cover Page -->
-        <div class="slide-card">
-            <h1>Hacker News 每日科技熱點摘要</h1>
-            <h2>基於最新社群討論自動生成</h2>
-            <p style="text-align: center; font-size: 1.1em; color: #cbd5e1;">生成日期：2026年11月16日</p>
-            <div class="tag-container">
-                <span class="tag">#AI趨勢</span>
-                <span class="tag">#網路安全</span>
-                <span class="tag">#軟硬體創新</span>
-            </div>
+    <!-- Slide 1: Cover Page -->
+    <div class="slide-container cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期: 2026年11月17日</p>
+        <div class="tags">
+            <span class="tag">#開放教育</span>
+            <span class="tag">#數據隱私</span>
+            <span class="tag">#網路資安</span>
         </div>
-
-        <!-- Article Card 1: Universal XSS in uBlock Origin -->
-        <div class="slide-card">
-            <h2><a href="https://iter.ca/post/ubo-uxss/" target="_blank">Universal XSS in uBlock Origin from website-driven element picker</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>本文揭露了廣泛使用的廣告阻擋擴充功能 uBlock Origin 中存在一個通用型跨站腳本 (UXSS) 漏洞。此漏洞允許惡意網站利用其「元素選擇器」功能，繞過安全機制並在使用者瀏覽器中執行任意腳本，構成嚴重的安全風險。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>瀏覽器擴充功能即使作為安全工具，也可能存在被利用的漏洞。</li>
-                <li>UXSS 漏洞允許攻擊者透過看似無害的功能，在受害者的瀏覽器會話中執行惡意代碼。</li>
-                <li>警示使用者需保持所有軟體（包括瀏覽器擴充功能）更新，並對不明內容保持警惕。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這項議題在 Hacker News 獲得高討論度，因為它涉及一個數百萬使用者賴以保護隱私的工具，且漏洞的嚴重性可能影響廣大使用者，引發了對擴充功能安全審查和設計缺陷的深入討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50513160" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 61 則討論)</a>
-        </div>
-
-        <!-- Article Card 2: How to Make Almost Anything -->
-        <div class="slide-card">
-            <h2><a href="https://pub.cba.mit.edu/863.26/site/" target="_blank">How to Make Almost Anything</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇文章介紹了 MIT 計算機科學與人工智慧實驗室 (CBA) 的一門課程，旨在傳授學生如何運用各種數位製造工具和技術，如 3D 列印、雷射切割、CNC 加工等，將數位設計轉化為實體物品，從而實現從概念到產品的完整製作流程。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>強調數位製造技術在快速原型和客製化生產中的應用。</li>
-                <li>結合多學科知識與工具，培養學生的實作與創新能力。</li>
-                <li>普及化製作技術，使個人也能實現複雜設計的願景。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>儘管討論數較少，但該話題代表了對 Maker 運動、實踐教育以及數位製造技術普惠性的持續興趣，吸引了對動手實作和跨學科學習有熱情的讀者。</p>
-            <a href="https://news.ycombinator.com/item?id=50514470" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 1 則討論)</a>
-        </div>
-
-        <!-- Article Card 3: Qwen4-Max -->
-        <div class="slide-card">
-            <h2><a href="https://qwen.ai/blog?id=qwen4-max" target="_blank">Qwen4-Max</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>本文發布了阿里巴巴開源大模型系列 Qwen 的最新旗艦模型 Qwen4-Max。該模型在多模態理解、推理能力及長上下文處理上取得了顯著進步，進一步鞏固了其在大語言模型領域的競爭力，並為開發者提供強大的開源工具。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>新一代大語言模型在性能上持續突破，挑戰現有標竿。</li>
-                <li>強調多模態能力（處理文本、圖像等多種數據）和長上下文處理的重要性。</li>
-                <li>開源模型生態日益繁榮，加速 AI 技術的普及與創新。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這篇文章獲得極高熱度，因為 Qwen4-Max 作為頂級開源 LLM，直接與 OpenAI、Google 等巨頭競爭，其技術進展對 AI 研究與商業應用具有深遠影響，引發了大量關於模型能力、應用前景及開源生態的討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50513215" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 112 則討論)</a>
-        </div>
-
-        <!-- Article Card 4: Old Bitly links are being hijacked -->
-        <div class="slide-card">
-            <h2><a href="https://ransomnews.com/burger-king-tweet-bitly-link-hijack-2026/" target="_blank">Old Bitly links are being hijacked</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>報告指出，包括 Bitly 在內的短連結服務，其早期生成的連結可能面臨被劫持的風險。攻擊者可以利用短連結所指向的原始域名過期或未續期之情況，將這些舊連結重定向至惡意網站，威脅到網路歷史內容的安全性和可信度。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>短連結雖然方便，但也帶來長期的安全與維護挑戰。</li>
-                <li>網路遺留內容（如舊社群媒體貼文）的潛在安全漏洞不容忽視。</li>
-                <li>品牌和內容創作者需定期審查其數位足跡，警惕域名過期帶來的安全風險。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>這項安全議題廣受關注，因為許多舊的網站、部落格和社交媒體貼文都使用了短連結，這意味著一個廣泛且隱蔽的威脅，促使人們重新思考短連結的生命週期管理和網路內容的持久安全性。</p>
-            <a href="https://news.ycombinator.com/item?id=50511395" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 127 則討論)</a>
-        </div>
-
-        <!-- Article Card 5: What's Next for Nvidia? -->
-        <div class="slide-card">
-            <h2><a href="https://steveblank.com/2026/11/15/whats-next-for-nvidia/" target="_blank">What's Next for Nvidia?</a></h2>
-            <h3>核心摘要 (Core Insight)</h3>
-            <p>這篇文章深入探討了 Nvidia 作為全球 AI 晶片領導者的未來發展路徑。它分析了 Nvidia 如何在高競爭的市場中維持其主導地位，並從單純的硬體供應商轉型為提供完整 AI 平台解決方案的策略與挑戰。</p>
-            <h3>關鍵要點 (Key Takeaways)</h3>
-            <ul>
-                <li>Nvidia 在 AI 硬體領域的創新和市場主導地位依舊強勁。</li>
-                <li>公司戰略從晶片銷售轉向建立 AI 軟硬體生態系統。</li>
-                <li>AI 產業的快速發展為 Nvidia 帶來巨大機遇，同時也伴隨激烈的競爭。</li>
-            </ul>
-            <h4>社群觀點與連結 (Community Reaction)</h4>
-            <p>Nvidia 作為當前科技和 AI 領域的焦點，其未來的每一步都備受矚目。這篇文章引發了關於公司戰略、市場動態、競爭格局以及 AI 技術未來走向的廣泛且深入的討論。</p>
-            <a href="https://news.ycombinator.com/item?id=50512235" target="_blank" class="hn-discussion-button">前往 Hacker News 討論區 (含 245 則討論)</a>
-        </div>
-
-        <!-- Final Slide: Summary -->
-        <div class="slide-card">
-            <h3>今日技術趨勢歸納 (Today's Tech Pulse)</h3>
-            <p>今天的 Hacker News 熱點顯示，科技界正經歷一場多維度的轉變。網路安全挑戰依然嚴峻，從瀏覽器擴充功能的 UXSS 漏洞到歷史短連結的劫持風險，都提醒我們數位世界中持續存在的潛在威脅。同時，人工智慧領域勢不可擋，新的大型語言模型 Qwen4-Max 的發布，以及 Nvidia 在 AI 硬體與平台上的領先策略，共同描繪了 AI 技術飛速進步與生態系統整合的未來。此外，對數位製造和實踐教育的關注，也體現了對技術民主化和培養新一代創新者的重視。</p>
-        </div>
-
-        <div class="footer-text">
-            <p>這份摘要是根據 2026年11月16日 Hacker News 熱門話題自動生成。</p>
-            <p>&copy; 2026. All rights reserved.</p>
-        </div>
-
     </div>
+
+    <!-- Slide 2: Carnegie Mellon Courses -->
+    <div class="slide-container">
+        <h2><a href="https://www.cs.cmu.edu/learn/" target="_blank">Carnegie Mellon is putting computer science courses on YouTube for free</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>卡內基美隆大學(CMU) 正將其頂尖的電腦科學課程免費上傳至 YouTube，旨在讓全球學生和自學者都能接觸到高品質的計算機科學教育，此舉大幅降低了學習門檻。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>頂尖學府開放課程，打破傳統學術壁壘，推動知識普惠。</li>
+            <li>預計將涵蓋數據結構、演算法、作業系統等核心CS課程。</li>
+            <li>對全球自學者及教育公平性具深遠影響，有望培養更多技術人才。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong> HN社群普遍對此表示高度讚揚，認為這是一項意義深遠的教育倡議，特別對於無法負擔高昂學費的學生來說，提供了寶貴的學習資源。討論圍繞著開放教育的未來趨勢以及其對高等教育模式的潛在衝擊。</p>
+            <a href="https://news.ycombinator.com/item?id=50522980" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 182 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 3: Windows 11 Telemetry -->
+    <div class="slide-container">
+        <h2><a href="https://xusheng.dev/posts/windows-coding-agent-telemetry/" target="_blank">Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>Windows 11 被發現正在收集用戶使用哪些編程代理和開發工具的數據，此舉引發了開發者社群對個人隱私和作業系統數據收集透明度的強烈擔憂。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>微軟對開發工具使用情況的詳細追蹤，包括VS Code、Git、Docker等。</li>
+            <li>官方聲稱是為了改善用戶體驗，但引發用戶對隱私洩露和數據商業化的疑慮。</li>
+            <li>社群呼籲作業系統供應商應更透明地揭露數據收集政策及提供明確的退出機制。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong> 這是HN上引起最大爭議的話題之一。開發者對其工作環境的監控感到不安，許多人討論如何禁用此類遙測數據，並質疑微軟的意圖。討論區充滿了對數據隱私權益和企業責任的激烈辯論。</p>
+            <a href="https://news.ycombinator.com/item?id=50524736" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 368 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 4: BugMeNot Closure -->
+    <div class="slide-container">
+        <h2><a href="https://www.bugmenot.com/" target="_blank">BugMeNot has closed</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>一個長期服務於網路使用者，提供免費憑證以繞過網站付費牆的知名服務 BugMeNot 宣布關閉。這標誌著網路內容付費模式演變的一個時代終結。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>一個陪伴網路用戶多年的「反付費牆」工具正式停止營運。</li>
+            <li>反映了內容創作者與讀者之間，在知識付費與資訊自由獲取上的長期拉鋸。</li>
+            <li>引發對舊有網路工具存續性及網路服務商業模式可持續性的討論。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong> 社群成員對BugMeNot的關閉表達了懷舊與惋惜。討論圍繞著它在網路歷史上的角色、當今付費牆的普及性以及用戶如何繼續應對資訊獲取限制等議題。</p>
+            <a href="https://news.ycombinator.com/item?id=50523601" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 223 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 5: Optimizely Compromise -->
+    <div class="slide-container">
+        <h2><a href="https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/" target="_blank">Optimizely compromised, served malware on Zoom, GitLab</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>知名的A/B測試平台Optimizely遭遇供應鏈攻擊，導致惡意軟體透過其服務被注入到包括Zoom和GitLab在內的數個大型知名網站，構成嚴重的客戶端安全威脅。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>第三方服務供應商（如Optimizely）成為網路攻擊的熱門突破口。</li>
+            <li>惡意程式透過受感染的腳本，大規模影響了眾多依賴該服務的網站用戶。</li>
+            <li>突顯了軟體供應鏈安全及客戶端腳本風險的嚴峻挑戰，企業需加強審查外部依賴。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong> HN社群對此次攻擊事件感到震驚和擔憂。討論重點聚焦在供應鏈攻擊的日益複雜性、如何有效防禦第三方依賴帶來的風險，以及這對用戶信任的打擊。</p>
+            <a href="https://news.ycombinator.com/item?id=50524767" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 123 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Slide 6: Apple Full Disk Access -->
+    <div class="slide-container">
+        <h2><a href="https://support.apple.com/en-us/149699" target="_blank">If an App Asks for Full Disk Access or System and App Protection Override</a></h2>
+        <h3>核心摘要 (Core Insight)</h3>
+        <p>蘋果發布指引，強調應用程式請求「完全磁碟存取」或「系統和應用程式保護覆寫」權限的重大安全影響，警示用戶務必謹慎授予，以避免潛在的系統漏洞或惡意行為。</p>
+        <h3>關鍵要點 (Key Takeaways)</h3>
+        <ul>
+            <li>蘋果明確指出這類權限賦予應用程式對系統資料的最高控制權。</li>
+            <li>旨在提升用戶安全意識，防止惡意軟體利用這些權限進行攻擊。</li>
+            <li>反映了作業系統在平衡應用程式功能性與用戶數據安全性上的持續努力和挑戰。</li>
+        </ul>
+        <div class="community-reaction">
+            <p><strong>社群觀點：</strong> 社群討論圍繞著作業系統的權限模型、用戶教育的重要性以及開發者如何在不犧牲安全的情況下提供應用功能。一些人認為蘋果的警示有助於提升用戶安全意識，而另一些人則探討了這些權限的必要性和潛在濫用。</p>
+            <a href="https://news.ycombinator.com/item?id=50526560" target="_blank" class="button-hn">前往 Hacker News 討論區 (含 53 則討論)</a>
+        </div>
+    </div>
+
+    <!-- Final Slide: Today's Tech Pulse -->
+    <div class="slide-container final-slide">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>今日Hacker News熱點映照出科技界的兩大核心關懷：<b>知識的開放與獲取</b>，以及<b>日益嚴峻的數位安全與隱私挑戰</b>。從CMU的開放課程展現了教育普惠的願景，到Windows 11的遙測數據和Optimizely的供應鏈攻擊，都提醒我們在享受技術便利的同時，必須高度警惕數據的流向、個人隱私的保護，以及整個軟體生態系統的安全性。開發者作為技術的創造者和主要使用者，正處於這些趨勢的交匯點，既是開放資源的受益者，也是數位威脅和數據監控的目標。</p>
+    </div>
+
 </body>
 </html>
