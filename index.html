@@ -1,118 +1,276 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker News 每日科技熱點摘要</title>
-    <!-- 為了實現按鈕的 hover 效果，此處使用內嵌 <style> 標籤，符合將所有 CSS 包含在單一 HTML 檔案內的要求。 -->
+    <!-- 使用 Google Fonts 引入 Noto Sans TC 以確保中文字體顯示良好，搭配 Segoe UI 營造現代感 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .hn-button:hover {
-            background-color: #1d4ed8 !important; /* 按鈕 hover 時顏色變深 */
+        /* CSS 變數定義，方便管理深色模式的顏色配置 */
+        :root {
+            --bg-color: #0f172a; /* 深灰色背景 */
+            --card-bg-color: #1e293b; /* 卡片背景色，比主背景稍淺 */
+            --text-color: #f8fafc; /* 高對比白字 */
+            --accent-color: #6366f1; /* 漸層紫/藍的紫色部分 */
+            --button-bg-color: #2563eb; /* 醒目藍色按鈕 */
+            --button-hover-bg-color: #3b82f6; /* 按鈕 hover 效果 */
+            --link-color: #93c5fd; /* 連結顏色 */
+            --link-hover-color: #dbeafe; /* 連結 hover 顏色 */
+            --tag-bg-color: #334155; /* 標籤背景色 */
+            --tag-text-color: #94a3b8; /* 標籤文字顏色 */
         }
-        /* 由於要求內聯 CSS，這裡僅處理無法內聯實現的 hover 效果。 */
-        /* 一般元素樣式將直接以 style 屬性呈現。 */
+
+        body {
+            font-family: 'Noto Sans TC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 使卡片居中顯示 */
+            min-height: 100vh;
+        }
+
+        .slide-card {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* 較深的陰影效果 */
+            padding: 30px;
+            margin: 30px 0;
+            max-width: 800px; /* 卡片最大寬度 */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 內容間距 */
+        }
+
+        h1, h2, h3 {
+            color: var(--text-color);
+            margin-top: 0;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            /* 模仿 Google NotebookLM 的漸層標題效果 */
+            background-image: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 分隔線 */
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--accent-color); /* 紫色強調色 */
+        }
+
+        p {
+            margin: 0 0 10px 0;
+        }
+
+        ul {
+            margin: 0 0 10px 20px;
+            padding: 0;
+            list-style: disc; /* 項目符號 */
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease; /* 連結過渡效果 */
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        .button {
+            background-color: var(--button-bg-color);
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block; /* 讓按鈕可以設定 margin */
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* 按鈕過渡效果 */
+        }
+
+        .button:hover {
+            background-color: var(--button-hover-bg-color);
+            transform: translateY(-2px); /* 輕微上浮效果 */
+            text-decoration: none;
+        }
+
+        .tags-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--tag-bg-color);
+            color: var(--tag-text-color);
+            padding: 6px 15px;
+            border-radius: 20px; /* 圓角標籤 */
+            font-size: 0.9em;
+            margin: 5px;
+            font-weight: 400;
+        }
+
+        .cover-slide {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .cover-slide h2 {
+            font-size: 1.8em;
+            color: var(--text-color);
+            border-bottom: none; /* 封面頁副標題無底線 */
+            margin-bottom: 10px;
+        }
+
+        .cover-slide p {
+            font-size: 1.2em;
+            color: #94a3b8; /* 日期文字顏色 */
+        }
+
+        .summary-slide {
+            padding: 30px;
+        }
+
+        .community-reaction strong {
+            color: #cbd5e1; /* 強調文字顏色 */
+        }
     </style>
 </head>
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #f8fafc; line-height: 1.6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;">
+<body>
 
     <!-- Slide 1: 封面頁 -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 40px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155; text-align: center;">
-        <h1 style="color: #f8fafc; font-size: 2.5em; margin-bottom: 10px;">Hacker News 每日科技熱點摘要</h1>
-        <p style="color: #cbd5e1; font-size: 1.2em; margin-bottom: 25px;">基於最新社群討論自動生成</p>
-        <p style="color: #94a3b8; font-size: 1em; margin-bottom: 30px;">生成日期: 2026年11月21日</p>
-        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <span style="background-image: linear-gradient(to right, #6366f1, #a855f7); color: #ffffff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500;">#數論研究</span>
-            <span style="background-image: linear-gradient(to right, #ec4899, #d946ef); color: #ffffff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500;">#AI Agents</span>
-            <span style="background-image: linear-gradient(to right, #22c55e, #10b981); color: #ffffff; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; font-weight: 500;">#社群熱議</span>
+    <div class="slide-card cover-slide">
+        <h1>Hacker News 每日科技熱點摘要</h1>
+        <h2>基於最新社群討論自動生成</h2>
+        <p>生成日期：2026年11月22日</p>
+        <div class="tags-container">
+            <span class="tag">#AI</span>
+            <span class="tag">#Biotech</span>
+            <span class="tag">#Industry_Trends</span>
         </div>
     </div>
 
-    <!-- Slide 2: Hurried Announcement: Alessandro Masullo GRH -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155;">
-        <h2 style="color: #cbd5e1; font-size: 1.8em; margin-bottom: 15px;"><a href="https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/" style="color: #6366f1; text-decoration: none; transition: color 0.2s ease;">Hurried Announcement: Alessandro Masullo GRH</a></h2>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px;">核心摘要 (Core Insight)</h3>
-        <p style="color: #f8fafc; margin-bottom: 20px;">報導了一則關於廣義黎曼假設（GRH）可能被證明的前期公告。這篇文章更側重於消息的「發布」本身，而非證明細節，暗示著學術界對此類重大突破的高度關注與審慎態度。</p>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="color: #f8fafc; list-style-type: disc; margin-left: 20px; margin-bottom: 20px; padding-left: 0;">
-            <li style="margin-bottom: 8px;">數學界正高度關注 GRH 的潛在突破。</li>
-            <li style="margin-bottom: 8px;">初步公告強調了消息的緊急性與初步性質。</li>
-            <li>反映學術重大發現發布前社群的複雜反應。</li>
+    <!-- Slide 2: 文章內容 - 汽車產業標準化 -->
+    <div class="slide-card">
+        <h2><a href="https://www.caranddriver.com/news/a74490092/toyota-nissan-honda-standardize-parts-lower-costs/" target="_blank">Toyota, Nissan, and Honda to standardize parts to lower costs</a></h2>
+        <h3>核心摘要 (Core Insight):</h3>
+        <p>日本三大汽車製造商（豐田、日產、本田）正攜手合作，計劃標準化其車輛的零部件，以期顯著降低生產成本並提升供應鏈效率。此舉旨在應對日益激烈的全球競爭和電動車轉型帶來的成本壓力。</p>
+        
+        <h3>關鍵要點 (Key Takeaways):</h3>
+        <ul>
+            <li>**跨公司合作**：日本汽車巨頭打破傳統競爭，實施產業內協同，共謀發展。</li>
+            <li>**成本效益提升**：通過通用零件設計與採購，大幅降低材料及製造成本。</li>
+            <li>**供應鏈韌性**：減少零件種類有助於簡化庫存管理並增強供應鏈面對衝擊的彈性。</li>
         </ul>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">社群觀點與連結 (Community Reaction)</h3>
-        <p style="color: #f8fafc; margin-bottom: 25px;">該文之所以高熱度，是因為廣義黎曼假設是數學界最重要且懸而未決的難題之一，任何關於其證明進展的消息都足以引發巨大關注。社群正密切期待詳情並討論其真實性與影響。</p>
-        <a href="https://news.ycombinator.com/item?id=50579568" class="hn-button" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; border: none; cursor: pointer;">前往 Hacker News 討論區 (含 863 則討論)</a>
+        
+        <h3>社群觀點與連結 (Community Reaction):</h3>
+        <p>討論集中在這種合作對消費者、供應商和未來汽車產業格局的影響，以及實施的挑戰。社群對這種「化敵為友」的策略能否成功感到好奇。</p>
+        <a href="https://news.ycombinator.com/item?id=50596133" target="_blank" class="button">前往 Hacker News 討論區 (含 120 則討論)</a>
     </div>
 
-    <!-- Slide 3: Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf] -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155;">
-        <h2 style="color: #cbd5e1; font-size: 1.8em; margin-bottom: 15px;"><a href="https://alpo.ge/remark.pdf" style="color: #6366f1; text-decoration: none; transition: color 0.2s ease;">Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]</a></h2>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px;">核心摘要 (Core Insight)</h3>
-        <p style="color: #f8fafc; margin-bottom: 20px;">數學家 Levent Alpöge 聲稱提出廣義黎曼假設（GRH）的證明。此論文 PDF 連結是實際的數學文件，正待學術界審查，是當前數學領域最受關注的焦點之一。</p>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="color: #f8fafc; list-style-type: disc; margin-left: 20px; margin-bottom: 20px; padding-left: 0;">
-            <li style="margin-bottom: 8px;">提出了一個解決數論核心難題 GRH 的潛在方案。</li>
-            <li style="margin-bottom: 8px;">證明細節已透過 PDF 論文公開，可供同行審閱。</li>
-            <li>若證明屬實，將對數學及相關科學領域產生深遠影響。</li>
+    <!-- Slide 3: 文章內容 - 胰腺癌治療突破 -->
+    <div class="slide-card">
+        <h2><a href="https://www.theguardian.com/society/2026/nov/20/pill-pancreatic-cancer-breakthrough-daraxonrasib" target="_blank">Pill to treat pancreatic cancer hailed as 'biggest breakthrough in decades'</a></h2>
+        <h3>核心摘要 (Core Insight):</h3>
+        <p>一款名為 Daraxonrasib 的新型口服藥物被譽為治療胰腺癌的「數十年來最大突破」。這款藥物專門針對難以治療的胰腺癌，在臨床試驗中顯示出顯著的療效，為患者帶來新的希望。</p>
+        
+        <h3>關鍵要點 (Key Takeaways):</h3>
+        <ul>
+            <li>**靶向治療**：專注於胰腺癌特定分子通路，提高治療精準度，減少對健康細胞的損害。</li>
+            <li>**口服便利性**：相較傳統化療，提供患者更便捷、可能副作用更少的居家治療方式。</li>
+            <li>**重大臨床意義**：對預後極差的胰腺癌患者來說，這是挽救生命並改善生活品質的重要進展。</li>
         </ul>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">社群觀點與連結 (Community Reaction)</h3>
-        <p style="color: #f8fafc; margin-bottom: 25px;">這篇文章直接提供了證明聲稱的來源，是所有 GRH 討論的核心。其極高的討論度來自於問題的艱巨性、潛在的數學突破，以及學術界對此類驚天消息的審慎與興奮。</p>
-        <a href="https://news.ycombinator.com/item?id=50574968" class="hn-button" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; border: none; cursor: pointer;">前往 Hacker News 討論區 (含 1746 則討論)</a>
+        
+        <h3>社群觀點與連結 (Community Reaction):</h3>
+        <p>這篇文章獲得了極高的熱度，討論多聚焦於其作用機制、潛在的副作用、上市時間表以及對癌症治療領域的深遠影響，展現了社群對醫療突破的強烈關注。</p>
+        <a href="https://news.ycombinator.com/item?id=50582069" target="_blank" class="button">前往 Hacker News 討論區 (含 202 則討論)</a>
     </div>
 
-    <!-- Slide 4: Inkling 2 Mini -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155;">
-        <h2 style="color: #cbd5e1; font-size: 1.8em; margin-bottom: 15px;"><a href="https://thinkingmachines.ai/news/inkling-2-mini/" style="color: #6366f1; text-decoration: none; transition: color 0.2s ease;">Inkling 2 Mini</a></h2>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px;">核心摘要 (Core Insight)</h3>
-        <p style="color: #f8fafc; margin-bottom: 20px;">Thinking Machines AI 推出 Inkling 2 Mini，這是一個輕量級的 AI 模型或推論引擎，旨在於資源有限的環境中高效運行，提供更實惠、更便捷的 AI 部署方案。</p>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="color: #f8fafc; list-style-type: disc; margin-left: 20px; margin-bottom: 20px; padding-left: 0;">
-            <li style="margin-bottom: 8px;">強調小型化、高效能的 AI 模型開發趨勢。</li>
-            <li style="margin-bottom: 8px;">目標是在邊緣設備或嵌入式系統上實現 AI 功能。</li>
-            <li>降低 AI 技術應用的門檻與成本。</li>
+    <!-- Slide 4: 文章內容 - 黎曼假設的 Lean 形式化驗證 -->
+    <div class="slide-card">
+        <h2><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank">Lean verification of the Riemann Hypothesis</a></h2>
+        <h3>核心摘要 (Core Insight):</h3>
+        <p>一個使用 Lean 證明助手進行黎曼假設（Riemann Hypothesis）形式化驗證的專案受到了廣泛關注。儘管這並非證明了黎曼假設本身，但它代表了在形式化數學證明和自動定理證明領域的重大進展，旨在確保數學推導的絕對正確性。</p>
+        
+        <h3>關鍵要點 (Key Takeaways):</h3>
+        <ul>
+            <li>**形式化數學**：利用計算機證明助手對複雜數學概念進行嚴格且無歧義的驗證。</li>
+            <li>**Lean 證明助手**：展示了互動式定理證明工具在高等數學研究中的強大潛力，推動數學證明數位化。</li>
+            <li>**驗證而非證明**：此專案著重於現有成果的形式化驗證，為未來完全自動化數學證明奠定堅實基礎。</li>
         </ul>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">社群觀點與連結 (Community Reaction)</h3>
-        <p style="color: #f8fafc; margin-bottom: 25px;">社群對此類「小型化」和「高效率」的 AI 解決方案表現出濃厚興趣，因為它解決了大型模型部署的資源瓶頸，預示著更廣泛的 AI 應用可能性。</p>
-        <a href="https://news.ycombinator.com/item?id=50581260" class="hn-button" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; border: none; cursor: pointer;">前往 Hacker News 討論區 (含 167 則討論)</a>
+        
+        <h3>社群觀點與連結 (Community Reaction):</h3>
+        <p>討論區充斥著對數學、邏輯、形式化證明工具（如Lean）的熱情討論，以及對AI在數學研究中角色的展望。高熱度體現了社群對基礎科學與計算機科學交叉領域的濃厚興趣。</p>
+        <a href="https://news.ycombinator.com/item?id=50589618" target="_blank" class="button">前往 Hacker News 討論區 (含 807 則討論)</a>
     </div>
 
-    <!-- Slide 5: ClawDOS – An AI coding agent for DOS -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155;">
-        <h2 style="color: #cbd5e1; font-size: 1.8em; margin-bottom: 15px;"><a href="http://ricapar.net/ClawDOS/" style="color: #6366f1; text-decoration: none; transition: color 0.2s ease;">ClawDOS – An AI coding agent for DOS</a></h2>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px;">核心摘要 (Core Insight)</h3>
-        <p style="color: #f8fafc; margin-bottom: 20px;">ClawDOS 是一個創新的 AI 編碼代理，專為 MS-DOS 環境設計。它展示了 AI 在極端受限的計算環境中自動生成代碼和執行任務的能力。</p>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="color: #f8fafc; list-style-type: disc; margin-left: 20px; margin-bottom: 20px; padding-left: 0;">
-            <li style="margin-bottom: 8px;">AI 代理拓展至復古或資源受限的平台。</li>
-            <li style="margin-bottom: 8px;">在 DOS 環境下實現自動化編程和任務執行。</li>
-            <li>展示 AI 應用領域的無限可能性與創意。</li>
+    <!-- Slide 5: 文章內容 - Inkling-2-Mini 在 5.4 GB 記憶體中運行 -->
+    <div class="slide-card">
+        <h2><a href="https://github.com/ShinMegamiBoson/lookatmyquant" target="_blank">Inkling-2-Mini in 5.4 GB Memory</a></h2>
+        <h3>核心摘要 (Core Insight):</h3>
+        <p>一個名為「Inkling-2-Mini」的大型語言模型 (LLM) 被成功優化，使其可以在僅 5.4 GB 的記憶體中運行。這項突破性的工作通過創新的量化技術，極大地降低了運行高效能 AI 模型所需的硬體門檻。</p>
+        
+        <h3>關鍵要點 (Key Takeaways):</h3>
+        <ul>
+            <li>**記憶體優化**：利用先進的量化技術顯著壓縮 LLM 的記憶體佔用，實現高效能運算。</li>
+            <li>**邊緣設備部署**：使大型語言模型能夠在個人電腦或低配置設備上本地運行，擴大應用範圍。</li>
+            <li>**AI 普惠化**：降低了 AI 開發和部署的門檻，促進了 AI 技術的民主化和普及。</li>
         </ul>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">社群觀點與連結 (Community Reaction)</h3>
-        <p style="color: #f8fafc; margin-bottom: 25px;">這篇文章以其獨特的「懷舊」與「前沿科技」結合點吸引了社群。在 DOS 這樣一個古老的系統上運行 AI 代理，激發了人們的好奇心和對 AI 應用邊界的討論。</p>
-        <a href="https://news.ycombinator.com/item?id=50586292" class="hn-button" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; border: none; cursor: pointer;">前往 Hacker News 討論區 (含 2 則討論)</a>
+        
+        <h3>社群觀點與連結 (Community Reaction):</h3>
+        <p>討論主要圍繞著量化技術的細節、對性能的影響、以及這對本地運行 AI 模型（包括個人數據隱私）的潛在意義。社群對此類「輕量級」AI 的實際應用前景抱有高度期待。</p>
+        <a href="https://news.ycombinator.com/item?id=50591853" target="_blank" class="button">前往 Hacker News 討論區 (含 108 則討論)</a>
     </div>
 
-    <!-- Slide 6: NINLIVE: The Nine Inch Nails live archive -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155;">
-        <h2 style="color: #cbd5e1; font-size: 1.8em; margin-bottom: 15px;"><a href="https://ninlive.com/" style="color: #6366f1; text-decoration: none; transition: color 0.2s ease;">NINLIVE: The Nine Inch Nails live archive</a></h2>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-top: 25px; margin-bottom: 10px;">核心摘要 (Core Insight)</h3>
-        <p style="color: #f8fafc; margin-bottom: 20px;">NINLIVE 是一個致力於收集和歸檔 Nine Inch Nails 樂隊所有現場演出資料的網站。它是一個由粉絲主導的項目，旨在永久保存樂隊的表演歷史，並提供社群共享平台。</p>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">關鍵要點 (Key Takeaways)</h3>
-        <ul style="color: #f8fafc; list-style-type: disc; margin-left: 20px; margin-bottom: 20px; padding-left: 0;">
-            <li style="margin-bottom: 8px;">展示了粉絲社群對文化遺產的熱情與貢獻。</li>
-            <li style="margin-bottom: 8px;">數位歸檔和長期保存的重要性。</li>
-            <li>利用現代網絡技術來支持利基社群需求。</li>
+    <!-- Slide 6: 文章內容 - 三明治模擬器 -->
+    <div class="slide-card">
+        <h2><a href="https://stulle.app/" target="_blank">Sandwich Simulator</a></h2>
+        <h3>核心摘要 (Core Insight):</h3>
+        <p>一個名為「Sandwich Simulator」的網頁應用程式提供了一個有趣的、互動式的三明治製作體驗。用戶可以在虛擬環境中自由選擇食材、組合層次，甚至探索不同的三明治食譜。</p>
+        
+        <h3>關鍵要點 (Key Takeaways):</h3>
+        <ul>
+            <li>**輕量級娛樂**：提供一個輕鬆愉快的線上互動體驗，適合快速消遣和放鬆。</li>
+            <li>**網頁技術展示**：可能利用現代網頁前端技術，展示互動式UI設計與動態內容生成能力。</li>
+            <li>**創意與幽默**：雖然看似簡單，卻反映了開發者在日常概念中尋找樂趣與創造力的能力，以及對用戶體驗的關注。</li>
         </ul>
-        <h3 style="color: #94a3b8; font-size: 1.2em; margin-bottom: 10px;">社群觀點與連結 (Community Reaction)</h3>
-        <p style="color: #f8fafc; margin-bottom: 25px;">該網站的熱度來自於 Nine Inch Nails 龐大的粉絲基礎，以及社群對數位內容「保存」和「可訪問性」的重視。這是一個非技術但高度相關於網絡文化和數據管理的主題。</p>
-        <a href="https://news.ycombinator.com/item?id=50583274" class="hn-button" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; border: none; cursor: pointer;">前往 Hacker News 討論區 (含 56 則討論)</a>
+        
+        <h3>社群觀點與連結 (Community Reaction):</h3>
+        <p>討論區充滿了輕鬆幽默的評論，有的在分享自己的「夢幻三明治」配方，有的則在探討這類「無用但有趣」的應用程式的開發動機和技術實現。這也說明了社群對輕鬆、創意型專案的包容與喜愛。</p>
+        <a href="https://news.ycombinator.com/item?id=50594911" target="_blank" class="button">前往 Hacker News 討論區 (含 53 則討論)</a>
     </div>
 
     <!-- Final Slide: 總結頁 -->
-    <div style="background-color: #1e293b; border-radius: 12px; padding: 30px; margin-bottom: 30px; width: 90%; max-width: 800px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #334155; text-align: center;">
-        <h2 style="color: #cbd5e1; font-size: 2em; margin-bottom: 20px;">今日技術趨勢歸納 (Today's Tech Pulse)</h2>
-        <p style="color: #f8fafc; font-size: 1.1em; line-height: 1.8;">
-            今日 Hacker News 的熱點展示了科技社群的多元關注。一方面，重大的<strong style="color: #a78bfa;">基礎科學突破</strong>（如廣義黎曼假設的潛在證明）依然是頂級關注焦點，體現了對知識極限的探索。另一方面，<strong style="color: #facc15;">AI 技術的演進</strong>則呈現出兩極化趨勢：既有追求<strong style="color: #34d399;">小型化與高效能</strong>的邊緣部署方案（Inkling 2 Mini），也有將 AI 應用於<strong style="color: #8b5cf6;">極端或復古環境</strong>的創意實驗（ClawDOS）。此外，<strong style="color: #ef4444;">社群驅動的數位文化保存</strong>項目（NINLIVE）也獲得了廣泛共鳴，突顯了技術在支持非營利和文化傳承方面的價值。這反映出一個充滿好奇心、不斷創新且重視知識與文化的科技生態系統。
-        </p>
+    <div class="slide-card summary-slide">
+        <h2>今日技術趨勢歸納 (Today's Tech Pulse)</h2>
+        <p>今天的 Hacker News 熱點深刻地反映了當前科技領域的多維度進化。從汽車產業的成本優化與協同創新，到生物醫學領域突破性的癌症治療研究，再到理論數學與計算機科學交織的形式化證明前沿，以及AI模型持續追求的效率與普惠化，無不顯示出技術進步正在向更深層次、更廣泛的應用滲透。同時，社群對輕鬆創意的網頁應用也保持著好奇心，證明技術不僅服務於嚴肅議題，也能為生活帶來樂趣與想像。</p>
+        <p>總體而言，今日的趨勢是：<b>深度專業化與跨領域融合並行，技術普惠化持續推進，以及創新應用帶來的廣泛影響力。</b></p>
     </div>
 
 </body>
